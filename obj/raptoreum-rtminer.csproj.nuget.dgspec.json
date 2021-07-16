@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\weave\\OneDrive\\Desktop\\raptoreum-saltyminer\\raptoreum-rtminer.csproj": {}
+    "C:\\Users\\weave\\OneDrive\\Documents\\GitHub\\raptoreum-saltyminer\\raptoreum-rtminer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\weave\\OneDrive\\Desktop\\raptoreum-saltyminer\\raptoreum-rtminer.csproj": {
+    "C:\\Users\\weave\\OneDrive\\Documents\\GitHub\\raptoreum-saltyminer\\raptoreum-rtminer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\weave\\OneDrive\\Desktop\\raptoreum-saltyminer\\raptoreum-rtminer.csproj",
+        "projectUniqueName": "C:\\Users\\weave\\OneDrive\\Documents\\GitHub\\raptoreum-saltyminer\\raptoreum-rtminer.csproj",
         "projectName": "raptoreum-rtminer",
-        "projectPath": "C:\\Users\\weave\\OneDrive\\Desktop\\raptoreum-saltyminer\\raptoreum-rtminer.csproj",
+        "projectPath": "C:\\Users\\weave\\OneDrive\\Documents\\GitHub\\raptoreum-saltyminer\\raptoreum-rtminer.csproj",
         "packagesPath": "C:\\Users\\weave\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\weave\\OneDrive\\Desktop\\raptoreum-saltyminer\\obj\\",
+        "outputPath": "C:\\Users\\weave\\OneDrive\\Documents\\GitHub\\raptoreum-saltyminer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\weave\\AppData\\Roaming\\NuGet\\NuGet.Config",

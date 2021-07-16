@@ -1,0 +1,5 @@
+C:\Users\weave\OneDrive\Documents\GitHub\raptoreum-saltyminer\bin\Release\netcoreapp3.1\publish\raptoreum-rtminer.exe
+C:\Users\weave\OneDrive\Documents\GitHub\raptoreum-saltyminer\bin\Release\netcoreapp3.1\publish\raptoreum-rtminer.dll
+C:\Users\weave\OneDrive\Documents\GitHub\raptoreum-saltyminer\bin\Release\netcoreapp3.1\publish\raptoreum-rtminer.deps.json
+C:\Users\weave\OneDrive\Documents\GitHub\raptoreum-saltyminer\bin\Release\netcoreapp3.1\publish\raptoreum-rtminer.runtimeconfig.json
+C:\Users\weave\OneDrive\Documents\GitHub\raptoreum-saltyminer\bin\Release\netcoreapp3.1\publish\raptoreum-rtminer.pdb
