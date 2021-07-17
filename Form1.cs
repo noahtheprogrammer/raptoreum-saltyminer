@@ -17,8 +17,9 @@ namespace raptoreum_rtminer
     // Class that holds the rtm_miner form
     public partial class rtm_miner : Form
     {
-        // Process to be used for mining
+        // Process and info to be used for mining
         Process process;
+        ProcessStartInfo processInfo;
 
         // Instruction set to be used for proper CPU
         public string instruction_set;
@@ -36,6 +37,12 @@ namespace raptoreum_rtminer
         public rtm_miner()
         {
             InitializeComponent();
+        }
+
+        // Loads on startup
+        private void rtm_miner_Load(object sender, EventArgs e)
+        {
+
         }
 
         // Starts or stops the mining whenever the button is clicked
@@ -59,7 +66,6 @@ namespace raptoreum_rtminer
         // Turns on the CPU miner process
         public void RunMiner()
         {
-            ProcessStartInfo processInfo;
             processInfo = new ProcessStartInfo(instruction_set +".exe", "-a gr -o " + pool + " -u " + address);
             processInfo.CreateNoWindow = true;
             process = Process.Start(processInfo);
@@ -98,7 +104,6 @@ namespace raptoreum_rtminer
                 mining_button.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 128);
                 mining_button.FlatAppearance.MouseOverBackColor = Color.FromArgb(235, 108, 108);
                 mining_button.Image = Properties.Resources.mine_stop;
-                mine_text.Text = "Stop CPU mining:";
             }
 
             if (_ismining == true)
@@ -107,7 +112,6 @@ namespace raptoreum_rtminer
                 mining_button.FlatAppearance.BorderColor = Color.FromArgb(98, 235, 98);
                 mining_button.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 215, 78);
                 mining_button.Image = Properties.Resources.mine_start;
-                mine_text.Text = "Start CPU mining:";
             }
         }
     }

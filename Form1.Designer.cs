@@ -40,8 +40,9 @@ namespace raptoreum_rtminer
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.mine_text = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.command_text = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +57,7 @@ namespace raptoreum_rtminer
             this.mining_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(215)))), ((int)(((byte)(78)))));
             this.mining_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mining_button.Image = global::raptoreum_rtminer.Properties.Resources.mine_start;
-            this.mining_button.Location = new System.Drawing.Point(588, 164);
+            this.mining_button.Location = new System.Drawing.Point(597, 146);
             this.mining_button.Name = "mining_button";
             this.mining_button.Size = new System.Drawing.Size(125, 125);
             this.mining_button.TabIndex = 1;
@@ -68,7 +69,7 @@ namespace raptoreum_rtminer
             this.address_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.address_text.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.address_text.Font = new System.Drawing.Font("Neue Montreal Medium", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.address_text.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.address_text.ForeColor = System.Drawing.SystemColors.GrayText;
             this.address_text.Location = new System.Drawing.Point(12, 107);
             this.address_text.Name = "address_text";
             this.address_text.PlaceholderText = "  (ex. RWXMEVTEJYNVP2HTJQ97DMYVWYTWUFTI8E)";
@@ -81,7 +82,7 @@ namespace raptoreum_rtminer
             this.pool_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.pool_text.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pool_text.Font = new System.Drawing.Font("Neue Montreal Medium", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.pool_text.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pool_text.ForeColor = System.Drawing.SystemColors.GrayText;
             this.pool_text.Location = new System.Drawing.Point(12, 164);
             this.pool_text.Name = "pool_text";
             this.pool_text.PlaceholderText = "  (ex. stratum+tcp://r-pool.net:3008)";
@@ -116,7 +117,7 @@ namespace raptoreum_rtminer
             this.set_box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.set_box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.set_box.Font = new System.Drawing.Font("Neue Montreal", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.set_box.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.set_box.ForeColor = System.Drawing.SystemColors.GrayText;
             this.set_box.FormattingEnabled = true;
             this.set_box.ItemHeight = 15;
             this.set_box.Items.AddRange(new object[] {
@@ -176,17 +177,6 @@ namespace raptoreum_rtminer
             this.label3.TabIndex = 8;
             this.label3.Text = "\"May the salt mine with you.\"";
             // 
-            // mine_text
-            // 
-            this.mine_text.AutoSize = true;
-            this.mine_text.Font = new System.Drawing.Font("Neue Montreal", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.mine_text.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.mine_text.Location = new System.Drawing.Point(576, 130);
-            this.mine_text.Name = "mine_text";
-            this.mine_text.Size = new System.Drawing.Size(137, 20);
-            this.mine_text.TabIndex = 9;
-            this.mine_text.Text = "Start CPU mining:";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -198,14 +188,29 @@ namespace raptoreum_rtminer
             this.label4.TabIndex = 10;
             this.label4.Text = "Donation address: RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E";
             // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(0, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(100, 23);
+            this.label5.TabIndex = 0;
+            // 
+            // command_text
+            // 
+            this.command_text.Location = new System.Drawing.Point(0, 0);
+            this.command_text.Name = "command_text";
+            this.command_text.Size = new System.Drawing.Size(100, 23);
+            this.command_text.TabIndex = 0;
+            // 
             // rtm_miner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(734, 411);
+            this.Controls.Add(this.command_text);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.mine_text);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
@@ -221,6 +226,7 @@ namespace raptoreum_rtminer
             this.MinimumSize = new System.Drawing.Size(750, 450);
             this.Name = "rtm_miner";
             this.Text = "SaltyMiner";
+            this.Load += new System.EventHandler(this.rtm_miner_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -238,8 +244,9 @@ namespace raptoreum_rtminer
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label mine_text;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label command_text;
     }
 }
 
