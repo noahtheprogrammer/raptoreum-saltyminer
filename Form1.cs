@@ -1,15 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
+using System.Runtime.InteropServices;
 
 namespace raptoreum_rtminer
 {
@@ -17,6 +11,11 @@ namespace raptoreum_rtminer
     // Class that holds the rtm_miner form
     public partial class rtm_miner : Form
     {
+        // Gets the information required to round the form edges
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn 
+        (int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
+
         // Process and info to be used for mining
         Process process;
         ProcessStartInfo processInfo;
@@ -37,12 +36,8 @@ namespace raptoreum_rtminer
         public rtm_miner()
         {
             InitializeComponent();
-        }
-
-        // Loads on startup
-        private void rtm_miner_Load(object sender, EventArgs e)
-        {
-
+            dash_button.ForeColor = Color.FromArgb(252, 212, 94);
+            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
 
         // Starts or stops the mining whenever the button is clicked
@@ -113,6 +108,28 @@ namespace raptoreum_rtminer
                 mining_button.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 215, 78);
                 mining_button.Image = Properties.Resources.mine_start;
             }
+        }
+
+        // Brings the mining panel to the front
+        private void dash_button_Click(object sender, EventArgs e)
+        {
+            panel_2.BringToFront();
+            dash_button.ForeColor = Color.FromArgb(252, 212, 94);
+            config_button.ForeColor = Color.LightSteelBlue;
+        }
+
+        // Brings the configuration panel to the front
+        private void config_button_Click(object sender, EventArgs e)
+        {
+            panel_1.BringToFront();
+            config_button.ForeColor = Color.FromArgb(252, 212, 94);
+            dash_button.ForeColor = Color.LightSteelBlue;
+        }
+
+        // Quits the program on click
+        private void quit_button_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
