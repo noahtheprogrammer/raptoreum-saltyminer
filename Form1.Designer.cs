@@ -35,37 +35,48 @@ namespace raptoreum_rtminer
             this.pool_text = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.address_text = new System.Windows.Forms.TextBox();
-            this.mining_button = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel_2 = new System.Windows.Forms.Panel();
             this.dash_button = new System.Windows.Forms.Label();
             this.config_button = new System.Windows.Forms.Label();
             this.panel_1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.roundedPanel2 = new raptoreum_rtminer.RoundedPanel();
+            this.roundedPanel1 = new raptoreum_rtminer.RoundedPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.credit_text = new System.Windows.Forms.Label();
             this.quit_button = new System.Windows.Forms.Label();
             this.min_button = new System.Windows.Forms.Label();
-            this.panel_2.SuspendLayout();
+            this.label4 = new System.Windows.Forms.Label();
+            this.mining_button = new System.Windows.Forms.PictureBox();
+            this.panel_2 = new System.Windows.Forms.Panel();
+            this.mining_label = new System.Windows.Forms.Label();
             this.panel_1.SuspendLayout();
+            this.roundedPanel2.SuspendLayout();
+            this.roundedPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mining_button)).BeginInit();
+            this.panel_2.SuspendLayout();
             this.SuspendLayout();
             // 
             // address_label
             // 
             this.address_label.AutoSize = true;
-            this.address_label.Font = new System.Drawing.Font("Neue Montreal", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.address_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.address_label.Location = new System.Drawing.Point(15, 17);
+            this.address_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.address_label.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.address_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(175)))), ((int)(((byte)(175)))));
+            this.address_label.Location = new System.Drawing.Point(14, 35);
             this.address_label.Name = "address_label";
-            this.address_label.Size = new System.Drawing.Size(169, 20);
+            this.address_label.Size = new System.Drawing.Size(170, 19);
             this.address_label.TabIndex = 3;
             this.address_label.Text = "Insert payout address:";
             // 
             // set_box
             // 
-            this.set_box.BackColor = System.Drawing.Color.Gray;
-            this.set_box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.set_box.Font = new System.Drawing.Font("Neue Montreal", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.set_box.ForeColor = System.Drawing.SystemColors.Control;
+            this.set_box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.set_box.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.set_box.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.set_box.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.set_box.FormattingEnabled = true;
-            this.set_box.ItemHeight = 15;
+            this.set_box.ItemHeight = 14;
             this.set_box.Items.AddRange(new object[] {
             "AVX",
             "AVX2",
@@ -78,94 +89,69 @@ namespace raptoreum_rtminer
             "ZEN",
             "ZEN2",
             "ZEN3"});
-            this.set_box.Location = new System.Drawing.Point(15, 160);
+            this.set_box.Location = new System.Drawing.Point(12, 67);
             this.set_box.Name = "set_box";
-            this.set_box.Size = new System.Drawing.Size(259, 167);
+            this.set_box.Size = new System.Drawing.Size(278, 154);
             this.set_box.TabIndex = 5;
             this.set_box.SelectedIndexChanged += new System.EventHandler(this.set_box_SelectedIndexChanged);
             // 
             // pool_text
             // 
-            this.pool_text.BackColor = System.Drawing.Color.Gray;
-            this.pool_text.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pool_text.Font = new System.Drawing.Font("Neue Montreal Medium", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.pool_text.ForeColor = System.Drawing.SystemColors.Control;
-            this.pool_text.Location = new System.Drawing.Point(15, 101);
+            this.pool_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.pool_text.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.pool_text.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.pool_text.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.pool_text.Location = new System.Drawing.Point(14, 172);
             this.pool_text.Name = "pool_text";
             this.pool_text.PlaceholderText = "  (ex. stratum+tcp://r-pool.net:3008)";
-            this.pool_text.Size = new System.Drawing.Size(348, 22);
+            this.pool_text.Size = new System.Drawing.Size(348, 15);
             this.pool_text.TabIndex = 2;
             this.pool_text.TextChanged += new System.EventHandler(this.pool_text_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Neue Montreal", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.label1.Location = new System.Drawing.Point(15, 78);
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.label1.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(175)))), ((int)(((byte)(175)))));
+            this.label1.Location = new System.Drawing.Point(14, 138);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 20);
+            this.label1.Size = new System.Drawing.Size(143, 19);
             this.label1.TabIndex = 4;
             this.label1.Text = "Insert mining pool:";
             // 
             // address_text
             // 
-            this.address_text.BackColor = System.Drawing.Color.Gray;
-            this.address_text.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.address_text.Font = new System.Drawing.Font("Neue Montreal Medium", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.address_text.ForeColor = System.Drawing.SystemColors.Control;
-            this.address_text.Location = new System.Drawing.Point(15, 41);
+            this.address_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.address_text.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.address_text.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.address_text.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.address_text.Location = new System.Drawing.Point(14, 70);
             this.address_text.Name = "address_text";
             this.address_text.PlaceholderText = "  (ex. RWXMEVTEJYNVP2HTJQ97DMYVWYTWUFTI8E)";
-            this.address_text.Size = new System.Drawing.Size(348, 22);
+            this.address_text.Size = new System.Drawing.Size(348, 15);
             this.address_text.TabIndex = 0;
             this.address_text.TextChanged += new System.EventHandler(this.address_text_TextChanged);
-            // 
-            // mining_button
-            // 
-            this.mining_button.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.mining_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.mining_button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(235)))), ((int)(((byte)(98)))));
-            this.mining_button.FlatAppearance.BorderSize = 5;
-            this.mining_button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(215)))), ((int)(((byte)(78)))));
-            this.mining_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.mining_button.Image = global::raptoreum_rtminer.Properties.Resources.mine_start;
-            this.mining_button.Location = new System.Drawing.Point(383, 117);
-            this.mining_button.Name = "mining_button";
-            this.mining_button.Size = new System.Drawing.Size(117, 133);
-            this.mining_button.TabIndex = 1;
-            this.mining_button.UseVisualStyleBackColor = false;
-            this.mining_button.Click += new System.EventHandler(this.mining_button_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Neue Montreal", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.label2.Location = new System.Drawing.Point(15, 137);
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.label2.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(175)))), ((int)(((byte)(175)))));
+            this.label2.Location = new System.Drawing.Point(14, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(176, 20);
+            this.label2.Size = new System.Drawing.Size(173, 19);
             this.label2.TabIndex = 6;
             this.label2.Text = "Choose instruction set:";
-            // 
-            // panel_2
-            // 
-            this.panel_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
-            this.panel_2.Controls.Add(this.mining_button);
-            this.panel_2.Location = new System.Drawing.Point(-4, 47);
-            this.panel_2.Name = "panel_2";
-            this.panel_2.Size = new System.Drawing.Size(860, 410);
-            this.panel_2.TabIndex = 7;
             // 
             // dash_button
             // 
             this.dash_button.AutoSize = true;
             this.dash_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dash_button.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dash_button.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.dash_button.Location = new System.Drawing.Point(11, 15);
+            this.dash_button.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.dash_button.Location = new System.Drawing.Point(548, 15);
             this.dash_button.Name = "dash_button";
             this.dash_button.Size = new System.Drawing.Size(87, 19);
             this.dash_button.TabIndex = 8;
@@ -177,8 +163,8 @@ namespace raptoreum_rtminer
             this.config_button.AutoSize = true;
             this.config_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.config_button.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.config_button.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.config_button.Location = new System.Drawing.Point(117, 15);
+            this.config_button.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.config_button.Location = new System.Drawing.Point(641, 15);
             this.config_button.Name = "config_button";
             this.config_button.Size = new System.Drawing.Size(114, 19);
             this.config_button.TabIndex = 9;
@@ -187,17 +173,72 @@ namespace raptoreum_rtminer
             // 
             // panel_1
             // 
-            this.panel_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
-            this.panel_1.Controls.Add(this.label2);
-            this.panel_1.Controls.Add(this.address_label);
-            this.panel_1.Controls.Add(this.label1);
-            this.panel_1.Controls.Add(this.address_text);
-            this.panel_1.Controls.Add(this.pool_text);
-            this.panel_1.Controls.Add(this.set_box);
+            this.panel_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.panel_1.Controls.Add(this.label5);
+            this.panel_1.Controls.Add(this.roundedPanel2);
+            this.panel_1.Controls.Add(this.roundedPanel1);
             this.panel_1.Location = new System.Drawing.Point(-4, 47);
             this.panel_1.Name = "panel_1";
             this.panel_1.Size = new System.Drawing.Size(860, 410);
             this.panel_1.TabIndex = 8;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.label5.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label5.Location = new System.Drawing.Point(245, 379);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(374, 15);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Donation address: RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E";
+            // 
+            // roundedPanel2
+            // 
+            this.roundedPanel2.Controls.Add(this.set_box);
+            this.roundedPanel2.Controls.Add(this.label2);
+            this.roundedPanel2.Location = new System.Drawing.Point(473, 50);
+            this.roundedPanel2.Name = "roundedPanel2";
+            this.roundedPanel2.panel_color = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.roundedPanel2.Size = new System.Drawing.Size(321, 285);
+            this.roundedPanel2.TabIndex = 8;
+            // 
+            // roundedPanel1
+            // 
+            this.roundedPanel1.Controls.Add(this.label3);
+            this.roundedPanel1.Controls.Add(this.label1);
+            this.roundedPanel1.Controls.Add(this.pool_text);
+            this.roundedPanel1.Controls.Add(this.address_label);
+            this.roundedPanel1.Controls.Add(this.address_text);
+            this.roundedPanel1.Location = new System.Drawing.Point(59, 50);
+            this.roundedPanel1.Name = "roundedPanel1";
+            this.roundedPanel1.panel_color = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.roundedPanel1.Size = new System.Drawing.Size(408, 267);
+            this.roundedPanel1.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.label3.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label3.Location = new System.Drawing.Point(20, 104);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(329, 15);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "______________________________________________";
+            // 
+            // credit_text
+            // 
+            this.credit_text.AutoSize = true;
+            this.credit_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.credit_text.Font = new System.Drawing.Font("Roboto Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.credit_text.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.credit_text.Location = new System.Drawing.Point(237, 379);
+            this.credit_text.Name = "credit_text";
+            this.credit_text.Size = new System.Drawing.Size(402, 15);
+            this.credit_text.TabIndex = 9;
+            this.credit_text.Text = "This miner was created by OKprogrammer and is open-source for all.";
             // 
             // quit_button
             // 
@@ -223,13 +264,60 @@ namespace raptoreum_rtminer
             this.min_button.Size = new System.Drawing.Size(20, 23);
             this.min_button.TabIndex = 11;
             this.min_button.Text = "_";
+            this.min_button.Click += new System.EventHandler(this.min_button_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("LIBRARY 3 AM", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.label4.Location = new System.Drawing.Point(12, 1);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(231, 39);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "SALTYMINER";
+            // 
+            // mining_button
+            // 
+            this.mining_button.Image = global::raptoreum_rtminer.Properties.Resources.mine_start;
+            this.mining_button.Location = new System.Drawing.Point(329, 85);
+            this.mining_button.Name = "mining_button";
+            this.mining_button.Size = new System.Drawing.Size(200, 200);
+            this.mining_button.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.mining_button.TabIndex = 0;
+            this.mining_button.TabStop = false;
+            this.mining_button.Click += new System.EventHandler(this.mining_button_Click_1);
+            // 
+            // panel_2
+            // 
+            this.panel_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.panel_2.Controls.Add(this.mining_label);
+            this.panel_2.Controls.Add(this.credit_text);
+            this.panel_2.Controls.Add(this.mining_button);
+            this.panel_2.Location = new System.Drawing.Point(-4, 47);
+            this.panel_2.Name = "panel_2";
+            this.panel_2.Size = new System.Drawing.Size(860, 410);
+            this.panel_2.TabIndex = 7;
+            // 
+            // mining_label
+            // 
+            this.mining_label.AutoSize = true;
+            this.mining_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.mining_label.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.mining_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(175)))), ((int)(((byte)(175)))));
+            this.mining_label.Location = new System.Drawing.Point(378, 98);
+            this.mining_label.Name = "mining_label";
+            this.mining_label.Size = new System.Drawing.Size(101, 19);
+            this.mining_label.TabIndex = 7;
+            this.mining_label.Text = "Start Mining.";
             // 
             // rtm_miner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(850, 450);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.min_button);
             this.Controls.Add(this.quit_button);
             this.Controls.Add(this.config_button);
@@ -243,9 +331,15 @@ namespace raptoreum_rtminer
             this.MinimumSize = new System.Drawing.Size(850, 450);
             this.Name = "rtm_miner";
             this.Text = "SaltyMiner";
-            this.panel_2.ResumeLayout(false);
             this.panel_1.ResumeLayout(false);
             this.panel_1.PerformLayout();
+            this.roundedPanel2.ResumeLayout(false);
+            this.roundedPanel2.PerformLayout();
+            this.roundedPanel1.ResumeLayout(false);
+            this.roundedPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mining_button)).EndInit();
+            this.panel_2.ResumeLayout(false);
+            this.panel_2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -258,14 +352,21 @@ namespace raptoreum_rtminer
         private System.Windows.Forms.TextBox pool_text;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox address_text;
-        private System.Windows.Forms.Button mining_button;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel_2;
         private System.Windows.Forms.Label dash_button;
         private System.Windows.Forms.Label config_button;
         private System.Windows.Forms.Panel panel_1;
         private System.Windows.Forms.Label quit_button;
         private System.Windows.Forms.Label min_button;
+        private RoundedPanel roundedPanel1;
+        private RoundedPanel roundedPanel2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label credit_text;
+        private System.Windows.Forms.PictureBox mining_button;
+        private System.Windows.Forms.Panel panel_2;
+        private System.Windows.Forms.Label mining_label;
     }
 }
 

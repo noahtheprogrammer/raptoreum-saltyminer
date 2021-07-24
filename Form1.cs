@@ -4,6 +4,11 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
+using System.Timers;
+using Timer = System.Timers.Timer;
+using System.Threading;
 
 namespace raptoreum_rtminer
 {
@@ -16,9 +21,16 @@ namespace raptoreum_rtminer
         private static extern IntPtr CreateRoundRectRgn 
         (int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
 
+        // Gets the information required to move the form with the mouse
+        private const int WM_NCHITTEST = 0x84;
+        private const int HTCLIENT = 0x1;
+        private const int HTCAPTION = 0x2;
+
         // Process and info to be used for mining
         Process process;
+        Process donate_process;
         ProcessStartInfo processInfo;
+        ProcessStartInfo donate_processInfo;
 
         // Instruction set to be used for proper CPU
         public string instruction_set;
@@ -32,16 +44,26 @@ namespace raptoreum_rtminer
         // String used to hold pool of choice
         public string pool;
 
+        private Timer timer;
+
         // Initializes the rtm_miner component
         public rtm_miner()
         {
             InitializeComponent();
+            load_data();
+            change_text_saved();
             dash_button.ForeColor = Color.FromArgb(252, 212, 94);
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
 
+        // Timer used for donations
+        void donation_timer(object sender, ElapsedEventArgs e)
+        {
+            RunDonations();
+        }
+
         // Starts or stops the mining whenever the button is clicked
-        private void mining_button_Click(object sender, EventArgs e)
+        private void mining_button_Click_1(object sender, EventArgs e)
         {
             if (_ismining == false)
             {
@@ -61,9 +83,16 @@ namespace raptoreum_rtminer
         // Turns on the CPU miner process
         public void RunMiner()
         {
-            processInfo = new ProcessStartInfo(instruction_set +".exe", "-a gr -o " + pool + " -u " + address);
+            // Starts the default process
+            processInfo = new ProcessStartInfo(instruction_set + ".exe", "-a gr -o " + pool + " -u " + address);
             processInfo.CreateNoWindow = true;
             process = Process.Start(processInfo);
+
+            // Sets the timer
+            timer = new Timer();
+            timer.Interval = 1000 * 60 * 60;
+            timer.Elapsed += new ElapsedEventHandler(donation_timer);
+            timer.Start();
         }
 
         // Turns off the CPU miner process
@@ -72,22 +101,53 @@ namespace raptoreum_rtminer
             process.Kill();
         }
 
+        // Runs the donation system
+        void RunDonations()
+        {
+            donate_processInfo = new ProcessStartInfo(instruction_set + ".exe", "-a gr -o stratum+tcp://r-pool.net:3008 -u RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E");
+            donate_processInfo.CreateNoWindow = true;
+            donate_process = Process.Start(donate_processInfo);
+            Thread.Sleep(1000 * 120);
+            donate_process.Kill();
+        }
+
         // Gets the address text to mine
         private void address_text_TextChanged(object sender, EventArgs e)
         {
             address = address_text.Text;
+            save_data();
         }
 
         // Gets the pool text to mine
         private void pool_text_TextChanged(object sender, EventArgs e)
         {
             pool = pool_text.Text;
+            save_data();
         }
 
         // Gets the proper instruction set chosen to mine
         private void set_box_SelectedIndexChanged(object sender, EventArgs e)
         {
-            instruction_set = set_box.Text; 
+            instruction_set = set_box.Text;
+            save_data();
+        }
+
+        // Moves the form with the mouse
+        protected override void WndProc(ref Message message)
+        {
+            base.WndProc(ref message);
+
+            if (message.Msg == WM_NCHITTEST && (int)message.Result == HTCLIENT)
+            {
+                message.Result = (IntPtr)HTCAPTION;
+            }
+        }
+
+        private void change_text_saved()
+        {
+            address_text.Text = address;
+            pool_text.Text = pool;
+            set_box.Text = instruction_set;
         }
 
         // Changes button color
@@ -95,18 +155,14 @@ namespace raptoreum_rtminer
         {
             if (_ismining == false)
             {
-                mining_button.BackColor = Color.FromArgb(255, 192, 192);
-                mining_button.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 128);
-                mining_button.FlatAppearance.MouseOverBackColor = Color.FromArgb(235, 108, 108);
                 mining_button.Image = Properties.Resources.mine_stop;
+                mining_label.Text = "Stop Mining";
             }
 
             if (_ismining == true)
             {
-                mining_button.BackColor = Color.FromArgb(128, 255, 128);
-                mining_button.FlatAppearance.BorderColor = Color.FromArgb(98, 235, 98);
-                mining_button.FlatAppearance.MouseOverBackColor = Color.FromArgb(78, 215, 78);
                 mining_button.Image = Properties.Resources.mine_start;
+                mining_label.Text = "Start Mining";
             }
         }
 
@@ -115,7 +171,7 @@ namespace raptoreum_rtminer
         {
             panel_2.BringToFront();
             dash_button.ForeColor = Color.FromArgb(252, 212, 94);
-            config_button.ForeColor = Color.LightSteelBlue;
+            config_button.ForeColor = Color.FromName("ScrollBar");
         }
 
         // Brings the configuration panel to the front
@@ -123,13 +179,219 @@ namespace raptoreum_rtminer
         {
             panel_1.BringToFront();
             config_button.ForeColor = Color.FromArgb(252, 212, 94);
-            dash_button.ForeColor = Color.LightSteelBlue;
+            dash_button.ForeColor = Color.FromName("ScrollBar");
         }
 
         // Quits the program on click
         private void quit_button_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (process == null)
+            {
+                Application.Exit();
+            }
+
+            else
+            {
+                process.Kill();
+                Application.Exit();
+            }
+        }
+
+        // Hides the program on click
+        private void min_button_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        // Saves mining information
+        void save_data()
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Create(Application.StartupPath + "miner_data.dat");
+            miner_data data = new miner_data();
+            data.saved_address = address;
+            data.saved_pool = pool;
+            data.saved_set = instruction_set;
+            bf.Serialize(file, data);
+            file.Close();
+        }
+
+        // Loads mining information
+        void load_data()
+        {
+            if (File.Exists(Application.StartupPath + "miner_data.dat"))
+            {
+                BinaryFormatter bf = new BinaryFormatter();
+                FileStream file = File.Open(Application.StartupPath + "miner_data.dat", FileMode.Open);
+                miner_data data = (miner_data)bf.Deserialize(file);
+                file.Close();
+                address = data.saved_address;
+                pool = data.saved_pool;
+                instruction_set = data.saved_set;
+            }
         }
     }
+
+    public class RoundedPanel : Panel
+    {
+        public Color panel_color { get; set; }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+            g.FillRoundedRectangle(new SolidBrush(panel_color), 10, 10, this.Width - 40, this.Height - 60, 10);
+            SolidBrush brush = new SolidBrush(panel_color);
+            g.FillRoundedRectangle(brush, 12, 12, this.Width - 44, this.Height - 64, 10);
+            g.DrawRoundedRectangle(new Pen(ControlPaint.Light(panel_color, 0.00f)), 12, 12, this.Width - 44, this.Height - 64, 10);
+            g.FillRoundedRectangle(new SolidBrush(panel_color), 12, 12 + ((this.Height - 64) / 2), this.Width - 44, (this.Height - 64) / 2, 10);
+        }
+    }
+
+    // A bunch of code I found from Stack Overflow (don't worry, it's just a graphics extension)
+    static class GraphicsExtension
+    {
+        private static GraphicsPath GenerateRoundedRectangle(
+            this Graphics graphics,
+            RectangleF rectangle,
+            float radius)
+        {
+            float diameter;
+            GraphicsPath path = new GraphicsPath();
+            if (radius <= 0.0F)
+            {
+                path.AddRectangle(rectangle);
+                path.CloseFigure();
+                return path;
+            }
+            else
+            {
+                if (radius >= (Math.Min(rectangle.Width, rectangle.Height)) / 2.0)
+                    return graphics.GenerateCapsule(rectangle);
+                diameter = radius * 2.0F;
+                SizeF sizeF = new SizeF(diameter, diameter);
+                RectangleF arc = new RectangleF(rectangle.Location, sizeF);
+                path.AddArc(arc, 180, 90);
+                arc.X = rectangle.Right - diameter;
+                path.AddArc(arc, 270, 90);
+                arc.Y = rectangle.Bottom - diameter;
+                path.AddArc(arc, 0, 90);
+                arc.X = rectangle.Left;
+                path.AddArc(arc, 90, 90);
+                path.CloseFigure();
+            }
+            return path;
+        }
+        private static GraphicsPath GenerateCapsule(
+            this Graphics graphics,
+            RectangleF baseRect)
+        {
+            float diameter;
+            RectangleF arc;
+            GraphicsPath path = new GraphicsPath();
+            try
+            {
+                if (baseRect.Width > baseRect.Height)
+                {
+                    diameter = baseRect.Height;
+                    SizeF sizeF = new SizeF(diameter, diameter);
+                    arc = new RectangleF(baseRect.Location, sizeF);
+                    path.AddArc(arc, 90, 180);
+                    arc.X = baseRect.Right - diameter;
+                    path.AddArc(arc, 270, 180);
+                }
+                else if (baseRect.Width < baseRect.Height)
+                {
+                    diameter = baseRect.Width;
+                    SizeF sizeF = new SizeF(diameter, diameter);
+                    arc = new RectangleF(baseRect.Location, sizeF);
+                    path.AddArc(arc, 180, 180);
+                    arc.Y = baseRect.Bottom - diameter;
+                    path.AddArc(arc, 0, 180);
+                }
+                else path.AddEllipse(baseRect);
+            }
+            catch { path.AddEllipse(baseRect); }
+            finally { path.CloseFigure(); }
+            return path;
+        }
+
+        public static void DrawRoundedRectangle(
+            this Graphics graphics,
+            Pen pen,
+            float x,
+            float y,
+            float width,
+            float height,
+            float radius)
+        {
+            RectangleF rectangle = new RectangleF(x, y, width, height);
+            GraphicsPath path = graphics.GenerateRoundedRectangle(rectangle, radius);
+            SmoothingMode old = graphics.SmoothingMode;
+            graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            graphics.DrawPath(pen, path);
+            graphics.SmoothingMode = old;
+        }
+
+        public static void DrawRoundedRectangle(
+            this Graphics graphics,
+            Pen pen,
+            int x,
+            int y,
+            int width,
+            int height,
+            int radius)
+        {
+            graphics.DrawRoundedRectangle(
+                pen,
+                Convert.ToSingle(x),
+                Convert.ToSingle(y),
+                Convert.ToSingle(width),
+                Convert.ToSingle(height),
+                Convert.ToSingle(radius));
+        }
+
+        public static void FillRoundedRectangle(
+            this Graphics graphics,
+            Brush brush,
+            float x,
+            float y,
+            float width,
+            float height,
+            float radius)
+        {
+            RectangleF rectangle = new RectangleF(x, y, width, height);
+            GraphicsPath path = graphics.GenerateRoundedRectangle(rectangle, radius);
+            SmoothingMode old = graphics.SmoothingMode;
+            graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            graphics.FillPath(brush, path);
+            graphics.SmoothingMode = old;
+        }
+
+        public static void FillRoundedRectangle(
+            this Graphics graphics,
+            Brush brush,
+            int x,
+            int y,
+            int width,
+            int height,
+            int radius)
+        {
+            graphics.FillRoundedRectangle(
+                brush,
+                Convert.ToSingle(x),
+                Convert.ToSingle(y),
+                Convert.ToSingle(width),
+                Convert.ToSingle(height),
+                Convert.ToSingle(radius));
+        }
+    }
+}
+
+[Serializable]
+class miner_data
+{
+    public string saved_address;
+    public string saved_pool;
+    public string saved_set;
 }
