@@ -44,6 +44,9 @@ namespace raptoreum_rtminer
         // String used to hold pool of choice
         public string pool;
 
+        // String used to hold threads to utilize
+        public string thread_count;
+
         private Timer timer;
 
         // Initializes the rtm_miner component
@@ -84,7 +87,7 @@ namespace raptoreum_rtminer
         public void RunMiner()
         {
             // Starts the default process
-            processInfo = new ProcessStartInfo(instruction_set + ".exe", "-a gr -o " + pool + " -u " + address);
+            processInfo = new ProcessStartInfo(instruction_set + ".exe", "-a gr -o " + pool + " -t "+ thread_count + " -u " + address);
             processInfo.CreateNoWindow = true;
             process = Process.Start(processInfo);
 
@@ -125,6 +128,12 @@ namespace raptoreum_rtminer
             save_data();
         }
 
+        private void threads_text_TextChanged(object sender, EventArgs e)
+        {
+            thread_count = threads_text.Text;
+            save_data();
+        }
+
         // Gets the proper instruction set chosen to mine
         private void set_box_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -147,6 +156,7 @@ namespace raptoreum_rtminer
         {
             address_text.Text = address;
             pool_text.Text = pool;
+            threads_text.Text = thread_count;
             set_box.Text = instruction_set;
         }
 
@@ -211,6 +221,7 @@ namespace raptoreum_rtminer
             miner_data data = new miner_data();
             data.saved_address = address;
             data.saved_pool = pool;
+            data.saved_threads = thread_count;
             data.saved_set = instruction_set;
             bf.Serialize(file, data);
             file.Close();
@@ -227,6 +238,7 @@ namespace raptoreum_rtminer
                 file.Close();
                 address = data.saved_address;
                 pool = data.saved_pool;
+                thread_count = data.saved_threads;
                 instruction_set = data.saved_set;
             }
         }
@@ -393,5 +405,6 @@ class miner_data
 {
     public string saved_address;
     public string saved_pool;
+    public string saved_threads;
     public string saved_set;
 }
