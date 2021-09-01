@@ -29,8 +29,6 @@ namespace raptoreum_rtminer
         // Process and info to be used for mining
         Process process;
         Process donate_process;
-        ProcessStartInfo processInfo;
-        ProcessStartInfo donate_processInfo;
 
         // Instruction set to be used for proper CPU
         public string instruction_set;
@@ -43,6 +41,12 @@ namespace raptoreum_rtminer
 
         // String used to hold pool of choice
         public string pool;
+
+        // String used to hold threads to utilize
+        public string thread_count;
+
+        // String used to hold extra parameters
+        public string extra_params;
 
         private Timer timer;
 
@@ -83,14 +87,27 @@ namespace raptoreum_rtminer
         // Turns on the CPU miner process
         public void RunMiner()
         {
-            // Starts the default process
-            processInfo = new ProcessStartInfo(instruction_set + ".exe", "-a gr -o " + pool + " -u " + address);
-            processInfo.CreateNoWindow = true;
-            process = Process.Start(processInfo);
+            process = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = instruction_set + ".exe",
+                    Arguments = "-a gr -o " + pool + " -t " + thread_count + " -u " + address + " " + extra_params,
+                    RedirectStandardOutput = false, // We can use this to get the output - Not to sure how you want to go about doing that
+                    CreateNoWindow = false,
+                    UseShellExecute = true, // Added ability to run as admin incase user doesn't run application as admin
+                    Verb = "runas"
+                }
+            };
+            process.Start();
+
+
 
             // Sets the timer
-            timer = new Timer();
-            timer.Interval = 1000 * 60 * 60;
+            timer = new Timer
+            {
+                Interval = 1000 * 60 * 60
+            };
             timer.Elapsed += new ElapsedEventHandler(donation_timer);
             timer.Start();
         }
@@ -104,10 +121,17 @@ namespace raptoreum_rtminer
         // Runs the donation system
         void RunDonations()
         {
-            donate_processInfo = new ProcessStartInfo(instruction_set + ".exe", "-a gr -o stratum+tcp://r-pool.net:3008 -u RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E");
-            donate_processInfo.CreateNoWindow = true;
-            donate_process = Process.Start(donate_processInfo);
-            Thread.Sleep(1000 * 120);
+            donate_process = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = instruction_set + ".exe",
+                    Arguments = "-a gr -o stratum+tcp://r-pool.net:3008 -u RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E",
+                    CreateNoWindow = true
+                }
+            };
+            donate_process.Start();
+            Thread.Sleep(1000 * 120); // Sleep for 120 seconds or 2 minutes
             donate_process.Kill();
         }
 
@@ -123,6 +147,17 @@ namespace raptoreum_rtminer
         {
             pool = pool_text.Text;
             save_data();
+        }
+
+        private void threads_text_TextChanged(object sender, EventArgs e)
+        {
+            thread_count = threads_text.Text;
+            save_data();
+        }
+
+        private void extra_params_TextChanged(object sender, EventArgs e)
+        {
+            extra_params = extra_params_text.Text;
         }
 
         // Gets the proper instruction set chosen to mine
@@ -147,6 +182,8 @@ namespace raptoreum_rtminer
         {
             address_text.Text = address;
             pool_text.Text = pool;
+            threads_text.Text = thread_count;
+            extra_params_text.Text = extra_params;
             set_box.Text = instruction_set;
         }
 
@@ -211,6 +248,8 @@ namespace raptoreum_rtminer
             miner_data data = new miner_data();
             data.saved_address = address;
             data.saved_pool = pool;
+            data.saved_threads = thread_count;
+            data.saved_extra_params = extra_params;
             data.saved_set = instruction_set;
             bf.Serialize(file, data);
             file.Close();
@@ -227,8 +266,15 @@ namespace raptoreum_rtminer
                 file.Close();
                 address = data.saved_address;
                 pool = data.saved_pool;
+                thread_count = data.saved_threads;
+                extra_params = data.saved_extra_params;
                 instruction_set = data.saved_set;
             }
+        }
+
+        private void rtm_miner_Load(object sender, EventArgs e)
+        {
+
         }
     }
 
@@ -393,5 +439,7 @@ class miner_data
 {
     public string saved_address;
     public string saved_pool;
+    public string saved_threads;
+    public string saved_extra_params;
     public string saved_set;
 }
