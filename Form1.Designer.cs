@@ -41,6 +41,9 @@ namespace raptoreum_rtminer
             this.panel_1 = new System.Windows.Forms.Panel();
             this.donate_label = new System.Windows.Forms.Label();
             this.roundedPanel2 = new raptoreum_rtminer.RoundedPanel();
+            this.extra_params_text = new System.Windows.Forms.TextBox();
+            this.extra_params_label = new System.Windows.Forms.Label();
+            this.seperation_line = new System.Windows.Forms.Label();
             this.roundedPanel1 = new raptoreum_rtminer.RoundedPanel();
             this.threads_label = new System.Windows.Forms.Label();
             this.threads_text = new System.Windows.Forms.TextBox();
@@ -92,7 +95,7 @@ namespace raptoreum_rtminer
             "ZEN",
             "ZEN2",
             "ZEN3"});
-            this.set_box.Location = new System.Drawing.Point(12, 67);
+            this.set_box.Location = new System.Drawing.Point(22, 49);
             this.set_box.Name = "set_box";
             this.set_box.Size = new System.Drawing.Size(278, 150);
             this.set_box.TabIndex = 5;
@@ -142,7 +145,7 @@ namespace raptoreum_rtminer
             this.instruction_set_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.instruction_set_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.instruction_set_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(175)))), ((int)(((byte)(175)))));
-            this.instruction_set_label.Location = new System.Drawing.Point(14, 35);
+            this.instruction_set_label.Location = new System.Drawing.Point(24, 17);
             this.instruction_set_label.Name = "instruction_set_label";
             this.instruction_set_label.Size = new System.Drawing.Size(171, 20);
             this.instruction_set_label.TabIndex = 6;
@@ -199,6 +202,9 @@ namespace raptoreum_rtminer
             // 
             // roundedPanel2
             // 
+            this.roundedPanel2.Controls.Add(this.extra_params_text);
+            this.roundedPanel2.Controls.Add(this.extra_params_label);
+            this.roundedPanel2.Controls.Add(this.seperation_line);
             this.roundedPanel2.Controls.Add(this.set_box);
             this.roundedPanel2.Controls.Add(this.instruction_set_label);
             this.roundedPanel2.Location = new System.Drawing.Point(473, 50);
@@ -206,6 +212,42 @@ namespace raptoreum_rtminer
             this.roundedPanel2.panel_color = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.roundedPanel2.Size = new System.Drawing.Size(321, 285);
             this.roundedPanel2.TabIndex = 8;
+            // 
+            // extra_params_text
+            // 
+            this.extra_params_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.extra_params_text.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.extra_params_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.extra_params_text.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.extra_params_text.Location = new System.Drawing.Point(24, 248);
+            this.extra_params_text.Name = "extra_params_text";
+            this.extra_params_text.PlaceholderText = "  (ex. --tune-full)";
+            this.extra_params_text.Size = new System.Drawing.Size(275, 14);
+            this.extra_params_text.TabIndex = 9;
+            this.extra_params_text.TextChanged += new System.EventHandler(this.extra_params_TextChanged);
+            // 
+            // extra_params_label
+            // 
+            this.extra_params_label.AutoSize = true;
+            this.extra_params_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.extra_params_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.extra_params_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(175)))), ((int)(((byte)(175)))));
+            this.extra_params_label.Location = new System.Drawing.Point(24, 228);
+            this.extra_params_label.Name = "extra_params_label";
+            this.extra_params_label.Size = new System.Drawing.Size(107, 20);
+            this.extra_params_label.TabIndex = 9;
+            this.extra_params_label.Text = "Extra params:";
+            // 
+            // seperation_line
+            // 
+            this.seperation_line.AutoSize = true;
+            this.seperation_line.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.seperation_line.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.seperation_line.Location = new System.Drawing.Point(22, 202);
+            this.seperation_line.Name = "seperation_line";
+            this.seperation_line.Size = new System.Drawing.Size(280, 15);
+            this.seperation_line.TabIndex = 9;
+            this.seperation_line.Text = "_______________________________________";
             // 
             // roundedPanel1
             // 
@@ -220,7 +262,7 @@ namespace raptoreum_rtminer
             this.roundedPanel1.Location = new System.Drawing.Point(59, 50);
             this.roundedPanel1.Name = "roundedPanel1";
             this.roundedPanel1.panel_color = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.roundedPanel1.Size = new System.Drawing.Size(408, 267);
+            this.roundedPanel1.Size = new System.Drawing.Size(408, 285);
             this.roundedPanel1.TabIndex = 7;
             // 
             // threads_label
@@ -231,7 +273,7 @@ namespace raptoreum_rtminer
             this.threads_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(175)))), ((int)(((byte)(175)))));
             this.threads_label.Location = new System.Drawing.Point(17, 197);
             this.threads_label.Name = "threads_label";
-            this.threads_label.Size = new System.Drawing.Size(71, 20);
+            this.threads_label.Size = new System.Drawing.Size(148, 20);
             this.threads_label.TabIndex = 8;
             this.threads_label.Text = "Insert thread count:";
             // 
@@ -322,7 +364,7 @@ namespace raptoreum_rtminer
             // mining_button
             // 
             this.mining_button.Image = global::raptoreum_rtminer.Properties.Resources.mine_start;
-            this.mining_button.Location = new System.Drawing.Point(329, 85);
+            this.mining_button.Location = new System.Drawing.Point(346, 67);
             this.mining_button.Name = "mining_button";
             this.mining_button.Size = new System.Drawing.Size(200, 200);
             this.mining_button.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -347,7 +389,7 @@ namespace raptoreum_rtminer
             this.mining_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.mining_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mining_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(175)))), ((int)(((byte)(175)))));
-            this.mining_label.Location = new System.Drawing.Point(378, 98);
+            this.mining_label.Location = new System.Drawing.Point(395, 80);
             this.mining_label.Name = "mining_label";
             this.mining_label.Size = new System.Drawing.Size(98, 20);
             this.mining_label.TabIndex = 7;
@@ -364,8 +406,8 @@ namespace raptoreum_rtminer
             this.Controls.Add(this.quit_button);
             this.Controls.Add(this.config_button);
             this.Controls.Add(this.dash_button);
-            this.Controls.Add(this.panel_1);
             this.Controls.Add(this.panel_2);
+            this.Controls.Add(this.panel_1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -412,6 +454,9 @@ namespace raptoreum_rtminer
         private System.Windows.Forms.Label threads_label;
         private System.Windows.Forms.TextBox threads_text;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label seperation_line;
+        private System.Windows.Forms.TextBox extra_params_text;
+        private System.Windows.Forms.Label extra_params_label;
     }
 }
 
