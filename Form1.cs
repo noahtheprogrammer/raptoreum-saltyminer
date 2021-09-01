@@ -16,6 +16,11 @@ namespace raptoreum_rtminer
     // Class that holds the rtm_miner form
     public partial class rtm_miner : Form
     {
+        // Gets the information required to round the form edges
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn 
+        (int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
+
         // Gets the information required to move the form with the mouse
         private const int WM_NCHITTEST = 0x84;
         private const int HTCLIENT = 0x1;
@@ -47,8 +52,8 @@ namespace raptoreum_rtminer
             InitializeComponent();
             load_data();
             change_text_saved();
-            dash_button.Image = Properties.Resources.enabled_home;
-            set_box.DrawItem += new DrawItemEventHandler(set_box_DrawItem);
+            dash_button.ForeColor = Color.FromArgb(252, 212, 94);
+            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
 
         // Timer used for donations
@@ -58,7 +63,7 @@ namespace raptoreum_rtminer
         }
 
         // Starts or stops the mining whenever the button is clicked
-        private void mining_button_Click(object sender, EventArgs e)
+        private void mining_button_Click_1(object sender, EventArgs e)
         {
             if (_ismining == false)
             {
@@ -151,11 +156,13 @@ namespace raptoreum_rtminer
             if (_ismining == false)
             {
                 mining_button.Image = Properties.Resources.mine_stop;
+                mining_label.Text = "Stop Mining";
             }
 
             if (_ismining == true)
             {
                 mining_button.Image = Properties.Resources.mine_start;
+                mining_label.Text = "Start Mining";
             }
         }
 
@@ -163,16 +170,16 @@ namespace raptoreum_rtminer
         private void dash_button_Click(object sender, EventArgs e)
         {
             panel_2.BringToFront();
-            dash_button.Image = Properties.Resources.enabled_home;
-            config_button.Image = Properties.Resources.disabled_config;
+            dash_button.ForeColor = Color.FromArgb(252, 212, 94);
+            config_button.ForeColor = Color.FromName("ScrollBar");
         }
 
         // Brings the configuration panel to the front
         private void config_button_Click(object sender, EventArgs e)
         {
             panel_1.BringToFront();
-            config_button.Image = Properties.Resources.enabled_config;
-            dash_button.Image = Properties.Resources.disabled_home;
+            config_button.ForeColor = Color.FromArgb(252, 212, 94);
+            dash_button.ForeColor = Color.FromName("ScrollBar");
         }
 
         // Quits the program on click
@@ -222,27 +229,6 @@ namespace raptoreum_rtminer
                 pool = data.saved_pool;
                 instruction_set = data.saved_set;
             }
-        }
-
-        // Changes the set box color
-        private void set_box_DrawItem(object sender, DrawItemEventArgs e)
-        {
-            var brush = new SolidBrush(Color.FromArgb(175, 175, 175));
-
-            if (e.Index < 0) return;
-
-            //if the item state is selected them change the back color 
-            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
-                e = new DrawItemEventArgs(e.Graphics, e.Font, e.Bounds, e.Index, e.State ^ DrawItemState.Selected, e.ForeColor, Color.FromArgb(220, 220, 220));
-
-            // Draw the background of the ListBox control for each item.
-            e.DrawBackground();
-
-            // Draw the current item text
-            e.Graphics.DrawString(set_box.Items[e.Index].ToString(), e.Font, brush, e.Bounds, StringFormat.GenericDefault);
-
-            // If the ListBox has focus, draw a focus rectangle around the selected item.
-            e.DrawFocusRectangle();
         }
     }
 

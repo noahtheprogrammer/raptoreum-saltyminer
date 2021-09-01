@@ -63,56 +63,6 @@ namespace raptoreum_rtminer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap disabled_config {
-            get {
-                object obj = ResourceManager.GetObject("disabled_config", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap disabled_home {
-            get {
-                object obj = ResourceManager.GetObject("disabled_home", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap enabled_config {
-            get {
-                object obj = ResourceManager.GetObject("enabled_config", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap enabled_home {
-            get {
-                object obj = ResourceManager.GetObject("enabled_home", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap exit_icon {
-            get {
-                object obj = ResourceManager.GetObject("exit_icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap mine_start {
             get {
                 object obj = ResourceManager.GetObject("mine_start", resourceCulture);
@@ -126,26 +76,6 @@ namespace raptoreum_rtminer.Properties {
         internal static System.Drawing.Bitmap mine_stop {
             get {
                 object obj = ResourceManager.GetObject("mine_stop", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap minimize_icon {
-            get {
-                object obj = ResourceManager.GetObject("minimize_icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap saltyminer_banner {
-            get {
-                object obj = ResourceManager.GetObject("saltyminer_banner", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
