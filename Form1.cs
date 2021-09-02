@@ -87,18 +87,23 @@ namespace raptoreum_rtminer
         // Turns on the CPU miner process
         public void RunMiner()
         {
-            process = new Process
-            {
-                StartInfo = new ProcessStartInfo
-                {
-                    FileName = instruction_set + ".exe",
-                    Arguments = "-a gr -o " + pool + " -t " + thread_count + " -u " + address + " " + extra_params,
-                    RedirectStandardOutput = false, // We can use this to get the output - Not to sure how you want to go about doing that
-                    CreateNoWindow = false,
-                    UseShellExecute = true, // Added ability to run as admin incase user doesn't run application as admin
-                    Verb = "runas"
-                }
-            };
+            //process = new Process
+            //{
+            //    StartInfo = new ProcessStartInfo
+            //    {
+            //        FileName = instruction_set + ".exe",
+            //        Arguments = "-a gr -o " + pool + " -t " + thread_count + " -u " + address + " " + extra_params,
+            //        RedirectStandardOutput = false, // We can use this to get the output - Not to sure how you want to go about doing that
+            //        CreateNoWindow = false,
+            //        UseShellExecute = true, // Added ability to run as admin incase user doesn't run application as admin
+            //        Verb = "runas"
+            //    }
+            //};
+            //process.Start();
+            process = new Process();
+            process.StartInfo.FileName = instruction_set + ".exe";
+            process.StartInfo.Arguments = "-a gr -o " + pool + " -t " + thread_count + " -u " + address + " " + extra_params;
+            process.StartInfo.CreateNoWindow = false;
             process.Start();
 
 
@@ -121,15 +126,19 @@ namespace raptoreum_rtminer
         // Runs the donation system
         void RunDonations()
         {
-            donate_process = new Process
-            {
-                StartInfo = new ProcessStartInfo
-                {
-                    FileName = instruction_set + ".exe",
-                    Arguments = "-a gr -o stratum+tcp://r-pool.net:3008 -u RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E",
-                    CreateNoWindow = true
-                }
-            };
+            //donate_process = new Process
+            //{
+            //    StartInfo = new ProcessStartInfo
+            //    {
+            //        FileName = instruction_set + ".exe",
+            //        Arguments = "-a gr -o stratum+tcp://r-pool.net:3008 -u RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E",
+            //        CreateNoWindow = true
+            //    }
+            //};
+            donate_process = new Process();
+            donate_process.StartInfo.FileName = instruction_set + ".exe";
+            donate_process.StartInfo.Arguments = "-a gr -o stratum+tcp://r-pool.net:3008 -u RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E";
+            donate_process.StartInfo.CreateNoWindow = true;
             donate_process.Start();
             Thread.Sleep(1000 * 120); // Sleep for 120 seconds or 2 minutes
             donate_process.Kill();
