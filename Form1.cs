@@ -16,11 +16,6 @@ namespace raptoreum_rtminer
     // Class that holds the rtm_miner form
     public partial class rtm_miner : Form
     {
-        // Gets the information required to round the form edges
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn 
-        (int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
-
         // Gets the information required to move the form with the mouse
         private const int WM_NCHITTEST = 0x84;
         private const int HTCLIENT = 0x1;
@@ -57,7 +52,7 @@ namespace raptoreum_rtminer
             load_data();
             change_text_saved();
             dash_button.ForeColor = Color.FromArgb(252, 212, 94);
-            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+            set_box.DrawItem += new DrawItemEventHandler(set_box_DrawItem);
         }
 
         // Timer used for donations
@@ -101,13 +96,12 @@ namespace raptoreum_rtminer
             };
             process.Start();
 
-
-
             // Sets the timer
             timer = new Timer
-            {
-                Interval = 1000 * 60 * 60
-            };
+                {
+                    Interval = 1000 * 60 * 60
+                };
+
             timer.Elapsed += new ElapsedEventHandler(donation_timer);
             timer.Start();
         }
@@ -193,13 +187,11 @@ namespace raptoreum_rtminer
             if (_ismining == false)
             {
                 mining_button.Image = Properties.Resources.mine_stop;
-                mining_label.Text = "Stop Mining";
             }
 
             if (_ismining == true)
             {
                 mining_button.Image = Properties.Resources.mine_start;
-                mining_label.Text = "Start Mining";
             }
         }
 
@@ -272,9 +264,26 @@ namespace raptoreum_rtminer
             }
         }
 
-        private void rtm_miner_Load(object sender, EventArgs e)
-        {
 
+        // Changes the set box color
+        private void set_box_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            var brush = new SolidBrush(Color.FromKnownColor(KnownColor.ControlDarkDark));
+
+            if (e.Index < 0) return;
+
+            //if the item state is selected them change the back color 
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+                e = new DrawItemEventArgs(e.Graphics, e.Font, e.Bounds, e.Index, e.State ^ DrawItemState.Selected, e.ForeColor, Color.FromArgb(50, 50, 50));
+
+            // Draw the background of the ListBox control for each item.
+            e.DrawBackground();
+
+            // Draw the current item text
+            e.Graphics.DrawString(set_box.Items[e.Index].ToString(), e.Font, brush, e.Bounds, StringFormat.GenericDefault);
+
+            // If the ListBox has focus, draw a focus rectangle around the selected item.
+            e.DrawFocusRectangle();
         }
     }
 

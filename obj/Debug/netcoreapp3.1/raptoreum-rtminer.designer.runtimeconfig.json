@@ -6,8 +6,8 @@
       "version": "3.1.0"
     },
     "additionalProbingPaths": [
-      "C:\\Users\\Fulfillment\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Fulfillment\\.nuget\\packages"
+      "C:\\Users\\weave\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\weave\\.nuget\\packages"
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
