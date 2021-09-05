@@ -8,7 +8,7 @@ ________________________________________________________________________________
 
 This miner is very simple and easy for newcomers. Here's the way to use it:
 
-1. Enter your Raptoreum (RTM) address into the designated input field. You can get a wallet from the [Wallet Application](https://github.com/Raptor3um/raptoreum/releases/tag/1.2.15.2), or from the [Discord](https://discord.gg/dJQ6cagnmX). When you join the discord, there is at least one address automatically made for you. Just DM Stacy Mom. <br> ![Stacy Mom](https://cdn.discordapp.com/attachments/836164219073331213/884022857074634782/unknown.png) <br> Send the bot `rtm.wallet` and then your wallet details appear. <br> ![Wallet Details](https://cdn.discordapp.com/attachments/836164219073331213/884023573658894346/unknown.png) <br>
+1. Enter your Raptoreum (RTM) address into the designated input field. You can get a wallet from the [Wallet Application](https://github.com/Raptor3um/raptoreum/releases/tag/1.2.15.2), or from the [Discord](https://discord.gg/dJQ6cagnmX). When you join the discord, there is at least one address automatically made for you. Just DM Stacy Mom. <br><br> ![Stacy Mom](https://cdn.discordapp.com/attachments/836164219073331213/884022857074634782/unknown.png) <br> Send the bot `rtm.wallet` and then your wallet details appear. <br> ![Wallet Details](https://cdn.discordapp.com/attachments/836164219073331213/884023573658894346/unknown.png) <br>
 There is a part called `Wallet Address 1` and `Wallet Address 2`. There's your wallet!
 2. Enter your chosen pool into the designated input field. There are quite a few different ones you can choose from.
 3. Enter the amount of cores you would like to run during the mining process.
@@ -25,6 +25,9 @@ This happens when the new program is to be transfered over for a GitHub Release.
 ________________________________________________________________________________________________________________________________________________________________
 If you would like to support us, feel free to donate below.
 
-noahtheprogrammer:  `RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E`
+[noahtheprogrammer](https://github.com/noahtheprogrammer):  `RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E`
+
+[GL513](https://GL513.github.io/): `RX1V3td8QUryu4agDj5GWWRJXnN5LMk9P5`
 
 authrequest: `RXrkvhFSYk9VBp7DzueLEZaGCpWB4nuTGT`
+
