@@ -5,6 +5,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>raptoreum_rtminer</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
+    <Platforms>AnyCPU;ARM32</Platforms>
   </PropertyGroup>
 
   <ItemGroup>

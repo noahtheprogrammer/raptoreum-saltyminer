@@ -7,8 +7,9 @@ using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Timers;
-using Timer = System.Timers.Timer;
 using System.Threading;
+using System.Threading.Tasks;
+using Timer = System.Timers.Timer;
 
 namespace raptoreum_rtminer
 {
@@ -43,16 +44,64 @@ namespace raptoreum_rtminer
         // String used to hold extra parameters
         public string extra_params;
 
-        private Timer timer;
+        // Used for cpu counter
+        PerformanceCounter cpuCounter;
+
+        // Used for timer
+        private Timer miner_timer;
+        System.Windows.Forms.Timer cpu_timer = new System.Windows.Forms.Timer();
 
         // Initializes the rtm_miner component
         public rtm_miner()
         {
+            // Initalizes data load
             InitializeComponent();
             load_data();
+
+            // Loads the CPU monitor
+            cpuCounter = new PerformanceCounter();
+            cpuCounter.CategoryName = "Processor";
+            cpuCounter.CounterName = "% Processor Time";
+            cpuCounter.InstanceName = "_Total";
+            InitTimer();
+
+            // Changes text displays
             change_text_saved();
-            dash_button.ForeColor = Color.FromArgb(252, 212, 94);
             set_box.DrawItem += new DrawItemEventHandler(set_box_DrawItem);
+
+            // Checks what to change the thread text to
+            core_count.Text = threads_text.Text;
+            if (thread_count == "")
+            {
+                core_count.Text = "NA";
+            }
+
+            arch_count.Text = RuntimeInformation.ProcessArchitecture.ToString();
+        }
+
+        // Timer for the CPU percentage check routine
+        public void InitTimer()
+        {
+            cpu_timer.Tick += new EventHandler(cpu_timer_Tick);
+            cpu_timer.Interval = 2000; // in miliseconds
+            cpu_timer.Start();
+        }
+
+        // Initates the checking routine
+        private async void cpu_timer_Tick(object sender, EventArgs e)
+        {
+            Task<string> cpu_task = new Task<string>(getCurrentCpuUsage);
+            cpu_task.Start();
+            cpu_usage.Text = await cpu_task;
+        }
+
+        // Method to find the CPU resources
+        public string getCurrentCpuUsage()
+        {
+            string value1 = (int)cpuCounter.NextValue() + "%";
+            Thread.Sleep(500);
+            string value2 = (int)cpuCounter.NextValue() + "%";
+            return value2.ToString();
         }
 
         // Timer used for donations
@@ -82,33 +131,22 @@ namespace raptoreum_rtminer
         // Turns on the CPU miner process
         public void RunMiner()
         {
-            //process = new Process
-            //{
-            //    StartInfo = new ProcessStartInfo
-            //    {
-            //        FileName = instruction_set + ".exe",
-            //        Arguments = "-a gr -o " + pool + " -t " + thread_count + " -u " + address + " " + extra_params,
-            //        RedirectStandardOutput = false, // We can use this to get the output - Not to sure how you want to go about doing that
-            //        CreateNoWindow = false,
-            //        UseShellExecute = true, // Added ability to run as admin incase user doesn't run application as admin
-            //        Verb = "runas"
-            //    }
-            //};
-            //process.Start();
             process = new Process();
             process.StartInfo.FileName = instruction_set + ".exe";
             process.StartInfo.Arguments = "-a gr -o " + pool + " -t " + thread_count + " -u " + address + " " + extra_params;
-            process.StartInfo.CreateNoWindow = false;
+            process.StartInfo.CreateNoWindow = true;
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.RedirectStandardOutput = true;
             process.Start();
 
             // Sets the timer
-            timer = new Timer
+            miner_timer = new Timer
                 {
                     Interval = 1000 * 60 * 60
                 };
 
-            timer.Elapsed += new ElapsedEventHandler(donation_timer);
-            timer.Start();
+            miner_timer.Elapsed += new ElapsedEventHandler(donation_timer);
+            miner_timer.Start();
         }
 
         // Turns off the CPU miner process
@@ -120,15 +158,6 @@ namespace raptoreum_rtminer
         // Runs the donation system
         void RunDonations()
         {
-            //donate_process = new Process
-            //{
-            //    StartInfo = new ProcessStartInfo
-            //    {
-            //        FileName = instruction_set + ".exe",
-            //        Arguments = "-a gr -o stratum+tcp://r-pool.net:3008 -u RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E",
-            //        CreateNoWindow = true
-            //    }
-            //};
             donate_process = new Process();
             donate_process.StartInfo.FileName = instruction_set + ".exe";
             donate_process.StartInfo.Arguments = "-a gr -o stratum+tcp://r-pool.net:3008 -u RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E";
