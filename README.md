@@ -29,5 +29,5 @@ If you would like to support us, feel free to donate below.
 
 [GL513](https://GL513.github.io/): `RX1V3td8QUryu4agDj5GWWRJXnN5LMk9P5`
 
-authrequest: `RXrkvhFSYk9VBp7DzueLEZaGCpWB4nuTGT`
+[authrequest](https://github.com/authrequest): `RXrkvhFSYk9VBp7DzueLEZaGCpWB4nuTGT`
 
