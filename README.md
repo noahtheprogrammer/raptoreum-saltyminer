@@ -2,7 +2,9 @@
 An open-source miner for the Raptoreum cryptocurrency with a simple user interface.
 
 Welcome! I created this miner interface to be used in conjunction with the [cpuminer-gr] binaries.
-Please note that this application is brand new and is very likely to have several glitches and errors, which we will try to fix.
+Please note that this application might have a few bugs that need to be fixed. If you find any, feel free to open an issue on our GitHub.
+
+*DISCLAIMER: The miner contains a 1.66% developer's fee for the user interface and a 1.75% developer's fee for the binaries.*
 ________________________________________________________________________________________________________________________________________________________________
 **For new users:**
 
