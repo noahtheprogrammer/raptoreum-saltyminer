@@ -7,8 +7,10 @@ using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Timers;
-using Timer = System.Timers.Timer;
 using System.Threading;
+using System.Threading.Tasks;
+using Timer = System.Timers.Timer;
+using System.Text;
 
 namespace raptoreum_rtminer
 {
@@ -16,11 +18,6 @@ namespace raptoreum_rtminer
     // Class that holds the rtm_miner form
     public partial class rtm_miner : Form
     {
-        // Gets the information required to round the form edges
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn 
-        (int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
-
         // Gets the information required to move the form with the mouse
         private const int WM_NCHITTEST = 0x84;
         private const int HTCLIENT = 0x1;
@@ -48,16 +45,65 @@ namespace raptoreum_rtminer
         // String used to hold extra parameters
         public string extra_params;
 
-        private Timer timer;
+        // Used for cpu counter
+        PerformanceCounter cpuCounter;
+
+        // Used for timer
+        private Timer miner_timer;
+        System.Windows.Forms.Timer cpu_timer = new System.Windows.Forms.Timer();
+        private StringBuilder cmdOutput;
 
         // Initializes the rtm_miner component
         public rtm_miner()
         {
+            // Initalizes data load
             InitializeComponent();
             load_data();
+
+            // Loads the CPU monitor
+            cpuCounter = new PerformanceCounter();
+            cpuCounter.CategoryName = "Processor";
+            cpuCounter.CounterName = "% Processor Time";
+            cpuCounter.InstanceName = "_Total";
+            InitTimer();
+
+            // Changes text displays
             change_text_saved();
-            dash_button.ForeColor = Color.FromArgb(252, 212, 94);
-            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+            set_box.DrawItem += new DrawItemEventHandler(set_box_DrawItem);
+
+            // Checks what to change the thread text to
+            core_count.Text = threads_text.Text;
+            if (thread_count == "")
+            {
+                core_count.Text = "NA";
+            }
+
+            arch_count.Text = RuntimeInformation.ProcessArchitecture.ToString();
+        }
+
+        // Timer for the CPU percentage check routine
+        public void InitTimer()
+        {
+            cpu_timer.Tick += new EventHandler(cpu_timer_Tick);
+            cpu_timer.Interval = 2000; // in miliseconds
+            cpu_timer.Start();
+        }
+
+        // Initates the checking routine
+        private async void cpu_timer_Tick(object sender, EventArgs e)
+        {
+            Task<string> cpu_task = new Task<string>(getCurrentCpuUsage);
+            cpu_task.Start();
+            cpu_usage.Text = await cpu_task;
+        }
+
+        // Method to find the CPU resources
+        public string getCurrentCpuUsage()
+        {
+            string value1 = (int)cpuCounter.NextValue() + "%";
+            Thread.Sleep(500);
+            string value2 = (int)cpuCounter.NextValue() + "%";
+            return value2.ToString();
         }
 
         // Timer used for donations
@@ -81,60 +127,65 @@ namespace raptoreum_rtminer
                 QuitMiner();
                 ButtonChange();
                 _ismining = false;
+                cmd_output.Clear();
             }
         }
 
         // Turns on the CPU miner process
         public void RunMiner()
         {
-            //process = new Process
-            //{
-            //    StartInfo = new ProcessStartInfo
-            //    {
-            //        FileName = instruction_set + ".exe",
-            //        Arguments = "-a gr -o " + pool + " -t " + thread_count + " -u " + address + " " + extra_params,
-            //        RedirectStandardOutput = false, // We can use this to get the output - Not to sure how you want to go about doing that
-            //        CreateNoWindow = false,
-            //        UseShellExecute = true, // Added ability to run as admin incase user doesn't run application as admin
-            //        Verb = "runas"
-            //    }
-            //};
-            //process.Start();
             process = new Process();
             process.StartInfo.FileName = instruction_set + ".exe";
             process.StartInfo.Arguments = "-a gr -o " + pool + " -t " + thread_count + " -u " + address + " " + extra_params;
-            process.StartInfo.CreateNoWindow = false;
+            process.StartInfo.CreateNoWindow = true;
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.RedirectStandardError = true;
+
+            cmdOutput = new StringBuilder("");
+
+            process.EnableRaisingEvents = true;
+            process.OutputDataReceived += new DataReceivedEventHandler(SortOutputHandler);
+
+            Console.WriteLine("Starting Miner Process");
             process.Start();
 
-
+            process.BeginOutputReadLine();
 
             // Sets the timer
-            timer = new Timer
+            miner_timer = new Timer
+                {
+                    Interval = 1000 * 60 * 60
+                };
+
+            miner_timer.Elapsed += new ElapsedEventHandler(donation_timer);
+            miner_timer.Start();
+        }
+
+        private void SortOutputHandler(object sendingProcess, DataReceivedEventArgs outLine)
+        {
+            if(cmd_output.InvokeRequired)
             {
-                Interval = 1000 * 60 * 60
-            };
-            timer.Elapsed += new ElapsedEventHandler(donation_timer);
-            timer.Start();
+                cmd_output.BeginInvoke(new DataReceivedEventHandler(SortOutputHandler), new[] { sendingProcess, outLine });
+            }
+            else
+            {
+                cmdOutput.Append(Environment.NewLine + outLine.Data);
+                cmd_output.AppendText(cmdOutput.ToString());
+            }
+
         }
 
         // Turns off the CPU miner process
         public void QuitMiner()
         {
-            process.Kill();
+            process.Close();
+            //process.Kill();
         }
 
         // Runs the donation system
         void RunDonations()
         {
-            //donate_process = new Process
-            //{
-            //    StartInfo = new ProcessStartInfo
-            //    {
-            //        FileName = instruction_set + ".exe",
-            //        Arguments = "-a gr -o stratum+tcp://r-pool.net:3008 -u RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E",
-            //        CreateNoWindow = true
-            //    }
-            //};
             donate_process = new Process();
             donate_process.StartInfo.FileName = instruction_set + ".exe";
             donate_process.StartInfo.Arguments = "-a gr -o stratum+tcp://r-pool.net:3008 -u RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E";
@@ -202,13 +253,11 @@ namespace raptoreum_rtminer
             if (_ismining == false)
             {
                 mining_button.Image = Properties.Resources.mine_stop;
-                mining_label.Text = "Stop Mining";
             }
 
             if (_ismining == true)
             {
                 mining_button.Image = Properties.Resources.mine_start;
-                mining_label.Text = "Start Mining";
             }
         }
 
@@ -238,7 +287,7 @@ namespace raptoreum_rtminer
 
             else
             {
-                process.Kill();
+                process.Close();
                 Application.Exit();
             }
         }
@@ -281,9 +330,26 @@ namespace raptoreum_rtminer
             }
         }
 
-        private void rtm_miner_Load(object sender, EventArgs e)
-        {
 
+        // Changes the set box color
+        private void set_box_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            var brush = new SolidBrush(Color.FromKnownColor(KnownColor.ControlDarkDark));
+
+            if (e.Index < 0) return;
+
+            //if the item state is selected them change the back color 
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+                e = new DrawItemEventArgs(e.Graphics, e.Font, e.Bounds, e.Index, e.State ^ DrawItemState.Selected, e.ForeColor, Color.FromArgb(50, 50, 50));
+
+            // Draw the background of the ListBox control for each item.
+            e.DrawBackground();
+
+            // Draw the current item text
+            e.Graphics.DrawString(set_box.Items[e.Index].ToString(), e.Font, brush, e.Bounds, StringFormat.GenericDefault);
+
+            // If the ListBox has focus, draw a focus rectangle around the selected item.
+            e.DrawFocusRectangle();
         }
     }
 
