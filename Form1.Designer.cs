@@ -1,4 +1,3 @@
-﻿
 namespace raptoreum_rtminer
 {
     partial class rtm_miner
@@ -50,7 +49,8 @@ namespace raptoreum_rtminer
             this.threads_text = new System.Windows.Forms.TextBox();
             this.mining_button = new System.Windows.Forms.PictureBox();
             this.panel_2 = new System.Windows.Forms.Panel();
-            this.cmd_output = new System.Windows.Forms.Label();
+            this.cmd_output = new System.Windows.Forms.TextBox();
+
             this.label7 = new System.Windows.Forms.Label();
             this.cpu_usage = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -345,15 +345,14 @@ namespace raptoreum_rtminer
             // 
             // cmd_output
             // 
-            this.cmd_output.AutoSize = true;
-            this.cmd_output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.cmd_output.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cmd_output.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-            this.cmd_output.Location = new System.Drawing.Point(200, 30);
+            this.cmd_output.BackColor = System.Drawing.SystemColors.InfoText;
+            this.cmd_output.ForeColor = System.Drawing.SystemColors.Window;
+            this.cmd_output.Location = new System.Drawing.Point(32, 17);
+            this.cmd_output.Multiline = true;
             this.cmd_output.Name = "cmd_output";
-            this.cmd_output.Size = new System.Drawing.Size(560, 17);
+            this.cmd_output.Size = new System.Drawing.Size(796, 131);
             this.cmd_output.TabIndex = 11;
-            this.cmd_output.Text = "This must display command line output whenever a new line is inputed.";
+            this.cmd_output.Text = "Welcome To SaltyMiner." + System.Environment.NewLine + "Prss Start Button To Begin.";
             // 
             // label7
             // 
@@ -553,7 +552,7 @@ namespace raptoreum_rtminer
         private System.Windows.Forms.Label cpu_usage;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label cmd_output;
+        private System.Windows.Forms.TextBox cmd_output;
     }
 }
 

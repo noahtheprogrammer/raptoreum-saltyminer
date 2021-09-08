@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -10,6 +10,7 @@ using System.Timers;
 using System.Threading;
 using System.Threading.Tasks;
 using Timer = System.Timers.Timer;
+using System.Text;
 
 namespace raptoreum_rtminer
 {
@@ -50,6 +51,7 @@ namespace raptoreum_rtminer
         // Used for timer
         private Timer miner_timer;
         System.Windows.Forms.Timer cpu_timer = new System.Windows.Forms.Timer();
+        private StringBuilder cmdOutput;
 
         // Initializes the rtm_miner component
         public rtm_miner()
@@ -125,6 +127,7 @@ namespace raptoreum_rtminer
                 QuitMiner();
                 ButtonChange();
                 _ismining = false;
+                cmd_output.Clear();
             }
         }
 
@@ -137,8 +140,18 @@ namespace raptoreum_rtminer
             process.StartInfo.CreateNoWindow = true;
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.RedirectStandardError = true;
+
+            cmdOutput = new StringBuilder("");
+
+            process.EnableRaisingEvents = true;
+            process.OutputDataReceived += new DataReceivedEventHandler(SortOutputHandler);
+
+            Console.WriteLine("Starting Miner Process");
             process.Start();
 
+            process.BeginOutputReadLine();
+            process.Start();
             // Sets the timer
             miner_timer = new Timer
                 {
@@ -149,10 +162,24 @@ namespace raptoreum_rtminer
             miner_timer.Start();
         }
 
+        private void SortOutputHandler(object sendingProcess, DataReceivedEventArgs outLine)
+        {
+            if(cmd_output.InvokeRequired)
+            {
+                cmd_output.BeginInvoke(new DataReceivedEventHandler(SortOutputHandler), new[] { sendingProcess, outLine });
+            }
+            else
+            {
+                cmdOutput.Append(Environment.NewLine + outLine.Data);
+                cmd_output.AppendText(cmdOutput.ToString());
+            }
+        }
+
         // Turns off the CPU miner process
         public void QuitMiner()
         {
-            process.Kill();
+            process.Close();
+            //process.Kill();
         }
 
         // Runs the donation system
@@ -259,7 +286,7 @@ namespace raptoreum_rtminer
 
             else
             {
-                process.Kill();
+                process.Close();
                 Application.Exit();
             }
         }
