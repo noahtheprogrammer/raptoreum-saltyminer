@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Fulfillment\\.nuget\\packages\\": {}
+    "C:\\Users\\weave\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Fulfillment\\Projects\\raptoreum-saltyminer\\raptoreum-rtminer.csproj",
+      "projectUniqueName": "C:\\Users\\weave\\OneDrive\\Documents\\GitHub\\raptoreum-saltyminer\\raptoreum-rtminer.csproj",
       "projectName": "raptoreum-rtminer",
-      "projectPath": "C:\\Users\\Fulfillment\\Projects\\raptoreum-saltyminer\\raptoreum-rtminer.csproj",
-      "packagesPath": "C:\\Users\\Fulfillment\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Fulfillment\\Projects\\raptoreum-saltyminer\\obj\\",
+      "projectPath": "C:\\Users\\weave\\OneDrive\\Documents\\GitHub\\raptoreum-saltyminer\\raptoreum-rtminer.csproj",
+      "packagesPath": "C:\\Users\\weave\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\weave\\OneDrive\\Documents\\GitHub\\raptoreum-saltyminer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Fulfillment\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\weave\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -63,7 +63,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

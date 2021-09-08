@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -151,7 +151,7 @@ namespace raptoreum_rtminer
             process.Start();
 
             process.BeginOutputReadLine();
-
+            process.Start();
             // Sets the timer
             miner_timer = new Timer
                 {
@@ -173,7 +173,6 @@ namespace raptoreum_rtminer
                 cmdOutput.Append(Environment.NewLine + outLine.Data);
                 cmd_output.AppendText(cmdOutput.ToString());
             }
-
         }
 
         // Turns off the CPU miner process
