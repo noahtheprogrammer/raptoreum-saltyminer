@@ -49,14 +49,17 @@ namespace raptoreum_rtminer
             this.threads_text = new System.Windows.Forms.TextBox();
             this.mining_button = new System.Windows.Forms.PictureBox();
             this.panel_2 = new System.Windows.Forms.Panel();
+            this.roundedPanel3 = new raptoreum_rtminer.RoundedPanel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.arch_count = new System.Windows.Forms.Label();
             this.cmd_output = new System.Windows.Forms.TextBox();
-
+            this.core_count = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.cpu_usage = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.arch_count = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.core_count = new System.Windows.Forms.Label();
             this.quit_button = new System.Windows.Forms.PictureBox();
             this.min_button = new System.Windows.Forms.PictureBox();
             this.dash_button = new System.Windows.Forms.PictureBox();
@@ -67,6 +70,7 @@ namespace raptoreum_rtminer
             this.roundedPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mining_button)).BeginInit();
             this.panel_2.SuspendLayout();
+            this.roundedPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.quit_button)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.min_button)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dash_button)).BeginInit();
@@ -178,7 +182,7 @@ namespace raptoreum_rtminer
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
             this.label5.Font = new System.Drawing.Font("Roboto Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label5.Location = new System.Drawing.Point(185, 405);
@@ -319,7 +323,7 @@ namespace raptoreum_rtminer
             // mining_button
             // 
             this.mining_button.Image = global::raptoreum_rtminer.Properties.Resources.mine_start;
-            this.mining_button.Location = new System.Drawing.Point(346, 80);
+            this.mining_button.Location = new System.Drawing.Point(354, 10);
             this.mining_button.Name = "mining_button";
             this.mining_button.Size = new System.Drawing.Size(200, 200);
             this.mining_button.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -330,48 +334,138 @@ namespace raptoreum_rtminer
             // panel_2
             // 
             this.panel_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.panel_2.Controls.Add(this.cmd_output);
-            this.panel_2.Controls.Add(this.label7);
-            this.panel_2.Controls.Add(this.cpu_usage);
-            this.panel_2.Controls.Add(this.label4);
-            this.panel_2.Controls.Add(this.arch_count);
-            this.panel_2.Controls.Add(this.label2);
-            this.panel_2.Controls.Add(this.core_count);
+            this.panel_2.Controls.Add(this.roundedPanel3);
             this.panel_2.Controls.Add(this.mining_button);
             this.panel_2.Location = new System.Drawing.Point(-4, 47);
             this.panel_2.Name = "panel_2";
             this.panel_2.Size = new System.Drawing.Size(860, 457);
             this.panel_2.TabIndex = 7;
             // 
+            // roundedPanel3
+            // 
+            this.roundedPanel3.Controls.Add(this.label10);
+            this.roundedPanel3.Controls.Add(this.label9);
+            this.roundedPanel3.Controls.Add(this.label8);
+            this.roundedPanel3.Controls.Add(this.arch_count);
+            this.roundedPanel3.Controls.Add(this.cmd_output);
+            this.roundedPanel3.Controls.Add(this.core_count);
+            this.roundedPanel3.Controls.Add(this.label7);
+            this.roundedPanel3.Controls.Add(this.label2);
+            this.roundedPanel3.Controls.Add(this.cpu_usage);
+            this.roundedPanel3.Controls.Add(this.label4);
+            this.roundedPanel3.Location = new System.Drawing.Point(114, 224);
+            this.roundedPanel3.Name = "roundedPanel3";
+            this.roundedPanel3.panel_color = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.roundedPanel3.Size = new System.Drawing.Size(659, 217);
+            this.roundedPanel3.TabIndex = 12;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.label10.Font = new System.Drawing.Font("Roboto Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label10.Location = new System.Drawing.Point(44, 198);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(559, 17);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "Feel free to donate to us at this address: RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.label9.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label9.ForeColor = System.Drawing.Color.Gray;
+            this.label9.Location = new System.Drawing.Point(14, 121);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(612, 14);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "_________________________________________________________________________________" +
+    "________________________________________";
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.label8.Font = new System.Drawing.Font("Roboto Medium", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label8.Location = new System.Drawing.Point(14, 132);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(39, 27);
+            this.label8.TabIndex = 12;
+            this.label8.Text = ">_";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // arch_count
+            // 
+            this.arch_count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.arch_count.Font = new System.Drawing.Font("Roboto Medium", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.arch_count.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+            this.arch_count.Location = new System.Drawing.Point(150, 21);
+            this.arch_count.Name = "arch_count";
+            this.arch_count.Size = new System.Drawing.Size(290, 74);
+            this.arch_count.TabIndex = 7;
+            this.arch_count.Text = "X86";
+            this.arch_count.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // cmd_output
             // 
-            this.cmd_output.BackColor = System.Drawing.SystemColors.InfoText;
-            this.cmd_output.ForeColor = System.Drawing.SystemColors.Window;
-            this.cmd_output.Location = new System.Drawing.Point(32, 17);
+            this.cmd_output.AcceptsReturn = true;
+            this.cmd_output.AcceptsTab = true;
+            this.cmd_output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.cmd_output.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cmd_output.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cmd_output.Font = new System.Drawing.Font("Roboto Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cmd_output.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+            this.cmd_output.Location = new System.Drawing.Point(59, 141);
             this.cmd_output.Multiline = true;
             this.cmd_output.Name = "cmd_output";
-            this.cmd_output.Size = new System.Drawing.Size(796, 131);
+            this.cmd_output.ReadOnly = true;
+            this.cmd_output.Size = new System.Drawing.Size(554, 22);
             this.cmd_output.TabIndex = 11;
-            this.cmd_output.Text = "Welcome To SaltyMiner." + System.Environment.NewLine + "Prss Start Button To Begin.";
+            // 
+            // core_count
+            // 
+            this.core_count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.core_count.Font = new System.Drawing.Font("Roboto Medium", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.core_count.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+            this.core_count.Location = new System.Drawing.Point(14, 21);
+            this.core_count.Name = "core_count";
+            this.core_count.Size = new System.Drawing.Size(147, 74);
+            this.core_count.TabIndex = 4;
+            this.core_count.Text = "0";
+            this.core_count.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.label7.Font = new System.Drawing.Font("Roboto Medium", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label7.Location = new System.Drawing.Point(631, 404);
+            this.label7.Location = new System.Drawing.Point(490, 94);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(81, 27);
             this.label7.TabIndex = 10;
             this.label7.Text = "USAGE";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.label2.Font = new System.Drawing.Font("Roboto Medium", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label2.Location = new System.Drawing.Point(44, 94);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(80, 27);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "CORES";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // cpu_usage
             // 
-            this.cpu_usage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.cpu_usage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.cpu_usage.Font = new System.Drawing.Font("Roboto Medium", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cpu_usage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-            this.cpu_usage.Location = new System.Drawing.Point(573, 331);
+            this.cpu_usage.Location = new System.Drawing.Point(432, 21);
             this.cpu_usage.Name = "cpu_usage";
             this.cpu_usage.Size = new System.Drawing.Size(194, 74);
             this.cpu_usage.TabIndex = 9;
@@ -380,51 +474,15 @@ namespace raptoreum_rtminer
             // 
             // label4
             // 
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.label4.Font = new System.Drawing.Font("Roboto Medium", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(346, 404);
+            this.label4.Location = new System.Drawing.Point(205, 94);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(169, 27);
             this.label4.TabIndex = 8;
             this.label4.Text = "ARCHITECTURE";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // arch_count
-            // 
-            this.arch_count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.arch_count.Font = new System.Drawing.Font("Roboto Medium", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.arch_count.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-            this.arch_count.Location = new System.Drawing.Point(291, 331);
-            this.arch_count.Name = "arch_count";
-            this.arch_count.Size = new System.Drawing.Size(290, 74);
-            this.arch_count.TabIndex = 7;
-            this.arch_count.Text = "X86";
-            this.arch_count.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.label2.Font = new System.Drawing.Font("Roboto Medium", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(185, 404);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 27);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "CORES";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // core_count
-            // 
-            this.core_count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.core_count.Font = new System.Drawing.Font("Roboto Medium", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.core_count.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-            this.core_count.Location = new System.Drawing.Point(155, 331);
-            this.core_count.Name = "core_count";
-            this.core_count.Size = new System.Drawing.Size(147, 74);
-            this.core_count.TabIndex = 4;
-            this.core_count.Text = "0";
-            this.core_count.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // quit_button
             // 
@@ -486,12 +544,12 @@ namespace raptoreum_rtminer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
             this.ClientSize = new System.Drawing.Size(850, 500);
-            this.Controls.Add(this.panel_2);
             this.Controls.Add(this.sm_banner);
             this.Controls.Add(this.config_button);
             this.Controls.Add(this.dash_button);
             this.Controls.Add(this.min_button);
             this.Controls.Add(this.quit_button);
+            this.Controls.Add(this.panel_2);
             this.Controls.Add(this.panel_1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -509,7 +567,8 @@ namespace raptoreum_rtminer
             this.roundedPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mining_button)).EndInit();
             this.panel_2.ResumeLayout(false);
-            this.panel_2.PerformLayout();
+            this.roundedPanel3.ResumeLayout(false);
+            this.roundedPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.quit_button)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.min_button)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dash_button)).EndInit();
@@ -553,6 +612,10 @@ namespace raptoreum_rtminer
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox cmd_output;
+        private RoundedPanel roundedPanel3;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }
 

@@ -9,8 +9,8 @@ using System.IO;
 using System.Timers;
 using System.Threading;
 using System.Threading.Tasks;
-using Timer = System.Timers.Timer;
 using System.Text;
+using Timer = System.Timers.Timer;
 
 namespace raptoreum_rtminer
 {
@@ -53,12 +53,21 @@ namespace raptoreum_rtminer
         System.Windows.Forms.Timer cpu_timer = new System.Windows.Forms.Timer();
         private StringBuilder cmdOutput;
 
+        // Gets the information required to round the form edges
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
+
+
         // Initializes the rtm_miner component
         public rtm_miner()
         {
             // Initalizes data load
             InitializeComponent();
             load_data();
+
+            // Rounds the form edges
+            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
 
             // Loads the CPU monitor
             cpuCounter = new PerformanceCounter();
@@ -124,10 +133,10 @@ namespace raptoreum_rtminer
 
             else if (_ismining == true)
             {
-                QuitMiner();
+                process.Kill();
+                cmd_output.Text = "Saltyminer has been shut down successfully.";
                 ButtonChange();
                 _ismining = false;
-                cmd_output.Clear();
             }
         }
 
@@ -149,9 +158,8 @@ namespace raptoreum_rtminer
 
             Console.WriteLine("Starting Miner Process");
             process.Start();
-
             process.BeginOutputReadLine();
-            process.Start();
+
             // Sets the timer
             miner_timer = new Timer
                 {
@@ -162,6 +170,7 @@ namespace raptoreum_rtminer
             miner_timer.Start();
         }
 
+        // Outputs the mining process
         private void SortOutputHandler(object sendingProcess, DataReceivedEventArgs outLine)
         {
             if(cmd_output.InvokeRequired)
@@ -175,13 +184,6 @@ namespace raptoreum_rtminer
             }
         }
 
-        // Turns off the CPU miner process
-        public void QuitMiner()
-        {
-            process.Close();
-            //process.Kill();
-        }
-
         // Runs the donation system
         void RunDonations()
         {
@@ -190,7 +192,7 @@ namespace raptoreum_rtminer
             donate_process.StartInfo.Arguments = "-a gr -o stratum+tcp://r-pool.net:3008 -u RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E";
             donate_process.StartInfo.CreateNoWindow = true;
             donate_process.Start();
-            Thread.Sleep(1000 * 120); // Sleep for 120 seconds or 2 minutes
+            Thread.Sleep(1000 * 36); // Sleep for 36 seconds or 0.5% fee
             donate_process.Kill();
         }
 
@@ -208,12 +210,14 @@ namespace raptoreum_rtminer
             save_data();
         }
 
+        // Gets the amount of threads to use
         private void threads_text_TextChanged(object sender, EventArgs e)
         {
             thread_count = threads_text.Text;
             save_data();
         }
 
+        // Gets the extra parameters
         private void extra_params_TextChanged(object sender, EventArgs e)
         {
             extra_params = extra_params_text.Text;
@@ -237,6 +241,7 @@ namespace raptoreum_rtminer
             }
         }
 
+        // Saves the changed text
         private void change_text_saved()
         {
             address_text.Text = address;
@@ -264,16 +269,12 @@ namespace raptoreum_rtminer
         private void dash_button_Click(object sender, EventArgs e)
         {
             panel_2.BringToFront();
-            dash_button.ForeColor = Color.FromArgb(252, 212, 94);
-            config_button.ForeColor = Color.FromName("ScrollBar");
         }
 
         // Brings the configuration panel to the front
         private void config_button_Click(object sender, EventArgs e)
         {
             panel_1.BringToFront();
-            config_button.ForeColor = Color.FromArgb(252, 212, 94);
-            dash_button.ForeColor = Color.FromName("ScrollBar");
         }
 
         // Quits the program on click
@@ -352,6 +353,7 @@ namespace raptoreum_rtminer
         }
     }
 
+    // Class used to create rounded panel design
     public class RoundedPanel : Panel
     {
         public Color panel_color { get; set; }
