@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
@@ -48,6 +49,9 @@ namespace raptoreum_rtminer
         // Used for cpu counter
         PerformanceCounter cpuCounter;
 
+        public PrivateFontCollection pfc = new PrivateFontCollection();
+
+
         // Used for timer
         private Timer miner_timer;
         System.Windows.Forms.Timer cpu_timer = new System.Windows.Forms.Timer();
@@ -63,11 +67,20 @@ namespace raptoreum_rtminer
         public rtm_miner()
         {
             // Initalizes data load
+            
             InitializeComponent();
             load_data();
 
+            
+            int fontLength = Properties.Resources.roboto_medium.Length;
+            byte[] fontdata = Properties.Resources.roboto_medium;
+            System.IntPtr data = Marshal.AllocCoTaskMem(fontLength);
+            Marshal.Copy(fontdata, 0, data, fontLength);
+            pfc.AddMemoryFont(data, fontLength);
+
             // Rounds the form edges
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
+
 
             // Loads the CPU monitor
             cpuCounter = new PerformanceCounter();
