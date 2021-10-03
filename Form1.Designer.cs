@@ -82,11 +82,10 @@ namespace raptoreum_rtminer
             // 
             this.address_label.AutoSize = true;
             this.address_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.address_label.Font = new System.Drawing.Font("Roboto Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.address_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
             this.address_label.Location = new System.Drawing.Point(17, 30);
             this.address_label.Name = "address_label";
-            this.address_label.Size = new System.Drawing.Size(150, 17);
+            this.address_label.Size = new System.Drawing.Size(126, 15);
             this.address_label.TabIndex = 3;
             this.address_label.Text = "Insert payout address:";
             // 
@@ -95,7 +94,6 @@ namespace raptoreum_rtminer
             this.set_box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.set_box.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.set_box.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.set_box.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.set_box.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.set_box.FormattingEnabled = true;
             this.set_box.ImeMode = System.Windows.Forms.ImeMode.Off;
@@ -122,12 +120,11 @@ namespace raptoreum_rtminer
             // 
             this.pool_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.pool_text.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.pool_text.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.pool_text.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.pool_text.Location = new System.Drawing.Point(17, 140);
             this.pool_text.Name = "pool_text";
             this.pool_text.PlaceholderText = "  (ex. stratum+tcp://r-pool.net:3008)";
-            this.pool_text.Size = new System.Drawing.Size(348, 15);
+            this.pool_text.Size = new System.Drawing.Size(348, 14);
             this.pool_text.TabIndex = 2;
             this.pool_text.TextChanged += new System.EventHandler(this.pool_text_TextChanged);
             // 
@@ -135,11 +132,10 @@ namespace raptoreum_rtminer
             // 
             this.pool_label.AutoSize = true;
             this.pool_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.pool_label.Font = new System.Drawing.Font("Roboto Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.pool_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
             this.pool_label.Location = new System.Drawing.Point(17, 117);
             this.pool_label.Name = "pool_label";
-            this.pool_label.Size = new System.Drawing.Size(127, 17);
+            this.pool_label.Size = new System.Drawing.Size(108, 15);
             this.pool_label.TabIndex = 4;
             this.pool_label.Text = "Insert mining pool:";
             // 
@@ -147,12 +143,11 @@ namespace raptoreum_rtminer
             // 
             this.address_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.address_text.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.address_text.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.address_text.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.address_text.Location = new System.Drawing.Point(17, 53);
             this.address_text.Name = "address_text";
             this.address_text.PlaceholderText = "  (ex. RWXMEVTEJYNVP2HTJQ97DMYVWYTWUFTI8E)";
-            this.address_text.Size = new System.Drawing.Size(348, 15);
+            this.address_text.Size = new System.Drawing.Size(348, 14);
             this.address_text.TabIndex = 0;
             this.address_text.TextChanged += new System.EventHandler(this.address_text_TextChanged);
             // 
@@ -160,11 +155,10 @@ namespace raptoreum_rtminer
             // 
             this.instruction_set_label.AutoSize = true;
             this.instruction_set_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.instruction_set_label.Font = new System.Drawing.Font("Roboto Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.instruction_set_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
             this.instruction_set_label.Location = new System.Drawing.Point(12, 17);
             this.instruction_set_label.Name = "instruction_set_label";
-            this.instruction_set_label.Size = new System.Drawing.Size(155, 17);
+            this.instruction_set_label.Size = new System.Drawing.Size(130, 15);
             this.instruction_set_label.TabIndex = 6;
             this.instruction_set_label.Text = "Choose instruction set:";
             // 
@@ -183,11 +177,10 @@ namespace raptoreum_rtminer
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.label5.Font = new System.Drawing.Font("Roboto Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label5.Location = new System.Drawing.Point(185, 405);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(510, 17);
+            this.label5.Size = new System.Drawing.Size(436, 15);
             this.label5.TabIndex = 10;
             this.label5.Text = "Changes during mining will not be applied until the mining process is restarted.";
             // 
@@ -208,12 +201,11 @@ namespace raptoreum_rtminer
             // 
             this.extra_params_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.extra_params_text.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.extra_params_text.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.extra_params_text.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.extra_params_text.Location = new System.Drawing.Point(12, 243);
             this.extra_params_text.Name = "extra_params_text";
             this.extra_params_text.PlaceholderText = "  (ex. --tune-full)";
-            this.extra_params_text.Size = new System.Drawing.Size(275, 15);
+            this.extra_params_text.Size = new System.Drawing.Size(275, 14);
             this.extra_params_text.TabIndex = 9;
             this.extra_params_text.TextChanged += new System.EventHandler(this.extra_params_TextChanged);
             // 
@@ -221,11 +213,10 @@ namespace raptoreum_rtminer
             // 
             this.seperation_line.AutoSize = true;
             this.seperation_line.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.seperation_line.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.seperation_line.ForeColor = System.Drawing.Color.Gray;
             this.seperation_line.Location = new System.Drawing.Point(12, 195);
             this.seperation_line.Name = "seperation_line";
-            this.seperation_line.Size = new System.Drawing.Size(282, 14);
+            this.seperation_line.Size = new System.Drawing.Size(392, 15);
             this.seperation_line.TabIndex = 9;
             this.seperation_line.Text = "_______________________________________________________";
             // 
@@ -233,11 +224,10 @@ namespace raptoreum_rtminer
             // 
             this.extra_params_label.AutoSize = true;
             this.extra_params_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.extra_params_label.Font = new System.Drawing.Font("Roboto Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.extra_params_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
             this.extra_params_label.Location = new System.Drawing.Point(12, 220);
             this.extra_params_label.Name = "extra_params_label";
-            this.extra_params_label.Size = new System.Drawing.Size(96, 17);
+            this.extra_params_label.Size = new System.Drawing.Size(83, 15);
             this.extra_params_label.TabIndex = 9;
             this.extra_params_label.Text = "Extra params:";
             // 
@@ -252,7 +242,6 @@ namespace raptoreum_rtminer
             this.roundedPanel1.Controls.Add(this.pool_text);
             this.roundedPanel1.Controls.Add(this.address_label);
             this.roundedPanel1.Controls.Add(this.address_text);
-            this.roundedPanel1.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.roundedPanel1.Location = new System.Drawing.Point(59, 50);
             this.roundedPanel1.Name = "roundedPanel1";
             this.roundedPanel1.panel_color = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
@@ -263,11 +252,10 @@ namespace raptoreum_rtminer
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.label3.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Gray;
             this.label3.Location = new System.Drawing.Point(17, 83);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(352, 14);
+            this.label3.Size = new System.Drawing.Size(490, 15);
             this.label3.TabIndex = 10;
             this.label3.Text = "_____________________________________________________________________";
             // 
@@ -275,11 +263,10 @@ namespace raptoreum_rtminer
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.label1.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.Gray;
             this.label1.Location = new System.Drawing.Point(17, 243);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(352, 14);
+            this.label1.Size = new System.Drawing.Size(490, 15);
             this.label1.TabIndex = 9;
             this.label1.Text = "_____________________________________________________________________";
             // 
@@ -287,11 +274,10 @@ namespace raptoreum_rtminer
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.label6.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.Gray;
             this.label6.Location = new System.Drawing.Point(17, 163);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(352, 14);
+            this.label6.Size = new System.Drawing.Size(490, 15);
             this.label6.TabIndex = 6;
             this.label6.Text = "_____________________________________________________________________";
             // 
@@ -299,11 +285,10 @@ namespace raptoreum_rtminer
             // 
             this.threads_label.AutoSize = true;
             this.threads_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.threads_label.Font = new System.Drawing.Font("Roboto Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.threads_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
             this.threads_label.Location = new System.Drawing.Point(17, 192);
             this.threads_label.Name = "threads_label";
-            this.threads_label.Size = new System.Drawing.Size(133, 17);
+            this.threads_label.Size = new System.Drawing.Size(111, 15);
             this.threads_label.TabIndex = 8;
             this.threads_label.Text = "Insert thread count:";
             // 
@@ -311,12 +296,11 @@ namespace raptoreum_rtminer
             // 
             this.threads_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.threads_text.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.threads_text.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.threads_text.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.threads_text.Location = new System.Drawing.Point(17, 216);
             this.threads_text.Name = "threads_text";
             this.threads_text.PlaceholderText = "  (ex. 24)";
-            this.threads_text.Size = new System.Drawing.Size(348, 15);
+            this.threads_text.Size = new System.Drawing.Size(348, 14);
             this.threads_text.TabIndex = 7;
             this.threads_text.TextChanged += new System.EventHandler(this.threads_text_TextChanged);
             // 
@@ -363,23 +347,22 @@ namespace raptoreum_rtminer
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.label10.Font = new System.Drawing.Font("Roboto Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label10.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label10.Location = new System.Drawing.Point(44, 198);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(559, 17);
+            this.label10.Size = new System.Drawing.Size(489, 19);
             this.label10.TabIndex = 13;
             this.label10.Text = "Feel free to donate to us at this address: RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E";
+            this.label10.UseCompatibleTextRendering = true;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.label9.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label9.ForeColor = System.Drawing.Color.Gray;
             this.label9.Location = new System.Drawing.Point(14, 121);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(612, 14);
+            this.label9.Size = new System.Drawing.Size(854, 15);
             this.label9.TabIndex = 14;
             this.label9.Text = "_________________________________________________________________________________" +
     "________________________________________";
@@ -387,7 +370,6 @@ namespace raptoreum_rtminer
             // label8
             // 
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.label8.Font = new System.Drawing.Font("Roboto Medium", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label8.Location = new System.Drawing.Point(14, 132);
             this.label8.Name = "label8";
@@ -399,7 +381,6 @@ namespace raptoreum_rtminer
             // arch_count
             // 
             this.arch_count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.arch_count.Font = new System.Drawing.Font("Roboto Medium", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.arch_count.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
             this.arch_count.Location = new System.Drawing.Point(150, 21);
             this.arch_count.Name = "arch_count";
@@ -407,6 +388,7 @@ namespace raptoreum_rtminer
             this.arch_count.TabIndex = 7;
             this.arch_count.Text = "X86";
             this.arch_count.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.arch_count.UseCompatibleTextRendering = true;
             // 
             // cmd_output
             // 
@@ -415,7 +397,6 @@ namespace raptoreum_rtminer
             this.cmd_output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.cmd_output.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.cmd_output.Cursor = System.Windows.Forms.Cursors.Default;
-            this.cmd_output.Font = new System.Drawing.Font("Roboto Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmd_output.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
             this.cmd_output.Location = new System.Drawing.Point(59, 141);
             this.cmd_output.Multiline = true;
@@ -427,7 +408,6 @@ namespace raptoreum_rtminer
             // core_count
             // 
             this.core_count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.core_count.Font = new System.Drawing.Font("Roboto Medium", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.core_count.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
             this.core_count.Location = new System.Drawing.Point(14, 21);
             this.core_count.Name = "core_count";
@@ -435,11 +415,11 @@ namespace raptoreum_rtminer
             this.core_count.TabIndex = 4;
             this.core_count.Text = "0";
             this.core_count.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.core_count.UseCompatibleTextRendering = true;
             // 
             // label7
             // 
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.label7.Font = new System.Drawing.Font("Roboto Medium", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label7.Location = new System.Drawing.Point(490, 94);
             this.label7.Name = "label7";
@@ -451,7 +431,6 @@ namespace raptoreum_rtminer
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.label2.Font = new System.Drawing.Font("Roboto Medium", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label2.Location = new System.Drawing.Point(44, 94);
             this.label2.Name = "label2";
@@ -463,7 +442,6 @@ namespace raptoreum_rtminer
             // cpu_usage
             // 
             this.cpu_usage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.cpu_usage.Font = new System.Drawing.Font("Roboto Medium", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cpu_usage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
             this.cpu_usage.Location = new System.Drawing.Point(432, 21);
             this.cpu_usage.Name = "cpu_usage";
@@ -471,11 +449,11 @@ namespace raptoreum_rtminer
             this.cpu_usage.TabIndex = 9;
             this.cpu_usage.Text = "0%";
             this.cpu_usage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cpu_usage.UseCompatibleTextRendering = true;
             // 
             // label4
             // 
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.label4.Font = new System.Drawing.Font("Roboto Medium", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label4.Location = new System.Drawing.Point(205, 94);
             this.label4.Name = "label4";

@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\weave\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\weave\\.nuget\\packages"
+      "C:\\Users\\Fulfillment\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Fulfillment\\.nuget\\packages"
     ]
   }
 }

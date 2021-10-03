@@ -1,0 +1,5 @@
+C:\Users\weave\OneDrive\Desktop\raptoreum-rtminer.exe
+C:\Users\weave\OneDrive\Desktop\raptoreum-rtminer.dll
+C:\Users\weave\OneDrive\Desktop\raptoreum-rtminer.deps.json
+C:\Users\weave\OneDrive\Desktop\raptoreum-rtminer.runtimeconfig.json
+C:\Users\weave\OneDrive\Desktop\raptoreum-rtminer.pdb
