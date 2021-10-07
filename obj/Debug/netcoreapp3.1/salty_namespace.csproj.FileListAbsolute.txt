@@ -1,0 +1,15 @@
+C:\Users\weave\OneDrive\Documents\GitHub\raptoreum-saltyminer\bin\Debug\netcoreapp3.1\salty_namespace.exe
+C:\Users\weave\OneDrive\Documents\GitHub\raptoreum-saltyminer\bin\Debug\netcoreapp3.1\salty_namespace.deps.json
+C:\Users\weave\OneDrive\Documents\GitHub\raptoreum-saltyminer\bin\Debug\netcoreapp3.1\salty_namespace.runtimeconfig.json
+C:\Users\weave\OneDrive\Documents\GitHub\raptoreum-saltyminer\bin\Debug\netcoreapp3.1\salty_namespace.runtimeconfig.dev.json
+C:\Users\weave\OneDrive\Documents\GitHub\raptoreum-saltyminer\bin\Debug\netcoreapp3.1\salty_namespace.dll
+C:\Users\weave\OneDrive\Documents\GitHub\raptoreum-saltyminer\bin\Debug\netcoreapp3.1\salty_namespace.pdb
+C:\Users\weave\OneDrive\Documents\GitHub\raptoreum-saltyminer\obj\Debug\netcoreapp3.1\salty_namespace.saltyminer.resources
+C:\Users\weave\OneDrive\Documents\GitHub\raptoreum-saltyminer\obj\Debug\netcoreapp3.1\salty_namespace.Properties.Resources.resources
+C:\Users\weave\OneDrive\Documents\GitHub\raptoreum-saltyminer\obj\Debug\netcoreapp3.1\salty_namespace.csproj.GenerateResource.cache
+C:\Users\weave\OneDrive\Documents\GitHub\raptoreum-saltyminer\obj\Debug\netcoreapp3.1\salty_namespace.AssemblyInfoInputs.cache
+C:\Users\weave\OneDrive\Documents\GitHub\raptoreum-saltyminer\obj\Debug\netcoreapp3.1\salty_namespace.AssemblyInfo.cs
+C:\Users\weave\OneDrive\Documents\GitHub\raptoreum-saltyminer\obj\Debug\netcoreapp3.1\salty_namespace.csproj.CoreCompileInputs.cache
+C:\Users\weave\OneDrive\Documents\GitHub\raptoreum-saltyminer\obj\Debug\netcoreapp3.1\salty_namespace.dll
+C:\Users\weave\OneDrive\Documents\GitHub\raptoreum-saltyminer\obj\Debug\netcoreapp3.1\salty_namespace.pdb
+C:\Users\weave\OneDrive\Documents\GitHub\raptoreum-saltyminer\obj\Debug\netcoreapp3.1\salty_namespace.genruntimeconfig.cache

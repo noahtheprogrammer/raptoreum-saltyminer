@@ -1,10 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace raptoreum_rtminer
+namespace salty_namespace
 {
     static class Program
     {
@@ -17,7 +14,7 @@ namespace raptoreum_rtminer
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new rtm_miner());
+            Application.Run(new saltyminer());
         }
     }
 }
