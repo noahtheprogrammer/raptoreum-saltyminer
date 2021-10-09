@@ -1,5 +1,0 @@
-C:\Users\weave\OneDrive\Desktop\release\raptoreum-rtminer.exe
-C:\Users\weave\OneDrive\Desktop\release\raptoreum-rtminer.dll
-C:\Users\weave\OneDrive\Desktop\release\raptoreum-rtminer.deps.json
-C:\Users\weave\OneDrive\Desktop\release\raptoreum-rtminer.runtimeconfig.json
-C:\Users\weave\OneDrive\Desktop\release\raptoreum-rtminer.pdb

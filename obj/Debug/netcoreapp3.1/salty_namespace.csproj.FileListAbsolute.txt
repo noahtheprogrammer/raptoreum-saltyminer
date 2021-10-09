@@ -13,3 +13,4 @@ C:\Users\weave\OneDrive\Documents\GitHub\raptoreum-saltyminer\obj\Debug\netcorea
 C:\Users\weave\OneDrive\Documents\GitHub\raptoreum-saltyminer\obj\Debug\netcoreapp3.1\salty_namespace.dll
 C:\Users\weave\OneDrive\Documents\GitHub\raptoreum-saltyminer\obj\Debug\netcoreapp3.1\salty_namespace.pdb
 C:\Users\weave\OneDrive\Documents\GitHub\raptoreum-saltyminer\obj\Debug\netcoreapp3.1\salty_namespace.genruntimeconfig.cache
+C:\Users\weave\OneDrive\Documents\GitHub\raptoreum-saltyminer\obj\Debug\netcoreapp3.1\salty_namespace.csproj.AssemblyReference.cache

@@ -552,7 +552,7 @@ namespace salty_namespace
             this.Controls.Add(this.quit_button);
             this.Controls.Add(this.panel_2);
             this.Controls.Add(this.panel_1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -582,7 +582,7 @@ namespace salty_namespace
         #endregion
 
         private System.Windows.Forms.Label address_label;
-        private System.Windows.Forms.ListBox set_box;
+        public System.Windows.Forms.ListBox set_box;
         private System.Windows.Forms.TextBox pool_text;
         private System.Windows.Forms.Label pool_label;
         private System.Windows.Forms.TextBox address_text;
@@ -609,7 +609,7 @@ namespace salty_namespace
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label arch_count;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label cpu_usage;
+        public System.Windows.Forms.Label cpu_usage;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox cmd_output;

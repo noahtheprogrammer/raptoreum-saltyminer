@@ -5,6 +5,39 @@ using System.Windows.Forms;
 
 namespace salty_namespace
 {
+    // Class used for main design system
+    public partial class Design
+    {
+        // Gets the information required to move the form with the mouse
+        public int WM_NCHITTEST = 0x84;
+        public int HTCLIENT = 0x1;
+        public int HTCAPTION = 0x2;
+
+        // Variable to locate saltyminer
+        public saltyminer sm;
+
+        // Changes the set box color
+        public void set_box_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            var brush = new SolidBrush(Color.FromKnownColor(KnownColor.ControlDarkDark));
+
+            if (e.Index < 0) return;
+
+            //if the item state is selected them change the back color 
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+                e = new DrawItemEventArgs(e.Graphics, e.Font, e.Bounds, e.Index, e.State ^ DrawItemState.Selected, e.ForeColor, Color.FromArgb(50, 50, 50));
+
+            // Draw the background of the ListBox control for each item.
+            e.DrawBackground();
+
+            // Draw the current item text
+            e.Graphics.DrawString(sm.set_box.Items[e.Index].ToString(), e.Font, brush, e.Bounds, StringFormat.GenericDefault);
+
+            // If the ListBox has focus, draw a focus rectangle around the selected item.
+            e.DrawFocusRectangle();
+        }
+    }
+
     // Class used to create rounded panel design
     public class RoundedPanel : Panel
     {

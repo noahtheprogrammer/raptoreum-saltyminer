@@ -121,31 +121,11 @@ namespace salty_namespace.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] roboto_medium {
-            get {
-                object obj = ResourceManager.GetObject("roboto_medium", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap sm_banner {
             get {
                 object obj = ResourceManager.GetObject("sm_banner", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap sm_logo {
-            get {
-                object obj = ResourceManager.GetObject("sm_logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
