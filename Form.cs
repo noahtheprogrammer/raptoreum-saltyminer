@@ -32,6 +32,7 @@ namespace salty_namespace
             // Initalizes data load and component initiation
             InitializeComponent();
             miner.load_data();
+            monitor.LoadMonitor();
             miner.sm = this;
             monitor.sm = this;
             design.sm = this;
@@ -165,6 +166,12 @@ namespace salty_namespace
         private void config_button_Click(object sender, EventArgs e)
         {
             panel_1.BringToFront();
+        }
+
+        // Brings the command output panel to the front
+        private void cmd_button_Click(object sender, EventArgs e)
+        {
+            panel_3.BringToFront();
         }
 
         // Quits the program on click

@@ -19,13 +19,13 @@ namespace salty_namespace
         // Changes the set box color
         public void set_box_DrawItem(object sender, DrawItemEventArgs e)
         {
-            var brush = new SolidBrush(Color.FromKnownColor(KnownColor.ControlDarkDark));
+            var brush = new SolidBrush(Color.FromArgb(100,100,100));
 
             if (e.Index < 0) return;
 
             //if the item state is selected them change the back color 
             if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
-                e = new DrawItemEventArgs(e.Graphics, e.Font, e.Bounds, e.Index, e.State ^ DrawItemState.Selected, e.ForeColor, Color.FromArgb(50, 50, 50));
+                e = new DrawItemEventArgs(e.Graphics, e.Font, e.Bounds, e.Index, e.State ^ DrawItemState.Selected, e.ForeColor, Color.FromArgb(25, 25, 25));
 
             // Draw the background of the ListBox control for each item.
             e.DrawBackground();

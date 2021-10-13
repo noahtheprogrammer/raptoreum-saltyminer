@@ -63,9 +63,9 @@ namespace salty_namespace.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap config_button {
+        internal static System.Drawing.Bitmap cmd_button_dark {
             get {
-                object obj = ResourceManager.GetObject("config_button", resourceCulture);
+                object obj = ResourceManager.GetObject("cmd_button_dark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace salty_namespace.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap exit_icon {
+        internal static System.Drawing.Bitmap config_button_dark {
             get {
-                object obj = ResourceManager.GetObject("exit_icon", resourceCulture);
+                object obj = ResourceManager.GetObject("config_button_dark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,19 @@ namespace salty_namespace.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap home_button {
+        internal static System.Drawing.Bitmap exit_icon_dark {
             get {
-                object obj = ResourceManager.GetObject("home_button", resourceCulture);
+                object obj = ResourceManager.GetObject("exit_icon_dark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap home_button_dark {
+            get {
+                object obj = ResourceManager.GetObject("home_button_dark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +123,9 @@ namespace salty_namespace.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap minimize_icon {
+        internal static System.Drawing.Bitmap minimize_icon_dark {
             get {
-                object obj = ResourceManager.GetObject("minimize_icon", resourceCulture);
+                object obj = ResourceManager.GetObject("minimize_icon_dark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +133,29 @@ namespace salty_namespace.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sm_banner {
+        internal static System.Drawing.Bitmap sm_banner_dark {
             get {
-                object obj = ResourceManager.GetObject("sm_banner", resourceCulture);
+                object obj = ResourceManager.GetObject("sm_banner_dark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ui_1_dark {
+            get {
+                object obj = ResourceManager.GetObject("ui_1_dark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ui_2_dark {
+            get {
+                object obj = ResourceManager.GetObject("ui_2_dark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
