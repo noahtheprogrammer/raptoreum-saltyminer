@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace salty_namespace
+namespace salty
 {
     // Class used for main design system
     public partial class Design

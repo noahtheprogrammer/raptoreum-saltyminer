@@ -1,4 +1,4 @@
-namespace salty_namespace
+namespace salty
 {
     partial class saltyminer
     {
@@ -36,7 +36,7 @@ namespace salty_namespace
             this.address_text = new System.Windows.Forms.TextBox();
             this.instruction_set_label = new System.Windows.Forms.Label();
             this.panel_1 = new System.Windows.Forms.Panel();
-            this.roundedPanel1 = new salty_namespace.RoundedPanel();
+            this.roundedPanel1 = new salty.RoundedPanel();
             this.settings_label = new System.Windows.Forms.Label();
             this.extra_params_text = new System.Windows.Forms.TextBox();
             this.extra_params_label = new System.Windows.Forms.Label();
@@ -268,7 +268,7 @@ namespace salty_namespace
             // 
             // ui_holder_2
             // 
-            this.ui_holder_2.Image = global::salty_namespace.Properties.Resources.ui_2_dark;
+            this.ui_holder_2.Image = global::salty.Properties.Resources.ui_2_dark;
             this.ui_holder_2.Location = new System.Drawing.Point(25, 10);
             this.ui_holder_2.Name = "ui_holder_2";
             this.ui_holder_2.Size = new System.Drawing.Size(800, 400);
@@ -278,7 +278,7 @@ namespace salty_namespace
             // 
             // mining_button
             // 
-            this.mining_button.Image = global::salty_namespace.Properties.Resources.mine_start;
+            this.mining_button.Image = global::salty.Properties.Resources.mine_start;
             this.mining_button.Location = new System.Drawing.Point(331, 5);
             this.mining_button.Name = "mining_button";
             this.mining_button.Size = new System.Drawing.Size(200, 200);
@@ -383,7 +383,7 @@ namespace salty_namespace
             // 
             // ui_holder_1
             // 
-            this.ui_holder_1.Image = global::salty_namespace.Properties.Resources.ui_1_dark;
+            this.ui_holder_1.Image = global::salty.Properties.Resources.ui_1_dark;
             this.ui_holder_1.Location = new System.Drawing.Point(-65, 232);
             this.ui_holder_1.Name = "ui_holder_1";
             this.ui_holder_1.Size = new System.Drawing.Size(1000, 200);
@@ -409,7 +409,7 @@ namespace salty_namespace
             // 
             // quit_button
             // 
-            this.quit_button.Image = global::salty_namespace.Properties.Resources.exit_icon_dark;
+            this.quit_button.Image = global::salty.Properties.Resources.exit_icon_dark;
             this.quit_button.Location = new System.Drawing.Point(808, 1);
             this.quit_button.Name = "quit_button";
             this.quit_button.Size = new System.Drawing.Size(40, 40);
@@ -420,7 +420,7 @@ namespace salty_namespace
             // 
             // min_button
             // 
-            this.min_button.Image = global::salty_namespace.Properties.Resources.minimize_icon_dark;
+            this.min_button.Image = global::salty.Properties.Resources.minimize_icon_dark;
             this.min_button.Location = new System.Drawing.Point(762, 1);
             this.min_button.Name = "min_button";
             this.min_button.Size = new System.Drawing.Size(40, 40);
@@ -431,7 +431,7 @@ namespace salty_namespace
             // 
             // dash_button
             // 
-            this.dash_button.Image = global::salty_namespace.Properties.Resources.home_button_dark;
+            this.dash_button.Image = global::salty.Properties.Resources.home_button_dark;
             this.dash_button.Location = new System.Drawing.Point(623, 1);
             this.dash_button.Name = "dash_button";
             this.dash_button.Size = new System.Drawing.Size(40, 40);
@@ -442,7 +442,7 @@ namespace salty_namespace
             // 
             // config_button
             // 
-            this.config_button.Image = global::salty_namespace.Properties.Resources.config_button_dark;
+            this.config_button.Image = global::salty.Properties.Resources.config_button_dark;
             this.config_button.Location = new System.Drawing.Point(669, 1);
             this.config_button.Name = "config_button";
             this.config_button.Size = new System.Drawing.Size(40, 40);
@@ -453,7 +453,7 @@ namespace salty_namespace
             // 
             // sm_banner
             // 
-            this.sm_banner.Image = global::salty_namespace.Properties.Resources.sm_banner_dark;
+            this.sm_banner.Image = global::salty.Properties.Resources.sm_banner_dark;
             this.sm_banner.Location = new System.Drawing.Point(-4, 1);
             this.sm_banner.Name = "sm_banner";
             this.sm_banner.Size = new System.Drawing.Size(150, 50);
@@ -488,7 +488,7 @@ namespace salty_namespace
             // 
             // ui_holder_3
             // 
-            this.ui_holder_3.Image = global::salty_namespace.Properties.Resources.ui_2_dark;
+            this.ui_holder_3.Image = global::salty.Properties.Resources.ui_2_dark;
             this.ui_holder_3.Location = new System.Drawing.Point(22, 13);
             this.ui_holder_3.Name = "ui_holder_3";
             this.ui_holder_3.Size = new System.Drawing.Size(800, 400);
@@ -498,7 +498,7 @@ namespace salty_namespace
             // 
             // cmd_button
             // 
-            this.cmd_button.Image = global::salty_namespace.Properties.Resources.cmd_button_dark;
+            this.cmd_button.Image = global::salty.Properties.Resources.cmd_button_dark;
             this.cmd_button.Location = new System.Drawing.Point(715, 1);
             this.cmd_button.Name = "cmd_button";
             this.cmd_button.Size = new System.Drawing.Size(40, 40);

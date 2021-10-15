@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace salty_namespace
+namespace salty
 {
     public partial class Monitor
     {

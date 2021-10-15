@@ -8,7 +8,7 @@ using System.Threading;
 using System.Text;
 using Timer = System.Timers.Timer;
 
-namespace salty_namespace
+namespace salty
 {
     class Miner
     {

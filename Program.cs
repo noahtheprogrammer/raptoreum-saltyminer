@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Threading;
 
-namespace salty_namespace
+namespace salty
 {
     static class Program
     {

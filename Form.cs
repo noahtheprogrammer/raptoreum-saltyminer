@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-namespace salty_namespace
+namespace salty
 {
 
     // Class that holds the saltyminer form
