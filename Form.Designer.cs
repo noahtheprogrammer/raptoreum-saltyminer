@@ -207,7 +207,7 @@ namespace salty_namespace
             this.settings_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.settings_label.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.settings_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-            this.settings_label.Location = new System.Drawing.Point(68, 37);
+            this.settings_label.Location = new System.Drawing.Point(62, 38);
             this.settings_label.Name = "settings_label";
             this.settings_label.Size = new System.Drawing.Size(192, 39);
             this.settings_label.TabIndex = 10;
@@ -519,9 +519,9 @@ namespace salty_namespace
             this.Controls.Add(this.dash_button);
             this.Controls.Add(this.min_button);
             this.Controls.Add(this.quit_button);
+            this.Controls.Add(this.panel_2);
             this.Controls.Add(this.panel_3);
             this.Controls.Add(this.panel_1);
-            this.Controls.Add(this.panel_2);
             this.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

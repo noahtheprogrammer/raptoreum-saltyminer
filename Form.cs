@@ -37,19 +37,20 @@ namespace salty_namespace
             monitor.sm = this;
             design.sm = this;
 
+            // Checks what to change the thread text to
+            core_count.Text = threads_text.Text;
+            if (miner.thread_count == null)
+            {
+                miner.thread_count = "0";
+                core_count.Text = "0";
+            }
+
             // Rounds the form edges
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
 
             // Changes text displays
             change_text_saved();
             set_box.DrawItem += new DrawItemEventHandler(design.set_box_DrawItem);
-
-            // Checks what to change the thread text to
-            core_count.Text = threads_text.Text;
-            if (miner.thread_count == "")
-            {
-                core_count.Text = "NA";
-            }
 
             arch_count.Text = RuntimeInformation.ProcessArchitecture.ToString();
         }
@@ -91,6 +92,7 @@ namespace salty_namespace
         private void threads_text_TextChanged(object sender, EventArgs e)
         {
             miner.thread_count = threads_text.Text;
+            core_count.Text = miner.thread_count;
             miner.save_data();
         }
 
