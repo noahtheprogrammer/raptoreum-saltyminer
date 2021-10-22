@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "salty_namespace", "salty_namespace.csproj", "{C7180E2E-B417-408E-89BD-143A677FF2E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "salty", "salty.csproj", "{C7180E2E-B417-408E-89BD-143A677FF2E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

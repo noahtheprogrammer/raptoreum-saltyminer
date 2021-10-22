@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 
 namespace salty
 {
-
+    
     // Class that holds the saltyminer form
     public partial class saltyminer : Form
     {
