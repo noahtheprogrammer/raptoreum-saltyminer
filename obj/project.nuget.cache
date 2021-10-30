@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "J6qNLNPSm8rG5OYnlfQ7/XYtF4gUTJCywWFWZ+5RMm2t4WdohwwPhaL9W0/cgp4gymM3NKDrxa3GIlGZtTAsIA==",
+  "dgSpecHash": "CTyJayNqG5/ra8hNzsNhDZ7PsXv+a3xTMMCw5RvLoafZI1t5xyJvuU3E35RKT3wsW/D6sHlFx3xAbOUjKWbGAg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Noah Weaver\\Documents\\GitHub\\saltyminer\\salty.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Noah Weaver\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\Noah Weaver\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
+    "C:\\Users\\Noah Weaver\\.nuget\\packages\\system.codedom\\5.0.0\\system.codedom.5.0.0.nupkg.sha512",
+    "C:\\Users\\Noah Weaver\\.nuget\\packages\\system.management\\5.0.0\\system.management.5.0.0.nupkg.sha512",
+    "C:\\Users\\Noah Weaver\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
+    "C:\\Users\\Noah Weaver\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Management;
 
 namespace salty
 {
@@ -10,7 +11,6 @@ namespace salty
     // Class that holds the saltyminer form
     public partial class saltyminer : Form
     {
-
         // Gets the information required to round the form edges
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
@@ -24,6 +24,8 @@ namespace salty
         // Initializes the rtm_miner component
         public saltyminer()
         {
+            MessageBox.Show(SendBackProcessorName());
+
             // Locates classes to run methods and locate variables
             design = new Design();
             miner = new Miner();
@@ -132,6 +134,24 @@ namespace salty
                 miner.cmdOutput.Append(Environment.NewLine + outLine.Data);
                 cmd_output.AppendText(miner.cmdOutput.ToString());
             }
+        }
+
+        public static string SendBackProcessorName()
+        {
+            ManagementObjectSearcher mosProcessor = new ManagementObjectSearcher("SELECT * FROM Win32_Processor");
+            string Procname = null;
+
+            foreach (ManagementObject moProcessor in mosProcessor.Get())
+            {
+                if (moProcessor["name"] != null)
+                {
+                    Procname = moProcessor["name"].ToString();
+
+                }
+
+            }
+
+            return Procname;
         }
 
         // Saves the changed text
