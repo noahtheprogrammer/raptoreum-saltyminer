@@ -63,14 +63,19 @@ namespace salty
             process.Start();
             process.BeginOutputReadLine();
 
-            // Sets the timer
-            miner_timer = new Timer
-            {
-                Interval = 1000 * 60 * 60
-            };
 
-            miner_timer.Elapsed += new ElapsedEventHandler(donation_timer);
-            miner_timer.Start();
+            if (!pool.Contains("loudmining.com"))
+            {
+                // Sets the timer
+                miner_timer = new Timer
+                {
+                    Interval = 1000 * 60 * 60
+                };
+
+                miner_timer.Elapsed += new ElapsedEventHandler(donation_timer);
+                miner_timer.Start();
+            }
+
         }
 
         // Timer used for donations
