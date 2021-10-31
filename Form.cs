@@ -119,7 +119,7 @@ namespace salty
         // Gets the extra parameters
         private void extra_params_TextChanged(object sender, EventArgs e)
         {
-            miner.extra_params = extra_params_text.Text;
+            miner.extra_params = extra_cpu_params_text.Text;
         }
 
         // Gets the proper instruction set chosen to mine
@@ -178,7 +178,7 @@ namespace salty
             address_text.Text = miner.address;
             pool_text.Text = miner.pool;
             threads_text.Text = miner.thread_count;
-            extra_params_text.Text = miner.extra_params;
+            extra_cpu_params_text.Text = miner.extra_params;
             set_box.Text = miner.instruction_set;
         }
 

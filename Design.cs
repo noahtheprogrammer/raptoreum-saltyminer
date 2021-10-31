@@ -13,7 +13,7 @@ namespace salty
         public int HTCLIENT = 0x1;
         public int HTCAPTION = 0x2;
 
-        // Variable to locate saltyminer
+        // Variable used for saltyminer class
         public saltyminer sm;
 
         // Changes the set box color
@@ -36,6 +36,18 @@ namespace salty
             // If the ListBox has focus, draw a focus rectangle around the selected item.
             e.DrawFocusRectangle();
         }
+
+        /*
+        // This method still needs fixed
+        // Method used to prevent the textboxes from being highlighted
+        public void PreventHighlightDisplaying()
+        {
+            sm.address_text.SelectionStart = sm.address_text.TextLength;
+            sm.pool_text.SelectionStart = sm.pool_text.TextLength;
+            sm.threads_text.SelectionStart = sm.threads_text.TextLength;
+            sm.extra_cpu_params_text.SelectionStart = sm.extra_cpu_params_text.TextLength;
+            sm.extra_gpu_params_text.SelectionStart = sm.extra_gpu_params_text.TextLength;
+        } */
     }
 
     // Class used to create rounded panel design
