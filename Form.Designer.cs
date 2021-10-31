@@ -45,13 +45,18 @@ namespace salty
             this.ui_holder_2 = new System.Windows.Forms.PictureBox();
             this.mining_button = new System.Windows.Forms.PictureBox();
             this.panel_2 = new System.Windows.Forms.Panel();
+            this.roundedPanel2 = new salty.RoundedPanel();
+            this.seperation_line_1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.arch_count = new System.Windows.Forms.Label();
-            this.core_count = new System.Windows.Forms.Label();
-            this.cpu_usage = new System.Windows.Forms.Label();
-            this.usage_text = new System.Windows.Forms.Label();
-            this.cores_text = new System.Windows.Forms.Label();
+            this.cpu_count = new System.Windows.Forms.Label();
             this.arch_text = new System.Windows.Forms.Label();
-            this.ui_holder_1 = new System.Windows.Forms.PictureBox();
+            this.core_count = new System.Windows.Forms.Label();
+            this.gpu_text = new System.Windows.Forms.Label();
+            this.cores_text = new System.Windows.Forms.Label();
+            this.usage_text = new System.Windows.Forms.Label();
+            this.cpu_usage = new System.Windows.Forms.Label();
+            this.gpu_count = new System.Windows.Forms.Label();
             this.cmd_output = new System.Windows.Forms.TextBox();
             this.quit_button = new System.Windows.Forms.PictureBox();
             this.min_button = new System.Windows.Forms.PictureBox();
@@ -62,12 +67,13 @@ namespace salty
             this.output_title = new System.Windows.Forms.Label();
             this.ui_holder_3 = new System.Windows.Forms.PictureBox();
             this.cmd_button = new System.Windows.Forms.PictureBox();
+            this.seperation_line_2 = new System.Windows.Forms.Panel();
             this.panel_1.SuspendLayout();
             this.roundedPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ui_holder_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mining_button)).BeginInit();
             this.panel_2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ui_holder_1)).BeginInit();
+            this.roundedPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.quit_button)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.min_button)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dash_button)).BeginInit();
@@ -290,106 +296,171 @@ namespace salty
             // panel_2
             // 
             this.panel_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.panel_2.Controls.Add(this.arch_count);
-            this.panel_2.Controls.Add(this.core_count);
-            this.panel_2.Controls.Add(this.cpu_usage);
-            this.panel_2.Controls.Add(this.usage_text);
-            this.panel_2.Controls.Add(this.cores_text);
-            this.panel_2.Controls.Add(this.arch_text);
-            this.panel_2.Controls.Add(this.ui_holder_1);
+            this.panel_2.Controls.Add(this.roundedPanel2);
             this.panel_2.Controls.Add(this.mining_button);
             this.panel_2.Location = new System.Drawing.Point(-4, 47);
             this.panel_2.Name = "panel_2";
             this.panel_2.Size = new System.Drawing.Size(860, 457);
             this.panel_2.TabIndex = 7;
             // 
+            // roundedPanel2
+            // 
+            this.roundedPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanel2.Controls.Add(this.seperation_line_2);
+            this.roundedPanel2.Controls.Add(this.seperation_line_1);
+            this.roundedPanel2.Controls.Add(this.label1);
+            this.roundedPanel2.Controls.Add(this.arch_count);
+            this.roundedPanel2.Controls.Add(this.cpu_count);
+            this.roundedPanel2.Controls.Add(this.arch_text);
+            this.roundedPanel2.Controls.Add(this.core_count);
+            this.roundedPanel2.Controls.Add(this.gpu_text);
+            this.roundedPanel2.Controls.Add(this.cores_text);
+            this.roundedPanel2.Controls.Add(this.usage_text);
+            this.roundedPanel2.Controls.Add(this.cpu_usage);
+            this.roundedPanel2.Controls.Add(this.gpu_count);
+            this.roundedPanel2.Location = new System.Drawing.Point(86, 211);
+            this.roundedPanel2.Name = "roundedPanel2";
+            this.roundedPanel2.panel_color = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.roundedPanel2.Size = new System.Drawing.Size(658, 212);
+            this.roundedPanel2.TabIndex = 11;
+            // 
+            // seperation_line_1
+            // 
+            this.seperation_line_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.seperation_line_1.Location = new System.Drawing.Point(150, 12);
+            this.seperation_line_1.Name = "seperation_line_1";
+            this.seperation_line_1.Size = new System.Drawing.Size(2, 150);
+            this.seperation_line_1.TabIndex = 15;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.label1.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label1.Location = new System.Drawing.Point(188, 98);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 27);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "CPU";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.UseCompatibleTextRendering = true;
+            // 
             // arch_count
             // 
             this.arch_count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.arch_count.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.arch_count.Font = new System.Drawing.Font("Roboto Medium", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.arch_count.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-            this.arch_count.Location = new System.Drawing.Point(361, 293);
+            this.arch_count.Location = new System.Drawing.Point(479, 113);
             this.arch_count.Name = "arch_count";
-            this.arch_count.Size = new System.Drawing.Size(154, 60);
+            this.arch_count.Size = new System.Drawing.Size(107, 32);
             this.arch_count.TabIndex = 7;
             this.arch_count.Text = "X64";
-            this.arch_count.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.arch_count.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.arch_count.UseCompatibleTextRendering = true;
             // 
-            // core_count
+            // cpu_count
             // 
-            this.core_count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.core_count.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.core_count.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-            this.core_count.Location = new System.Drawing.Point(157, 293);
-            this.core_count.Name = "core_count";
-            this.core_count.Size = new System.Drawing.Size(134, 56);
-            this.core_count.TabIndex = 4;
-            this.core_count.Text = "0";
-            this.core_count.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.core_count.UseCompatibleTextRendering = true;
-            // 
-            // cpu_usage
-            // 
-            this.cpu_usage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.cpu_usage.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cpu_usage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-            this.cpu_usage.Location = new System.Drawing.Point(570, 293);
-            this.cpu_usage.Name = "cpu_usage";
-            this.cpu_usage.Size = new System.Drawing.Size(132, 56);
-            this.cpu_usage.TabIndex = 9;
-            this.cpu_usage.Text = "0%";
-            this.cpu_usage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.cpu_usage.UseCompatibleTextRendering = true;
-            // 
-            // usage_text
-            // 
-            this.usage_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.usage_text.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.usage_text.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.usage_text.Location = new System.Drawing.Point(593, 349);
-            this.usage_text.Name = "usage_text";
-            this.usage_text.Size = new System.Drawing.Size(81, 27);
-            this.usage_text.TabIndex = 10;
-            this.usage_text.Text = "USAGE";
-            this.usage_text.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.usage_text.UseCompatibleTextRendering = true;
-            // 
-            // cores_text
-            // 
-            this.cores_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.cores_text.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cores_text.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.cores_text.Location = new System.Drawing.Point(185, 349);
-            this.cores_text.Name = "cores_text";
-            this.cores_text.Size = new System.Drawing.Size(80, 27);
-            this.cores_text.TabIndex = 6;
-            this.cores_text.Text = "CORES";
-            this.cores_text.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.cores_text.UseCompatibleTextRendering = true;
+            this.cpu_count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.cpu_count.Font = new System.Drawing.Font("Roboto Medium", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cpu_count.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+            this.cpu_count.Location = new System.Drawing.Point(187, 47);
+            this.cpu_count.Name = "cpu_count";
+            this.cpu_count.Size = new System.Drawing.Size(81, 56);
+            this.cpu_count.TabIndex = 13;
+            this.cpu_count.Text = "1";
+            this.cpu_count.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cpu_count.UseCompatibleTextRendering = true;
             // 
             // arch_text
             // 
             this.arch_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.arch_text.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.arch_text.Font = new System.Drawing.Font("Roboto Medium", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.arch_text.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.arch_text.Location = new System.Drawing.Point(361, 349);
+            this.arch_text.Location = new System.Drawing.Point(346, 117);
             this.arch_text.Name = "arch_text";
             this.arch_text.Size = new System.Drawing.Size(147, 27);
             this.arch_text.TabIndex = 8;
-            this.arch_text.Text = "ARCHITECTURE";
-            this.arch_text.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.arch_text.Text = "ARCHITECTURE:";
+            this.arch_text.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.arch_text.UseCompatibleTextRendering = true;
             // 
-            // ui_holder_1
+            // core_count
             // 
-            this.ui_holder_1.Image = global::salty.Properties.Resources.ui_1_dark;
-            this.ui_holder_1.Location = new System.Drawing.Point(-65, 232);
-            this.ui_holder_1.Name = "ui_holder_1";
-            this.ui_holder_1.Size = new System.Drawing.Size(1000, 200);
-            this.ui_holder_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ui_holder_1.TabIndex = 12;
-            this.ui_holder_1.TabStop = false;
+            this.core_count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.core_count.Font = new System.Drawing.Font("Roboto Medium", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.core_count.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+            this.core_count.Location = new System.Drawing.Point(500, 73);
+            this.core_count.Name = "core_count";
+            this.core_count.Size = new System.Drawing.Size(80, 35);
+            this.core_count.TabIndex = 4;
+            this.core_count.Text = "0";
+            this.core_count.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.core_count.UseCompatibleTextRendering = true;
+            // 
+            // gpu_text
+            // 
+            this.gpu_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.gpu_text.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.gpu_text.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.gpu_text.Location = new System.Drawing.Point(35, 98);
+            this.gpu_text.Name = "gpu_text";
+            this.gpu_text.Size = new System.Drawing.Size(80, 27);
+            this.gpu_text.TabIndex = 12;
+            this.gpu_text.Text = "GPU";
+            this.gpu_text.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.gpu_text.UseCompatibleTextRendering = true;
+            // 
+            // cores_text
+            // 
+            this.cores_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.cores_text.Font = new System.Drawing.Font("Roboto Medium", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cores_text.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.cores_text.Location = new System.Drawing.Point(346, 78);
+            this.cores_text.Name = "cores_text";
+            this.cores_text.Size = new System.Drawing.Size(158, 27);
+            this.cores_text.TabIndex = 6;
+            this.cores_text.Text = "ENABLED CORES:";
+            this.cores_text.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cores_text.UseCompatibleTextRendering = true;
+            // 
+            // usage_text
+            // 
+            this.usage_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.usage_text.Font = new System.Drawing.Font("Roboto Medium", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.usage_text.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.usage_text.Location = new System.Drawing.Point(346, 37);
+            this.usage_text.Name = "usage_text";
+            this.usage_text.Size = new System.Drawing.Size(135, 27);
+            this.usage_text.TabIndex = 10;
+            this.usage_text.Text = "CPU USAGE:";
+            this.usage_text.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.usage_text.UseCompatibleTextRendering = true;
+            // 
+            // cpu_usage
+            // 
+            this.cpu_usage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.cpu_usage.Font = new System.Drawing.Font("Roboto Medium", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cpu_usage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+            this.cpu_usage.Location = new System.Drawing.Point(511, 36);
+            this.cpu_usage.Name = "cpu_usage";
+            this.cpu_usage.Size = new System.Drawing.Size(69, 28);
+            this.cpu_usage.TabIndex = 9;
+            this.cpu_usage.Text = "0%";
+            this.cpu_usage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cpu_usage.UseCompatibleTextRendering = true;
+            // 
+            // gpu_count
+            // 
+            this.gpu_count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.gpu_count.Font = new System.Drawing.Font("Roboto Medium", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.gpu_count.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+            this.gpu_count.Location = new System.Drawing.Point(35, 47);
+            this.gpu_count.Name = "gpu_count";
+            this.gpu_count.Size = new System.Drawing.Size(80, 56);
+            this.gpu_count.TabIndex = 12;
+            this.gpu_count.Text = "1";
+            this.gpu_count.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.gpu_count.UseCompatibleTextRendering = true;
             // 
             // cmd_output
             // 
@@ -507,6 +578,14 @@ namespace salty
             this.cmd_button.TabStop = false;
             this.cmd_button.Click += new System.EventHandler(this.cmd_button_Click);
             // 
+            // seperation_line_2
+            // 
+            this.seperation_line_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.seperation_line_2.Location = new System.Drawing.Point(301, 12);
+            this.seperation_line_2.Name = "seperation_line_2";
+            this.seperation_line_2.Size = new System.Drawing.Size(2, 150);
+            this.seperation_line_2.TabIndex = 16;
+            // 
             // saltyminer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -536,7 +615,7 @@ namespace salty
             ((System.ComponentModel.ISupportInitialize)(this.ui_holder_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mining_button)).EndInit();
             this.panel_2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ui_holder_1)).EndInit();
+            this.roundedPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.quit_button)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.min_button)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dash_button)).EndInit();
@@ -577,7 +656,6 @@ namespace salty
         public System.Windows.Forms.Label cpu_usage;
         private System.Windows.Forms.Label usage_text;
         private System.Windows.Forms.Label cores_text;
-        private System.Windows.Forms.PictureBox ui_holder_1;
         private System.Windows.Forms.PictureBox ui_holder_2;
         private System.Windows.Forms.Label settings_label;
         private RoundedPanel roundedPanel1;
@@ -585,6 +663,13 @@ namespace salty
         private System.Windows.Forms.Label output_title;
         private System.Windows.Forms.PictureBox ui_holder_3;
         private System.Windows.Forms.PictureBox cmd_button;
+        private RoundedPanel roundedPanel2;
+        private System.Windows.Forms.Label gpu_count;
+        private System.Windows.Forms.Label gpu_text;
+        private System.Windows.Forms.Label cpu_count;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel seperation_line_1;
+        private System.Windows.Forms.Panel seperation_line_2;
     }
 }
 

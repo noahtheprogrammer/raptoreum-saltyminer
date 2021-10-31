@@ -47,6 +47,10 @@ namespace salty
                 core_count.Text = "0";
             }
 
+            // Displays the amount of GPUs and CPUs onboard
+            gpu_count.Text = GetGPUCount().ToString();
+            cpu_count.Text = GetCPUCount().ToString();
+
             // Rounds the form edges
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
 
@@ -55,6 +59,20 @@ namespace salty
             set_box.DrawItem += new DrawItemEventHandler(design.set_box_DrawItem);
 
             arch_count.Text = RuntimeInformation.ProcessArchitecture.ToString();
+        }
+
+        // Finds amount of GPUs onboard
+        private int GetGPUCount()
+        {
+            var searcher = new ManagementObjectSearcher("select * from Win32_VideoController");
+            return searcher.Get().Count;
+        }
+
+        // Finds amount of CPUs onboard
+        private int GetCPUCount()
+        {
+            var searcher = new ManagementObjectSearcher("select * from Win32_Processor");
+            return searcher.Get().Count;
         }
 
         // Starts or stops the mining whenever the button is clicked
