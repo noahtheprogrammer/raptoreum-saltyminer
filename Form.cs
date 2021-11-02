@@ -39,14 +39,6 @@ namespace salty
             monitor.sm = this;
             design.sm = this;
 
-            // Checks what to change the thread text to
-            core_count.Text = threads_text.Text;
-            if (miner.thread_count == null)
-            {
-                miner.thread_count = "0";
-                core_count.Text = "0";
-            }
-
             // Displays the amount of GPUs and CPUs onboard
             gpu_count.Text = GetGPUCount().ToString();
             cpu_count.Text = GetCPUCount().ToString();
@@ -56,7 +48,6 @@ namespace salty
 
             // Changes text displays
             change_text_saved();
-            set_box.DrawItem += new DrawItemEventHandler(design.set_box_DrawItem);
 
             arch_count.Text = RuntimeInformation.ProcessArchitecture.ToString();
         }
@@ -78,19 +69,19 @@ namespace salty
         // Starts or stops the mining whenever the button is clicked
         private void mining_button_Click_1(object sender, EventArgs e)
         {
-            if (miner._ismining == false)
+            if (miner._iscpumining == false)
             {
-                miner.RunMiner();
+                miner.RunCPUMiner();
                 ButtonChange();
-                miner._ismining = true;
+                miner._iscpumining = true;
             }
 
-            else if (miner._ismining == true)
+            else if (miner._iscpumining == true)
             {
-                miner.process.Kill();
-                cmd_output.Text = "Saltyminer has been shut down successfully.";
+                miner.cpu_process.Kill();
+                cpu_cmd_output.Text = "Saltyminer has been shut down successfully.";
                 ButtonChange();
-                miner._ismining = false;
+                miner._iscpumining = false;
             }
         }
 
@@ -112,7 +103,6 @@ namespace salty
         private void threads_text_TextChanged(object sender, EventArgs e)
         {
             miner.thread_count = threads_text.Text;
-            core_count.Text = miner.thread_count;
             miner.save_data();
         }
 
@@ -140,20 +130,21 @@ namespace salty
             }
         }
 
-        // Outputs the mining process
+        // Outputs the CPU mining process
         public void SortOutputHandler(object sendingProcess, DataReceivedEventArgs outLine)
         {
-            if (cmd_output.InvokeRequired)
+            if (cpu_cmd_output.InvokeRequired)
             {
-                cmd_output.BeginInvoke(new DataReceivedEventHandler(SortOutputHandler), new[] { sendingProcess, outLine });
+                cpu_cmd_output.BeginInvoke(new DataReceivedEventHandler(SortOutputHandler), new[] { sendingProcess, outLine });
             }
             else
             {
-                miner.cmdOutput.Append(Environment.NewLine + outLine.Data);
-                cmd_output.AppendText(miner.cmdOutput.ToString());
+                miner.cpu_cmdOutput.Append(Environment.NewLine + outLine.Data);
+                cpu_cmd_output.AppendText(miner.cpu_cmdOutput.ToString());
             }
         }
 
+        // Sends back the processor name
         public static string SendBackProcessorName()
         {
             ManagementObjectSearcher mosProcessor = new ManagementObjectSearcher("SELECT * FROM Win32_Processor");
@@ -168,8 +159,7 @@ namespace salty
                 }
 
             }
-
-            return Procname;
+                return Procname;
         }
 
         // Saves the changed text
@@ -185,12 +175,12 @@ namespace salty
         // Changes button color
         private void ButtonChange()
         {
-            if (miner._ismining == false)
+            if (miner._iscpumining == false)
             {
                 mining_button.Image = Properties.Resources.mine_stop;
             }
 
-            if (miner._ismining == true)
+            if (miner._iscpumining == true)
             {
                 mining_button.Image = Properties.Resources.mine_start;
             }
@@ -217,14 +207,14 @@ namespace salty
         // Quits the program on click
         private void quit_button_Click(object sender, EventArgs e)
         {
-            if (miner.process == null)
+            if (miner.cpu_process == null)
             {
                 Application.Exit();
             }
 
             else
             {
-                miner.process.Close();
+                miner.cpu_process.Close();
                 Application.Exit();
             }
         }

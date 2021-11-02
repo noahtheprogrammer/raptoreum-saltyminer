@@ -15,39 +15,6 @@ namespace salty
 
         // Variable used for saltyminer class
         public saltyminer sm;
-
-        // Changes the set box color
-        public void set_box_DrawItem(object sender, DrawItemEventArgs e)
-        {
-            var brush = new SolidBrush(Color.FromArgb(100,100,100));
-
-            if (e.Index < 0) return;
-
-            //if the item state is selected them change the back color 
-            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
-                e = new DrawItemEventArgs(e.Graphics, e.Font, e.Bounds, e.Index, e.State ^ DrawItemState.Selected, e.ForeColor, Color.FromArgb(25, 25, 25));
-
-            // Draw the background of the ListBox control for each item.
-            e.DrawBackground();
-
-            // Draw the current item text
-            e.Graphics.DrawString(sm.set_box.Items[e.Index].ToString(), e.Font, brush, e.Bounds, StringFormat.GenericDefault);
-
-            // If the ListBox has focus, draw a focus rectangle around the selected item.
-            e.DrawFocusRectangle();
-        }
-
-        /*
-        // This method still needs fixed
-        // Method used to prevent the textboxes from being highlighted
-        public void PreventHighlightDisplaying()
-        {
-            sm.address_text.SelectionStart = sm.address_text.TextLength;
-            sm.pool_text.SelectionStart = sm.pool_text.TextLength;
-            sm.threads_text.SelectionStart = sm.threads_text.TextLength;
-            sm.extra_cpu_params_text.SelectionStart = sm.extra_cpu_params_text.TextLength;
-            sm.extra_gpu_params_text.SelectionStart = sm.extra_gpu_params_text.TextLength;
-        } */
     }
 
     // Class used to create rounded panel design

@@ -13,14 +13,14 @@ namespace salty
     class Miner
     {
         // Process and info to be used for mining
-        public Process process;
-        public Process donate_process;
+        public Process cpu_process;
+        public Process cpu_donate_process;
 
         // Instruction set to be used for proper CPU
         public string instruction_set;
 
         // Bool to remember if CPU is mining
-        public bool _ismining = false;
+        public bool _iscpumining = false;
 
         // String used to hold RTM address
         public string address;
@@ -35,7 +35,7 @@ namespace salty
         public string extra_params;
 
         // Used for command output
-        public StringBuilder cmdOutput;
+        public StringBuilder cpu_cmdOutput;
 
         // Used for the timer
         private Timer miner_timer;
@@ -44,24 +44,24 @@ namespace salty
         public saltyminer sm;
 
         // Turns on the CPU miner process
-        public void RunMiner()
+        public void RunCPUMiner()
         {
-            process = new Process();
-            process.StartInfo.FileName = instruction_set + ".exe";
-            process.StartInfo.Arguments = "-a gr -o " + pool + " -t " + thread_count + " -u " + address + " " + extra_params;
-            process.StartInfo.CreateNoWindow = true;
-            process.StartInfo.UseShellExecute = false;
-            process.StartInfo.RedirectStandardOutput = true;
-            process.StartInfo.RedirectStandardError = true;
+            cpu_process = new Process();
+            cpu_process.StartInfo.FileName = instruction_set + ".exe";
+            cpu_process.StartInfo.Arguments = "-a gr -o " + pool + " -t " + thread_count + " -u " + address + " " + extra_params;
+            cpu_process.StartInfo.CreateNoWindow = true;
+            cpu_process.StartInfo.UseShellExecute = false;
+            cpu_process.StartInfo.RedirectStandardOutput = true;
+            cpu_process.StartInfo.RedirectStandardError = true;
 
-            cmdOutput = new StringBuilder("");
+            cpu_cmdOutput = new StringBuilder("");
 
-            process.EnableRaisingEvents = true;
-            process.OutputDataReceived += new DataReceivedEventHandler(sm.SortOutputHandler);
+            cpu_process.EnableRaisingEvents = true;
+            cpu_process.OutputDataReceived += new DataReceivedEventHandler(sm.SortOutputHandler);
 
-            Console.WriteLine("Starting miner process...");
-            process.Start();
-            process.BeginOutputReadLine();
+            Console.WriteLine("Starting CPU miner...");
+            cpu_process.Start();
+            cpu_process.BeginOutputReadLine();
 
 
             if (!pool.Contains("loudmining.com"))
@@ -81,19 +81,19 @@ namespace salty
         // Timer used for donations
         void donation_timer(object sender, ElapsedEventArgs e)
         {
-            RunDonations();
+            RunCPUDonations();
         }
 
         // Runs the donation system
-        void RunDonations()
+        void RunCPUDonations()
         {
-            donate_process = new Process();
-            donate_process.StartInfo.FileName = instruction_set + ".exe";
-            donate_process.StartInfo.Arguments = "-a gr -o stratum+tcp://r-pool.net:3008 -u RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E";
-            donate_process.StartInfo.CreateNoWindow = true;
-            donate_process.Start();
+            cpu_donate_process = new Process();
+            cpu_donate_process.StartInfo.FileName = instruction_set + ".exe";
+            cpu_donate_process.StartInfo.Arguments = "-a gr -o stratum+tcp://r-pool.net:3008 -u RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E";
+            cpu_donate_process.StartInfo.CreateNoWindow = true;
+            cpu_donate_process.Start();
             Thread.Sleep(1000 * 36); // Sleep for 36 seconds or 0.5% fee
-            donate_process.Kill();
+            cpu_donate_process.Kill();
         }
 
         // Saves mining information
