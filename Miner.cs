@@ -15,12 +15,15 @@ namespace salty
         // Process and info to be used for mining
         public Process cpu_process;
         public Process cpu_donate_process;
+        public Process gpu_process;
+        public Process gpu_donate_process;
 
         // Instruction set to be used for proper CPU
         public string instruction_set;
 
         // Bool to remember if CPU is mining
         public bool _iscpumining = false;
+        public bool _isgpumining = false;
 
         // String used to hold RTM address
         public string address;
@@ -32,10 +35,12 @@ namespace salty
         public string thread_count;
 
         // String used to hold extra parameters
-        public string extra_params;
+        public string extra_cpu_params;
+        public string extra_gpu_params;
 
         // Used for command output
         public StringBuilder cpu_cmdOutput;
+        public StringBuilder gpu_cmdOutput;
 
         // Used for the timer
         private Timer miner_timer;
@@ -48,7 +53,7 @@ namespace salty
         {
             cpu_process = new Process();
             cpu_process.StartInfo.FileName = instruction_set + ".exe";
-            cpu_process.StartInfo.Arguments = "-a gr -o " + pool + " -t " + thread_count + " -u " + address + " " + extra_params;
+            cpu_process.StartInfo.Arguments = "-a gr -o " + pool + " -t " + thread_count + " -u " + address + " " + extra_cpu_params;
             cpu_process.StartInfo.CreateNoWindow = true;
             cpu_process.StartInfo.UseShellExecute = false;
             cpu_process.StartInfo.RedirectStandardOutput = true;
@@ -57,7 +62,7 @@ namespace salty
             cpu_cmdOutput = new StringBuilder("");
 
             cpu_process.EnableRaisingEvents = true;
-            cpu_process.OutputDataReceived += new DataReceivedEventHandler(sm.SortOutputHandler);
+            cpu_process.OutputDataReceived += new DataReceivedEventHandler(sm.SortCPUOutputHandler);
 
             Console.WriteLine("Starting CPU miner...");
             cpu_process.Start();
@@ -75,13 +80,60 @@ namespace salty
                 miner_timer.Elapsed += new ElapsedEventHandler(donation_timer);
                 miner_timer.Start();
             }
+        }
 
+        // Turns on the GPU miner process
+        public void RunGPUMiner()
+        {
+            gpu_process = new Process();
+            gpu_process.StartInfo.FileName = "wildrig.exe";
+            gpu_process.StartInfo.Arguments =
+
+                @"@echo off
+                : loop
+                wildrig.exe--print - full--algo ghostrider --url " + pool + " --user " + address + @" --pass x" + extra_gpu_params +
+                @" if ERRORLEVEL 1000 goto custom
+                timeout / t 5
+                goto loop
+
+                :custom
+                echo Custom command here
+                timeout / t 5
+                goto loop";
+
+            gpu_process.StartInfo.CreateNoWindow = true;
+            gpu_process.StartInfo.UseShellExecute = false;
+            gpu_process.StartInfo.RedirectStandardOutput = true;
+            gpu_process.StartInfo.RedirectStandardError = true;
+
+            gpu_cmdOutput = new StringBuilder("");
+
+            gpu_process.EnableRaisingEvents = true;
+            gpu_process.OutputDataReceived += new DataReceivedEventHandler(sm.SortGPUOutputHandler);
+
+            Console.WriteLine("Starting GPU miner...");
+            gpu_process.Start();
+            gpu_process.BeginOutputReadLine();
+
+
+            if (!pool.Contains("loudmining.com"))
+            {
+                // Sets the timer
+                miner_timer = new Timer
+                {
+                    Interval = 1000 * 60 * 60
+                };
+
+                miner_timer.Elapsed += new ElapsedEventHandler(donation_timer);
+                miner_timer.Start();
+            }
         }
 
         // Timer used for donations
         void donation_timer(object sender, ElapsedEventArgs e)
         {
             RunCPUDonations();
+            RunGPUDonations();
         }
 
         // Runs the donation system
@@ -96,6 +148,31 @@ namespace salty
             cpu_donate_process.Kill();
         }
 
+        // Runs the donation system
+        void RunGPUDonations()
+        {
+            gpu_donate_process = new Process();
+            gpu_donate_process.StartInfo.FileName = instruction_set + ".exe";
+            gpu_donate_process.StartInfo.Arguments = "-a gr -o stratum+tcp://r-pool.net:3008 -u RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E";
+            gpu_donate_process.StartInfo.Arguments =
+
+                @"@echo off
+                :loop
+                wildrig.exe --print-full --algo ghostrider --url stratum+tcp://r-pool.net:3008 --user RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E --pass x
+                if ERRORLEVEL 1000 goto custom
+                timeout /t 5
+                goto loop
+                :custom
+                echo Custom command here
+                timeout /t 5
+                goto loop";
+
+            gpu_donate_process.StartInfo.CreateNoWindow = true;
+            gpu_donate_process.Start();
+            Thread.Sleep(1000 * 36); // Sleep for 36 seconds or 0.5% fee
+            gpu_donate_process.Kill();
+        }
+
         // Saves mining information
         public void save_data()
         {
@@ -105,7 +182,8 @@ namespace salty
             data.saved_address = address;
             data.saved_pool = pool;
             data.saved_threads = thread_count;
-            data.saved_extra_params = extra_params;
+            data.saved_extra_cpu_params = extra_cpu_params;
+            data.saved_extra_gpu_params = extra_gpu_params;
             data.saved_set = instruction_set;
             bf.Serialize(file, data);
             file.Close();
@@ -123,7 +201,8 @@ namespace salty
                 address = data.saved_address;
                 pool = data.saved_pool;
                 thread_count = data.saved_threads;
-                extra_params = data.saved_extra_params;
+                extra_cpu_params = data.saved_extra_cpu_params;
+                extra_gpu_params = data.saved_extra_gpu_params;
                 instruction_set = data.saved_set;
             }
         }
@@ -137,6 +216,7 @@ class miner_data
     public string saved_address;
     public string saved_pool;
     public string saved_threads;
-    public string saved_extra_params;
+    public string saved_extra_cpu_params;
+    public string saved_extra_gpu_params;
     public string saved_set;
 }
