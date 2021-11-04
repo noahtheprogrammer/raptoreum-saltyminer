@@ -1,15 +1,20 @@
 {
   "version": 2,
-  "dgSpecHash": "CTyJayNqG5/ra8hNzsNhDZ7PsXv+a3xTMMCw5RvLoafZI1t5xyJvuU3E35RKT3wsW/D6sHlFx3xAbOUjKWbGAg==",
+  "dgSpecHash": "xNdP62529YRdr6UceSV/2zvkzZxvqQiA4DFxlVd4nSgvVfXN0kh5RIWj+okM7y3SHjqK64pp7rtDuqnzIizcbA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Noah Weaver\\Documents\\GitHub\\saltyminer\\salty.csproj",
+  "projectFilePath": "C:\\Users\\weave\\Documents\\GitHub\\saltyminer\\salty.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Noah Weaver\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
-    "C:\\Users\\Noah Weaver\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
-    "C:\\Users\\Noah Weaver\\.nuget\\packages\\system.codedom\\5.0.0\\system.codedom.5.0.0.nupkg.sha512",
-    "C:\\Users\\Noah Weaver\\.nuget\\packages\\system.management\\5.0.0\\system.management.5.0.0.nupkg.sha512",
-    "C:\\Users\\Noah Weaver\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
-    "C:\\Users\\Noah Weaver\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512"
+    "C:\\Users\\weave\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\weave\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
+    "C:\\Users\\weave\\.nuget\\packages\\nvapiwrapper.net\\0.8.1.101\\nvapiwrapper.net.0.8.1.101.nupkg.sha512",
+    "C:\\Users\\weave\\.nuget\\packages\\system.codedom\\5.0.0\\system.codedom.5.0.0.nupkg.sha512",
+    "C:\\Users\\weave\\.nuget\\packages\\system.management\\5.0.0\\system.management.5.0.0.nupkg.sha512",
+    "C:\\Users\\weave\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
+    "C:\\Users\\weave\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
+    "C:\\Users\\weave\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\weave\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.20\\microsoft.netcore.app.host.win-x64.3.1.20.nupkg.sha512",
+    "C:\\Users\\weave\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\weave\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512"
   ],
   "logs": []
 }

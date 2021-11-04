@@ -24,8 +24,6 @@ namespace salty
         // Initializes the rtm_miner component
         public saltyminer()
         {
-            MessageBox.Show(SendBackProcessorName());
-
             // Locates classes to run methods and locate variables
             design = new Design();
             miner = new Miner();
@@ -42,6 +40,7 @@ namespace salty
             // Displays the amount of GPUs and CPUs onboard
             gpu_count.Text = GetGPUCount().ToString();
             cpu_count.Text = GetCPUCount().ToString();
+            cpu_name_text.Text = SendBackProcessorName();
 
             // Rounds the form edges
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
@@ -67,13 +66,14 @@ namespace salty
         }
 
         // Starts or stops the mining whenever the button is clicked
-        private void mining_button_Click_1(object sender, EventArgs e)
+        private void mining_button_Click(object sender, EventArgs e)
         {
             if (miner._iscpumining == false)
             {
                 miner.RunCPUMiner();
                 ButtonChange();
                 miner._iscpumining = true;
+                cpu_enabled_text.Text = "CPU: Enabled";
             }
 
             else if (miner._iscpumining == true)
@@ -82,6 +82,7 @@ namespace salty
                 cpu_cmd_output.Text = "Saltyminer has been shut down successfully.";
                 ButtonChange();
                 miner._iscpumining = false;
+                cpu_enabled_text.Text = "CPU: Disabled";
             }
         }
 
@@ -196,12 +197,6 @@ namespace salty
         private void config_button_Click(object sender, EventArgs e)
         {
             panel_1.BringToFront();
-        }
-
-        // Brings the command output panel to the front
-        private void cmd_button_Click(object sender, EventArgs e)
-        {
-            panel_3.BringToFront();
         }
 
         // Quits the program on click

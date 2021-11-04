@@ -30,6 +30,15 @@
           }
         }
       },
+      "NvAPIWrapper.Net/0.8.1.101": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/NvAPIWrapper.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NvAPIWrapper.dll": {}
+        }
+      },
       "System.CodeDom/5.0.0": {
         "type": "package",
         "compile": {
@@ -160,6 +169,23 @@
         "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.xml",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "NvAPIWrapper.Net/0.8.1.101": {
+      "sha512": "qX+5EQ32tCTqBkX/9BNfx7w4HPi18s3XhMubjbxSjPhYQ6pXWL+HGnaZEmGvFlOxvsQN+/6eV3x5bRo1CDY/mQ==",
+      "type": "package",
+      "path": "nvapiwrapper.net/0.8.1.101",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/net45/NvAPIWrapper.dll",
+        "lib/net45/NvAPIWrapper.xml",
+        "lib/netstandard2.0/NvAPIWrapper.dll",
+        "lib/netstandard2.0/NvAPIWrapper.xml",
+        "nvapiwrapper.net.0.8.1.101.nupkg.sha512",
+        "nvapiwrapper.net.nuspec",
+        "readme.txt"
       ]
     },
     "System.CodeDom/5.0.0": {
@@ -316,23 +342,24 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "NvAPIWrapper.Net >= 0.8.1.101",
       "System.Management >= 5.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Noah Weaver\\.nuget\\packages\\": {}
+    "C:\\Users\\weave\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Noah Weaver\\Documents\\GitHub\\saltyminer\\salty.csproj",
+      "projectUniqueName": "C:\\Users\\weave\\Documents\\GitHub\\saltyminer\\salty.csproj",
       "projectName": "salty",
-      "projectPath": "C:\\Users\\Noah Weaver\\Documents\\GitHub\\saltyminer\\salty.csproj",
-      "packagesPath": "C:\\Users\\Noah Weaver\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Noah Weaver\\Documents\\GitHub\\saltyminer\\obj\\",
+      "projectPath": "C:\\Users\\weave\\Documents\\GitHub\\saltyminer\\salty.csproj",
+      "packagesPath": "C:\\Users\\weave\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\weave\\Documents\\GitHub\\saltyminer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Noah Weaver\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\weave\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -358,6 +385,10 @@
       "netcoreapp3.1": {
         "targetAlias": "netcoreapp3.1",
         "dependencies": {
+          "NvAPIWrapper.Net": {
+            "target": "Package",
+            "version": "[0.8.1.101, )"
+          },
           "System.Management": {
             "target": "Package",
             "version": "[5.0.0, )"
@@ -373,6 +404,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[3.1.10, 3.1.10]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[3.1.20, 3.1.20]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -381,7 +430,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-rc.2.21505.57\\RuntimeIdentifierGraph.json"
       }
     }
   }
