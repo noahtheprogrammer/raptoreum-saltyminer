@@ -68,24 +68,25 @@ namespace salty
         // Starts or stops the mining whenever the button is clicked
         private void mining_button_Click(object sender, EventArgs e)
         {
-            if (miner.iscpumining == false)
+            if (miner.iscpumining == false && miner.cpu_enabled == true)
             {
                 miner.RunCPUMiner();
                 ButtonChange();
                 miner.iscpumining = true;
+                cpu_enabled_text.Text = "CPU: Mining";
+            }
+
+            else if (miner.iscpumining == true && miner.cpu_enabled == true)
+            {
+                miner.cpu_process.Kill();
+                ButtonChange();
+                miner.iscpumining = false;
                 cpu_enabled_text.Text = "CPU: Enabled";
             }
 
-            else if (miner.iscpumining == true)
-            {
-                miner.cpu_process.Kill();
-                cpu_cmd_output.Text = "Saltyminer has been shut down successfully.";
-                ButtonChange();
-                miner.iscpumining = false;
-                cpu_enabled_text.Text = "CPU: Disabled";
-            }
 
-            if (miner.isgpumining == false)
+
+            /* if (miner.gpu_enabled == false)
             {
                 miner.RunGPUMiner();
                 ButtonChange();
@@ -100,7 +101,7 @@ namespace salty
                 ButtonChange();
                 miner.isgpumining = false;
                 gpu_enabled_text.Text = "GPU: Disabled";
-            }
+            } */
         }
 
         // Gets the address text to mine
@@ -260,39 +261,38 @@ namespace salty
             WindowState = FormWindowState.Minimized;
         }
 
-        // Start button for CPU only
-        private void mini_cpu_Click(object sender, EventArgs e)
-        {
-            if (miner.cpu_enabled == false)
-            {
-                miner.cpu_enabled = true;
-                cpu_enabled_text.Text = "CPU: Enabled";
-                mini_cpu.Image = Properties.Resources.mini_stop;
-            }
-
-            if (miner.cpu_enabled == true)
-            {
-                miner.cpu_enabled = false;
-                cpu_enabled_text.Text = "CPU: Disabled";
-                mini_cpu.Image = Properties.Resources.mini_start;
-            }
-        }
-
         // Start button for GPU only
         private void mini_gpu_Click(object sender, EventArgs e)
         {
             if (miner.gpu_enabled == false)
             {
                 gpu_enabled_text.Text = "GPU: Enabled";
-                mini_gpu.Image = Properties.Resources.mini_stop;
+                mini_gpu_toggle.Image = Properties.Resources.mini_stop;
                 miner.gpu_enabled = true;
             }
 
             if (miner.gpu_enabled == true)
             {
                 gpu_enabled_text.Text = "GPU: Disabled";
-                mini_gpu.Image = Properties.Resources.mini_start;
+                mini_gpu_toggle.Image = Properties.Resources.mini_start;
                 miner.gpu_enabled = false;
+            }
+        }
+
+        private void mini_cpu_toggle_Click(object sender, EventArgs e)
+        {
+            if (miner.cpu_enabled == false)
+            {
+                miner.cpu_enabled = true;
+                cpu_enabled_text.Text = "CPU: Enabled";
+                mini_cpu_toggle.Image = Properties.Resources.mini_stop;
+            }
+
+            else if (miner.cpu_enabled == true)
+            {
+                miner.cpu_enabled = false;
+                cpu_enabled_text.Text = "CPU: Disabled";
+                mini_cpu_toggle.Image = Properties.Resources.mini_start;
             }
         }
     }

