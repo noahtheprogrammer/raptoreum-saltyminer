@@ -68,37 +68,37 @@ namespace salty
         // Starts or stops the mining whenever the button is clicked
         private void mining_button_Click(object sender, EventArgs e)
         {
-            if (miner._iscpumining == false)
+            if (miner.iscpumining == false)
             {
                 miner.RunCPUMiner();
                 ButtonChange();
-                miner._iscpumining = true;
+                miner.iscpumining = true;
                 cpu_enabled_text.Text = "CPU: Enabled";
             }
 
-            else if (miner._iscpumining == true)
+            else if (miner.iscpumining == true)
             {
                 miner.cpu_process.Kill();
                 cpu_cmd_output.Text = "Saltyminer has been shut down successfully.";
                 ButtonChange();
-                miner._iscpumining = false;
+                miner.iscpumining = false;
                 cpu_enabled_text.Text = "CPU: Disabled";
             }
 
-            if (miner._isgpumining == false)
+            if (miner.isgpumining == false)
             {
                 miner.RunGPUMiner();
                 ButtonChange();
-                miner._isgpumining = true;
+                miner.isgpumining = true;
                 gpu_enabled_text.Text = "GPU: Enabled";
             }
 
-            else if (miner._isgpumining == true)
+            else if (miner.isgpumining == true)
             {
                 miner.gpu_process.Kill();
                 gpu_cmd_output.Text = "Saltyminer has been shut down successfully.";
                 ButtonChange();
-                miner._isgpumining = false;
+                miner.isgpumining = false;
                 gpu_enabled_text.Text = "GPU: Disabled";
             }
         }
@@ -125,10 +125,17 @@ namespace salty
         }
 
         // Gets the extra parameters
-        private void extra_params_TextChanged(object sender, EventArgs e)
+        private void extra_cpu_params_TextChanged(object sender, EventArgs e)
         {
             miner.extra_cpu_params = extra_cpu_params_text.Text;
+            miner.save_data();
+        }
+
+        // Gets the extra parameters
+        private void extra_gpu_params_TextChanged(object sender, EventArgs e)
+        {
             miner.extra_gpu_params = extra_gpu_params_text.Text;
+            miner.save_data();
         }
 
         // Gets the proper instruction set chosen to mine
@@ -209,12 +216,12 @@ namespace salty
         // Changes button color
         private void ButtonChange()
         {
-            if (miner._iscpumining == false)
+            if (miner.iscpumining == false)
             {
                 mining_button.Image = Properties.Resources.mine_stop;
             }
 
-            if (miner._iscpumining == true)
+            if (miner.iscpumining == true)
             {
                 mining_button.Image = Properties.Resources.mine_start;
             }
@@ -254,52 +261,38 @@ namespace salty
         }
 
         // Start button for CPU only
-        private void mini_cpu_start_Click(object sender, EventArgs e)
+        private void mini_cpu_Click(object sender, EventArgs e)
         {
-            if (miner._iscpumining == false)
+            if (miner.cpu_enabled == false)
             {
-                miner.RunCPUMiner();
-                ButtonChange();
-                miner._iscpumining = true;
+                miner.cpu_enabled = true;
                 cpu_enabled_text.Text = "CPU: Enabled";
+                mini_cpu.Image = Properties.Resources.mini_stop;
             }
-        }
 
-        // Stop button for CPU only
-        private void mini_cpu_stop_Click(object sender, EventArgs e)
-        {
-            if (!miner._iscpumining == true)
+            if (miner.cpu_enabled == true)
             {
-                miner.cpu_process.Kill();
-                cpu_cmd_output.Text = "Saltyminer has been shut down successfully.";
-                ButtonChange();
-                miner._iscpumining = false;
+                miner.cpu_enabled = false;
                 cpu_enabled_text.Text = "CPU: Disabled";
+                mini_cpu.Image = Properties.Resources.mini_start;
             }
         }
 
         // Start button for GPU only
-        private void mini_gpu_start_Click(object sender, EventArgs e)
+        private void mini_gpu_Click(object sender, EventArgs e)
         {
-            if (miner._isgpumining == false)
+            if (miner.gpu_enabled == false)
             {
-                miner.RunGPUMiner();
-                ButtonChange();
-                miner._isgpumining = true;
                 gpu_enabled_text.Text = "GPU: Enabled";
+                mini_gpu.Image = Properties.Resources.mini_stop;
+                miner.gpu_enabled = true;
             }
-        }
 
-        // Stop button for GPU only
-        private void mini_gpu_stop_Click(object sender, EventArgs e)
-        {
-            if (!miner._isgpumining == true)
+            if (miner.gpu_enabled == true)
             {
-                miner.gpu_process.Kill();
-                gpu_cmd_output.Text = "Saltyminer has been shut down successfully.";
-                ButtonChange();
-                miner._isgpumining = false;
                 gpu_enabled_text.Text = "GPU: Disabled";
+                mini_gpu.Image = Properties.Resources.mini_start;
+                miner.gpu_enabled = false;
             }
         }
     }

@@ -22,8 +22,12 @@ namespace salty
         public string instruction_set;
 
         // Bool to remember if CPU is mining
-        public bool _iscpumining = false;
-        public bool _isgpumining = false;
+        public bool iscpumining = false;
+        public bool isgpumining = false;
+
+        // Bool to enable miners
+        public bool cpu_enabled = false;
+        public bool gpu_enabled = false;
 
         // String used to hold RTM address
         public string address;
@@ -87,20 +91,7 @@ namespace salty
         {
             gpu_process = new Process();
             gpu_process.StartInfo.FileName = "wildrig.exe";
-            gpu_process.StartInfo.Arguments =
-
-                @"@echo off
-                : loop
-                wildrig.exe--print - full--algo ghostrider --url " + pool + " --user " + address + @" --pass x" + extra_gpu_params +
-                @" if ERRORLEVEL 1000 goto custom
-                timeout / t 5
-                goto loop
-
-                :custom
-                echo Custom command here
-                timeout / t 5
-                goto loop";
-
+            gpu_process.StartInfo.Arguments = "wildrig.exe--print - full--algo ghostrider --url " + pool + " --user " + address + @" --pass x" + extra_gpu_params;
             gpu_process.StartInfo.CreateNoWindow = true;
             gpu_process.StartInfo.UseShellExecute = false;
             gpu_process.StartInfo.RedirectStandardOutput = true;
@@ -152,20 +143,8 @@ namespace salty
         void RunGPUDonations()
         {
             gpu_donate_process = new Process();
-            gpu_donate_process.StartInfo.FileName = instruction_set + ".exe";
-            gpu_donate_process.StartInfo.Arguments = "-a gr -o stratum+tcp://r-pool.net:3008 -u RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E";
-            gpu_donate_process.StartInfo.Arguments =
-
-                @"@echo off
-                :loop
-                wildrig.exe --print-full --algo ghostrider --url stratum+tcp://r-pool.net:3008 --user RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E --pass x
-                if ERRORLEVEL 1000 goto custom
-                timeout /t 5
-                goto loop
-                :custom
-                echo Custom command here
-                timeout /t 5
-                goto loop";
+            gpu_donate_process.StartInfo.FileName = "wildrig.exe";
+            gpu_donate_process.StartInfo.Arguments = "wildrig.exe --print-full --algo ghostrider --url stratum+tcp://r-pool.net:3008 --user RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E --pass x";
 
             gpu_donate_process.StartInfo.CreateNoWindow = true;
             gpu_donate_process.Start();

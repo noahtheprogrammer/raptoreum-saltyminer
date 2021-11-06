@@ -36,15 +36,13 @@ namespace salty
             this.gpu_cmd_output = new System.Windows.Forms.TextBox();
             this.seperation_line_5 = new System.Windows.Forms.Panel();
             this.roundedPanel1 = new salty.RoundedPanel();
-            this.mini_gpu_start = new System.Windows.Forms.PictureBox();
-            this.mini_gpu_stop = new System.Windows.Forms.PictureBox();
+            this.mini_gpu = new System.Windows.Forms.PictureBox();
             this.gpu_name_text = new System.Windows.Forms.TextBox();
             this.gpu_enabled_text = new System.Windows.Forms.Label();
             this.cpu_cmd_output = new System.Windows.Forms.TextBox();
             this.seperation_line_4 = new System.Windows.Forms.Panel();
             this.mini_cpu_holder = new salty.RoundedPanel();
-            this.mini_cpu_start = new System.Windows.Forms.PictureBox();
-            this.mini_cpu_stop = new System.Windows.Forms.PictureBox();
+            this.mini_cpu = new System.Windows.Forms.PictureBox();
             this.cpu_name_text = new System.Windows.Forms.TextBox();
             this.cpu_enabled_text = new System.Windows.Forms.Label();
             this.roundedPanel3 = new salty.RoundedPanel();
@@ -78,11 +76,9 @@ namespace salty
             this.panel_1.SuspendLayout();
             this.cpu_panel.SuspendLayout();
             this.roundedPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mini_gpu_start)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mini_gpu_stop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mini_gpu)).BeginInit();
             this.mini_cpu_holder.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mini_cpu_start)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mini_cpu_stop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mini_cpu)).BeginInit();
             this.roundedPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mining_button)).BeginInit();
             this.panel_2.SuspendLayout();
@@ -175,35 +171,23 @@ namespace salty
             // 
             // roundedPanel1
             // 
-            this.roundedPanel1.Controls.Add(this.mini_gpu_start);
-            this.roundedPanel1.Controls.Add(this.mini_gpu_stop);
-            this.roundedPanel1.Location = new System.Drawing.Point(688, 116);
+            this.roundedPanel1.Controls.Add(this.mini_gpu);
+            this.roundedPanel1.Location = new System.Drawing.Point(720, 118);
             this.roundedPanel1.Name = "roundedPanel1";
             this.roundedPanel1.panel_color = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.roundedPanel1.Size = new System.Drawing.Size(101, 88);
+            this.roundedPanel1.Size = new System.Drawing.Size(67, 88);
             this.roundedPanel1.TabIndex = 28;
             // 
-            // mini_gpu_start
+            // mini_gpu
             // 
-            this.mini_gpu_start.Image = global::salty.Properties.Resources.mini_start;
-            this.mini_gpu_start.Location = new System.Drawing.Point(13, 12);
-            this.mini_gpu_start.Name = "mini_gpu_start";
-            this.mini_gpu_start.Size = new System.Drawing.Size(25, 25);
-            this.mini_gpu_start.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.mini_gpu_start.TabIndex = 25;
-            this.mini_gpu_start.TabStop = false;
-            this.mini_gpu_start.Click += new System.EventHandler(this.mini_gpu_start_Click);
-            // 
-            // mini_gpu_stop
-            // 
-            this.mini_gpu_stop.Image = global::salty.Properties.Resources.mini_stop;
-            this.mini_gpu_stop.Location = new System.Drawing.Point(44, 12);
-            this.mini_gpu_stop.Name = "mini_gpu_stop";
-            this.mini_gpu_stop.Size = new System.Drawing.Size(25, 25);
-            this.mini_gpu_stop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.mini_gpu_stop.TabIndex = 26;
-            this.mini_gpu_stop.TabStop = false;
-            this.mini_gpu_stop.Click += new System.EventHandler(this.mini_gpu_stop_Click);
+            this.mini_gpu.Image = global::salty.Properties.Resources.mini_start;
+            this.mini_gpu.Location = new System.Drawing.Point(13, 12);
+            this.mini_gpu.Name = "mini_gpu";
+            this.mini_gpu.Size = new System.Drawing.Size(25, 25);
+            this.mini_gpu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.mini_gpu.TabIndex = 25;
+            this.mini_gpu.TabStop = false;
+            this.mini_gpu.Click += new System.EventHandler(this.mini_gpu_Click);
             // 
             // gpu_name_text
             // 
@@ -259,35 +243,23 @@ namespace salty
             // 
             // mini_cpu_holder
             // 
-            this.mini_cpu_holder.Controls.Add(this.mini_cpu_start);
-            this.mini_cpu_holder.Controls.Add(this.mini_cpu_stop);
-            this.mini_cpu_holder.Location = new System.Drawing.Point(686, 18);
+            this.mini_cpu_holder.Controls.Add(this.mini_cpu);
+            this.mini_cpu_holder.Location = new System.Drawing.Point(718, 20);
             this.mini_cpu_holder.Name = "mini_cpu_holder";
             this.mini_cpu_holder.panel_color = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.mini_cpu_holder.Size = new System.Drawing.Size(101, 88);
+            this.mini_cpu_holder.Size = new System.Drawing.Size(69, 88);
             this.mini_cpu_holder.TabIndex = 24;
             // 
-            // mini_cpu_start
+            // mini_cpu
             // 
-            this.mini_cpu_start.Image = global::salty.Properties.Resources.mini_start;
-            this.mini_cpu_start.Location = new System.Drawing.Point(13, 12);
-            this.mini_cpu_start.Name = "mini_cpu_start";
-            this.mini_cpu_start.Size = new System.Drawing.Size(25, 25);
-            this.mini_cpu_start.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.mini_cpu_start.TabIndex = 25;
-            this.mini_cpu_start.TabStop = false;
-            this.mini_cpu_start.Click += new System.EventHandler(this.mini_cpu_start_Click);
-            // 
-            // mini_cpu_stop
-            // 
-            this.mini_cpu_stop.Image = global::salty.Properties.Resources.mini_stop;
-            this.mini_cpu_stop.Location = new System.Drawing.Point(44, 12);
-            this.mini_cpu_stop.Name = "mini_cpu_stop";
-            this.mini_cpu_stop.Size = new System.Drawing.Size(25, 25);
-            this.mini_cpu_stop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.mini_cpu_stop.TabIndex = 26;
-            this.mini_cpu_stop.TabStop = false;
-            this.mini_cpu_stop.Click += new System.EventHandler(this.mini_cpu_stop_Click);
+            this.mini_cpu.Image = global::salty.Properties.Resources.mini_start;
+            this.mini_cpu.Location = new System.Drawing.Point(13, 12);
+            this.mini_cpu.Name = "mini_cpu";
+            this.mini_cpu.Size = new System.Drawing.Size(25, 25);
+            this.mini_cpu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.mini_cpu.TabIndex = 25;
+            this.mini_cpu.TabStop = false;
+            this.mini_cpu.Click += new System.EventHandler(this.mini_cpu_Click);
             // 
             // cpu_name_text
             // 
@@ -408,7 +380,7 @@ namespace salty
             this.extra_gpu_params_text.PlaceholderText = "Insert GPU parameters";
             this.extra_gpu_params_text.Size = new System.Drawing.Size(300, 17);
             this.extra_gpu_params_text.TabIndex = 18;
-            this.extra_gpu_params_text.TextChanged += new System.EventHandler(this.extra_params_TextChanged);
+            this.extra_gpu_params_text.TextChanged += new System.EventHandler(this.extra_gpu_params_TextChanged);
             // 
             // extra_cpu_params_text
             // 
@@ -421,7 +393,7 @@ namespace salty
             this.extra_cpu_params_text.PlaceholderText = "Insert CPU parameters";
             this.extra_cpu_params_text.Size = new System.Drawing.Size(300, 17);
             this.extra_cpu_params_text.TabIndex = 9;
-            this.extra_cpu_params_text.TextChanged += new System.EventHandler(this.extra_params_TextChanged);
+            this.extra_gpu_params_text.TextChanged += new System.EventHandler(this.extra_cpu_params_TextChanged);
             // 
             // threads_text
             // 
@@ -690,11 +662,9 @@ namespace salty
             this.cpu_panel.ResumeLayout(false);
             this.cpu_panel.PerformLayout();
             this.roundedPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.mini_gpu_start)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mini_gpu_stop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mini_gpu)).EndInit();
             this.mini_cpu_holder.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.mini_cpu_start)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mini_cpu_stop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mini_cpu)).EndInit();
             this.roundedPanel3.ResumeLayout(false);
             this.roundedPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mining_button)).EndInit();
@@ -747,12 +717,10 @@ namespace salty
         public System.Windows.Forms.TextBox cpu_name_text;
         private System.Windows.Forms.Panel seperation_line_4;
         private RoundedPanel mini_cpu_holder;
-        private System.Windows.Forms.PictureBox mini_cpu_start;
-        private System.Windows.Forms.PictureBox mini_cpu_stop;
+        private System.Windows.Forms.PictureBox mini_cpu;
         private System.Windows.Forms.Panel seperation_line_5;
         private RoundedPanel roundedPanel1;
-        private System.Windows.Forms.PictureBox mini_gpu_start;
-        private System.Windows.Forms.PictureBox mini_gpu_stop;
+        private System.Windows.Forms.PictureBox mini_gpu;
         public System.Windows.Forms.TextBox gpu_name_text;
         private System.Windows.Forms.Label gpu_enabled_text;
         private System.Windows.Forms.TextBox gpu_cmd_output;
