@@ -68,40 +68,54 @@ namespace salty
         // Starts or stops the mining whenever the button is clicked
         private void mining_button_Click(object sender, EventArgs e)
         {
-            if (miner.iscpumining == false && miner.cpu_enabled == true)
+            if (miner.gpu_enabled == false && miner.isgpumining == true)
             {
-                miner.RunCPUMiner();
+                miner.gpu_process.Kill();
                 ButtonChange();
-                miner.iscpumining = true;
-                cpu_enabled_text.Text = "CPU: Mining";
+                miner.isgpumining = false;
             }
 
-            else if (miner.iscpumining == true && miner.cpu_enabled == true)
+            if (miner.cpu_enabled == false && miner.iscpumining == true)
             {
                 miner.cpu_process.Kill();
                 ButtonChange();
                 miner.iscpumining = false;
-                cpu_enabled_text.Text = "CPU: Enabled";
             }
 
 
-
-            /* if (miner.gpu_enabled == false)
+            if (miner.iscpumining == true)
             {
-                miner.RunGPUMiner();
+                miner.cpu_process.Kill();
                 ButtonChange();
-                miner.isgpumining = true;
-                gpu_enabled_text.Text = "GPU: Enabled";
+                miner.iscpumining = false;
             }
 
-            else if (miner.isgpumining == true)
+            else
+            {
+                if (miner.cpu_enabled == true)
+                {
+                    miner.RunCPUMiner();
+                    ButtonChange();
+                    miner.iscpumining = true;
+                }
+            }
+
+            if (miner.isgpumining == true)
             {
                 miner.gpu_process.Kill();
-                gpu_cmd_output.Text = "Saltyminer has been shut down successfully.";
                 ButtonChange();
                 miner.isgpumining = false;
-                gpu_enabled_text.Text = "GPU: Disabled";
-            } */
+            }
+
+            else
+            {
+                if (miner.gpu_enabled == true)
+                {
+                    miner.RunGPUMiner();
+                    ButtonChange();
+                    miner.isgpumining = true;
+                }
+            }
         }
 
         // Gets the address text to mine
@@ -279,6 +293,7 @@ namespace salty
             }
         }
 
+        // Toggles the CPU enabler
         private void mini_cpu_toggle_Click(object sender, EventArgs e)
         {
             if (miner.cpu_enabled == false)
@@ -293,6 +308,24 @@ namespace salty
                 miner.cpu_enabled = false;
                 cpu_enabled_text.Text = "CPU: Disabled";
                 mini_cpu_toggle.Image = Properties.Resources.mini_start;
+            }
+        }
+
+        // Toggles the GPU enabler
+        private void mini_gpu_toggle_Click(object sender, EventArgs e)
+        {
+            if (miner.gpu_enabled == false)
+            {
+                miner.gpu_enabled = true;
+                gpu_enabled_text.Text = "GPU: Enabled";
+                mini_gpu_toggle.Image = Properties.Resources.mini_stop;
+            }
+
+            else if (miner.gpu_enabled == true)
+            {
+                miner.gpu_enabled = false;
+                gpu_enabled_text.Text = "GPU: Disabled";
+                mini_gpu_toggle.Image = Properties.Resources.mini_start;
             }
         }
     }

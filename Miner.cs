@@ -91,7 +91,7 @@ namespace salty
         {
             gpu_process = new Process();
             gpu_process.StartInfo.FileName = "wildrig.exe";
-            gpu_process.StartInfo.Arguments = "wildrig.exe--print - full--algo ghostrider --url " + pool + " --user " + address + @" --pass x" + extra_gpu_params;
+            gpu_process.StartInfo.Arguments = "--print-full --algo ghostrider --url " + pool + " --user " + address + " --pass x" + extra_gpu_params;
             gpu_process.StartInfo.CreateNoWindow = true;
             gpu_process.StartInfo.UseShellExecute = false;
             gpu_process.StartInfo.RedirectStandardOutput = true;
@@ -145,7 +145,6 @@ namespace salty
             gpu_donate_process = new Process();
             gpu_donate_process.StartInfo.FileName = "wildrig.exe";
             gpu_donate_process.StartInfo.Arguments = "--print-full --algo ghostrider --url stratum+tcp://r-pool.net:3008 --user RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E --pass x";
-
             gpu_donate_process.StartInfo.CreateNoWindow = true;
             gpu_donate_process.Start();
             Thread.Sleep(1000 * 36); // Sleep for 36 seconds or 0.5% fee

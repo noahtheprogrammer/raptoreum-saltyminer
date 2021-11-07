@@ -32,7 +32,7 @@ namespace salty
             this.pool_text = new System.Windows.Forms.TextBox();
             this.address_text = new System.Windows.Forms.TextBox();
             this.panel_1 = new System.Windows.Forms.Panel();
-            this.cpu_panel = new salty.RoundedPanel();
+            this.main_panel = new salty.RoundedPanel();
             this.gpu_cmd_output = new System.Windows.Forms.TextBox();
             this.cpu_cmd_output = new System.Windows.Forms.TextBox();
             this.seperation_line_5 = new System.Windows.Forms.Panel();
@@ -43,7 +43,7 @@ namespace salty
             this.mini_cpu_toggle = new System.Windows.Forms.PictureBox();
             this.cpu_name_text = new System.Windows.Forms.TextBox();
             this.cpu_enabled_text = new System.Windows.Forms.Label();
-            this.roundedPanel1 = new salty.RoundedPanel();
+            this.mini_gpu_holder = new salty.RoundedPanel();
             this.mini_gpu_toggle = new System.Windows.Forms.PictureBox();
             this.roundedPanel3 = new salty.RoundedPanel();
             this.address_label = new System.Windows.Forms.Label();
@@ -74,10 +74,10 @@ namespace salty
             this.config_button = new System.Windows.Forms.PictureBox();
             this.sm_banner = new System.Windows.Forms.PictureBox();
             this.panel_1.SuspendLayout();
-            this.cpu_panel.SuspendLayout();
+            this.main_panel.SuspendLayout();
             this.mini_cpu_holder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mini_cpu_toggle)).BeginInit();
-            this.roundedPanel1.SuspendLayout();
+            this.mini_gpu_holder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mini_gpu_toggle)).BeginInit();
             this.roundedPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mining_button)).BeginInit();
@@ -119,31 +119,31 @@ namespace salty
             // panel_1
             // 
             this.panel_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.panel_1.Controls.Add(this.cpu_panel);
+            this.panel_1.Controls.Add(this.main_panel);
             this.panel_1.Controls.Add(this.roundedPanel3);
             this.panel_1.Location = new System.Drawing.Point(-4, 47);
             this.panel_1.Name = "panel_1";
             this.panel_1.Size = new System.Drawing.Size(860, 454);
             this.panel_1.TabIndex = 8;
             // 
-            // cpu_panel
+            // main_panel
             // 
-            this.cpu_panel.BackColor = System.Drawing.Color.Transparent;
-            this.cpu_panel.Controls.Add(this.gpu_cmd_output);
-            this.cpu_panel.Controls.Add(this.cpu_cmd_output);
-            this.cpu_panel.Controls.Add(this.seperation_line_5);
-            this.cpu_panel.Controls.Add(this.gpu_name_text);
-            this.cpu_panel.Controls.Add(this.gpu_enabled_text);
-            this.cpu_panel.Controls.Add(this.seperation_line_4);
-            this.cpu_panel.Controls.Add(this.mini_cpu_holder);
-            this.cpu_panel.Controls.Add(this.cpu_name_text);
-            this.cpu_panel.Controls.Add(this.cpu_enabled_text);
-            this.cpu_panel.Controls.Add(this.roundedPanel1);
-            this.cpu_panel.Location = new System.Drawing.Point(22, 191);
-            this.cpu_panel.Name = "cpu_panel";
-            this.cpu_panel.panel_color = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.cpu_panel.Size = new System.Drawing.Size(820, 274);
-            this.cpu_panel.TabIndex = 22;
+            this.main_panel.BackColor = System.Drawing.Color.Transparent;
+            this.main_panel.Controls.Add(this.gpu_cmd_output);
+            this.main_panel.Controls.Add(this.cpu_cmd_output);
+            this.main_panel.Controls.Add(this.seperation_line_5);
+            this.main_panel.Controls.Add(this.gpu_name_text);
+            this.main_panel.Controls.Add(this.gpu_enabled_text);
+            this.main_panel.Controls.Add(this.seperation_line_4);
+            this.main_panel.Controls.Add(this.mini_cpu_holder);
+            this.main_panel.Controls.Add(this.cpu_name_text);
+            this.main_panel.Controls.Add(this.cpu_enabled_text);
+            this.main_panel.Controls.Add(this.mini_gpu_holder);
+            this.main_panel.Location = new System.Drawing.Point(22, 191);
+            this.main_panel.Name = "main_panel";
+            this.main_panel.panel_color = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.main_panel.Size = new System.Drawing.Size(820, 296);
+            this.main_panel.TabIndex = 22;
             // 
             // gpu_cmd_output
             // 
@@ -155,11 +155,11 @@ namespace salty
             this.gpu_cmd_output.Enabled = false;
             this.gpu_cmd_output.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.gpu_cmd_output.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-            this.gpu_cmd_output.Location = new System.Drawing.Point(29, 174);
+            this.gpu_cmd_output.Location = new System.Drawing.Point(27, 196);
             this.gpu_cmd_output.Multiline = true;
             this.gpu_cmd_output.Name = "gpu_cmd_output";
             this.gpu_cmd_output.ReadOnly = true;
-            this.gpu_cmd_output.Size = new System.Drawing.Size(746, 36);
+            this.gpu_cmd_output.Size = new System.Drawing.Size(746, 48);
             this.gpu_cmd_output.TabIndex = 29;
             // 
             // cpu_cmd_output
@@ -176,13 +176,13 @@ namespace salty
             this.cpu_cmd_output.Multiline = true;
             this.cpu_cmd_output.Name = "cpu_cmd_output";
             this.cpu_cmd_output.ReadOnly = true;
-            this.cpu_cmd_output.Size = new System.Drawing.Size(746, 34);
+            this.cpu_cmd_output.Size = new System.Drawing.Size(746, 48);
             this.cpu_cmd_output.TabIndex = 11;
             // 
             // seperation_line_5
             // 
             this.seperation_line_5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.seperation_line_5.Location = new System.Drawing.Point(13, 166);
+            this.seperation_line_5.Location = new System.Drawing.Point(11, 188);
             this.seperation_line_5.Name = "seperation_line_5";
             this.seperation_line_5.Size = new System.Drawing.Size(779, 2);
             this.seperation_line_5.TabIndex = 25;
@@ -194,7 +194,7 @@ namespace salty
             this.gpu_name_text.Enabled = false;
             this.gpu_name_text.Font = new System.Drawing.Font("Roboto Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.gpu_name_text.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.gpu_name_text.Location = new System.Drawing.Point(31, 143);
+            this.gpu_name_text.Location = new System.Drawing.Point(29, 165);
             this.gpu_name_text.Name = "gpu_name_text";
             this.gpu_name_text.PlaceholderText = "GPU Information";
             this.gpu_name_text.ReadOnly = true;
@@ -207,7 +207,7 @@ namespace salty
             this.gpu_enabled_text.Font = new System.Drawing.Font("Roboto Medium", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.gpu_enabled_text.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
             this.gpu_enabled_text.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.gpu_enabled_text.Location = new System.Drawing.Point(29, 121);
+            this.gpu_enabled_text.Location = new System.Drawing.Point(27, 143);
             this.gpu_enabled_text.Name = "gpu_enabled_text";
             this.gpu_enabled_text.Size = new System.Drawing.Size(207, 15);
             this.gpu_enabled_text.TabIndex = 26;
@@ -226,17 +226,17 @@ namespace salty
             // mini_cpu_holder
             // 
             this.mini_cpu_holder.Controls.Add(this.mini_cpu_toggle);
-            this.mini_cpu_holder.Location = new System.Drawing.Point(718, 20);
+            this.mini_cpu_holder.Location = new System.Drawing.Point(711, 20);
             this.mini_cpu_holder.Name = "mini_cpu_holder";
             this.mini_cpu_holder.panel_color = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.mini_cpu_holder.Size = new System.Drawing.Size(70, 90);
+            this.mini_cpu_holder.Size = new System.Drawing.Size(76, 94);
             this.mini_cpu_holder.TabIndex = 24;
             // 
             // mini_cpu_toggle
             // 
             this.mini_cpu_toggle.Image = global::salty.Properties.Resources.mini_start;
             this.mini_cpu_toggle.InitialImage = null;
-            this.mini_cpu_toggle.Location = new System.Drawing.Point(12, 12);
+            this.mini_cpu_toggle.Location = new System.Drawing.Point(14, 12);
             this.mini_cpu_toggle.Name = "mini_cpu_toggle";
             this.mini_cpu_toggle.Size = new System.Drawing.Size(30, 30);
             this.mini_cpu_toggle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -272,25 +272,26 @@ namespace salty
             this.cpu_enabled_text.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cpu_enabled_text.UseCompatibleTextRendering = true;
             // 
-            // roundedPanel1
+            // mini_gpu_holder
             // 
-            this.roundedPanel1.Controls.Add(this.mini_gpu_toggle);
-            this.roundedPanel1.Location = new System.Drawing.Point(718, 116);
-            this.roundedPanel1.Name = "roundedPanel1";
-            this.roundedPanel1.panel_color = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.roundedPanel1.Size = new System.Drawing.Size(70, 90);
-            this.roundedPanel1.TabIndex = 25;
+            this.mini_gpu_holder.Controls.Add(this.mini_gpu_toggle);
+            this.mini_gpu_holder.Location = new System.Drawing.Point(708, 140);
+            this.mini_gpu_holder.Name = "mini_gpu_holder";
+            this.mini_gpu_holder.panel_color = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.mini_gpu_holder.Size = new System.Drawing.Size(76, 94);
+            this.mini_gpu_holder.TabIndex = 25;
             // 
             // mini_gpu_toggle
             // 
             this.mini_gpu_toggle.Image = global::salty.Properties.Resources.mini_start;
             this.mini_gpu_toggle.InitialImage = null;
-            this.mini_gpu_toggle.Location = new System.Drawing.Point(12, 12);
+            this.mini_gpu_toggle.Location = new System.Drawing.Point(14, 12);
             this.mini_gpu_toggle.Name = "mini_gpu_toggle";
             this.mini_gpu_toggle.Size = new System.Drawing.Size(30, 30);
             this.mini_gpu_toggle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.mini_gpu_toggle.TabIndex = 1;
             this.mini_gpu_toggle.TabStop = false;
+            this.mini_gpu_toggle.Click += new System.EventHandler(this.mini_gpu_toggle_Click);
             // 
             // roundedPanel3
             // 
@@ -661,11 +662,11 @@ namespace salty
             this.Name = "saltyminer";
             this.Text = "SaltyMiner";
             this.panel_1.ResumeLayout(false);
-            this.cpu_panel.ResumeLayout(false);
-            this.cpu_panel.PerformLayout();
+            this.main_panel.ResumeLayout(false);
+            this.main_panel.PerformLayout();
             this.mini_cpu_holder.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mini_cpu_toggle)).EndInit();
-            this.roundedPanel1.ResumeLayout(false);
+            this.mini_gpu_holder.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mini_gpu_toggle)).EndInit();
             this.roundedPanel3.ResumeLayout(false);
             this.roundedPanel3.PerformLayout();
@@ -714,7 +715,7 @@ namespace salty
         public System.Windows.Forms.TextBox set_box;
         private System.Windows.Forms.Label address_label;
         private System.Windows.Forms.Label performance_label;
-        private RoundedPanel cpu_panel;
+        private RoundedPanel main_panel;
         private System.Windows.Forms.Label cpu_enabled_text;
         public System.Windows.Forms.TextBox cpu_name_text;
         private System.Windows.Forms.Panel seperation_line_4;
@@ -723,7 +724,7 @@ namespace salty
         public System.Windows.Forms.TextBox gpu_name_text;
         private System.Windows.Forms.Label gpu_enabled_text;
         private System.Windows.Forms.TextBox gpu_cmd_output;
-        private RoundedPanel roundedPanel1;
+        private RoundedPanel mini_gpu_holder;
         private System.Windows.Forms.PictureBox mini_cpu_toggle;
         private System.Windows.Forms.PictureBox mini_gpu_toggle;
     }
