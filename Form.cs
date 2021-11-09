@@ -68,25 +68,23 @@ namespace salty
         // Starts or stops the mining whenever the button is clicked
         private void mining_button_Click(object sender, EventArgs e)
         {
+            ButtonChange();
+
             if (miner.gpu_enabled == false && miner.isgpumining == true)
             {
                 miner.gpu_process.Kill();
-                ButtonChange();
                 miner.isgpumining = false;
             }
 
             if (miner.cpu_enabled == false && miner.iscpumining == true)
             {
                 miner.cpu_process.Kill();
-                ButtonChange();
                 miner.iscpumining = false;
             }
-
 
             if (miner.iscpumining == true)
             {
                 miner.cpu_process.Kill();
-                ButtonChange();
                 miner.iscpumining = false;
             }
 
@@ -95,7 +93,6 @@ namespace salty
                 if (miner.cpu_enabled == true)
                 {
                     miner.RunCPUMiner();
-                    ButtonChange();
                     miner.iscpumining = true;
                 }
             }
@@ -103,7 +100,6 @@ namespace salty
             if (miner.isgpumining == true)
             {
                 miner.gpu_process.Kill();
-                ButtonChange();
                 miner.isgpumining = false;
             }
 
@@ -112,7 +108,6 @@ namespace salty
                 if (miner.gpu_enabled == true)
                 {
                     miner.RunGPUMiner();
-                    ButtonChange();
                     miner.isgpumining = true;
                 }
             }
@@ -231,12 +226,12 @@ namespace salty
         // Changes button color
         private void ButtonChange()
         {
-            if (miner.iscpumining == false)
+            if (miner.iscpumining == false || miner.isgpumining == false)
             {
                 mining_button.Image = Properties.Resources.mine_stop;
             }
 
-            if (miner.iscpumining == true)
+            if (miner.iscpumining == true || miner.isgpumining == true)
             {
                 mining_button.Image = Properties.Resources.mine_start;
             }
