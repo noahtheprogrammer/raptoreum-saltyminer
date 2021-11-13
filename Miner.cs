@@ -28,6 +28,7 @@ namespace salty
         // Bool to enable miners
         public bool cpu_enabled = false;
         public bool gpu_enabled = false;
+        public int enabled_count;
 
         // String used to hold RTM address
         public string address;

@@ -40,7 +40,19 @@ namespace salty
             // Displays the amount of GPUs and CPUs onboard
             gpu_count.Text = GetGPUCount().ToString();
             cpu_count.Text = GetCPUCount().ToString();
+            DisplayCount();
             cpu_name_text.Text = SendBackProcessorName();
+
+            if (GetGPUCount() > 1)
+            {
+                gpu_name_text.Text = SendBackMainGraphicsName() + " (+" + (GetGPUCount() - 1) + " more)";
+            }
+
+            else
+            {
+                gpu_name_text.Text = SendBackMainGraphicsName();
+            }
+
 
             // Rounds the form edges
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
@@ -49,6 +61,12 @@ namespace salty
             change_text_saved();
 
             arch_count.Text = RuntimeInformation.ProcessArchitecture.ToString();
+        }
+
+        // Method that displays the counter
+        private void DisplayCount()
+        {
+            enabled_count.Text = miner.enabled_count.ToString() + "/" + (GetGPUCount() + GetGPUCount()).ToString();
         }
 
         // Finds amount of GPUs onboard
@@ -135,14 +153,14 @@ namespace salty
         }
 
         // Gets the extra parameters
-        private void extra_cpu_params_TextChanged(object sender, EventArgs e)
+        private void extra_cpu_params_text_TextChanged(object sender, EventArgs e)
         {
             miner.extra_cpu_params = extra_cpu_params_text.Text;
             miner.save_data();
         }
 
         // Gets the extra parameters
-        private void extra_gpu_params_TextChanged(object sender, EventArgs e)
+        private void extra_gpu_params_text_TextChanged(object sender, EventArgs e)
         {
             miner.extra_gpu_params = extra_gpu_params_text.Text;
             miner.save_data();
@@ -212,6 +230,24 @@ namespace salty
                 return Procname;
         }
 
+        // Sends back the main graphics card name
+        public static string SendBackMainGraphicsName()
+        {
+            ManagementObjectSearcher mosGraphicsCard = new ManagementObjectSearcher("SELECT * FROM Win32_VideoController");
+            string Gname = null;
+
+            foreach (ManagementObject moGraphicsCard in mosGraphicsCard.Get())
+            {
+                if (moGraphicsCard["name"] != null)
+                {
+                    Gname = moGraphicsCard["name"].ToString();
+
+                }
+
+            }
+            return Gname;
+        }
+
         // Saves the changed text
         private void change_text_saved()
         {
@@ -219,7 +255,7 @@ namespace salty
             pool_text.Text = miner.pool;
             threads_text.Text = miner.thread_count;
             extra_cpu_params_text.Text = miner.extra_cpu_params;
-            extra_gpu_params_text.Text= miner.extra_gpu_params;
+            extra_gpu_params_text.Text = miner.extra_gpu_params;
             set_box.Text = miner.instruction_set;
         }
 
@@ -234,6 +270,8 @@ namespace salty
             if (miner.iscpumining == true || miner.isgpumining == true)
             {
                 mining_button.Image = Properties.Resources.mine_start;
+                gpu_cmd_output.Text = "Saltyminer (GPU) has been shut down.";
+                cpu_cmd_output.Text = "Saltyminer (CPU) has been shut down.";
             }
         }
 
@@ -270,24 +308,6 @@ namespace salty
             WindowState = FormWindowState.Minimized;
         }
 
-        // Start button for GPU only
-        private void mini_gpu_Click(object sender, EventArgs e)
-        {
-            if (miner.gpu_enabled == false)
-            {
-                gpu_enabled_text.Text = "GPU: Enabled";
-                mini_gpu_toggle.Image = Properties.Resources.mini_stop;
-                miner.gpu_enabled = true;
-            }
-
-            if (miner.gpu_enabled == true)
-            {
-                gpu_enabled_text.Text = "GPU: Disabled";
-                mini_gpu_toggle.Image = Properties.Resources.mini_start;
-                miner.gpu_enabled = false;
-            }
-        }
-
         // Toggles the CPU enabler
         private void mini_cpu_toggle_Click(object sender, EventArgs e)
         {
@@ -296,6 +316,8 @@ namespace salty
                 miner.cpu_enabled = true;
                 cpu_enabled_text.Text = "CPU: Enabled";
                 mini_cpu_toggle.Image = Properties.Resources.mini_stop;
+                miner.enabled_count++;
+                DisplayCount();
             }
 
             else if (miner.cpu_enabled == true)
@@ -303,6 +325,8 @@ namespace salty
                 miner.cpu_enabled = false;
                 cpu_enabled_text.Text = "CPU: Disabled";
                 mini_cpu_toggle.Image = Properties.Resources.mini_start;
+                miner.enabled_count--;
+                DisplayCount();
             }
         }
 
@@ -314,6 +338,8 @@ namespace salty
                 miner.gpu_enabled = true;
                 gpu_enabled_text.Text = "GPU: Enabled";
                 mini_gpu_toggle.Image = Properties.Resources.mini_stop;
+                miner.enabled_count++;
+                DisplayCount();
             }
 
             else if (miner.gpu_enabled == true)
@@ -321,6 +347,8 @@ namespace salty
                 miner.gpu_enabled = false;
                 gpu_enabled_text.Text = "GPU: Disabled";
                 mini_gpu_toggle.Image = Properties.Resources.mini_start;
+                miner.enabled_count--;
+                DisplayCount();
             }
         }
     }

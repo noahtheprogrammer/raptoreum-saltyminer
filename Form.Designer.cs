@@ -139,7 +139,7 @@ namespace salty
             this.main_panel.Controls.Add(this.cpu_name_text);
             this.main_panel.Controls.Add(this.cpu_enabled_text);
             this.main_panel.Controls.Add(this.mini_gpu_holder);
-            this.main_panel.Location = new System.Drawing.Point(22, 191);
+            this.main_panel.Location = new System.Drawing.Point(29, 189);
             this.main_panel.Name = "main_panel";
             this.main_panel.panel_color = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.main_panel.Size = new System.Drawing.Size(820, 296);
@@ -154,13 +154,14 @@ namespace salty
             this.gpu_cmd_output.Cursor = System.Windows.Forms.Cursors.Default;
             this.gpu_cmd_output.Enabled = false;
             this.gpu_cmd_output.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.gpu_cmd_output.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+            this.gpu_cmd_output.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.gpu_cmd_output.Location = new System.Drawing.Point(27, 196);
             this.gpu_cmd_output.Multiline = true;
             this.gpu_cmd_output.Name = "gpu_cmd_output";
             this.gpu_cmd_output.ReadOnly = true;
             this.gpu_cmd_output.Size = new System.Drawing.Size(746, 48);
             this.gpu_cmd_output.TabIndex = 29;
+            this.gpu_cmd_output.Text = "Output from the GPU miner will be displayed here.";
             // 
             // cpu_cmd_output
             // 
@@ -171,13 +172,14 @@ namespace salty
             this.cpu_cmd_output.Cursor = System.Windows.Forms.Cursors.Default;
             this.cpu_cmd_output.Enabled = false;
             this.cpu_cmd_output.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cpu_cmd_output.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+            this.cpu_cmd_output.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.cpu_cmd_output.Location = new System.Drawing.Point(24, 76);
             this.cpu_cmd_output.Multiline = true;
             this.cpu_cmd_output.Name = "cpu_cmd_output";
             this.cpu_cmd_output.ReadOnly = true;
             this.cpu_cmd_output.Size = new System.Drawing.Size(746, 48);
             this.cpu_cmd_output.TabIndex = 11;
+            this.cpu_cmd_output.Text = "Output from the CPU miner will be displayed here.";
             // 
             // seperation_line_5
             // 
@@ -306,7 +308,7 @@ namespace salty
             this.roundedPanel3.Controls.Add(this.pool_text);
             this.roundedPanel3.Controls.Add(this.threads_text);
             this.roundedPanel3.Controls.Add(this.address_text);
-            this.roundedPanel3.Location = new System.Drawing.Point(22, 10);
+            this.roundedPanel3.Location = new System.Drawing.Point(29, 7);
             this.roundedPanel3.Name = "roundedPanel3";
             this.roundedPanel3.panel_color = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.roundedPanel3.Size = new System.Drawing.Size(820, 221);
@@ -369,7 +371,7 @@ namespace salty
             this.enabled_count.Name = "enabled_count";
             this.enabled_count.Size = new System.Drawing.Size(128, 56);
             this.enabled_count.TabIndex = 17;
-            this.enabled_count.Text = "2/2";
+            this.enabled_count.Text = "0/0";
             this.enabled_count.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.enabled_count.UseCompatibleTextRendering = true;
             // 
@@ -383,8 +385,8 @@ namespace salty
             this.extra_gpu_params_text.Name = "extra_gpu_params_text";
             this.extra_gpu_params_text.PlaceholderText = "Insert GPU parameters";
             this.extra_gpu_params_text.Size = new System.Drawing.Size(300, 17);
-            this.extra_gpu_params_text.TabIndex = 18;
-            this.extra_gpu_params_text.TextChanged += new System.EventHandler(this.extra_cpu_params_TextChanged);
+            this.extra_gpu_params_text.TabIndex = 9;
+            this.extra_gpu_params_text.TextChanged += new System.EventHandler(this.extra_gpu_params_text_TextChanged);
             // 
             // extra_cpu_params_text
             // 
@@ -397,6 +399,7 @@ namespace salty
             this.extra_cpu_params_text.PlaceholderText = "Insert CPU parameters";
             this.extra_cpu_params_text.Size = new System.Drawing.Size(300, 17);
             this.extra_cpu_params_text.TabIndex = 9;
+            this.extra_gpu_params_text.TextChanged += new System.EventHandler(this.extra_cpu_params_text_TextChanged);
             // 
             // threads_text
             // 
