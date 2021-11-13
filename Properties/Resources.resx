@@ -124,9 +124,6 @@
   <data name="minimize_icon_dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\minimize_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mine_stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mine_stop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="config_button_dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\config_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -139,19 +136,13 @@
   <data name="sm_banner_dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sm_banner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ui_1_dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dark_ui_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mini_stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mini_stop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ui_2_dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ui_2_dark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cmd_button_dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cmd_button_dark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mine_stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mine_stop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mini_start" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mini_start.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mini_stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mini_stop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -11,10 +11,6 @@ namespace salty
     // Class that holds the saltyminer form
     public partial class saltyminer : Form
     {
-        // Gets the information required to round the form edges
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn
-        (int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
 
         // Classes for stuff
         private Design design;
@@ -52,10 +48,6 @@ namespace salty
             {
                 gpu_name_text.Text = SendBackMainGraphicsName();
             }
-
-
-            // Rounds the form edges
-            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 15, 15));
 
             // Changes text displays
             change_text_saved();

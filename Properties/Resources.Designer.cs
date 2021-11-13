@@ -63,16 +63,6 @@ namespace salty.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cmd_button_dark {
-            get {
-                object obj = ResourceManager.GetObject("cmd_button_dark", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap config_button_dark {
             get {
                 object obj = ResourceManager.GetObject("config_button_dark", resourceCulture);
@@ -156,26 +146,6 @@ namespace salty.Properties {
         internal static System.Drawing.Bitmap sm_banner_dark {
             get {
                 object obj = ResourceManager.GetObject("sm_banner_dark", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ui_1_dark {
-            get {
-                object obj = ResourceManager.GetObject("ui_1_dark", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ui_2_dark {
-            get {
-                object obj = ResourceManager.GetObject("ui_2_dark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
