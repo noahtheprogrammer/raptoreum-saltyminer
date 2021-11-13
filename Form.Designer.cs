@@ -54,6 +54,8 @@ namespace salty
             this.threads_text = new System.Windows.Forms.TextBox();
             this.mining_button = new System.Windows.Forms.PictureBox();
             this.panel_2 = new System.Windows.Forms.Panel();
+            this.worker_text = new System.Windows.Forms.TextBox();
+            this.worker_label = new System.Windows.Forms.Label();
             this.roundedPanel2 = new salty.RoundedPanel();
             this.performance_label = new System.Windows.Forms.Label();
             this.seperation_line_2 = new System.Windows.Forms.Panel();
@@ -145,9 +147,9 @@ namespace salty
             // 
             this.mini_gpu_toggle.Image = global::salty.Properties.Resources.mini_start;
             this.mini_gpu_toggle.InitialImage = null;
-            this.mini_gpu_toggle.Location = new System.Drawing.Point(734, 134);
+            this.mini_gpu_toggle.Location = new System.Drawing.Point(742, 147);
             this.mini_gpu_toggle.Name = "mini_gpu_toggle";
-            this.mini_gpu_toggle.Size = new System.Drawing.Size(50, 50);
+            this.mini_gpu_toggle.Size = new System.Drawing.Size(35, 35);
             this.mini_gpu_toggle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.mini_gpu_toggle.TabIndex = 1;
             this.mini_gpu_toggle.TabStop = false;
@@ -157,9 +159,9 @@ namespace salty
             // 
             this.mini_cpu_toggle.Image = global::salty.Properties.Resources.mini_start;
             this.mini_cpu_toggle.InitialImage = null;
-            this.mini_cpu_toggle.Location = new System.Drawing.Point(734, 17);
+            this.mini_cpu_toggle.Location = new System.Drawing.Point(742, 27);
             this.mini_cpu_toggle.Name = "mini_cpu_toggle";
-            this.mini_cpu_toggle.Size = new System.Drawing.Size(50, 50);
+            this.mini_cpu_toggle.Size = new System.Drawing.Size(35, 35);
             this.mini_cpu_toggle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.mini_cpu_toggle.TabIndex = 0;
             this.mini_cpu_toggle.TabStop = false;
@@ -405,12 +407,43 @@ namespace salty
             // panel_2
             // 
             this.panel_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.panel_2.Controls.Add(this.worker_text);
+            this.panel_2.Controls.Add(this.worker_label);
             this.panel_2.Controls.Add(this.roundedPanel2);
             this.panel_2.Controls.Add(this.mining_button);
             this.panel_2.Location = new System.Drawing.Point(-4, 47);
             this.panel_2.Name = "panel_2";
             this.panel_2.Size = new System.Drawing.Size(860, 457);
             this.panel_2.TabIndex = 7;
+            // 
+            // worker_text
+            // 
+            this.worker_text.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.worker_text.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.worker_text.Cursor = System.Windows.Forms.Cursors.Default;
+            this.worker_text.Font = new System.Drawing.Font("Roboto Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.worker_text.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.worker_text.Location = new System.Drawing.Point(136, 418);
+            this.worker_text.MaxLength = 32;
+            this.worker_text.Name = "worker_text";
+            this.worker_text.PlaceholderText = "Insert worker name";
+            this.worker_text.Size = new System.Drawing.Size(233, 20);
+            this.worker_text.TabIndex = 24;
+            this.worker_text.Text = "ExampleName";
+            this.worker_text.TextChanged += new System.EventHandler(this.worker_text_TextChanged);
+            // 
+            // worker_label
+            // 
+            this.worker_label.BackColor = System.Drawing.Color.Transparent;
+            this.worker_label.Font = new System.Drawing.Font("Roboto Medium", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.worker_label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
+            this.worker_label.Location = new System.Drawing.Point(15, 414);
+            this.worker_label.Name = "worker_label";
+            this.worker_label.Size = new System.Drawing.Size(121, 27);
+            this.worker_label.TabIndex = 23;
+            this.worker_label.Text = "Worker Name:";
+            this.worker_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.worker_label.UseCompatibleTextRendering = true;
             // 
             // roundedPanel2
             // 
@@ -631,8 +664,8 @@ namespace salty
             this.Controls.Add(this.dash_button);
             this.Controls.Add(this.min_button);
             this.Controls.Add(this.quit_button);
-            this.Controls.Add(this.panel_1);
             this.Controls.Add(this.panel_2);
+            this.Controls.Add(this.panel_1);
             this.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -650,6 +683,7 @@ namespace salty
             this.roundedPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mining_button)).EndInit();
             this.panel_2.ResumeLayout(false);
+            this.panel_2.PerformLayout();
             this.roundedPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.quit_button)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.min_button)).EndInit();
@@ -703,6 +737,8 @@ namespace salty
         private System.Windows.Forms.TextBox gpu_cmd_output;
         private System.Windows.Forms.PictureBox mini_cpu_toggle;
         private System.Windows.Forms.PictureBox mini_gpu_toggle;
+        private System.Windows.Forms.TextBox worker_text;
+        private System.Windows.Forms.Label worker_label;
     }
 }
 

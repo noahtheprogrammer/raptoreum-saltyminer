@@ -173,6 +173,13 @@ namespace salty
             miner.save_data();
         }
 
+        // Saves the worker's username
+        private void worker_text_TextChanged(object sender, EventArgs e)
+        {
+            miner.username = worker_text.Text;
+            miner.save_data();
+        }
+
         // Moves the form with the mouse
         protected override void WndProc(ref Message message)
         {
@@ -257,6 +264,7 @@ namespace salty
             extra_cpu_params_text.Text = miner.extra_cpu_params;
             extra_gpu_params_text.Text = miner.extra_gpu_params;
             set_box.Text = miner.instruction_set;
+            worker_text.Text = miner.username;
         }
 
         // Changes button color
