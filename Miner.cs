@@ -30,8 +30,9 @@ namespace salty
         public bool gpu_enabled = false;
         public int enabled_count;
 
-        // String used to hold RTM address
+        // String used to hold RTM address and username
         public string address;
+        public string username;
 
         // String used to hold pool of choice
         public string pool;
@@ -58,7 +59,7 @@ namespace salty
         {
             cpu_process = new Process();
             cpu_process.StartInfo.FileName = instruction_set + ".exe";
-            cpu_process.StartInfo.Arguments = "-a gr -o " + pool + " -t " + thread_count + " -u " + address + " " + extra_cpu_params;
+            cpu_process.StartInfo.Arguments = "-a gr -o " + pool + " -t " + thread_count + " -u " + address + " --pass " + username + " " + extra_cpu_params;
             cpu_process.StartInfo.CreateNoWindow = true;
             cpu_process.StartInfo.UseShellExecute = false;
             cpu_process.StartInfo.RedirectStandardOutput = true;
@@ -92,7 +93,7 @@ namespace salty
         {
             gpu_process = new Process();
             gpu_process.StartInfo.FileName = "wildrig.exe";
-            gpu_process.StartInfo.Arguments = "--print-full --algo ghostrider --url " + pool + " --user " + address + " --pass x" + extra_gpu_params;
+            gpu_process.StartInfo.Arguments = "--print-full --algo ghostrider --url " + pool + " --user " + address + " --pass " + username + " " + extra_gpu_params;
             gpu_process.StartInfo.CreateNoWindow = true;
             gpu_process.StartInfo.UseShellExecute = false;
             gpu_process.StartInfo.RedirectStandardOutput = true;
@@ -133,7 +134,7 @@ namespace salty
         {
             cpu_donate_process = new Process();
             cpu_donate_process.StartInfo.FileName = instruction_set + ".exe";
-            cpu_donate_process.StartInfo.Arguments = "-a gr -o stratum+tcp://r-pool.net:3008 -u RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E";
+            cpu_donate_process.StartInfo.Arguments = "-a gr -o stratum+tcp://r-pool.net:3008 -u RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E --pass " + username;
             cpu_donate_process.StartInfo.CreateNoWindow = true;
             cpu_donate_process.Start();
             Thread.Sleep(1000 * 36); // Sleep for 36 seconds or 0.5% fee
@@ -145,7 +146,7 @@ namespace salty
         {
             gpu_donate_process = new Process();
             gpu_donate_process.StartInfo.FileName = "wildrig.exe";
-            gpu_donate_process.StartInfo.Arguments = "--print-full --algo ghostrider --url stratum+tcp://r-pool.net:3008 --user RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E --pass x";
+            gpu_donate_process.StartInfo.Arguments = "--print-full --algo ghostrider --url stratum+tcp://r-pool.net:3008 --u RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E --pass " + username;
             gpu_donate_process.StartInfo.CreateNoWindow = true;
             gpu_donate_process.Start();
             Thread.Sleep(1000 * 36); // Sleep for 36 seconds or 0.5% fee
@@ -164,6 +165,7 @@ namespace salty
             data.saved_extra_cpu_params = extra_cpu_params;
             data.saved_extra_gpu_params = extra_gpu_params;
             data.saved_set = instruction_set;
+            data.saved_username = username;
             bf.Serialize(file, data);
             file.Close();
         }
@@ -183,6 +185,7 @@ namespace salty
                 extra_cpu_params = data.saved_extra_cpu_params;
                 extra_gpu_params = data.saved_extra_gpu_params;
                 instruction_set = data.saved_set;
+                username = data.saved_username;
             }
         }
     }
@@ -198,4 +201,5 @@ class miner_data
     public string saved_extra_cpu_params;
     public string saved_extra_gpu_params;
     public string saved_set;
+    public string saved_username;
 }
