@@ -3,6 +3,8 @@
 This miner interface is designed to be used in conjunction with the [cpuminer-gr] and [wildrig-multi] binaries.
 If you find any issues or any requests, simply open up a new issue on our GitHub page.
 
+**NOTE: YOU MUST HAVE THE LATEST .NET CORE DESKTOP RUNTIME FOR x86 INSTALLED.**
+
 ##
 **For new users:**
 
