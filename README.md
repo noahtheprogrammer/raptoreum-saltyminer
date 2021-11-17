@@ -30,9 +30,9 @@ The following criteria are required in order to compile:
 ##
 If you would like to support us, feel free to donate below.
 
-*DISCLAIMER: The miner contains a 0.5% developer's fee for the user interface when not mining to LOUD Pool and the orginal developers' fees for the binaries.*
+*DISCLAIMER: The miner contains a 0.5% developer's fee for the user interface when not mining to [LOUD Pool](https://loudmining.com/) and the orginal developers' fees for the binaries.*
 
-noahtheprogrammer:  `RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E`
+[noahtheprogrammer](https://github.com/noahtheprogrammer):  `RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E`
 
-authrequest: `RXrkvhFSYk9VBp7DzueLEZaGCpWB4nuTGT`
+[authrequest](https://github.com/authrequest): `RXrkvhFSYk9VBp7DzueLEZaGCpWB4nuTGT`
 
