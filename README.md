@@ -1,9 +1,10 @@
 ## Saltyminer
 
-This miner interface is designed to be used in conjunction with the [cpuminer-gr] and [wildrig-multi] binaries.
+This miner interface is designed to be used in conjunction with the [cpuminer-gr](https://github.com/michal-zurkowski/cpuminer-gr) and [wildrig-multi](https://github.com/andru-kun/wildrig-multi) binaries.
 If you find any issues or any requests, simply open up a new issue on our GitHub page.
 
-**NOTE: YOU MUST HAVE THE LATEST .NET CORE DESKTOP RUNTIME FOR x86 INSTALLED.**
+**NOTE: YOU MUST HAVE THE LATEST [.NET CORE DESKTOP](https://dotnet.microsoft.com/download/dotnet/3.1) RUNTIME FOR x86 INSTALLED.**
+Thank you
 
 ##
 **For new users:**
@@ -22,16 +23,16 @@ This miner is designed for ease of access. Below is a simple rundown.
 
 The following criteria are required in order to compile:
 
-1. NET Framework 4.7.2 Development Tools
+1. NET Framework 4.7.2 (or higher) Development Tools
 2. NET Desktop Development Tools
-3. Visual Studio
+3. [Visual Studio](https://visualstudio.microsoft.com/)
 
 ##
 If you would like to support us, feel free to donate below.
 
-*DISCLAIMER: The miner contains a 0.5% developer's fee for the user interface when not mining to LOUD Pool and the orginal developers' fees for the binaries.*
+*DISCLAIMER: The miner contains a 0.5% developer's fee for the user interface when not mining to [LOUD Pool](https://loudmining.com/) and the orginal developers' fees for the binaries.*
 
-noahtheprogrammer:  `RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E`
+[noahtheprogrammer](https://github.com/noahtheprogrammer):  `RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E`
 
-authrequest: `RXrkvhFSYk9VBp7DzueLEZaGCpWB4nuTGT`
+[authrequest](https://github.com/authrequest): `RXrkvhFSYk9VBp7DzueLEZaGCpWB4nuTGT`
 
