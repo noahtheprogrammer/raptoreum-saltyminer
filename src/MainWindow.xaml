@@ -1,0 +1,21 @@
+﻿<Window x:Name="main_window" x:Class="Saltyminer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Saltyminer"
+        mc:Ignorable="d"
+        Title="Saltyminer" Height="500" Width="800" Background="#f4f4f4" WindowStyle="None" ResizeMode="CanMinimize">
+
+    <Grid>
+        <Rectangle x:Name="stats_panel" HorizontalAlignment="Center" Height="115" VerticalAlignment="Top" Width="655" Margin="0,325,0,0" SnapsToDevicePixels="True" StrokeThickness="2">
+            <Rectangle.Effect>
+                <DropShadowEffect Direction="0" Color="#FFF0F0F0" RenderingBias="Performance" ShadowDepth="3"/>
+            </Rectangle.Effect>
+            <Rectangle.Fill>
+                <SolidColorBrush Color="#fbfbfb"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label x:Name="gpu_num" Content="0" Width="50" Height="50" FontSize="20" FontFamily="Georgia" FontWeight="Bold" Foreground="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="91,359,0,0"/>
+    </Grid>
+</Window>
