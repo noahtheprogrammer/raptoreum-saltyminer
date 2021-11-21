@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:Saltyminer"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <FontFamily x:Key="Shippori">pack://Saltyminer:/Fonts/#Shippori Antique</FontFamily>
     </Application.Resources>
 </Application>

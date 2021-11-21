@@ -8,14 +8,20 @@
         Title="Saltyminer" Height="500" Width="800" Background="#f4f4f4" WindowStyle="None" ResizeMode="CanMinimize">
 
     <Grid>
+        <!-- Panel used to hold the basic statistics for the miner -->
         <Rectangle x:Name="stats_panel" HorizontalAlignment="Center" Height="115" VerticalAlignment="Top" Width="655" Margin="0,325,0,0" SnapsToDevicePixels="True" StrokeThickness="2">
             <Rectangle.Effect>
-                <DropShadowEffect Direction="0" Color="#FFF0F0F0" RenderingBias="Performance" ShadowDepth="3"/>
+                <DropShadowEffect Direction="15" Color="#FFF0F0F0" RenderingBias="Performance" ShadowDepth="3"/>
             </Rectangle.Effect>
             <Rectangle.Fill>
                 <SolidColorBrush Color="#fbfbfb"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Label x:Name="gpu_num" Content="0" Width="50" Height="50" FontSize="20" FontFamily="Georgia" FontWeight="Bold" Foreground="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="91,359,0,0"/>
+
+        <!-- Labels used to display the number of devices currently on board -->
+        <Label x:Name="gpu_num" Content="1" Width="50" Height="50" FontSize="40" FontFamily="{StaticResource ResourceKey=Shippori}" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="102,342,648,108"/>
+        <Label x:Name="cpu_num" Content="1" Width="50" Height="50" FontSize="40" FontFamily="{StaticResource ResourceKey=Shippori}" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="238,342,512,108"/>
+        <Label x:Name="gpu_label" Content="GPU" HorizontalAlignment="Left" Margin="108,392,0,0" VerticalAlignment="Top" FontFamily="{StaticResource ResourceKey=Shippori}" FontWeight="Bold" FontSize="14" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label x:Name="cpu_label" Content="CPU" HorizontalAlignment="Left" Margin="244,392,0,0" VerticalAlignment="Top" FontFamily="{StaticResource ResourceKey=Shippori}" FontWeight="Bold" FontSize="14" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
     </Grid>
 </Window>
