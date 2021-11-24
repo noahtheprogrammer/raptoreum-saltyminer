@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Saltyminer
 {
@@ -23,6 +24,25 @@ namespace Saltyminer
         public Dashboard()
         {
             InitializeComponent();
+        }
+
+        // Shuts down application when called
+        private void exit_img_Click(object sender, MouseButtonEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        // Minimizes application when called
+        private void mini_img_Click(object sender, MouseButtonEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        // Opens the configurations window
+        private void config_img_Click(object sender, MouseButtonEventArgs e)
+        {
+            Configs configs = new Configs();
+            configs.Show();
         }
     }
 }

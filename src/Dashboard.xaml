@@ -19,12 +19,12 @@
         </Rectangle>
 
         <!-- Labels used to display the number of devices currently on board -->
-        <Label x:Name="gpu_num" Content="1" Width="50" Height="50" FontSize="40" FontFamily="{StaticResource ResourceKey=Shippori}" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="102,342,648,108"/>
-        <Label x:Name="cpu_num" Content="1" Width="50" Height="50" FontSize="40" FontFamily="{StaticResource ResourceKey=Shippori}" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="238,342,512,108"/>
-        <Label x:Name="gpu_label" Content="GPU" HorizontalAlignment="Left" Margin="107,392,0,0" VerticalAlignment="Top" FontFamily="{StaticResource ResourceKey=Shippori}" FontWeight="Normal" FontSize="16" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <Label x:Name="cpu_label" Content="CPU" HorizontalAlignment="Left" Margin="243,392,0,0" VerticalAlignment="Top" FontFamily="{StaticResource ResourceKey=Shippori}" FontWeight="Normal" FontSize="16" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <Image x:Name="exit_img" HorizontalAlignment="Left" Height="30" Margin="760,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_exit.png"/>
-        <Image x:Name="mini_img" HorizontalAlignment="Left" Height="30" Margin="725,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_mini.png"/>
-        <Image x:Name="config_img" HorizontalAlignment="Left" Height="30" Margin="690,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_config.png"/>
+        <Label x:Name="gpu_num" Content="1" Width="50" FontSize="40" FontFamily="{StaticResource ResourceKey=Shippori}" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="122,351,628,94"/>
+        <Label x:Name="cpu_num" Content="1" Width="50" FontSize="40" FontFamily="{StaticResource ResourceKey=Shippori}" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="238,351,512,94"/>
+        <Label x:Name="gpu_label" Content="GPU" HorizontalAlignment="Left" Margin="127,402,0,0" VerticalAlignment="Top" FontFamily="{StaticResource ResourceKey=Shippori}" FontWeight="Normal" FontSize="16" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label x:Name="cpu_label" Content="CPU" HorizontalAlignment="Left" Margin="243,402,0,0" VerticalAlignment="Top" FontFamily="{StaticResource ResourceKey=Shippori}" FontWeight="Normal" FontSize="16" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Image x:Name="exit_img" HorizontalAlignment="Left" Height="30" Margin="760,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_exit.png" MouseDown="exit_img_Click"/>
+        <Image x:Name="mini_img" HorizontalAlignment="Left" Height="30" Margin="725,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_mini.png" MouseDown="mini_img_Click"/>
+        <Image x:Name="config_img" HorizontalAlignment="Left" Height="30" Margin="690,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_config.png" MouseDown="config_img_Click"/>
     </Grid>
 </Window>
