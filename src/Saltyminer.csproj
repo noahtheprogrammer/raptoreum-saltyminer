@@ -8,12 +8,18 @@
 
   <ItemGroup>
     <None Remove="Fonts\shippori.ttf" />
+    <None Remove="Resources\light_config.png" />
+    <None Remove="Resources\light_exit.png" />
+    <None Remove="Resources\light_mini.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Fonts\shippori.ttf">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\light_config.png" />
+    <Resource Include="Resources\light_exit.png" />
+    <Resource Include="Resources\light_mini.png" />
   </ItemGroup>
 
 </Project>
