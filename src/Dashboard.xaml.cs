@@ -44,5 +44,11 @@ namespace Saltyminer
             Configs configs = new Configs();
             configs.Show();
         }
+
+        // Called whenever the main mining button is clicked
+        private void main_btn_Click(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Testing mining button mechanics.");
+        }
     }
 }
