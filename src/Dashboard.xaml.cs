@@ -50,5 +50,14 @@ namespace Saltyminer
         {
             MessageBox.Show("Testing mining button mechanics.");
         }
+
+        // Used to drag the window
+        private void drag_window(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
     }
 }

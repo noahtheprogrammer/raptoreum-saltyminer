@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Saltyminer"
         mc:Ignorable="d"
-        Title="Saltyminer" Height="500" Width="450" Background="#f4f4f4" WindowStyle="None" ResizeMode="NoResize">
+        Title="Saltyminer" Height="500" Width="450" Background="#f4f4f4" WindowStyle="None" ResizeMode="NoResize" MouseLeftButtonDown="drag_window">
     <Grid>
         <Image x:Name="exit_img" HorizontalAlignment="Left" Height="30" Margin="410,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_exit.png" MouseDown="exit_img_Click"/>
     </Grid>
