@@ -59,5 +59,29 @@ namespace Saltyminer
                 DragMove();
             }
         }
+
+        // Changes to new devices menu
+        private void devices_btn_Click(object sender, MouseButtonEventArgs e)
+        {
+            installations_grid.Visibility = Visibility.Collapsed;
+            home_grid.Visibility = Visibility.Collapsed;
+            devices_grid.Visibility = Visibility.Visible;
+        }
+
+        // Changes to new installations menu
+        private void installations_btn_Click(object sender, MouseButtonEventArgs e)
+        {
+            home_grid.Visibility = Visibility.Collapsed;
+            devices_grid.Visibility = Visibility.Collapsed;
+            installations_grid.Visibility = Visibility.Visible;
+        }
+
+        // Changes to new home menu
+        private void home_btn_Click(object sender, MouseButtonEventArgs e)
+        {
+            installations_grid.Visibility = Visibility.Collapsed;
+            devices_grid.Visibility = Visibility.Collapsed;
+            home_grid.Visibility = Visibility.Visible;
+        }
     }
 }

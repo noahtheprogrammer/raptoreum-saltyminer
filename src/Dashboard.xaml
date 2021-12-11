@@ -7,36 +7,74 @@
         mc:Ignorable="d"
         Title="Saltyminer" Height="500" Width="800" Background="#f4f4f4" WindowStyle="None" ResizeMode="CanMinimize" MouseLeftButtonDown="drag_window">
 
-    <Grid TextOptions.TextRenderingMode="ClearType">
-        <!-- Panel used to hold the basic statistics for the miner -->
-        <Rectangle x:Name="stats_panel" HorizontalAlignment="Center" Height="115" VerticalAlignment="Top" Width="655" Margin="0,325,0,0" SnapsToDevicePixels="True" StrokeThickness="2">
-            <Rectangle.Effect>
-                <DropShadowEffect Direction="15" Color="#FFF0F0F0" RenderingBias="Performance" ShadowDepth="3"/>
-            </Rectangle.Effect>
-            <Rectangle.Fill>
-                <SolidColorBrush Color="#fbfbfb"/>
-            </Rectangle.Fill>
-        </Rectangle>
 
-        <!-- Labels used to display the number of devices currently on board -->
-        <Label x:Name="gpu_num" Content="1" Width="50" FontSize="40" FontFamily="Segoe UI" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="120,334,630,111"/>
-        <Label x:Name="cpu_num" Content="1" Width="50" FontSize="40" FontFamily="Segoe UI" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="236,334,514,111"/>
-        <Label x:Name="gpu_label" Content="GPU" HorizontalAlignment="Left" Margin="123,389,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily ="./Fonts/#Shippori Antique" FontSize="14"/>
-        <Label x:Name="cpu_label" Content="CPU" HorizontalAlignment="Left" Margin="239,389,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily ="./Fonts/#Shippori Antique" FontSize="14"/>
+    <Window.Resources>
+        <ResourceDictionary>
+            <LinearGradientBrush x:Key="yellowGradient"  EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFDB4C" Offset="0" />
+                <GradientStop Color="#F1B456" Offset="1" />
+            </LinearGradientBrush>
+        </ResourceDictionary>
+    </Window.Resources>
 
-        <!-- Buttons used to control the window -->
-        <Image x:Name="exit_img" HorizontalAlignment="Left" Height="30" Margin="760,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_exit.png" MouseDown="exit_img_Click"/>
-        <Image x:Name="mini_img" HorizontalAlignment="Left" Height="30" Margin="725,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_mini.png" MouseDown="mini_img_Click"/>
-        <Image x:Name="config_img" HorizontalAlignment="Left" Height="30" Margin="690,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_config.png" MouseDown="config_img_Click"/>
-        <Button x:Name="devices_btn" Content="Devices" HorizontalAlignment="Left" Margin="76,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground="#D7D7D7" Background="Transparent" FontSize="16" FontWeight="Normal"/>
-        <Button x:Name="installations_btn" Content="Installations" HorizontalAlignment="Left" Margin="153,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground="#D7D7D7" Background="Transparent" FontSize="16" FontWeight="Normal"/>
-        <Button x:Name="home_btn" Content="Home" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground="#D7D7D7" Background="Transparent" FontSize="16" FontWeight="Normal"/>
+    <Grid>
+        <!-- Home grid -->
+        <Grid x:Name="home_grid" TextOptions.TextRenderingMode="ClearType" Visibility="Visible">
 
-        <!-- Controls for the mining buttons -->
-        <Image x:Name="main_btn" HorizontalAlignment="Center" Height="200" VerticalAlignment="Top" Width="200" Source="Resources/light_start.png" Margin="0,93,0,0" MouseDown="main_btn_Click">
-            <Image.Effect>
-                <DropShadowEffect Direction="15" Color="WhiteSmoke" RenderingBias="Performance" ShadowDepth="3"/>
-            </Image.Effect>
-        </Image>
+            <!-- Panel used to hold the basic statistics for the miner -->
+            <Rectangle x:Name="stats_panel" HorizontalAlignment="Center" Height="115" VerticalAlignment="Top" Width="655" Margin="0,325,0,0" SnapsToDevicePixels="True" StrokeThickness="2">
+                <Rectangle.Effect>
+                    <DropShadowEffect Direction="15" Color="#FFF0F0F0" RenderingBias="Performance" ShadowDepth="3"/>
+                </Rectangle.Effect>
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="#fbfbfb"/>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <!-- Labels used to display the number of devices currently on board -->
+            <Label x:Name="gpu_num" Content="1" Width="50" FontSize="40" FontFamily="Segoe UI" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="120,334,630,111"/>
+            <Label x:Name="cpu_num" Content="1" Width="50" FontSize="40" FontFamily="Segoe UI" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="236,334,514,111"/>
+            <Label x:Name="gpu_label" Content="GPU" HorizontalAlignment="Left" Margin="123,389,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily ="./Fonts/#Shippori Antique" FontSize="14"/>
+            <Label x:Name="cpu_label" Content="CPU" HorizontalAlignment="Left" Margin="239,389,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily ="./Fonts/#Shippori Antique" FontSize="14"/>
+
+            <!-- Buttons used to control the window -->
+            <Image x:Name="exit_img" HorizontalAlignment="Left" Height="30" Margin="760,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_exit.png" MouseDown="exit_img_Click"/>
+            <Image x:Name="mini_img" HorizontalAlignment="Left" Height="30" Margin="725,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_mini.png" MouseDown="mini_img_Click"/>
+            <Image x:Name="config_img" HorizontalAlignment="Left" Height="30" Margin="690,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_config.png" MouseDown="config_img_Click"/>
+            <Label x:Name="devices_btn" Content="Devices" HorizontalAlignment="Left" Margin="76,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground="#D7D7D7" Background="Transparent" FontSize="15" FontWeight="Normal" MouseDown="devices_btn_Click"/>
+            <Label x:Name="installations_btn" Content="Installations" HorizontalAlignment="Left" Margin="153,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground="#D7D7D7" Background="Transparent" FontSize="15" FontWeight="Normal" MouseDown="installations_btn_Click"/>
+            <Label x:Name="home_btn" Content="Home" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground= "{StaticResource yellowGradient}" Background="Transparent" FontSize="15" FontWeight="Normal" MouseDown="home_btn_Click"/>
+
+            <!-- Controls for the mining buttons -->
+            <Image x:Name="main_btn" HorizontalAlignment="Center" Height="200" VerticalAlignment="Top" Width="200" Source="Resources/light_start.png" Margin="0,93,0,0" MouseDown="main_btn_Click">
+                <Image.Effect>
+                    <DropShadowEffect Direction="15" Color="WhiteSmoke" RenderingBias="Performance" ShadowDepth="3"/>
+                </Image.Effect>
+            </Image>
+        </Grid>
+
+        <!-- Devices grid -->
+        <Grid x:Name="devices_grid" TextOptions.TextRenderingMode="ClearType" Visibility="Hidden">
+
+            <!-- Buttons used to control the window -->
+            <Image x:Name="exit_img_1" HorizontalAlignment="Left" Height="30" Margin="760,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_exit.png" MouseDown="exit_img_Click"/>
+            <Image x:Name="mini_img_1" HorizontalAlignment="Left" Height="30" Margin="725,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_mini.png" MouseDown="mini_img_Click"/>
+            <Image x:Name="config_img_1" HorizontalAlignment="Left" Height="30" Margin="690,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_config.png" MouseDown="config_img_Click"/>
+            <Label x:Name="devices_btn_1" Content="Devices" HorizontalAlignment="Left" Margin="76,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground= "{StaticResource yellowGradient}" Background="Transparent" FontSize="15" FontWeight="Normal" MouseDown="devices_btn_Click"/>
+            <Label x:Name="installations_btn_1" Content="Installations" HorizontalAlignment="Left" Margin="153,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground="#D7D7D7" Background="Transparent" FontSize="15" FontWeight="Normal" MouseDown="installations_btn_Click"/>
+            <Label x:Name="home_btn_1" Content="Home" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground="#D7D7D7" Background="Transparent" FontSize="15" FontWeight="Normal" MouseDown="home_btn_Click"/>
+        </Grid>
+
+        <!-- Installations grid -->
+        <Grid x:Name="installations_grid" TextOptions.TextRenderingMode="ClearType" Visibility="Hidden">
+
+            <!-- Buttons used to control the window -->
+            <Image x:Name="exit_img_2" HorizontalAlignment="Left" Height="30" Margin="760,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_exit.png" MouseDown="exit_img_Click"/>
+            <Image x:Name="mini_img_2" HorizontalAlignment="Left" Height="30" Margin="725,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_mini.png" MouseDown="mini_img_Click"/>
+            <Image x:Name="config_img_2" HorizontalAlignment="Left" Height="30" Margin="690,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_config.png" MouseDown="config_img_Click"/>
+            <Label x:Name="devices_btn_2" Content="Devices" HorizontalAlignment="Left" Margin="76,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground="#D7D7D7" Background="Transparent" FontSize="15" FontWeight="Normal" MouseDown="devices_btn_Click"/>
+            <Label x:Name="installations_btn_2" Content="Installations" HorizontalAlignment="Left" Margin="153,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground= "{StaticResource yellowGradient}" Background="Transparent" FontSize="15" FontWeight="Normal" MouseDown="installations_btn_Click"/>
+            <Label x:Name="home_btn_2" Content="Home" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground="#D7D7D7" Background="Transparent" FontSize="15" FontWeight="Normal" MouseDown="home_btn_Click"/>
+        </Grid>
     </Grid>
 </Window>
