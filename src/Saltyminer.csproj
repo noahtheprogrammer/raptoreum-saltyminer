@@ -16,6 +16,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Management" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Fonts\shippori.ttf">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

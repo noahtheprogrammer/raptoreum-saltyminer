@@ -19,10 +19,10 @@
 
     <Grid>
         <!-- Home grid -->
-        <Grid x:Name="home_grid" TextOptions.TextRenderingMode="ClearType" Visibility="Visible">
+        <Grid x:Name="home_grid" TextOptions.TextRenderingMode="ClearType" d:IsHidden="True">
 
             <!-- Panel used to hold the basic statistics for the miner -->
-            <Rectangle x:Name="stats_panel" HorizontalAlignment="Center" Height="115" VerticalAlignment="Top" Width="655" Margin="0,325,0,0" SnapsToDevicePixels="True" StrokeThickness="2">
+            <Rectangle x:Name="stats_panel" HorizontalAlignment="Center" Height="115" VerticalAlignment="Top" Width="655" Margin="0,325,0,0" SnapsToDevicePixels="True" StrokeThickness="2" RadiusX="12" RadiusY="12">
                 <Rectangle.Effect>
                     <DropShadowEffect Direction="15" Color="#FFF0F0F0" RenderingBias="Performance" ShadowDepth="3"/>
                 </Rectangle.Effect>
@@ -54,7 +54,7 @@
         </Grid>
 
         <!-- Devices grid -->
-        <Grid x:Name="devices_grid" TextOptions.TextRenderingMode="ClearType" Visibility="Hidden">
+        <Grid x:Name="devices_grid" TextOptions.TextRenderingMode="ClearType">
 
             <!-- Buttons used to control the window -->
             <Image x:Name="exit_img_1" HorizontalAlignment="Left" Height="30" Margin="760,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_exit.png" MouseDown="exit_img_Click"/>
@@ -63,10 +63,22 @@
             <Label x:Name="devices_btn_1" Content="Devices" HorizontalAlignment="Left" Margin="76,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground= "{StaticResource yellowGradient}" Background="Transparent" FontSize="15" FontWeight="Normal" MouseDown="devices_btn_Click"/>
             <Label x:Name="installations_btn_1" Content="Installations" HorizontalAlignment="Left" Margin="153,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground="#D7D7D7" Background="Transparent" FontSize="15" FontWeight="Normal" MouseDown="installations_btn_Click"/>
             <Label x:Name="home_btn_1" Content="Home" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground="#D7D7D7" Background="Transparent" FontSize="15" FontWeight="Normal" MouseDown="home_btn_Click"/>
+            <Rectangle x:Name="device_list" HorizontalAlignment="Left" Height="269" Margin="37,204,0,0" VerticalAlignment="Top" Width="718"  SnapsToDevicePixels="True" StrokeThickness="2" RadiusX="12" RadiusY="12">
+                <Rectangle.Effect>
+                    <DropShadowEffect Direction="15" Color="#FFF0F0F0" RenderingBias="Performance" ShadowDepth="3"/>
+                </Rectangle.Effect>
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="#fbfbfb"/>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <!-- Processor information -->
+            <Label x:Name="cpu_type" Content="Processor name" HorizontalAlignment="Left" Margin="50,220,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
+            <Label x:Name="cpu_info" Content="Processor info" HorizontalAlignment="Left" Margin="50,250,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204"/>
         </Grid>
 
         <!-- Installations grid -->
-        <Grid x:Name="installations_grid" TextOptions.TextRenderingMode="ClearType" Visibility="Hidden">
+        <Grid x:Name="installations_grid" TextOptions.TextRenderingMode="ClearType" d:IsHidden="True">
 
             <!-- Buttons used to control the window -->
             <Image x:Name="exit_img_2" HorizontalAlignment="Left" Height="30" Margin="760,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_exit.png" MouseDown="exit_img_Click"/>

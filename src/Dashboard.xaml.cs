@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Management;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using Saltyminer.Mining;
 
 namespace Saltyminer
 {
@@ -21,9 +23,16 @@ namespace Saltyminer
     /// </summary>
     public partial class Dashboard : Window
     {
+        // Classes used to retrieve information on mining
+        private mainControl mc;
+
+        // Dashboard initialization
         public Dashboard()
         {
+            mc = new mainControl();
+
             InitializeComponent();
+            UpdateInformation();
         }
 
         // Shuts down application when called
@@ -82,6 +91,42 @@ namespace Saltyminer
             installations_grid.Visibility = Visibility.Collapsed;
             devices_grid.Visibility = Visibility.Collapsed;
             home_grid.Visibility = Visibility.Visible;
+        }
+
+        // Called on startup and used to identify model and load presets
+        public void UpdateInformation()
+        {
+            cpu_type.Content = SendBackProcessorName();
+
+            if (mc.iscpumining == true)
+            {
+                cpu_info.Content = "Currently mining using" + mc.cpusoftware;
+            }
+
+            else
+            {
+                cpu_info.Content = "Currently idle";
+            }
+        }
+
+
+        // Uses System.Management to send back the current processor name
+        public static string SendBackProcessorName()
+        {
+            ManagementObjectSearcher mosProcessor = new ManagementObjectSearcher("SELECT * FROM Win32_Processor");
+            string Procname = null;
+
+            foreach (ManagementObject moProcessor in mosProcessor.Get())
+            {
+                if (moProcessor["name"] != null)
+                {
+                    Procname = moProcessor["name"].ToString();
+
+                }
+
+            }
+
+            return Procname;
         }
     }
 }
