@@ -74,7 +74,24 @@
 
             <!-- Processor information -->
             <Label x:Name="cpu_type" Content="Processor name" HorizontalAlignment="Left" Margin="50,220,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
-            <Label x:Name="cpu_info" Content="Processor info" HorizontalAlignment="Left" Margin="50,250,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204"/>
+            <Label x:Name="cpu_info" Content="Processor info" HorizontalAlignment="Left" Margin="76,250,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204"/>
+            <Label x:Name="gpu_type" Content="Graphics card name" HorizontalAlignment="Left" Margin="50,338,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
+            <Label x:Name="gpu_info" Content="Graphics card info" HorizontalAlignment="Left" Margin="76,368,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204"/>
+            <Image x:Name="cpu_status" HorizontalAlignment="Left" Height="25" Margin="51,251,0,0" VerticalAlignment="Top" Width="25" Source="/Resources/x.png"/>
+            <Image x:Name="gpu_status" HorizontalAlignment="Left" Height="25" Margin="51,370,0,0" VerticalAlignment="Top" Width="25" Source="/Resources/x.png"/>
+
+            <!-- Toggles used to control the CPU and GPU -->
+            <Image x:Name="cpu_toggle" HorizontalAlignment="Left" Height="40" Margin="700,224,0,0" VerticalAlignment="Top" Width="40" Source="/light_off.png">
+                <Image.Effect>
+                    <DropShadowEffect Direction="15" Color="#FFF0F0F0" RenderingBias="Performance" ShadowDepth="3"/>
+                </Image.Effect>
+            </Image>
+
+            <Image x:Name="gpu_toggle" HorizontalAlignment="Left" Height="40" Margin="700,342,0,0" VerticalAlignment="Top" Width="40" Source="/light_off.png">
+                <Image.Effect>
+                    <DropShadowEffect Direction="15" Color="#FFF0F0F0" RenderingBias="Performance" ShadowDepth="3"/>
+                </Image.Effect>
+            </Image>
         </Grid>
 
         <!-- Installations grid -->

@@ -57,7 +57,7 @@ namespace Saltyminer
         // Called whenever the main mining button is clicked
         private void main_btn_Click(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Testing mining button mechanics.");
+            main_btn.Source = new BitmapImage(new Uri("/Resources/light_stop.png", UriKind.Relative));
         }
 
         // Used to drag the window
@@ -101,11 +101,27 @@ namespace Saltyminer
             if (mc.iscpumining == true)
             {
                 cpu_info.Content = "Currently mining using" + mc.cpusoftware;
+                gpu_status.Source = new BitmapImage(new Uri("/Resources/check.png", UriKind.Relative));
             }
 
             else
             {
-                cpu_info.Content = "Currently idle";
+                cpu_info.Content = "Currently not mining";
+                gpu_status.Source = new BitmapImage(new Uri("/Resources/x.png", UriKind.Relative));
+            }
+
+            gpu_type.Content = SendBackMainGraphicsName();
+
+            if (mc.isgpumining == true)
+            {
+                gpu_info.Content = "Currently mining using" + mc.gpusoftware;
+                gpu_status.Source = new BitmapImage(new Uri("/Resources/check.png", UriKind.Relative));
+            }
+
+            else
+            {
+                gpu_info.Content = "Currently not mining";
+                gpu_status.Source = new BitmapImage(new Uri("/Resources/x.png", UriKind.Relative));
             }
         }
 
@@ -127,6 +143,31 @@ namespace Saltyminer
             }
 
             return Procname;
+        }
+
+        // Sends back the main graphics card name
+        public static string SendBackMainGraphicsName()
+        {
+            ManagementObjectSearcher mosGraphicsCard = new ManagementObjectSearcher("SELECT * FROM Win32_VideoController");
+            string Gname = null;
+
+            foreach (ManagementObject moGraphicsCard in mosGraphicsCard.Get())
+            {
+                if (moGraphicsCard["name"] != null)
+                {
+                    Gname = moGraphicsCard["name"].ToString();
+
+                }
+
+            }
+            return Gname;
+        }
+
+        // Uses System.Management to send back GPU count
+        private int GetGPUCount()
+        {
+            var searcher = new ManagementObjectSearcher("select * from Win32_VideoController");
+            return searcher.Get().Count;
         }
     }
 }

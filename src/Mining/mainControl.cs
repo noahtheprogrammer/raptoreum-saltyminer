@@ -14,7 +14,7 @@ namespace Saltyminer.Mining
 
         // Bools used to determine whether the CPU and GPU are actually mining
         public bool iscpumining = false;
-        public bool isgpuming = false;
+        public bool isgpumining = false;
 
         // Used to determine what CPU or GPU software is currently being used
         public string cpusoftware;

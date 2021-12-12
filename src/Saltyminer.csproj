@@ -7,12 +7,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="check.png" />
     <None Remove="Fonts\shippori.ttf" />
+    <None Remove="light_off.png" />
+    <None Remove="Resources\check.png" />
     <None Remove="Resources\light_config.png" />
     <None Remove="Resources\light_exit.png" />
     <None Remove="Resources\light_mini.png" />
+    <None Remove="Resources\light_off.png" />
+    <None Remove="Resources\light_on.png" />
     <None Remove="Resources\light_start.png" />
     <None Remove="Resources\light_stop.png" />
+    <None Remove="Resources\x.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="check.png" />
+    <Resource Include="light_off.png" />
+    <Resource Include="Resources\check.png" />
+    <Resource Include="Resources\light_off.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,8 +39,10 @@
     <Resource Include="Resources\light_config.png" />
     <Resource Include="Resources\light_exit.png" />
     <Resource Include="Resources\light_mini.png" />
+    <Resource Include="Resources\light_on.png" />
     <Resource Include="Resources\light_start.png" />
     <Resource Include="Resources\light_stop.png" />
+    <Resource Include="Resources\x.png" />
   </ItemGroup>
 
 </Project>
