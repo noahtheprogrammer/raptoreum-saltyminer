@@ -1,4 +1,6 @@
 ## Saltyminer
+[![Github All Releases](https://img.shields.io/github/downloads/noahtheprogrammer/saltyminer/total.svg)]()
+[![.NET](https://github.com/noahtheprogrammer/saltyminer/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/valordk/4rtmcore/actions/workflows/dotnet.yml)
 
 This miner interface is designed to be used in conjunction with the [cpuminer-gr](https://github.com/michal-zurkowski/cpuminer-gr) and [wildrig-multi](https://github.com/andru-kun/wildrig-multi) binaries.
 If you find any issues or any requests, simply open up a new issue on our GitHub page.
