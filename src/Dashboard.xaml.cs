@@ -169,5 +169,35 @@ namespace Saltyminer
             var searcher = new ManagementObjectSearcher("select * from Win32_VideoController");
             return searcher.Get().Count;
         }
+
+        private void cpu_toggle_Click(object sender, MouseButtonEventArgs e)
+        {
+            if (mc.cpuenabled)
+            {
+                mc.cpuenabled = false;
+                cpu_toggle.Source = new BitmapImage(new Uri("/Resources/light_off.png", UriKind.Relative));
+            }
+
+            else
+            {
+                mc.cpuenabled = true;
+                cpu_toggle.Source = new BitmapImage(new Uri("/Resources/light_on.png", UriKind.Relative));
+            }
+        }
+
+        private void gpu_toggle_Click(object sender, MouseButtonEventArgs e)
+        {
+            if (mc.gpuenabled)
+            {
+                mc.gpuenabled = false;
+                gpu_toggle.Source = new BitmapImage(new Uri("/Resources/light_off.png", UriKind.Relative));
+            }
+
+            else
+            {
+                mc.gpuenabled = true;
+                gpu_toggle.Source = new BitmapImage(new Uri("/Resources/light_on.png", UriKind.Relative));
+            }
+        }
     }
 }
