@@ -24,6 +24,10 @@ namespace Saltyminer.Mining
         public string cpu_symbol;
         public string gpu_symbol;
 
+        // Strings used to contain custom parameters
+        public string cpu_params;
+        public string gpu_params;
+
         // Used to display current hashrate for device
         public int cpu_hashrate;
         public int gpu_hashrate;
@@ -41,5 +45,7 @@ class miner_data
     public string saved_gpu_symbol;
     public string saved_cpu_software;
     public string saved_gpu_software;
+    public string saved_cpu_params;
+    public string saved_gpu_params;
     public bool saved_devfee;
 }

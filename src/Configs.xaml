@@ -5,8 +5,58 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Saltyminer"
         mc:Ignorable="d"
-        Title="Saltyminer" Height="500" Width="450" Background="#f4f4f4" WindowStyle="None" ResizeMode="NoResize" MouseLeftButtonDown="drag_window">
+        Title="Saltyminer" Height="500" Width="800" Background="#f4f4f4" WindowStyle="None" ResizeMode="NoResize" MouseLeftButtonDown="drag_window">
     <Grid>
-        <Image x:Name="exit_img" HorizontalAlignment="Left" Height="30" Margin="410,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_exit.png" MouseDown="exit_img_Click"/>
+        <Image x:Name="exit_img" HorizontalAlignment="Left" Height="30" Margin="760,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_exit.png" MouseDown="exit_img_Click"/>
+        <Label x:Name="cpu_settings_label" Content="CPU Settings" HorizontalAlignment="Left" Margin="20,68,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="gpu_settings_label" Content="GPU Settings" HorizontalAlignment="Left" Margin="20,287,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <ListBox x:Name="cpu_appselect" Margin="20,125,576,345">
+            <ListBoxItem Content="Miner_1" Height="25"></ListBoxItem>
+            <ListBoxItem Content="Miner_2"></ListBoxItem>
+            <ListBoxItem Content="Miner_3"></ListBoxItem>
+            <ListBoxItem Content="Miner_4"></ListBoxItem>
+            <ListBoxItem Content="Miner_5"></ListBoxItem>
+            <ListBoxItem Content="Miner_6"></ListBoxItem>
+            <ListBoxItem Content="Miner_7"></ListBoxItem>
+            <ListBoxItem Content="Miner_8"></ListBoxItem>
+        </ListBox>
+        <Label x:Name="cpu_appselect_label" Content="Miner Selection" HorizontalAlignment="Left" Margin="20,94,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+        <ListBox x:Name="gpu_appselect" Margin="20,349,576,121">
+            <ListBoxItem Content="Miner_1" Height="25"/>
+            <ListBoxItem Content="Miner_2"/>
+            <ListBoxItem Content="Miner_3"/>
+            <ListBoxItem Content="Miner_4"/>
+            <ListBoxItem Content="Miner_5"/>
+            <ListBoxItem Content="Miner_6"/>
+            <ListBoxItem Content="Miner_7"/>
+            <ListBoxItem Content="Miner_8"/>
+        </ListBox>
+        <Label x:Name="gpu_appselect_label" Content="Miner Selection" HorizontalAlignment="Left" Margin="20,318,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+        <Label x:Name="cpu_coinselect_label" Content="Coin" HorizontalAlignment="Left" Margin="249,99,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+        <ListBox x:Name="cpu_coinselect" Margin="249,125,347,345">
+            <ListBoxItem Content="Coin_1" Height="25"/>
+            <ListBoxItem Content="Coin_2"/>
+            <ListBoxItem Content="Coin_3"/>
+            <ListBoxItem Content="Coin_4"/>
+            <ListBoxItem Content="Coin_5"/>
+            <ListBoxItem Content="Coin_6"/>
+            <ListBoxItem Content="Coin_7"/>
+            <ListBoxItem Content="Coin_8"/>
+        </ListBox>
+        <Label x:Name="gpu_coinselect_label" Content="Coin" HorizontalAlignment="Left" Margin="252,323,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+        <ListBox x:Name="gpu_coinselect" Margin="252,349,344,121">
+            <ListBoxItem Content="Coin_1" Height="25"/>
+            <ListBoxItem Content="Coin_2"/>
+            <ListBoxItem Content="Coin_3"/>
+            <ListBoxItem Content="Coin_4"/>
+            <ListBoxItem Content="Coin_5"/>
+            <ListBoxItem Content="Coin_6"/>
+            <ListBoxItem Content="Coin_7"/>
+            <ListBoxItem Content="Coin_8"/>
+        </ListBox>
+        <TextBox x:Name="cpu_extraparams" HorizontalAlignment="Left" Margin="20,204,0,0" Text="Enter extra miner parameters here" TextWrapping="Wrap" VerticalAlignment="Top" Width="432" Height="23"/>
+        <Label x:Name="cpu_extraparams_label" Content="Extra parameters" HorizontalAlignment="Left" Margin="20,172,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+        <TextBox x:Name="gpu_extraparams" HorizontalAlignment="Left" Margin="20,429,0,0" Text="Enter extra miner parameters here" TextWrapping="Wrap" VerticalAlignment="Top" Width="432" Height="23"/>
+        <Label x:Name="gpu_extraparams_label" Content="Extra parameters" HorizontalAlignment="Left" Margin="20,397,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
     </Grid>
 </Window>
