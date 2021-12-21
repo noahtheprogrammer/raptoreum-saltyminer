@@ -28,9 +28,13 @@ namespace Saltyminer.Mining
         public string cpu_params;
         public string gpu_params;
 
-        // Used to display current hashrate for device
+        // Integers used to display current hashrate for device
         public int cpu_hashrate;
         public int gpu_hashrate;
+
+        // Strings used to hold mining address
+        public string cpu_address;
+        public string gpu_address;
 
         // Determines whether to enable optional dev fee
         public bool devfee;
@@ -47,5 +51,7 @@ class miner_data
     public string saved_gpu_software;
     public string saved_cpu_params;
     public string saved_gpu_params;
+    public string saved_cpu_address;
+    public string saved_gpu_address;
     public bool saved_devfee;
 }
