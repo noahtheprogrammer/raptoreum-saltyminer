@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using Saltyminer.Mining;
+using System.Net;
 
 namespace Saltyminer
 {
@@ -25,11 +26,13 @@ namespace Saltyminer
     {
         // Classes used to retrieve information on mining
         private mainControl mc;
+        private downloadControl dc;
 
         // Dashboard initialization
         public Dashboard()
         {
             mc = new mainControl();
+            dc = new downloadControl();
 
             InitializeComponent();
             UpdateInformation();
@@ -170,6 +173,7 @@ namespace Saltyminer
             return searcher.Get().Count;
         }
 
+        // Used to enable or disable the processor
         private void cpu_toggle_Click(object sender, MouseButtonEventArgs e)
         {
             if (mc.cpuenabled)
@@ -198,6 +202,12 @@ namespace Saltyminer
                 mc.gpuenabled = true;
                 gpu_toggle.Source = new BitmapImage(new Uri("/Resources/light_on.png", UriKind.Relative));
             }
+        }
+
+        private void installXMRig(object sender, MouseButtonEventArgs e)
+        {
+            dc.downloadRelease("https://github.com/xmrig/xmrig/releases/download/v6.16.2/xmrig-6.16.2-msvc-win64.zip", "xmrig-6.16.2-msvc-win64.zip");
+            MessageBox.Show("Installed XMRig.");
         }
     }
 }
