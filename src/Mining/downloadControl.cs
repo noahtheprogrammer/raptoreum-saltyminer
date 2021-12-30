@@ -17,15 +17,14 @@ namespace Saltyminer.Mining
             }
         }
 
-        // This currently is unable to find the test repo releases and convert them into strings
-        // We need it to be called in order to apply the value to a string variable
-        // It just gives off compiler errors right now and is worthless
-        public string findLatest()
+        // Task that is used to determine latest release for miners
+        public async Task<string> findLatest(string owner, string repository)
         {
             var client = new GitHubClient(new ProductHeaderValue("saltyminer-bot"));
-            var releases = client.Repository.Release.GetAll("octokit", "octokit.net");
+            var releases = await client.Repository.Release.GetAll(owner, repository);
             var latest = releases[0];
             Debug.Write(latest.Name);
+            return latest.TagName;
         }
     }
 }
