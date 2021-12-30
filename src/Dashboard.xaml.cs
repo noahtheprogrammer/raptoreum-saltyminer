@@ -189,6 +189,7 @@ namespace Saltyminer
             }
         }
 
+        // Used to enable or disable the GPU
         private void gpu_toggle_Click(object sender, MouseButtonEventArgs e)
         {
             if (mc.gpuenabled)
@@ -204,9 +205,10 @@ namespace Saltyminer
             }
         }
 
+        // Button used to install XMRig to machine
         private void installXMRig(object sender, MouseButtonEventArgs e)
         {
-            dc.downloadRelease("https://github.com/xmrig/xmrig/releases/download/v6.16.2/xmrig-6.16.2-msvc-win64.zip", "xmrig-6.16.2-msvc-win64.zip");
+            // dc.downloadRelease("https://github.com/xmrig/xmrig/releases/download/v6.16.2/xmrig-6.16.2-msvc-win64.zip", "xmrig.zip");
             MessageBox.Show("Installed XMRig.");
         }
     }
