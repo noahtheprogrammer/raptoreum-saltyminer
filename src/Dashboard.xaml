@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Saltyminer"
         mc:Ignorable="d"
-        Title="Saltyminer" Height="500" Width="800" Background="#f4f4f4" WindowStyle="None" ResizeMode="CanMinimize" MouseLeftButtonDown="drag_window">
+        Title="Saltyminer" Height="750" Width="1200" Background="#f4f4f4" WindowStyle="None" ResizeMode="CanMinimize" MouseLeftButtonDown="drag_window">
 
 
     <Window.Resources>
@@ -99,20 +99,50 @@
         <Grid x:Name="installations_grid" TextOptions.TextRenderingMode="ClearType">
 
             <!-- Buttons used to control the window -->
-            <Image x:Name="exit_img_2" HorizontalAlignment="Left" Height="30" Margin="760,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_exit.png" MouseDown="exit_img_Click"/>
-            <Image x:Name="mini_img_2" HorizontalAlignment="Left" Height="30" Margin="725,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_mini.png" MouseDown="mini_img_Click"/>
-            <Image x:Name="config_img_2" HorizontalAlignment="Left" Height="30" Margin="690,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_config.png" MouseDown="config_img_Click"/>
+            <Image x:Name="exit_img_2" HorizontalAlignment="Left" Height="30" Margin="1160,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_exit.png" MouseDown="exit_img_Click"/>
+            <Image x:Name="mini_img_2" HorizontalAlignment="Left" Height="30" Margin="1125,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_mini.png" MouseDown="mini_img_Click"/>
+            <Image x:Name="config_img_2" HorizontalAlignment="Left" Height="30" Margin="1090,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_config.png" MouseDown="config_img_Click"/>
             <Label x:Name="devices_btn_2" Content="Devices" HorizontalAlignment="Left" Margin="76,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground="#D7D7D7" Background="Transparent" FontSize="15" FontWeight="Normal" MouseDown="devices_btn_Click"/>
             <Label x:Name="installations_btn_2" Content="Installations" HorizontalAlignment="Left" Margin="153,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground= "{StaticResource yellowGradient}" Background="Transparent" FontSize="15" FontWeight="Normal" MouseDown="installations_btn_Click"/>
             <Label x:Name="home_btn_2" Content="Home" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground="#D7D7D7" Background="Transparent" FontSize="15" FontWeight="Normal" MouseDown="home_btn_Click"/>
-            <Rectangle x:Name="device_list_Copy" HorizontalAlignment="Left" Height="408" Margin="37,65,0,0" VerticalAlignment="Top" Width="718"  SnapsToDevicePixels="True" StrokeThickness="2" RadiusX="12" RadiusY="12" Fill="#fbfbfb">
+            <Rectangle x:Name="device_list_Copy" HorizontalAlignment="Center" Height="655" Margin="0,65,0,0" VerticalAlignment="Top" Width="1128"  SnapsToDevicePixels="True" StrokeThickness="2" RadiusX="12" RadiusY="12" Fill="#fbfbfb">
                 <Rectangle.Effect>
                     <DropShadowEffect Direction="15" Color="#FFF0F0F0" RenderingBias="Performance" ShadowDepth="3"/>
                 </Rectangle.Effect>
             </Rectangle>
-            <Label x:Name="xmrig_label" Content="XMRig" HorizontalAlignment="Left" Margin="50,74,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
-            <Label x:Name="xmrig_info_label" Content="Not installed" HorizontalAlignment="Left" Margin="50,104,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204" FontSize="10"/>
-            <Button x:Name="xmrig_act_btn" Content="Install" HorizontalAlignment="Left" Margin="672,80,0,0" VerticalAlignment="Top" Height="38" Width="66" MouseDown="installXMRig"/>
+            
+            <!-- Controls and configurations used to display miner downloads -->
+            <Label x:Name="xmrig_label" Content="XMRig" HorizontalAlignment="Left" Margin="50,119,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
+            <Label x:Name="xmrig_info_label" Content="Not installed" HorizontalAlignment="Left" Margin="50,149,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204" FontSize="10"/>
+            <Button x:Name="xmrig_act_btn" Content="Install" HorizontalAlignment="Left" Margin="1074,125,0,0" VerticalAlignment="Top" Height="38" Width="66" MouseDown="installXMRig"/>
+            <Label x:Name="gminer_label" Content="GMiner" HorizontalAlignment="Left" Margin="50,174,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
+            <Label x:Name="gminer_info_label" Content="Not installed" HorizontalAlignment="Left" Margin="50,204,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204" FontSize="10"/>
+            <Button x:Name="gminer_act_btn" Content="Install" HorizontalAlignment="Left" Margin="1074,180,0,0" VerticalAlignment="Top" Height="38" Width="66" MouseDown="installXMRig"/>
+            <Label x:Name="wildrig_label" Content="Wildrig" HorizontalAlignment="Left" Margin="50,290,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
+            <Label x:Name="wildrig_info_label" Content="Not installed" HorizontalAlignment="Left" Margin="50,320,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204" FontSize="10"/>
+            <Button x:Name="wildrig_act_btn" Content="Install" HorizontalAlignment="Left" Margin="1074,296,0,0" VerticalAlignment="Top" Height="38" Width="66" MouseDown="installXMRig"/>
+            <Label x:Name="nanominer_label" Content="Nanominer" HorizontalAlignment="Left" Margin="50,348,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
+            <Label x:Name="nanominer_info_label" Content="Not installed" HorizontalAlignment="Left" Margin="50,378,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204" FontSize="10"/>
+            <Button x:Name="nanominer_act_btn" Content="Install" HorizontalAlignment="Left" Margin="1074,354,0,0" VerticalAlignment="Top" Height="38" Width="66" MouseDown="installXMRig"/>
+            <Label x:Name="cgminer_label" HorizontalAlignment="Left" Margin="50,408,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204" Content="CGMiner"/>
+            <Label x:Name="cgminer_info_label" Content="Not installed" HorizontalAlignment="Left" Margin="50,438,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204" FontSize="10"/>
+            <Button x:Name="cgminer_act_btn" Content="Install" HorizontalAlignment="Left" Margin="1074,414,0,0" VerticalAlignment="Top" Height="38" Width="66" MouseDown="installXMRig"/>
+            <Label x:Name="bfg_label" Content="BFG" HorizontalAlignment="Left" Margin="50,465,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
+            <Label x:Name="bfg_info_label" Content="Not installed" HorizontalAlignment="Left" Margin="50,495,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204" FontSize="10"/>
+            <Button x:Name="bfg_act_btn" Content="Install" HorizontalAlignment="Left" Margin="1074,471,0,0" VerticalAlignment="Top" Height="38" Width="66" MouseDown="installXMRig"/>
+            <Label x:Name="cpuminer_label" Content="cpuminer" HorizontalAlignment="Left" Margin="50,525,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
+            <Label x:Name="cpuminer_info_label" Content="Not installed" HorizontalAlignment="Left" Margin="50,555,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204" FontSize="10"/>
+            <Button x:Name="cpuminer_act_btn" Content="Install" HorizontalAlignment="Left" Margin="1074,531,0,0" VerticalAlignment="Top" Height="38" Width="66" MouseDown="installXMRig"/>
+            <Label x:Name="cpumulti_label" Content="cpuminer-multi" HorizontalAlignment="Left" Margin="50,585,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
+            <Label x:Name="cpumulti_info_label" Content="Not installed" HorizontalAlignment="Left" Margin="50,615,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204" FontSize="10"/>
+            <Button x:Name="cpumulti_act_btn" Content="Install" HorizontalAlignment="Left" Margin="1074,591,0,0" VerticalAlignment="Top" Height="38" Width="66" MouseDown="installXMRig"/>
+            <Label x:Name="ethminer_label" Content="ethminer" HorizontalAlignment="Left" Margin="50,650,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
+            <Label x:Name="ethminer_info_label" Content="Not installed" HorizontalAlignment="Left" Margin="50,680,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204" FontSize="10"/>
+            <Button x:Name="ethminer_act_btn" Content="Install" HorizontalAlignment="Left" Margin="1074,656,0,0" VerticalAlignment="Top" Height="38" Width="66" MouseDown="installXMRig"/>
+            <Label x:Name="trex_label" Content="Trex" HorizontalAlignment="Left" Margin="50,231,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
+            <Label x:Name="trex_info_label" Content="Not installed" HorizontalAlignment="Left" Margin="50,261,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204" FontSize="10"/>
+            <Button x:Name="trex_act_btn" Content="Install" HorizontalAlignment="Left" Margin="1074,237,0,0" VerticalAlignment="Top" Height="38" Width="66" MouseDown="installXMRig"/>
+            <Label x:Name="install_label" Content="Installations" HorizontalAlignment="Left" Margin="50,78,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="18" Width="204"/>
         </Grid>
     </Grid>
 </Window>
