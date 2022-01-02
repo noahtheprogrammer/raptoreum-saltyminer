@@ -9,11 +9,12 @@ namespace Saltyminer.Mining
     public class downloadControl
     {
         // Used to download latest release of miners
-        public void downloadRelease(string link, string file)
+        public async Task downloadRelease(string link, string file)
         {
             using (var client = new WebClient())
             {
                 client.DownloadFile(link, AppDomain.CurrentDomain.BaseDirectory + file);
+                System.IO.Compression.ZipFile.ExtractToDirectory(AppDomain.CurrentDomain.BaseDirectory + file, AppDomain.CurrentDomain.BaseDirectory);
             }
         }
 

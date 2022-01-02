@@ -208,8 +208,16 @@ namespace Saltyminer
         // Button used to install XMRig to machine
         private async void installXMRig(object sender, MouseButtonEventArgs e)
         {
-            dc.downloadRelease("https://github.com/xmrig/xmrig/releases/download/" + (await dc.findLatest("xmrig", "xmrig")) + "/xmrig-" + (await dc.findLatest("xmrig", "xmrig")).Substring(1) + "-msvc-win64.zip", "xmrig.zip");
-            MessageBox.Show("Installed XMRig.");
+            try
+            {
+                await dc.downloadRelease("https://github.com/xmrig/xmrig/releases/download/" + (await dc.findLatest("xmrig", "xmrig")) + "/xmrig-" + (await dc.findLatest("xmrig", "xmrig")).Substring(1) + "-msvc-win64.zip", "xmrig.zip");
+                xmrig_info_label.Content = "Installed";
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("It appears have already installed this software or are experiencing connection issues. Please try again later.");
+            }
         }
     }
 }
