@@ -210,13 +210,88 @@ namespace Saltyminer
         {
             try
             {
-                await dc.downloadRelease("https://github.com/xmrig/xmrig/releases/download/" + (await dc.findLatest("xmrig", "xmrig")) + "/xmrig-" + (await dc.findLatest("xmrig", "xmrig")).Substring(1) + "-msvc-win64.zip", "xmrig.zip");
+                await dc.downloadRelease("https://github.com/xmrig/xmrig/releases/download/" + (await dc.findLatest("xmrig", "xmrig")) + "/xmrig-" + (await dc.findLatest("xmrig", "xmrig")).Substring(1) + "-msvc-win64.zip", "xmrig.zip", null);
                 xmrig_info_label.Content = "Installed";
             }
 
             catch (Exception)
             {
                 MessageBox.Show("It appears have already installed this software or are experiencing connection issues. Please try again later.");
+            }
+        }
+
+        // Button used to install Gminer to machine
+        private async void installGminer(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                await dc.downloadRelease("https://github.com/develsoftware/GMinerRelease/releases/download/" + (await dc.findLatest("develsoftware", "GMinerRelease")) + "/gminer_" + (await dc.findLatest("develsoftware", "GMinerRelease")).Replace('.', '_') + "_windows64.zip", "gminer.zip", "gminer");
+                gminer_info_label.Content = "Installed";
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("It appears have already installed this software or are experiencing connection issues. Please try again later.");
+            }
+        }
+
+        // Button used to install Trex to machine
+        private async void installTrex(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                await dc.downloadRelease("https://github.com/trexminer/T-Rex/releases/download/" + (await dc.findLatest("trexminer", "T-Rex")) + "/t-rex-" + (await dc.findLatest("trexminer", "T-Rex")) + "-win.zip", "trex.zip", "trex");
+                trex_info_label.Content = "Installed";
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("It appears have already installed this software or are experiencing connection issues. Please try again later.");
+            }
+        }
+
+        // Button used to install Wildrig to machine
+        private async void installWildrig(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                await dc.downloadRelease("https://github.com/andru-kun/wildrig-multi/releases/download/" + (await dc.findLatest("andru-kun", "wildrig-multi")) + "/wildrig-multi-windows-" + (await dc.findLatest("andru-kun", "wildrig-multi")) + ".7z", "wildrig.7z", "wildrig");
+                wildrig_info_label.Content = "Installed";
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("It appears have already installed this software or are experiencing connection issues. Please try again later.");
+            }
+        }
+
+        // Button used to install Nanominer to machine
+        private async void installNano(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                await dc.downloadRelease("https://github.com/nanopool/nanominer/releases/download/" + (await dc.findLatest("nanopool", "nanominer")) + "/nanominer-windows-" + (await dc.findLatest("nanopool", "nanominer")).Substring(1) + ".zip", "nanominer.zip", null);
+                nanominer_info_label.Content = "Installed";
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("It appears have already installed this software or are experiencing connection issues. Please try again later.");
+            }
+        }
+
+        private async void installCG(object sender, MouseButtonEventArgs e)
+        {
+
+            try
+            {
+                await dc.downloadRelease("http://files.npackd.org/cgminer/cgminer-4.9.2.7z", "cgminer.7z", "cgminer");
+                cgminer_info_label.Content = "Installed";
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("It appears have already installed this software or are experiencing connection issues. Please try again later." + ex);
             }
         }
     }

@@ -47,4 +47,10 @@
     <Resource Include="Resources\x.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="7za.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
