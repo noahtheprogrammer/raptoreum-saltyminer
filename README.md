@@ -1,8 +1,8 @@
 ## Saltyminer
-[![Github All Releases](https://img.shields.io/github/downloads/noahtheprogrammer/saltyminer/total.svg)]()
-[![License](https://img.shields.io/badge/license-GPL-green)](./LICENSE)
-[![.NET](https://github.com/noahtheprogrammer/saltyminer/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/noahtheprogrammer/saltyminer/actions/workflows/codeql-analysis.yml)
-[![GitHub release](https://img.shields.io/github/release/noahtheprogrammer/saltyminer/all.svg)](https://github.com/noahtheprogrammer/saltyminer/releases)
+![Github All Releases](https://img.shields.io/github/downloads/noahtheprogrammer/saltyminer/total.svg)
+![License](https://img.shields.io/badge/license-GPL-success)
+![Lines](https://img.shields.io/tokei/lines/github/noahtheprogrammer/saltyminer?color=green)
+![GitHub release](https://img.shields.io/github/v/tag/noahtheprogrammer/saltyminer?color=yellow)
 
 This miner interface is designed to be used in conjunction with the [cpuminer-gr](https://github.com/michal-zurkowski/cpuminer-gr) and [wildrig-multi](https://github.com/andru-kun/wildrig-multi) binaries.
 If you find any issues or any requests, simply open up a new issue on our GitHub page.
