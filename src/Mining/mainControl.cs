@@ -8,6 +8,9 @@ namespace Saltyminer.Mining
 {
     public class mainControl
     {
+        // Process for mining
+        protected Process proc;
+        
         // Bools used to determine whether the CPU or GPU are able to mine
         public bool cpuenabled = false;
         public bool gpuenabled = false;
@@ -46,15 +49,15 @@ namespace Saltyminer.Mining
         // Determines whether to enable output windows
         public bool output_en;
         
-        // Runs the CPU miner
-        public void RunCPUMiner()
+        // Used to run the miner using custom parameters
+        public void runMiner(string path, string software, string arguments, string address)
         {
-            cpu_process = new Process();
-            cpu_process.StartInfo.FileName = cpu_path + cpu_software;
-            cpu_process.StartInfo.Arguments = cpu_address + cpu_params;
-            cpu_process.StartInfo.CreateNoWindow = output_en;
-            cpu_process.StartInfo.UseShellExecute = false;
-            cpu_process.Start();
+            proc = new Process();
+            proc.StartInfo.FileName = path + software;
+            proc.StartInfo.Arguments = address + arguments;
+            proc.StartInfo.CreateNoWindow = output_en;
+            proc.StartInfo.UseShellExecute = false;
+            proc.Start();
         }
     }
 }
