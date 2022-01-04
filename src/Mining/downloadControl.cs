@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Octokit;
 using System.Diagnostics;
 using System.Linq;
+using System.IO;
 
 namespace Saltyminer.Mining
 {
@@ -34,7 +35,7 @@ namespace Saltyminer.Mining
                 }
 
                 // Removes leftover download
-                System.IO.File.Delete(file);
+                File.Delete(file);
             }
         }
 
@@ -46,6 +47,20 @@ namespace Saltyminer.Mining
             var latest = releases[0];
             Debug.Write(latest.Name);
             return latest.TagName;
+        }
+
+        // Used to determine whether to display installed status or not
+        public string checkInstalls(string folder)
+        {
+            if (Directory.Exists(folder))
+            {
+                return "Installed";
+            }
+
+            else
+            {
+                return "Latest version not installed";
+            }
         }
 
         // Returns a random string for user agents

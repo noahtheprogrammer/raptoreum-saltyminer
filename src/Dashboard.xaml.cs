@@ -96,38 +96,6 @@ namespace Saltyminer
             home_grid.Visibility = Visibility.Visible;
         }
 
-        // Called on startup and used to identify model and load presets
-        public void UpdateInformation()
-        {
-            cpu_type.Content = SendBackProcessorName();
-
-            if (mc.iscpumining == true)
-            {
-                cpu_info.Content = "Currently mining using" + mc.cpusoftware;
-                gpu_status.Source = new BitmapImage(new Uri("/Resources/check.png", UriKind.Relative));
-            }
-
-            else
-            {
-                cpu_info.Content = "Currently not mining";
-                gpu_status.Source = new BitmapImage(new Uri("/Resources/x.png", UriKind.Relative));
-            }
-
-            gpu_type.Content = SendBackMainGraphicsName();
-
-            if (mc.isgpumining == true)
-            {
-                gpu_info.Content = "Currently mining using" + mc.gpusoftware;
-                gpu_status.Source = new BitmapImage(new Uri("/Resources/check.png", UriKind.Relative));
-            }
-
-            else
-            {
-                gpu_info.Content = "Currently not mining";
-                gpu_status.Source = new BitmapImage(new Uri("/Resources/x.png", UriKind.Relative));
-            }
-        }
-
 
         // Uses System.Management to send back the current processor name
         public static string SendBackProcessorName()
@@ -211,7 +179,7 @@ namespace Saltyminer
             try
             {
                 await dc.downloadRelease("https://github.com/xmrig/xmrig/releases/download/" + (await dc.findLatest("xmrig", "xmrig")) + "/xmrig-" + (await dc.findLatest("xmrig", "xmrig")).Substring(1) + "-msvc-win64.zip", "xmrig.zip", null);
-                xmrig_info_label.Content = "Installed";
+                xmrig_info_label.Content = dc.checkInstalls("xmrig-" + (await dc.findLatest("xmrig", "xmrig")).Substring(1));
             }
 
             catch (Exception)
@@ -226,7 +194,7 @@ namespace Saltyminer
             try
             {
                 await dc.downloadRelease("https://github.com/develsoftware/GMinerRelease/releases/download/" + (await dc.findLatest("develsoftware", "GMinerRelease")) + "/gminer_" + (await dc.findLatest("develsoftware", "GMinerRelease")).Replace('.', '_') + "_windows64.zip", "gminer.zip", "gminer");
-                gminer_info_label.Content = "Installed";
+                gminer_info_label.Content = dc.checkInstalls("gminer");
             }
 
             catch (Exception)
@@ -241,7 +209,7 @@ namespace Saltyminer
             try
             {
                 await dc.downloadRelease("https://github.com/trexminer/T-Rex/releases/download/" + (await dc.findLatest("trexminer", "T-Rex")) + "/t-rex-" + (await dc.findLatest("trexminer", "T-Rex")) + "-win.zip", "trex.zip", "trex");
-                trex_info_label.Content = "Installed";
+                trex_info_label.Content = dc.checkInstalls("trex");
             }
 
             catch (Exception)
@@ -256,7 +224,7 @@ namespace Saltyminer
             try
             {
                 await dc.downloadRelease("https://github.com/andru-kun/wildrig-multi/releases/download/" + (await dc.findLatest("andru-kun", "wildrig-multi")) + "/wildrig-multi-windows-" + (await dc.findLatest("andru-kun", "wildrig-multi")) + ".7z", "wildrig.7z", "wildrig");
-                wildrig_info_label.Content = "Installed";
+                wildrig_info_label.Content = dc.checkInstalls("wildrig");
             }
 
             catch (Exception)
@@ -271,7 +239,7 @@ namespace Saltyminer
             try
             {
                 await dc.downloadRelease("https://github.com/nanopool/nanominer/releases/download/" + (await dc.findLatest("nanopool", "nanominer")) + "/nanominer-windows-" + (await dc.findLatest("nanopool", "nanominer")).Substring(1) + ".zip", "nanominer.zip", null);
-                nanominer_info_label.Content = "Installed";
+                nanominer_info_label.Content = dc.checkInstalls("nanominer-windows-" + (await dc.findLatest("nanopool", "nanominer")).Substring(1));
             }
 
             catch (Exception)
@@ -280,18 +248,120 @@ namespace Saltyminer
             }
         }
 
-        private async void installCG(object sender, MouseButtonEventArgs e)
+        // Button used to install NBminer to machine
+        private async void installNB(object sender, MouseButtonEventArgs e)
         {
-
             try
             {
-                await dc.downloadRelease("http://files.npackd.org/cgminer/cgminer-4.9.2.7z", "cgminer.7z", "cgminer");
-                cgminer_info_label.Content = "Installed";
+                await dc.downloadRelease("https://github.com/NebuTech/NBMiner/releases/download/" + (await dc.findLatest("NebuTech", "NBMiner")) + "/NBMiner_" + (await dc.findLatest("NebuTech", "NBMiner")).Substring(1) + "_Win.zip", "nbminer.zip", null);
+                nbminer_info_label.Content = dc.checkInstalls("NBMiner_Win");
             }
 
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("It appears have already installed this software or are experiencing connection issues. Please try again later." + ex);
+                MessageBox.Show("It appears have already installed this software or are experiencing connection issues. Please try again later.");
+            }
+        }
+
+        // Button used to install Teamredminer to machine
+        private async void installTRM(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                await dc.downloadRelease("https://github.com/todxx/teamredminer/releases/download/" + (await dc.findLatest("todxx", "teamredminer")) + "/teamredminer-" + (await dc.findLatest("todxx", "teamredminer")) + "-win.zip", "teamredminer.zip", null);
+                teamred_info_label.Content = dc.checkInstalls("teamredminer-" + (await dc.findLatest("todxx", "teamredminer")) + "-win");
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("It appears have already installed this software or are experiencing connection issues. Please try again later.");
+            }
+        }
+
+        // Button used to install lolMiner to machine
+        private async void installLol(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                await dc.downloadRelease("https://github.com/Lolliedieb/lolMiner-releases/releases/download/" + (await dc.findLatest("Lolliedieb", "lolMiner-releases")) + "/lolMiner_" + "v" + (await dc.findLatest("Lolliedieb", "lolMiner-releases")) + "_Win64.zip", "lolminer.zip", null);
+                lol_info_label.Content = dc.checkInstalls(await dc.findLatest("Lolliedieb", "lolMiner-releases"));
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("It appears have already installed this software or are experiencing connection issues. Please try again later.");
+            }
+        }
+
+        // Button used to install cpuminer-multi to machine
+        private async void installMulti(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                await dc.downloadRelease("https://github.com/lucasjones/cpuminer-multi/releases/download/" + (await dc.findLatest("lucasjones", "cpuminer-multi")) + "/cpuminer-multi.zip", "cpuminer-multi.zip", "cpuminer-multi");
+                cpumulti_info_label.Content = dc.checkInstalls("cpuminer-multi");
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("It appears have already installed this software or are experiencing connection issues. Please try again later.");
+            }
+        }
+
+        // Used to check installations on machine
+        // This is NOT to be used multiple times, as it will cause the Github API to send back an exceeded rate.
+        // This should ONLY be used on initialization, in order save computing power and internet.
+        private async void checkInstallCollection()
+        {
+            try
+            {
+                xmrig_info_label.Content = dc.checkInstalls("xmrig-" + (await dc.findLatest("xmrig", "xmrig")).Substring(1));
+                gminer_info_label.Content = dc.checkInstalls("gminer");
+                trex_info_label.Content = dc.checkInstalls("trex");
+                wildrig_info_label.Content = dc.checkInstalls("wildrig");
+                nanominer_info_label.Content = dc.checkInstalls("nanominer-windows-" + (await dc.findLatest("nanopool", "nanominer")).Substring(1));
+                nbminer_info_label.Content = dc.checkInstalls("NBMiner_Win");
+                teamred_info_label.Content = dc.checkInstalls("teamredminer-" + (await dc.findLatest("todxx", "teamredminer")) + "-win");
+                lol_info_label.Content = dc.checkInstalls(await dc.findLatest("Lolliedieb", "lolMiner-releases"));
+                cpumulti_info_label.Content = dc.checkInstalls("cpuminer-multi");
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("It appears that you are experiencing internet connectivity issues. Please try again later.");
+            }
+        }
+
+        // Called on startup and used to identify model and load presets
+        public void UpdateInformation()
+        {
+            checkInstallCollection();
+            cpu_type.Content = SendBackProcessorName();
+
+            if (mc.iscpumining == true)
+            {
+                cpu_info.Content = "Currently mining using" + mc.cpusoftware;
+                gpu_status.Source = new BitmapImage(new Uri("/Resources/check.png", UriKind.Relative));
+            }
+
+            else
+            {
+                cpu_info.Content = "Currently not mining";
+                gpu_status.Source = new BitmapImage(new Uri("/Resources/x.png", UriKind.Relative));
+            }
+
+            gpu_type.Content = SendBackMainGraphicsName();
+
+            if (mc.isgpumining == true)
+            {
+                gpu_info.Content = "Currently mining using" + mc.gpusoftware;
+                gpu_status.Source = new BitmapImage(new Uri("/Resources/check.png", UriKind.Relative));
+            }
+
+            else
+            {
+                gpu_info.Content = "Currently not mining";
+                gpu_status.Source = new BitmapImage(new Uri("/Resources/x.png", UriKind.Relative));
             }
         }
     }
