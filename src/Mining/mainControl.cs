@@ -27,6 +27,10 @@ namespace Saltyminer.Mining
         // Strings used to contain custom parameters
         public string cpu_params;
         public string gpu_params;
+        
+         // Strings used to contain custom parameters
+        public string cpu_path;
+        public string gpu_path;
 
         // Integers used to display current hashrate for device
         public int cpu_hashrate;
@@ -38,6 +42,20 @@ namespace Saltyminer.Mining
 
         // Determines whether to enable optional dev fee
         public bool devfee;
+        
+        // Determines whether to enable output windows
+        public bool output_en;
+        
+        // Runs the CPU miner
+        public void RunCPUMiner()
+        {
+            cpu_process = new Process();
+            cpu_process.StartInfo.FileName = cpu_path + cpu_software;
+            cpu_process.StartInfo.Arguments = cpu_address + cpu_params;
+            cpu_process.StartInfo.CreateNoWindow = output_en;
+            cpu_process.StartInfo.UseShellExecute = false;
+            cpu_process.Start();
+        }
     }
 }
 
