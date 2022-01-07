@@ -4,14 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace Saltyminer.Mining
 {
     public class mainControl
     {
         // Process for mining
-        protected Process proc;
-        
+        protected Process m_proc;
+
         // Bools used to determine whether the CPU or GPU are able to mine
         public bool cpuenabled = false;
         public bool gpuenabled = false;
@@ -24,6 +26,10 @@ namespace Saltyminer.Mining
         public string cpusoftware;
         public string gpusoftware;
 
+        // Used to determine what CPU or GPU software is currently being used
+        public string cpupool;
+        public string gpupool;
+
         // Strings used to display what coin to mine
         public string cpu_symbol;
         public string gpu_symbol;
@@ -31,8 +37,8 @@ namespace Saltyminer.Mining
         // Strings used to contain custom parameters
         public string cpu_params;
         public string gpu_params;
-        
-         // Strings used to contain custom parameters
+
+        // Strings used to contain custom parameters
         public string cpu_path;
         public string gpu_path;
 
@@ -46,34 +52,19 @@ namespace Saltyminer.Mining
 
         // Determines whether to enable optional dev fee
         public bool devfee;
-        
+
         // Determines whether to enable output windows
         public bool output_en;
-        
+
         // Used to run the miner using custom parameters
         public void runMiner(string path, string software, string arguments, string address)
         {
-            proc = new Process();
-            proc.StartInfo.FileName = path + software;
-            proc.StartInfo.Arguments = address + arguments;
-            proc.StartInfo.CreateNoWindow = output_en;
-            proc.StartInfo.UseShellExecute = false;
-            proc.Start();
+            m_proc = new Process();
+            m_proc.StartInfo.FileName = path + software;
+            m_proc.StartInfo.Arguments = address + arguments;
+            m_proc.StartInfo.CreateNoWindow = output_en;
+            m_proc.StartInfo.UseShellExecute = false;
+            m_proc.Start();
         }
     }
-}
-
-// Holds serializable information to be saved/loaded by Saltyminer
-[Serializable]
-class miner_data
-{
-    public string saved_cpu_symbol;
-    public string saved_gpu_symbol;
-    public string saved_cpu_software;
-    public string saved_gpu_software;
-    public string saved_cpu_params;
-    public string saved_gpu_params;
-    public string saved_cpu_address;
-    public string saved_gpu_address;
-    public bool saved_devfee;
 }

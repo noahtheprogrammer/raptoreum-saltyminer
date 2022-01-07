@@ -5,17 +5,23 @@ using Octokit;
 using System.Diagnostics;
 using System.Linq;
 using System.IO;
+using System.ComponentModel;
 
 namespace Saltyminer.Mining
 {
     public class downloadControl
     {
         // Used to download latest release of miners
-        public async Task downloadRelease(string link, string file, string folder)
+        public Task DownloadRelease(string link, string file, string folder)
         {
             using (var client = new WebClient())
             {
-                client.DownloadFile(link, AppDomain.CurrentDomain.BaseDirectory + file);
+                client.DownloadFileCompleted += new AsyncCompletedEventHandler(DecompressInstall);
+                client.DownloadFileAsync(new Uri(link), AppDomain.CurrentDomain.BaseDirectory + file);
+            }
+
+            void DecompressInstall(object sender, AsyncCompletedEventArgs e)
+            {
 
                 // Unzips using System.IO
                 if (file.Contains(".zip"))
@@ -37,6 +43,8 @@ namespace Saltyminer.Mining
                 // Removes leftover download
                 File.Delete(file);
             }
+
+            return Task.CompletedTask;
         }
 
         // Task that is used to determine latest release for miners

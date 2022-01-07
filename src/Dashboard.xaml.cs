@@ -178,7 +178,7 @@ namespace Saltyminer
         {
             try
             {
-                await dc.downloadRelease("https://github.com/xmrig/xmrig/releases/download/" + (await dc.findLatest("xmrig", "xmrig")) + "/xmrig-" + (await dc.findLatest("xmrig", "xmrig")).Substring(1) + "-msvc-win64.zip", "xmrig.zip", null);
+                await dc.DownloadRelease("https://github.com/xmrig/xmrig/releases/download/" + (await dc.findLatest("xmrig", "xmrig")) + "/xmrig-" + (await dc.findLatest("xmrig", "xmrig")).Substring(1) + "-msvc-win64.zip", "xmrig.zip", null);
                 xmrig_info_label.Content = dc.checkInstalls("xmrig-" + (await dc.findLatest("xmrig", "xmrig")).Substring(1));
             }
 
@@ -193,7 +193,7 @@ namespace Saltyminer
         {
             try
             {
-                await dc.downloadRelease("https://github.com/develsoftware/GMinerRelease/releases/download/" + (await dc.findLatest("develsoftware", "GMinerRelease")) + "/gminer_" + (await dc.findLatest("develsoftware", "GMinerRelease")).Replace('.', '_') + "_windows64.zip", "gminer.zip", "gminer");
+                await dc.DownloadRelease("https://github.com/develsoftware/GMinerRelease/releases/download/" + (await dc.findLatest("develsoftware", "GMinerRelease")) + "/gminer_" + (await dc.findLatest("develsoftware", "GMinerRelease")).Replace('.', '_') + "_windows64.zip", "gminer.zip", "gminer");
                 gminer_info_label.Content = dc.checkInstalls("gminer");
             }
 
@@ -208,7 +208,7 @@ namespace Saltyminer
         {
             try
             {
-                await dc.downloadRelease("https://github.com/trexminer/T-Rex/releases/download/" + (await dc.findLatest("trexminer", "T-Rex")) + "/t-rex-" + (await dc.findLatest("trexminer", "T-Rex")) + "-win.zip", "trex.zip", "trex");
+                await dc.DownloadRelease("https://github.com/trexminer/T-Rex/releases/download/" + (await dc.findLatest("trexminer", "T-Rex")) + "/t-rex-" + (await dc.findLatest("trexminer", "T-Rex")) + "-win.zip", "trex.zip", "trex");
                 trex_info_label.Content = dc.checkInstalls("trex");
             }
 
@@ -223,7 +223,7 @@ namespace Saltyminer
         {
             try
             {
-                await dc.downloadRelease("https://github.com/andru-kun/wildrig-multi/releases/download/" + (await dc.findLatest("andru-kun", "wildrig-multi")) + "/wildrig-multi-windows-" + (await dc.findLatest("andru-kun", "wildrig-multi")) + ".7z", "wildrig.7z", "wildrig");
+                await dc.DownloadRelease("https://github.com/andru-kun/wildrig-multi/releases/download/" + (await dc.findLatest("andru-kun", "wildrig-multi")) + "/wildrig-multi-windows-" + (await dc.findLatest("andru-kun", "wildrig-multi")) + ".7z", "wildrig.7z", "wildrig");
                 wildrig_info_label.Content = dc.checkInstalls("wildrig");
             }
 
@@ -238,7 +238,7 @@ namespace Saltyminer
         {
             try
             {
-                await dc.downloadRelease("https://github.com/nanopool/nanominer/releases/download/" + (await dc.findLatest("nanopool", "nanominer")) + "/nanominer-windows-" + (await dc.findLatest("nanopool", "nanominer")).Substring(1) + ".zip", "nanominer.zip", null);
+                await dc.DownloadRelease("https://github.com/nanopool/nanominer/releases/download/" + (await dc.findLatest("nanopool", "nanominer")) + "/nanominer-windows-" + (await dc.findLatest("nanopool", "nanominer")).Substring(1) + ".zip", "nanominer.zip", null);
                 nanominer_info_label.Content = dc.checkInstalls("nanominer-windows-" + (await dc.findLatest("nanopool", "nanominer")).Substring(1));
             }
 
@@ -253,7 +253,7 @@ namespace Saltyminer
         {
             try
             {
-                await dc.downloadRelease("https://github.com/NebuTech/NBMiner/releases/download/" + (await dc.findLatest("NebuTech", "NBMiner")) + "/NBMiner_" + (await dc.findLatest("NebuTech", "NBMiner")).Substring(1) + "_Win.zip", "nbminer.zip", null);
+                await dc.DownloadRelease("https://github.com/NebuTech/NBMiner/releases/download/" + (await dc.findLatest("NebuTech", "NBMiner")) + "/NBMiner_" + (await dc.findLatest("NebuTech", "NBMiner")).Substring(1) + "_Win.zip", "nbminer.zip", null);
                 nbminer_info_label.Content = dc.checkInstalls("NBMiner_Win");
             }
 
@@ -268,7 +268,7 @@ namespace Saltyminer
         {
             try
             {
-                await dc.downloadRelease("https://github.com/todxx/teamredminer/releases/download/" + (await dc.findLatest("todxx", "teamredminer")) + "/teamredminer-" + (await dc.findLatest("todxx", "teamredminer")) + "-win.zip", "teamredminer.zip", null);
+                await dc.DownloadRelease("https://github.com/todxx/teamredminer/releases/download/" + (await dc.findLatest("todxx", "teamredminer")) + "/teamredminer-" + (await dc.findLatest("todxx", "teamredminer")) + "-win.zip", "teamredminer.zip", null);
                 teamred_info_label.Content = dc.checkInstalls("teamredminer-" + (await dc.findLatest("todxx", "teamredminer")) + "-win");
             }
 
@@ -283,7 +283,7 @@ namespace Saltyminer
         {
             try
             {
-                await dc.downloadRelease("https://github.com/Lolliedieb/lolMiner-releases/releases/download/" + (await dc.findLatest("Lolliedieb", "lolMiner-releases")) + "/lolMiner_" + "v" + (await dc.findLatest("Lolliedieb", "lolMiner-releases")) + "_Win64.zip", "lolminer.zip", null);
+                await dc.DownloadRelease("https://github.com/Lolliedieb/lolMiner-releases/releases/download/" + (await dc.findLatest("Lolliedieb", "lolMiner-releases")) + "/lolMiner_" + "v" + (await dc.findLatest("Lolliedieb", "lolMiner-releases")) + "_Win64.zip", "lolminer.zip", null);
                 lol_info_label.Content = dc.checkInstalls(await dc.findLatest("Lolliedieb", "lolMiner-releases"));
             }
 
@@ -298,7 +298,7 @@ namespace Saltyminer
         {
             try
             {
-                await dc.downloadRelease("https://github.com/lucasjones/cpuminer-multi/releases/download/" + (await dc.findLatest("lucasjones", "cpuminer-multi")) + "/cpuminer-multi.zip", "cpuminer-multi.zip", "cpuminer-multi");
+                await dc.DownloadRelease("https://github.com/lucasjones/cpuminer-multi/releases/download/" + (await dc.findLatest("lucasjones", "cpuminer-multi")) + "/cpuminer-multi.zip", "cpuminer-multi.zip", "cpuminer-multi");
                 cpumulti_info_label.Content = dc.checkInstalls("cpuminer-multi");
             }
 
