@@ -12,59 +12,85 @@ namespace Saltyminer.Mining
     public class mainControl
     {
         // Process for mining
-        protected Process m_proc;
-
-        // Bools used to determine whether the CPU or GPU are able to mine
-        public bool cpuenabled = false;
-        public bool gpuenabled = false;
+        protected Process CPU_proc;
+        protected Process GPU_proc;
 
         // Bools used to determine whether the CPU and GPU are actually mining
         public bool iscpumining = false;
         public bool isgpumining = false;
 
         // Used to determine what CPU or GPU software is currently being used
-        public string cpusoftware;
-        public string gpusoftware;
+        public string CPUSOFTWARE;
+        public string GPUSOFTWARE;
 
         // Used to determine what CPU or GPU software is currently being used
-        public string cpupool;
-        public string gpupool;
+        public static string CPUPOOL;
+        public static string GPUPOOL;
 
-        // Strings used to display what coin to mine
-        public string cpu_symbol;
-        public string gpu_symbol;
-
-        // Strings used to contain custom parameters
-        public string cpu_params;
-        public string gpu_params;
+        // Strings used to display what algorithm to use
+        public static string CPUALGO;
+        public static string GPUALGO;
 
         // Strings used to contain custom parameters
-        public string cpu_path;
-        public string gpu_path;
+        public static string CPUPARAMS;
+        public static string GPUPARAMS;
+
+        // Strings used to contain custom parameters
+        public string CPUPATH;
+        public string GPUPATH;
 
         // Integers used to display current hashrate for device
         public int cpu_hashrate;
         public int gpu_hashrate;
 
         // Strings used to hold mining address
-        public string cpu_address;
-        public string gpu_address;
+        public static string CPUADDRESS;
+        public static string GPUADDRESS;
 
         // Determines whether to enable optional dev fee
         public bool devfee;
+		
+		public string[] ARGS = 
+		{
+			// Used for XMRig/cpuminer-multi
+			"-a " + CPUALGO + " --url=" + CPUPOOL + " -u " + CPUADDRESS + " " + CPUPARAMS,
+			
+			// Used for Wildrig
+			"-a " + GPUALGO + " --url=" + GPUPOOL + " -u " + GPUADDRESS + " " + GPUPARAMS,
+			
+			// Used for Nanominer
+			"-algo " + GPUALGO + " -pool1 " + GPUPOOL + " -wallet " + GPUADDRESS + " " + GPUPARAMS,
+			
+			// Used for Trex/Redminer/NBminer
+			"-a " + GPUALGO + " -o " + GPUPOOL + " -u " + GPUADDRESS + " " + GPUPARAMS,
+			
+			// Used for Gminer
+			"--algo " + GPUALGO + " --server " + GPUPOOL + " --user " + GPUADDRESS + " " + GPUPARAMS,
+			
+			// Used for lolMiner
+			"--algo " + GPUALGO + " --pool " + GPUPOOL + " --user " + GPUADDRESS + " " + GPUPARAMS
+		};
 
-        // Determines whether to enable output windows
-        public bool output_en;
-
-        // Used to run the miner using custom parameters
-        public void runMiner(string path, string software, string arguments, string address)
+        // Used to run the CPU miners using custom parameters
+        public void runCPUMiner()
         {
-            m_proc = new Process();
-            m_proc.StartInfo.FileName = path + software;
-            m_proc.StartInfo.Arguments = address + arguments;
-            m_proc.StartInfo.CreateNoWindow = output_en;
-            m_proc.StartInfo.UseShellExecute = false;
-            m_proc.Start();
+            CPU_proc = new Process();
+            CPU_proc.StartInfo.FileName = CPUPATH;
+            CPU_proc.StartInfo.Arguments = ARGS[0];
+            CPU_proc.StartInfo.CreateNoWindow = false;
+            CPU_proc.StartInfo.UseShellExecute = false;
+            CPU_proc.Start();
+        }
+		
+		        // Used to run the GPU miners using custom parameters
+        public void runGPUMiner()
+        {
+            GPU_proc = new Process();
+            GPU_proc.StartInfo.FileName = GPUPATH;
+            GPU_proc.StartInfo.Arguments = ARGS[1];
+            GPU_proc.StartInfo.CreateNoWindow = false;
+            GPU_proc.StartInfo.UseShellExecute = false;
+            GPU_proc.Start();
         }
     }
 }
