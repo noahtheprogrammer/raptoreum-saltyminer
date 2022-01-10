@@ -11,17 +11,20 @@ namespace Saltyminer.Mining
 {
     public class mainControl
     {
+        // Used for checking software folders
+        private downloadControl dc = new downloadControl();
+
         // Process for mining
         protected Process CPU_proc;
         protected Process GPU_proc;
 
-        // Bools used to determine whether the CPU and GPU are actually mining
-        public bool iscpumining = false;
-        public bool isgpumining = false;
+        // Strings used to hold mining address
+        public static string CPUADDRESS;
+        public static string GPUADDRESS;
 
         // Used to determine what CPU or GPU software is currently being used
-        public string CPUSOFTWARE;
-        public string GPUSOFTWARE;
+        public static string CPUSOFTWARE;
+        public static string GPUSOFTWARE;
 
         // Used to determine what CPU or GPU software is currently being used
         public static string CPUPOOL;
@@ -39,13 +42,17 @@ namespace Saltyminer.Mining
         public string CPUPATH;
         public string GPUPATH;
 
-        // Integers used to display current hashrate for device
-        public int cpu_hashrate;
-        public int gpu_hashrate;
+        // Bools used to determine whether the CPU and GPU are actually mining
+        public bool iscpumining = false;
+        public bool isgpumining = false;
 
-        // Strings used to hold mining address
-        public static string CPUADDRESS;
-        public static string GPUADDRESS;
+        // Bools used to determine whether the CPU and GPU can mine
+        public bool cpuenabled = false;
+        public bool gpuenabled = false;
+
+        // Strings used for finding proper arguments to use
+        public string currentcpuargs;
+        public string currentgpuargs;
 
         // Determines whether to enable optional dev fee
         public bool devfee;
@@ -71,18 +78,35 @@ namespace Saltyminer.Mining
 			"--algo " + GPUALGO + " --pool " + GPUPOOL + " --user " + GPUADDRESS + " " + GPUPARAMS
 		};
 
+        // Loads up the proper configurations for the computer to mine with
+        public async void checkCPUproccess()
+        {
+            if (CPUSOFTWARE == "XMRig")
+            {
+                CPUPATH = "xmrig-" + (await dc.findLatest("xmrig", "xmrig")).Substring(1) + @"\xmrig.exe";
+                currentcpuargs = ARGS[0];
+            }
+
+            if (CPUSOFTWARE == "cpuminer-multi")
+            {
+                CPUPATH = @"cpuminer-multi\minerd.exe";
+                currentcpuargs = ARGS[0];
+            }
+        }
+
         // Used to run the CPU miners using custom parameters
         public void runCPUMiner()
         {
+            checkCPUproccess();
             CPU_proc = new Process();
             CPU_proc.StartInfo.FileName = CPUPATH;
-            CPU_proc.StartInfo.Arguments = ARGS[0];
+            CPU_proc.StartInfo.Arguments = currentcpuargs;
             CPU_proc.StartInfo.CreateNoWindow = false;
             CPU_proc.StartInfo.UseShellExecute = false;
             CPU_proc.Start();
         }
 		
-		        // Used to run the GPU miners using custom parameters
+		// Used to run the GPU miners using custom parameters
         public void runGPUMiner()
         {
             GPU_proc = new Process();

@@ -7,10 +7,21 @@
         mc:Ignorable="d"
         Title="Saltyminer" Height="600" Width="1000" Background="#f4f4f4" WindowStyle="None" ResizeMode="NoResize" MouseLeftButtonDown="drag_window">
     <Grid>
-        <Image x:Name="exit_img" HorizontalAlignment="Left" Height="30" Margin="760,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_exit.png" MouseDown="exit_img_Click"/>
-        <Label x:Name="cpu_settings_label" Content="CPU Settings" HorizontalAlignment="Left" Margin="19,23,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="gpu_settings_label" Content="GPU Settings" HorizontalAlignment="Left" Margin="19,264,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="cpu_addressinput" HorizontalAlignment="Left" Margin="18,92,0,0" Text="Enter address" TextWrapping="Wrap" VerticalAlignment="Top" Width="555" Height="23"/>
-        <Label x:Name="cpu_addressinput_label" Content="Address" HorizontalAlignment="Left" Margin="19,61,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+        <Image x:Name="exit_img" HorizontalAlignment="Left" Height="30" Margin="960,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_exit.png" MouseDown="exit_img_Click"/>
+        <Label x:Name="cpu_settings_label" Content="CPU Settings" HorizontalAlignment="Left" Margin="18,63,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="cpu_address" HorizontalAlignment="Left" Margin="18,134,0,0" Text="Enter address" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" Height="23" TextChanged="cpu_address_TextChanged"/>
+        <Label x:Name="cpu_address_label" Content="Address" HorizontalAlignment="Left" Margin="19,103,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+        <TextBox x:Name="cpu_extraparams" HorizontalAlignment="Left" Margin="18,272,0,0" Text="Enter additional arguments (optional)" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" Height="23" TextChanged="cpu_extraparams_TextChanged"/>
+        <Label x:Name="cpu_extraparams_label" Content="Arguements" HorizontalAlignment="Left" Margin="19,241,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+        <TextBox x:Name="cpu_algo" HorizontalAlignment="Left" Margin="17,357,0,0" Text="Enter algorithm" TextWrapping="Wrap" VerticalAlignment="Top" Width="211" Height="23" TextChanged="cpu_algo_TextChanged"/>
+        <Label x:Name="cpu_algo_label" Content="Hash Algorithm" HorizontalAlignment="Left" Margin="18,325,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+        <ListBox x:Name="cpu_software" Margin="19,435,752,55" SelectionChanged="cpu_software_SelectionChanged">
+            <ListBoxItem Content="XMRig"/>
+            <ListBoxItem Content="cpuminer-multi"/>
+        </ListBox>
+        <Label x:Name="cpu_software_label" Content="Mining Software" HorizontalAlignment="Left" Margin="19,404,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+        <TextBox x:Name="cpu_pool" HorizontalAlignment="Left" Margin="18,204,0,0" Text="Enter pool" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" Height="23" TextChanged="cpu_pool_TextChanged"/>
+        <Label x:Name="cpu_pool_label" Content="Pool" HorizontalAlignment="Left" Margin="19,173,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+        <Button x:Name="test_button" Content="Run" HorizontalAlignment="Left" Margin="656,157,0,0" VerticalAlignment="Top" Width="40" Height="42" MouseDown="test_handler"/>
     </Grid>
 </Window>

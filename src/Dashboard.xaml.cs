@@ -144,7 +144,7 @@ namespace Saltyminer
         // Used to enable or disable the processor
         private void cpu_toggle_Click(object sender, MouseButtonEventArgs e)
         {
-            if (mc.cpuenabled)
+            if (mc.iscpumining)
             {
                 mc.cpuenabled = false;
                 cpu_toggle.Source = new BitmapImage(new Uri("/Resources/light_off.png", UriKind.Relative));
@@ -310,7 +310,7 @@ namespace Saltyminer
 
         // Used to check installations on machine
         // This is NOT to be used multiple times, as it will cause the Github API to send back an exceeded rate.
-        // This should ONLY be used on initialization, in order save computing power and internet.
+        // This should ONLY be used on initialization, in order to save computing power and internet.
         private async void checkInstallCollection()
         {
             try
@@ -340,7 +340,7 @@ namespace Saltyminer
 
             if (mc.iscpumining == true)
             {
-                cpu_info.Content = "Currently mining using" + mc.cpusoftware;
+                cpu_info.Content = "Currently mining using" + mainControl.CPUSOFTWARE;
                 gpu_status.Source = new BitmapImage(new Uri("/Resources/check.png", UriKind.Relative));
             }
 
@@ -354,7 +354,7 @@ namespace Saltyminer
 
             if (mc.isgpumining == true)
             {
-                gpu_info.Content = "Currently mining using" + mc.gpusoftware;
+                gpu_info.Content = "Currently mining using" + mainControl.GPUSOFTWARE;
                 gpu_status.Source = new BitmapImage(new Uri("/Resources/check.png", UriKind.Relative));
             }
 
