@@ -11,13 +11,16 @@ namespace Saltyminer.Mining
 {
     public class downloadControl
     {
+        // WebClient used to download new releases
+        WebClient d_client = new WebClient();
+        
         // Used to download latest release of miners
         public Task DownloadRelease(string link, string file, string folder)
         {
-            using (var client = new WebClient())
+            using (d_client)
             {
-                client.DownloadFileCompleted += new AsyncCompletedEventHandler(DecompressInstall);
-                client.DownloadFileAsync(new Uri(link), AppDomain.CurrentDomain.BaseDirectory + file);
+                d_client.DownloadFileCompleted += new AsyncCompletedEventHandler(DecompressInstall);
+                d_client.DownloadFileAsync(new Uri(link), AppDomain.CurrentDomain.BaseDirectory + file);
             }
 
             void DecompressInstall(object sender, AsyncCompletedEventArgs e)
