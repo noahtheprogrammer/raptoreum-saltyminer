@@ -6,6 +6,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.IO;
 using System.ComponentModel;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 
 namespace Saltyminer.Mining
 {
@@ -13,7 +15,12 @@ namespace Saltyminer.Mining
     {
         // WebClient used to download new releases
         WebClient d_client = new WebClient();
-        
+
+        // Array used to hold info loaded on machine
+        // Below display what spot in the array each miner must specify
+        // XMRig[0] cpuminer-multi[1] Wildrig[2] Nanominer[3] Trex[4] Redminer[5] NBMiner[6] Gminer[7] lolMiner[8]
+        public string[] currentInstalls;
+
         // Used to download latest release of miners
         public Task DownloadRelease(string link, string file, string folder)
         {
@@ -23,6 +30,7 @@ namespace Saltyminer.Mining
                 d_client.DownloadFileAsync(new Uri(link), AppDomain.CurrentDomain.BaseDirectory + file);
             }
 
+            // Method used to decompress files
             void DecompressInstall(object sender, AsyncCompletedEventArgs e)
             {
 
@@ -84,5 +92,28 @@ namespace Saltyminer.Mining
                                                     .Select(s => s[random.Next(s.Length)]).ToArray());
             return randomString;
         }
+
+        // Saves string array of installs into file
+        public void saveCurrentinstall()
+        {
+            File.WriteAllLines("currentVersions.txt", currentInstalls);
+        }
+
+        // Loads string array of installs into application
+        public void loadCurrentinstall()
+        {
+            using (StreamReader sr = new StreamReader("currentVersions.txt"))
+            {
+                currentInstalls = new[] { sr.ReadToEnd() };
+            }
+        }
     }
+}
+
+
+// Serializable class used to save miner versions currently stored on the machine
+[Serializable]
+public class savedDownload
+{
+    public string[] savedInstalls;
 }

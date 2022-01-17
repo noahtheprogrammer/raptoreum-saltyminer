@@ -1,21 +1,10 @@
 ﻿using System;
 using System.Management;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Threading;
 using Saltyminer.Mining;
-using System.Net;
+using System.Diagnostics;
 
 namespace Saltyminer
 {
@@ -176,10 +165,15 @@ namespace Saltyminer
         // Button used to install XMRig to machine
         private async void installXMRig(object sender, MouseButtonEventArgs e)
         {
+            string version;
+            version = await dc.findLatest("xmrig", "xmrig");
+
             try
             {
-                await dc.DownloadRelease("https://github.com/xmrig/xmrig/releases/download/" + (await dc.findLatest("xmrig", "xmrig")) + "/xmrig-" + (await dc.findLatest("xmrig", "xmrig")).Substring(1) + "-msvc-win64.zip", "xmrig.zip", null);
-                xmrig_info_label.Content = dc.checkInstalls("xmrig-" + (await dc.findLatest("xmrig", "xmrig")).Substring(1));
+                await dc.DownloadRelease("https://github.com/xmrig/xmrig/releases/download/" + version + "/xmrig-" + version.Substring(1) + "-msvc-win64.zip", "xmrig.zip", null);
+                xmrig_info_label.Content = dc.checkInstalls("xmrig-" + version.Substring(1));
+                dc.currentInstalls[0] = version;
+                dc.saveCurrentinstall();
             }
 
             catch (Exception)
@@ -191,10 +185,15 @@ namespace Saltyminer
         // Button used to install Gminer to machine
         private async void installGminer(object sender, MouseButtonEventArgs e)
         {
+            string version;
+            version = await dc.findLatest("develsoftware", "GMinerRelease");
+
             try
             {
-                await dc.DownloadRelease("https://github.com/develsoftware/GMinerRelease/releases/download/" + (await dc.findLatest("develsoftware", "GMinerRelease")) + "/gminer_" + (await dc.findLatest("develsoftware", "GMinerRelease")).Replace('.', '_') + "_windows64.zip", "gminer.zip", "gminer");
+                await dc.DownloadRelease("https://github.com/develsoftware/GMinerRelease/releases/download/" + version + "/gminer_" + version.Replace('.', '_') + "_windows64.zip", "gminer.zip", "gminer");
                 gminer_info_label.Content = dc.checkInstalls("gminer");
+                dc.currentInstalls[7] = version;
+                dc.saveCurrentinstall();
             }
 
             catch (Exception)
@@ -206,10 +205,15 @@ namespace Saltyminer
         // Button used to install Trex to machine
         private async void installTrex(object sender, MouseButtonEventArgs e)
         {
+            string version;
+            version = await dc.findLatest("trexminer", "T-Rex");
+
             try
             {
-                await dc.DownloadRelease("https://github.com/trexminer/T-Rex/releases/download/" + (await dc.findLatest("trexminer", "T-Rex")) + "/t-rex-" + (await dc.findLatest("trexminer", "T-Rex")) + "-win.zip", "trex.zip", "trex");
+                await dc.DownloadRelease("https://github.com/trexminer/T-Rex/releases/download/" + version + "/t-rex-" + version + "-win.zip", "trex.zip", "trex");
                 trex_info_label.Content = dc.checkInstalls("trex");
+                dc.currentInstalls[4] = version;
+                dc.saveCurrentinstall();
             }
 
             catch (Exception)
@@ -221,10 +225,15 @@ namespace Saltyminer
         // Button used to install Wildrig to machine
         private async void installWildrig(object sender, MouseButtonEventArgs e)
         {
+            string version;
+            version = await dc.findLatest("andru-kun", "wildrig-multi");
+
             try
             {
-                await dc.DownloadRelease("https://github.com/andru-kun/wildrig-multi/releases/download/" + (await dc.findLatest("andru-kun", "wildrig-multi")) + "/wildrig-multi-windows-" + (await dc.findLatest("andru-kun", "wildrig-multi")) + ".7z", "wildrig.7z", "wildrig");
+                await dc.DownloadRelease("https://github.com/andru-kun/wildrig-multi/releases/download/" + version + "/wildrig-multi-windows-" + version + ".7z", "wildrig.7z", "wildrig");
                 wildrig_info_label.Content = dc.checkInstalls("wildrig");
+                dc.currentInstalls[2] = version;
+                dc.saveCurrentinstall();
             }
 
             catch (Exception)
@@ -236,10 +245,15 @@ namespace Saltyminer
         // Button used to install Nanominer to machine
         private async void installNano(object sender, MouseButtonEventArgs e)
         {
+            string version;
+            version = await dc.findLatest("nanopool", "nanominer");
+
             try
             {
-                await dc.DownloadRelease("https://github.com/nanopool/nanominer/releases/download/" + (await dc.findLatest("nanopool", "nanominer")) + "/nanominer-windows-" + (await dc.findLatest("nanopool", "nanominer")).Substring(1) + ".zip", "nanominer.zip", null);
-                nanominer_info_label.Content = dc.checkInstalls("nanominer-windows-" + (await dc.findLatest("nanopool", "nanominer")).Substring(1));
+                await dc.DownloadRelease("https://github.com/nanopool/nanominer/releases/download/" + version + "/nanominer-windows-" + version.Substring(1) + ".zip", "nanominer.zip", null);
+                nanominer_info_label.Content = dc.checkInstalls("nanominer-windows-" + version.Substring(1));
+                dc.currentInstalls[3] = version;
+                dc.saveCurrentinstall();
             }
 
             catch (Exception)
@@ -251,10 +265,15 @@ namespace Saltyminer
         // Button used to install NBminer to machine
         private async void installNB(object sender, MouseButtonEventArgs e)
         {
+            string version;
+            version = await dc.findLatest("NebuTech", "NBMiner");
+
             try
             {
-                await dc.DownloadRelease("https://github.com/NebuTech/NBMiner/releases/download/" + (await dc.findLatest("NebuTech", "NBMiner")) + "/NBMiner_" + (await dc.findLatest("NebuTech", "NBMiner")).Substring(1) + "_Win.zip", "nbminer.zip", null);
+                await dc.DownloadRelease("https://github.com/NebuTech/NBMiner/releases/download/" + version + "/NBMiner_" + version.Substring(1) + "_Win.zip", "nbminer.zip", null);
                 nbminer_info_label.Content = dc.checkInstalls("NBMiner_Win");
+                dc.currentInstalls[6] = version;
+                dc.saveCurrentinstall();
             }
 
             catch (Exception)
@@ -266,10 +285,15 @@ namespace Saltyminer
         // Button used to install Teamredminer to machine
         private async void installTRM(object sender, MouseButtonEventArgs e)
         {
+            string version;
+            version = await dc.findLatest("todxx", "teamredminer");
+
             try
             {
-                await dc.DownloadRelease("https://github.com/todxx/teamredminer/releases/download/" + (await dc.findLatest("todxx", "teamredminer")) + "/teamredminer-" + (await dc.findLatest("todxx", "teamredminer")) + "-win.zip", "teamredminer.zip", null);
-                teamred_info_label.Content = dc.checkInstalls("teamredminer-" + (await dc.findLatest("todxx", "teamredminer")) + "-win");
+                await dc.DownloadRelease("https://github.com/todxx/teamredminer/releases/download/" + version + "/teamredminer-" + version + "-win.zip", "teamredminer.zip", null);
+                teamred_info_label.Content = dc.checkInstalls("teamredminer-" + version + "-win");
+                dc.currentInstalls[5] = version;
+                dc.saveCurrentinstall();
             }
 
             catch (Exception)
@@ -281,10 +305,15 @@ namespace Saltyminer
         // Button used to install lolMiner to machine
         private async void installLol(object sender, MouseButtonEventArgs e)
         {
+            string version;
+            version = await dc.findLatest("Lolliedieb", "lolMiner-releases");
+
             try
             {
-                await dc.DownloadRelease("https://github.com/Lolliedieb/lolMiner-releases/releases/download/" + (await dc.findLatest("Lolliedieb", "lolMiner-releases")) + "/lolMiner_" + "v" + (await dc.findLatest("Lolliedieb", "lolMiner-releases")) + "_Win64.zip", "lolminer.zip", null);
-                lol_info_label.Content = dc.checkInstalls(await dc.findLatest("Lolliedieb", "lolMiner-releases"));
+                await dc.DownloadRelease("https://github.com/Lolliedieb/lolMiner-releases/releases/download/" + version + "/lolMiner_" + "v" + version + "_Win64.zip", "lolminer.zip", null);
+                lol_info_label.Content = dc.checkInstalls(version);
+                dc.currentInstalls[8] = version;
+                dc.saveCurrentinstall();
             }
 
             catch (Exception)
@@ -296,10 +325,15 @@ namespace Saltyminer
         // Button used to install cpuminer-multi to machine
         private async void installMulti(object sender, MouseButtonEventArgs e)
         {
+            string version;
+            version = await dc.findLatest("lucasjones", "cpuminer-multi");
+
             try
             {
-                await dc.DownloadRelease("https://github.com/lucasjones/cpuminer-multi/releases/download/" + (await dc.findLatest("lucasjones", "cpuminer-multi")) + "/cpuminer-multi.zip", "cpuminer-multi.zip", "cpuminer-multi");
+                await dc.DownloadRelease("https://github.com/lucasjones/cpuminer-multi/releases/download/" + version + "/cpuminer-multi.zip", "cpuminer-multi.zip", "cpuminer-multi");
                 cpumulti_info_label.Content = dc.checkInstalls("cpuminer-multi");
+                dc.currentInstalls[1] = version;
+                dc.saveCurrentinstall();
             }
 
             catch (Exception)
@@ -326,9 +360,9 @@ namespace Saltyminer
                 cpumulti_info_label.Content = dc.checkInstalls("cpuminer-multi");
             }
 
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("It appears that you are experiencing internet connectivity issues. Please try again later.");
+                Debug.WriteLine("It appears you are having internet issues or have connected to GitHub's API too much. Error:\n" + ex);
             }
         }
 
