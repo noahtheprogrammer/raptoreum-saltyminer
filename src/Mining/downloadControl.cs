@@ -6,8 +6,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.IO;
 using System.ComponentModel;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
 
 namespace Saltyminer.Mining
 {
@@ -18,8 +16,7 @@ namespace Saltyminer.Mining
 
         // Array used to hold info loaded on machine
         // Below display what spot in the array each miner must specify
-        // XMRig[0] cpuminer-multi[1] Wildrig[2] Nanominer[3] Trex[4] Redminer[5] NBMiner[6] Gminer[7] lolMiner[8]
-        public string[] currentInstalls;
+        public string[] currentInstalls = { "0", "0", "0", "0", "0", "0", "0", "0", "0" };
 
         // Used to download latest release of miners
         public Task DownloadRelease(string link, string file, string folder)
@@ -33,23 +30,13 @@ namespace Saltyminer.Mining
             // Method used to decompress files
             void DecompressInstall(object sender, AsyncCompletedEventArgs e)
             {
-
-                // Unzips using System.IO
-                if (file.Contains(".zip"))
-                {
-                    System.IO.Compression.ZipFile.ExtractToDirectory(AppDomain.CurrentDomain.BaseDirectory + file, AppDomain.CurrentDomain.BaseDirectory + folder);
-                }
-
-                // Used for unique extensions that only 7z can understand
-                else
-                {
-                    Process decom = new Process();
-                    decom.StartInfo.FileName = "7za.exe";
-                    decom.StartInfo.Arguments = "e " + file + " -o" + folder;
-                    decom.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                    decom.Start();
-                    decom.WaitForExit();
-                }
+                // Used to decompress all file folders
+                Process decom = new Process();
+                decom.StartInfo.FileName = "7za.exe";
+                decom.StartInfo.Arguments = "e " + file + " -o" + folder;
+                decom.StartInfo.CreateNoWindow = true;
+                decom.Start();
+                decom.WaitForExit();
 
                 // Removes leftover download
                 File.Delete(file);
@@ -78,7 +65,7 @@ namespace Saltyminer.Mining
 
             else
             {
-                return "Latest version not installed";
+                return "Not installed";
             }
         }
 
@@ -108,12 +95,4 @@ namespace Saltyminer.Mining
             }
         }
     }
-}
-
-
-// Serializable class used to save miner versions currently stored on the machine
-[Serializable]
-public class savedDownload
-{
-    public string[] savedInstalls;
 }
