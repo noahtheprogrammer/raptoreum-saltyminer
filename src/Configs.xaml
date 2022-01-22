@@ -22,5 +22,6 @@
         <Label x:Name="cpu_software_label" Content="Mining Software" HorizontalAlignment="Left" Margin="19,404,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
         <TextBox x:Name="cpu_pool" HorizontalAlignment="Left" Margin="18,204,0,0" Text="Enter pool" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" Height="23" TextChanged="cpu_pool_TextChanged"/>
         <Label x:Name="cpu_pool_label" Content="Pool" HorizontalAlignment="Left" Margin="19,173,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+        <Button x:Name="test_button" Content="Run" HorizontalAlignment="Left" Margin="656,157,0,0" VerticalAlignment="Top" Width="40" Height="42" MouseDown="test_handler"/>
     </Grid>
 </Window>
