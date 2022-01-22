@@ -13,7 +13,11 @@ namespace Saltyminer.Mining
     {
         // WebClient used to download new releases
         WebClient d_client = new WebClient();
-        
+
+        // Array used to hold info loaded on machine
+        // Below display what spot in the array each miner must specify
+        public string[] currentInstalls = { "0", "0", "0", "0", "0", "0", "0", "0", "0" };
+
         // Used to download latest release of miners
         public Task DownloadRelease(string link, string file, string folder)
         {
@@ -23,25 +27,16 @@ namespace Saltyminer.Mining
                 d_client.DownloadFileAsync(new Uri(link), AppDomain.CurrentDomain.BaseDirectory + file);
             }
 
+            // Method used to decompress files
             void DecompressInstall(object sender, AsyncCompletedEventArgs e)
             {
-
-                // Unzips using System.IO
-                if (file.Contains(".zip"))
-                {
-                    System.IO.Compression.ZipFile.ExtractToDirectory(AppDomain.CurrentDomain.BaseDirectory + file, AppDomain.CurrentDomain.BaseDirectory + folder);
-                }
-
-                // Used for unique extensions that only 7z can understand
-                else
-                {
-                    Process decom = new Process();
-                    decom.StartInfo.FileName = "7za.exe";
-                    decom.StartInfo.Arguments = "e " + file + " -o" + folder;
-                    decom.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                    decom.Start();
-                    decom.WaitForExit();
-                }
+                // Used to decompress all file folders
+                Process decom = new Process();
+                decom.StartInfo.FileName = "7za.exe";
+                decom.StartInfo.Arguments = "e " + file + " -o" + folder;
+                decom.StartInfo.CreateNoWindow = true;
+                decom.Start();
+                decom.WaitForExit();
 
                 // Removes leftover download
                 File.Delete(file);
@@ -70,7 +65,7 @@ namespace Saltyminer.Mining
 
             else
             {
-                return "Latest version not installed";
+                return "Not installed";
             }
         }
 
@@ -83,6 +78,21 @@ namespace Saltyminer.Mining
             var randomString = new string(Enumerable.Repeat(chars, length)
                                                     .Select(s => s[random.Next(s.Length)]).ToArray());
             return randomString;
+        }
+
+        // Saves string array of installs into file
+        public void saveCurrentinstall()
+        {
+            File.WriteAllLines("currentVersions.txt", currentInstalls);
+        }
+
+        // Loads string array of installs into application
+        public void loadCurrentinstall()
+        {
+            using (StreamReader sr = new StreamReader("currentVersions.txt"))
+            {
+                currentInstalls = new[] { sr.ReadToEnd() };
+            }
         }
     }
 }
