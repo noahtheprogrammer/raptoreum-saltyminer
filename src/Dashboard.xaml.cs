@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Management;
 using System.Windows;
@@ -16,9 +16,6 @@ namespace Saltyminer
         // Classes used to retrieve information on mining
         private mainControl mc;
         private downloadControl dc;
-
-        // Used to hold latest installations for entire application
-        public string[] latestInstalls = { "0", "0", "0", "0", "0", "0", "0", "0", "0" };
 
         // Dashboard initialization
         public Dashboard()
@@ -185,7 +182,7 @@ namespace Saltyminer
         {
             try
             {
-                await dc.DownloadRelease("https://github.com/develsoftware/GMinerRelease/releases/download/2.75/gminer_2_75_windows64.zip", "gminer.zip");
+                await dc.DownloadRelease("https://github.com/develsoftware/GMinerRelease/releases/download/2.75/gminer_2_75_windows64.zip", "gminer.zip", "gminer");
                 gminer_info_label.Content = "Installed";
             }
 
@@ -200,7 +197,7 @@ namespace Saltyminer
         {
             try
             {
-                await dc.DownloadRelease("https://github.com/trexminer/T-Rex/releases/download/0.24.8/t-rex-0.24.8-win.zip", "trex.zip");
+                await dc.DownloadRelease("https://github.com/trexminer/T-Rex/releases/download/0.24.8/t-rex-0.24.8-win.zip", "trex.zip", "trex");
                 trex_info_label.Content = "Installed";
             }
 
