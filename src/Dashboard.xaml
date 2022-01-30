@@ -19,7 +19,7 @@
 
     <Grid>
         <!-- Home grid -->
-        <Grid x:Name="home_grid" TextOptions.TextRenderingMode="ClearType" d:IsHidden="True">
+        <Grid x:Name="home_grid" TextOptions.TextRenderingMode="ClearType">
 
             <!-- Panel used to hold the basic statistics for the miner -->
             <Rectangle x:Name="stats_panel" HorizontalAlignment="Center" Height="115" VerticalAlignment="Top" Width="655" Margin="0,325,0,0" SnapsToDevicePixels="True" StrokeThickness="2" RadiusX="12" RadiusY="12">
@@ -38,15 +38,14 @@
             <Label x:Name="cpu_label" Content="CPU" HorizontalAlignment="Left" Margin="239,389,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily ="./Fonts/#Shippori Antique" FontSize="14"/>
 
             <!-- Buttons used to control the window -->
-            <Image x:Name="exit_img" HorizontalAlignment="Left" Height="30" Margin="760,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_exit.png" MouseDown="exit_img_Click"/>
-            <Image x:Name="mini_img" HorizontalAlignment="Left" Height="30" Margin="725,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_mini.png" MouseDown="mini_img_Click"/>
-            <Image x:Name="config_img" HorizontalAlignment="Left" Height="30" Margin="690,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_config.png" MouseDown="config_img_Click"/>
-            <Label x:Name="devices_btn" Content="Devices" HorizontalAlignment="Left" Margin="76,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground="#D7D7D7" Background="Transparent" FontSize="15" FontWeight="Normal" MouseDown="devices_btn_Click"/>
-            <Label x:Name="installations_btn" Content="Installations" HorizontalAlignment="Left" Margin="153,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground="#D7D7D7" Background="Transparent" FontSize="15" FontWeight="Normal" MouseDown="installations_btn_Click"/>
-            <Label x:Name="home_btn" Content="Home" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground= "{StaticResource yellowGradient}" Background="Transparent" FontSize="15" FontWeight="Normal" MouseDown="home_btn_Click"/>
+            <Image x:Name="exit_img" HorizontalAlignment="Left" Height="30" Margin="1160,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_exit.png" MouseLeftButtonDown="exit_img_Click"/>
+            <Image x:Name="mini_img" HorizontalAlignment="Left" Height="30" Margin="1125,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_mini.png" MouseLeftButtonDown="mini_img_Click"/>
+            <Image x:Name="config_img" HorizontalAlignment="Left" Height="30" Margin="1090,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_config.png" MouseLeftButtonDown="config_img_Click"/>
+            <Label x:Name="devices_btn" Content="Devices" HorizontalAlignment="Left" Margin="76,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground="#D7D7D7" Background="Transparent" FontSize="15" FontWeight="Normal" MouseLeftButtonDown="devices_btn_Click"/>
+            <Label x:Name="home_btn" Content="Home" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground= "{StaticResource yellowGradient}" Background="Transparent" FontSize="15" FontWeight="Normal" MouseLeftButtonDown="home_btn_Click"/>
 
             <!-- Controls for the mining buttons -->
-            <Image x:Name="main_btn" HorizontalAlignment="Center" Height="200" VerticalAlignment="Top" Width="200" Source="Resources/light_start.png" Margin="0,93,0,0" MouseDown="main_btn_Click">
+            <Image x:Name="main_btn" HorizontalAlignment="Center" Height="200" VerticalAlignment="Top" Width="200" Source="Resources/light_start.png" Margin="0,93,0,0" MouseLeftButtonDown="main_btn_Click">
                 <Image.Effect>
                     <DropShadowEffect Direction="15" Color="WhiteSmoke" RenderingBias="Performance" ShadowDepth="3"/>
                 </Image.Effect>
@@ -57,12 +56,12 @@
         <Grid x:Name="devices_grid" TextOptions.TextRenderingMode="ClearType" d:IsHidden="True">
 
             <!-- Buttons used to control the window -->
-            <Image x:Name="exit_img_1" HorizontalAlignment="Left" Height="30" Margin="760,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_exit.png" MouseDown="exit_img_Click"/>
-            <Image x:Name="mini_img_1" HorizontalAlignment="Left" Height="30" Margin="725,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_mini.png" MouseDown="mini_img_Click"/>
-            <Image x:Name="config_img_1" HorizontalAlignment="Left" Height="30" Margin="690,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_config.png" MouseDown="config_img_Click"/>
-            <Label x:Name="devices_btn_1" Content="Devices" HorizontalAlignment="Left" Margin="76,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground= "{StaticResource yellowGradient}" Background="Transparent" FontSize="15" FontWeight="Normal" MouseDown="devices_btn_Click"/>
-            <Label x:Name="installations_btn_1" Content="Installations" HorizontalAlignment="Left" Margin="153,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground="#D7D7D7" Background="Transparent" FontSize="15" FontWeight="Normal" MouseDown="installations_btn_Click"/>
-            <Label x:Name="home_btn_1" Content="Home" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground="#D7D7D7" Background="Transparent" FontSize="15" FontWeight="Normal" MouseDown="home_btn_Click"/>
+            <Image x:Name="exit_img_1" HorizontalAlignment="Left" Height="30" Margin="760,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_exit.png" MouseLeftButtonDown="exit_img_Click"/>
+            <Image x:Name="mini_img_1" HorizontalAlignment="Left" Height="30" Margin="725,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_mini.png" MouseLeftButtonDown="mini_img_Click"/>
+            <Image x:Name="config_img_1" HorizontalAlignment="Left" Height="30" Margin="690,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_config.png" MouseLeftButtonDown="config_img_Click"/>
+            <Label x:Name="devices_btn_1" Content="Devices" HorizontalAlignment="Left" Margin="76,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground= "{StaticResource yellowGradient}" Background="Transparent" FontSize="15" FontWeight="Normal" MouseLeftButtonDown="devices_btn_Click"/>
+            <Label x:Name="installations_btn_1" Content="Installations" HorizontalAlignment="Left" Margin="153,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground="#D7D7D7" Background="Transparent" FontSize="15" FontWeight="Normal" MouseLeftButtonDown="installations_btn_Click"/>
+            <Label x:Name="home_btn_1" Content="Home" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground="#D7D7D7" Background="Transparent" FontSize="15" FontWeight="Normal" MouseLeftButtonDown="home_btn_Click"/>
             <Rectangle x:Name="device_list" HorizontalAlignment="Left" Height="269" Margin="37,204,0,0" VerticalAlignment="Top" Width="718"  SnapsToDevicePixels="True" StrokeThickness="2" RadiusX="12" RadiusY="12">
                 <Rectangle.Effect>
                     <DropShadowEffect Direction="15" Color="#FFF0F0F0" RenderingBias="Performance" ShadowDepth="3"/>
@@ -81,14 +80,14 @@
             <Image x:Name="gpu_status" HorizontalAlignment="Left" Height="24" Margin="670,350,0,0" VerticalAlignment="Top" Width="25" Source="/Resources/x.png"/>
 
             <!-- Toggles used to control the CPU and GPU -->
-            <Image x:Name="cpu_toggle" HorizontalAlignment="Left" Height="40" Margin="700,224,0,0" VerticalAlignment="Top" Width="40" Source="/light_off.png" MouseDown="cpu_toggle_Click">
+            <Image x:Name="cpu_toggle" HorizontalAlignment="Left" Height="40" Margin="700,224,0,0" VerticalAlignment="Top" Width="40" Source="/light_off.png" MouseLeftButtonDown="cpu_toggle_Click">
                 <Image.Effect>
                     <DropShadowEffect Direction="15" Color="#FFF0F0F0" RenderingBias="Performance" ShadowDepth="3"/>
                 </Image.Effect>
             </Image>
 
 
-            <Image x:Name="gpu_toggle" HorizontalAlignment="Left" Height="40" Margin="700,342,0,0" VerticalAlignment="Top" Width="40" Source="/light_off.png" MouseDown="gpu_toggle_Click">
+            <Image x:Name="gpu_toggle" HorizontalAlignment="Left" Height="40" Margin="700,342,0,0" VerticalAlignment="Top" Width="40" Source="/light_off.png" MouseLeftButtonDown="gpu_toggle_Click">
                 <Image.Effect>
                     <DropShadowEffect Direction="15" Color="#FFF0F0F0" RenderingBias="Performance" ShadowDepth="3"/>
                 </Image.Effect>
@@ -96,50 +95,5 @@
         </Grid>
 
         <!-- Installations grid -->
-        <Grid x:Name="installations_grid" TextOptions.TextRenderingMode="ClearType">
-
-            <!-- Buttons used to control the window -->
-            <Image x:Name="exit_img_2" HorizontalAlignment="Left" Height="30" Margin="1160,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_exit.png" MouseDown="exit_img_Click"/>
-            <Image x:Name="mini_img_2" HorizontalAlignment="Left" Height="30" Margin="1125,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_mini.png" MouseDown="mini_img_Click"/>
-            <Image x:Name="config_img_2" HorizontalAlignment="Left" Height="30" Margin="1090,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_config.png" MouseDown="config_img_Click"/>
-            <Label x:Name="devices_btn_2" Content="Devices" HorizontalAlignment="Left" Margin="76,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground="#D7D7D7" Background="Transparent" FontSize="15" FontWeight="Normal" MouseDown="devices_btn_Click"/>
-            <Label x:Name="installations_btn_2" Content="Installations" HorizontalAlignment="Left" Margin="153,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground= "{StaticResource yellowGradient}" Background="Transparent" FontSize="15" FontWeight="Normal" MouseDown="installations_btn_Click"/>
-            <Label x:Name="home_btn_2" Content="Home" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground="#D7D7D7" Background="Transparent" FontSize="15" FontWeight="Normal" MouseDown="home_btn_Click"/>
-            <Rectangle x:Name="device_list_Copy" HorizontalAlignment="Center" Height="655" Margin="0,65,0,0" VerticalAlignment="Top" Width="1128"  SnapsToDevicePixels="True" StrokeThickness="2" RadiusX="12" RadiusY="12" Fill="#fbfbfb">
-                <Rectangle.Effect>
-                    <DropShadowEffect Direction="15" Color="#FFF0F0F0" RenderingBias="Performance" ShadowDepth="3"/>
-                </Rectangle.Effect>
-            </Rectangle>
-
-            <!-- Controls and configurations used to display miner downloads -->
-            <Label x:Name="xmrig_label" Content="XMRig" HorizontalAlignment="Left" Margin="50,173,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
-            <Label x:Name="xmrig_info_label" Content="Not installed" HorizontalAlignment="Left" Margin="50,203,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204" FontSize="10"/>
-            <Button x:Name="xmrig_act_btn" Content="Install" HorizontalAlignment="Left" Margin="1074,179,0,0" VerticalAlignment="Top" Height="38" Width="66" MouseDown="installXMRig"/>
-            <Label x:Name="gminer_label" Content="GMiner" HorizontalAlignment="Left" Margin="50,228,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
-            <Label x:Name="gminer_info_label" Content="Not installed" HorizontalAlignment="Left" Margin="50,258,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204" FontSize="10"/>
-            <Button x:Name="gminer_act_btn" Content="Install" HorizontalAlignment="Left" Margin="1074,234,0,0" VerticalAlignment="Top" Height="38" Width="66" MouseDown="installGminer"/>
-            <Label x:Name="wildrig_label" Content="Wildrig" HorizontalAlignment="Left" Margin="50,344,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
-            <Label x:Name="wildrig_info_label" Content="Not installed" HorizontalAlignment="Left" Margin="50,374,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204" FontSize="10"/>
-            <Button x:Name="wildrig_act_btn" Content="Install" HorizontalAlignment="Left" Margin="1074,350,0,0" VerticalAlignment="Top" Height="38" Width="66" MouseDown="installWildrig"/>
-            <Label x:Name="nanominer_label" Content="Nanominer" HorizontalAlignment="Left" Margin="50,402,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
-            <Label x:Name="nanominer_info_label" Content="Not installed" HorizontalAlignment="Left" Margin="50,432,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204" FontSize="10"/>
-            <Button x:Name="nanominer_act_btn" Content="Install" HorizontalAlignment="Left" Margin="1074,408,0,0" VerticalAlignment="Top" Height="38" Width="66" MouseDown="installNano"/>
-            <Label x:Name="nbminer_label" HorizontalAlignment="Left" Margin="50,462,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204" Content="NBMiner"/>
-            <Label x:Name="nbminer_info_label" Content="Not installed" HorizontalAlignment="Left" Margin="50,492,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204" FontSize="10"/>
-            <Button x:Name="nbminer_act_btn" Content="Install" HorizontalAlignment="Left" Margin="1074,468,0,0" VerticalAlignment="Top" Height="38" Width="66" MouseDown="installNB"/>
-            <Label x:Name="teamred_label" Content="Redminer" HorizontalAlignment="Left" Margin="50,519,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
-            <Label x:Name="teamred_info_label" Content="Not installed" HorizontalAlignment="Left" Margin="50,549,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204" FontSize="10"/>
-            <Button x:Name="teamred_act_btn" Content="Install" HorizontalAlignment="Left" Margin="1074,525,0,0" VerticalAlignment="Top" Height="38" Width="66" MouseDown="installTRM"/>
-            <Label x:Name="cpumulti_label" Content="cpuminer-multi" HorizontalAlignment="Left" Margin="50,639,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
-            <Label x:Name="cpumulti_info_label" Content="Not installed" HorizontalAlignment="Left" Margin="50,669,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204" FontSize="10"/>
-            <Button x:Name="cpumulti_act_btn" Content="Install" HorizontalAlignment="Left" Margin="1074,645,0,0" VerticalAlignment="Top" Height="38" Width="66" MouseDown="installMulti"/>
-            <Label x:Name="lol_label" Content="lolMiner" HorizontalAlignment="Left" Margin="50,580,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
-            <Label x:Name="lol_info_label" Content="Not installed" HorizontalAlignment="Left" Margin="50,610,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204" FontSize="10"/>
-            <Button x:Name="lol_act_btn" Content="Install" HorizontalAlignment="Left" Margin="1074,586,0,0" VerticalAlignment="Top" Height="38" Width="66" MouseDown="installLol"/>
-            <Label x:Name="trex_label" Content="Trex" HorizontalAlignment="Left" Margin="50,285,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
-            <Label x:Name="trex_info_label" Content="Not installed" HorizontalAlignment="Left" Margin="50,315,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204" FontSize="10"/>
-            <Button x:Name="trex_act_btn" Content="Install" HorizontalAlignment="Left" Margin="1074,291,0,0" VerticalAlignment="Top" Height="38" Width="66" MouseDown="installTrex"/>
-            <Label x:Name="install_label" Content="Installations" HorizontalAlignment="Left" Margin="50,78,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="18" Width="204"/>
-        </Grid>
     </Grid>
 </Window>

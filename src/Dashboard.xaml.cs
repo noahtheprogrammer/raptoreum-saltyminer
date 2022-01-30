@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Management;
 using System.Windows;
@@ -64,7 +65,6 @@ namespace Saltyminer
         // Changes to new devices menu
         private void devices_btn_Click(object sender, MouseButtonEventArgs e)
         {
-            installations_grid.Visibility = Visibility.Collapsed;
             home_grid.Visibility = Visibility.Collapsed;
             devices_grid.Visibility = Visibility.Visible;
         }
@@ -74,13 +74,11 @@ namespace Saltyminer
         {
             home_grid.Visibility = Visibility.Collapsed;
             devices_grid.Visibility = Visibility.Collapsed;
-            installations_grid.Visibility = Visibility.Visible;
         }
 
         // Changes to new home menu
         private void home_btn_Click(object sender, MouseButtonEventArgs e)
         {
-            installations_grid.Visibility = Visibility.Collapsed;
             devices_grid.Visibility = Visibility.Collapsed;
             home_grid.Visibility = Visibility.Visible;
         }
@@ -162,152 +160,51 @@ namespace Saltyminer
             }
         }
 
-        // Button used to install XMRig to machine
-        private async void installXMRig(object sender, MouseButtonEventArgs e)
+        // Method used to install latest XMRig version when app first installed
+        private async void installXMRig()
         {
             try
             {
                 await dc.DownloadRelease("https://github.com/xmrig/xmrig/releases/download/v6.16.2/xmrig-6.16.2-msvc-win64.zip", "xmrig.zip", null);
-                xmrig_info_label.Content = "Installed";
             }
 
             catch (Exception)
             {
-                MessageBox.Show("It appears have already installed this software or are experiencing connection issues. Please try again later.");
+                Debug.WriteLine("It appears have already installed this software or are experiencing connection issues. Please try again later.");
             }
         }
 
-        // Button used to install Gminer to machine
-        private async void installGminer(object sender, MouseButtonEventArgs e)
-        {
-            try
-            {
-                await dc.DownloadRelease("https://github.com/develsoftware/GMinerRelease/releases/download/2.75/gminer_2_75_windows64.zip", "gminer.zip", "gminer");
-                gminer_info_label.Content = "Installed";
-            }
-
-            catch (Exception)
-            {
-                MessageBox.Show("It appears have already installed this software or are experiencing connection issues. Please try again later.");
-            }
-        }
-
-        // Button used to install Trex to machine
-        private async void installTrex(object sender, MouseButtonEventArgs e)
-        {
-            try
-            {
-                await dc.DownloadRelease("https://github.com/trexminer/T-Rex/releases/download/0.24.8/t-rex-0.24.8-win.zip", "trex.zip", "trex");
-                trex_info_label.Content = "Installed";
-            }
-
-            catch (Exception)
-            {
-                MessageBox.Show("It appears have already installed this software or are experiencing connection issues. Please try again later.");
-            }
-        }
-
-        // Button used to install Wildrig to machine
-        private async void installWildrig(object sender, MouseButtonEventArgs e)
-        {
-            try
-            {
-                await dc.DownloadRelease("https://github.com/andru-kun/wildrig-multi/releases/download/0.31.2/wildrig-multi-windows-0.31.2.7z", "wildrig.7z", "wildrig");
-                wildrig_info_label.Content = "Installed";
-            }
-
-            catch (Exception)
-            {
-                MessageBox.Show("It appears have already installed this software or are experiencing connection issues. Please try again later.");
-            }
-        }
-
-        // Button used to install Nanominer to machine
-        private async void installNano(object sender, MouseButtonEventArgs e)
+        // Method used to install latest Nanominer version when app first installed
+        private async void installNano()
         {
             try
             {
                 await dc.DownloadRelease("https://github.com/nanopool/nanominer/releases/download/v3.5.2/nanominer-windows-3.5.2.zip", "nanominer.zip", null);
-                nanominer_info_label.Content = "Installed";
             }
 
             catch (Exception)
             {
-                MessageBox.Show("It appears have already installed this software or are experiencing connection issues. Please try again later.");
-            }
-        }
-
-        // Button used to install NBminer to machine
-        private async void installNB(object sender, MouseButtonEventArgs e)
-        {
-            try
-            {
-                await dc.DownloadRelease("https://github.com/NebuTech/NBMiner/releases/download/v40.1/NBMiner_40.1_Win.zip", "nbminer.zip", null);
-                nbminer_info_label.Content = "Installed";
-            }
-
-            catch (Exception)
-            {
-                MessageBox.Show("It appears have already installed this software or are experiencing connection issues. Please try again later.");
-            }
-        }
-
-        // Button used to install Teamredminer to machine
-        private async void installTRM(object sender, MouseButtonEventArgs e)
-        {
-            try
-            {
-                await dc.DownloadRelease("https://github.com/todxx/teamredminer/releases/download/v0.9.1/teamredminer-v0.9.1-win.zip", "teamredminer.zip", null);
-                teamred_info_label.Content = "Installed";
-            }
-
-            catch (Exception)
-            {
-                MessageBox.Show("It appears have already installed this software or are experiencing connection issues. Please try again later.");
-            }
-        }
-
-        // Button used to install lolMiner to machine
-        private async void installLol(object sender, MouseButtonEventArgs e)
-        {
-            try
-            {
-                await dc.DownloadRelease("https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.42/lolMiner_v1.42_Win64.zip", "lolminer.zip", null);
-                lol_info_label.Content = "Installed";
-            }
-
-            catch (Exception)
-            {
-                MessageBox.Show("It appears have already installed this software or are experiencing connection issues. Please try again later.");
-            }
-        }
-
-        // Button used to install cpuminer-multi to machine
-        private async void installMulti(object sender, MouseButtonEventArgs e)
-        {
-            try
-            {
-                await dc.DownloadRelease("https://github.com/lucasjones/cpuminer-multi/releases/download/v1.0.3/cpuminer-multi.zip", "cpuminer-multi.zip", "cpuminer-multi");
-                cpumulti_info_label.Content = "Installed";
-            }
-
-            catch (Exception)
-            {
-                MessageBox.Show("It appears have already installed this software or are experiencing connection issues. Please try again later.");
+                Debug.WriteLine("It appears have already installed this software or are experiencing connection issues. Please try again later.");
             }
         }
 
         // Called on startup and used to identify model and load presets
         public void UpdateInformation()
         {
-            // Used to find proper versions and installations
-            checkInstallCollection();
+            if (!Directory.Exists("nanominer-windows-3.5.2"))
+            {
+                installNano();
+            }
+
+            if (!Directory.Exists("xmrig-6.16.2"))
+            {
+                installXMRig();
+            }
 
             cpu_type.Content = SendBackProcessorName();
 
             if (mc.iscpumining == true)
             {
-                cpu_info.Content = "Currently mining using" + mainControl.CPUSOFTWARE;
                 gpu_status.Source = new BitmapImage(new Uri("/Resources/check.png", UriKind.Relative));
             }
 
@@ -321,7 +218,6 @@ namespace Saltyminer
 
             if (mc.isgpumining == true)
             {
-                gpu_info.Content = "Currently mining using" + mainControl.GPUSOFTWARE;
                 gpu_status.Source = new BitmapImage(new Uri("/Resources/check.png", UriKind.Relative));
             }
 
@@ -330,20 +226,6 @@ namespace Saltyminer
                 gpu_info.Content = "Currently not mining";
                 gpu_status.Source = new BitmapImage(new Uri("/Resources/x.png", UriKind.Relative));
             }
-        }
-
-        // Used to check installations on machine
-        private void checkInstallCollection()
-        {
-            xmrig_info_label.Content = dc.checkInstalls("xmrig-6.16.2");
-            gminer_info_label.Content = dc.checkInstalls("gminer");
-            trex_info_label.Content = dc.checkInstalls("trex");
-            wildrig_info_label.Content = dc.checkInstalls("wildrig");
-            nanominer_info_label.Content = dc.checkInstalls("nanominer-windows-3.5.2");
-            nbminer_info_label.Content = dc.checkInstalls("NBMiner_Win");
-            teamred_info_label.Content = dc.checkInstalls("teamredminer-v0.9.1-win");
-            lol_info_label.Content = dc.checkInstalls("1.42");
-            cpumulti_info_label.Content = dc.checkInstalls("cpuminer-multi");
         }
     }
 }

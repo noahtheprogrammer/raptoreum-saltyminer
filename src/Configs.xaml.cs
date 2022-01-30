@@ -27,6 +27,7 @@ namespace Saltyminer
         public Configs()
         {
             mc = new mainControl();
+            mc.configs = this;
             InitializeComponent();
         }
 
@@ -45,39 +46,22 @@ namespace Saltyminer
             }
         }
 
-        // Updates the static CPUPARAMS variable
-        private void cpu_extraparams_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            mainControl.CPUPARAMS = cpu_extraparams.Text;
-        }
-
         // Updates the static CPUADDRESS variable
         private void cpu_address_TextChanged(object sender, TextChangedEventArgs e)
         {
             mainControl.CPUADDRESS = cpu_address.Text;
         }
 
-        // Updates the static CPUALGO variable
-        private void cpu_algo_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            mainControl.CPUALGO = cpu_algo.Text;
-        }
-
-        // Updates the static CPUSOFTWARE variable and converts input into readable string
-        private void cpu_software_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            mainControl.CPUSOFTWARE = (cpu_software.SelectedItem as ListBoxItem).Content.ToString();
-        }
-
-        // Updates the static CPUPOOL variable and converts input into a readable string
-        private void cpu_pool_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            mainControl.CPUPOOL = cpu_pool.Text;
-        }
-
-        private void test_handler(object sender, MouseButtonEventArgs e)
+        // Used to run the CPU miner in testing
+        private void runCPU(object sender, MouseButtonEventArgs e)
         {
             mc.runCPUMiner();
+        }
+
+        // Used to run the GPU miner in testing
+        private void runGPU(object sender, MouseButtonEventArgs e)
+        {
+            mc.runGPUMiner();
         }
     }
 }

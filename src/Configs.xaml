@@ -11,16 +11,22 @@
         <Label x:Name="cpu_settings_label" Content="CPU Settings" HorizontalAlignment="Left" Margin="18,63,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <TextBox x:Name="cpu_address" HorizontalAlignment="Left" Margin="18,134,0,0" Text="Enter address" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" Height="23" TextChanged="cpu_address_TextChanged"/>
         <Label x:Name="cpu_address_label" Content="Address" HorizontalAlignment="Left" Margin="19,103,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-        <TextBox x:Name="cpu_extraparams" HorizontalAlignment="Left" Margin="18,272,0,0" Text="Enter additional arguments (optional)" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" Height="23" TextChanged="cpu_extraparams_TextChanged"/>
-        <Label x:Name="cpu_extraparams_label" Content="Arguements" HorizontalAlignment="Left" Margin="19,241,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-        <TextBox x:Name="cpu_algo" HorizontalAlignment="Left" Margin="17,357,0,0" Text="Enter algorithm" TextWrapping="Wrap" VerticalAlignment="Top" Width="211" Height="23" TextChanged="cpu_algo_TextChanged"/>
-        <Label x:Name="cpu_algo_label" Content="Hash Algorithm" HorizontalAlignment="Left" Margin="18,325,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-        <ListBox x:Name="cpu_software" Margin="19,435,752,55" SelectionChanged="cpu_software_SelectionChanged">
-            <ListBoxItem Content="XMRig"/>
-            <ListBoxItem Content="cpuminer-multi"/>
+        <ListBox x:Name="cpu_coin" Margin="19,211,752,279">
+            <ListBoxItem Content="XMR"/>
+            <ListBoxItem Content="RTM"/>
         </ListBox>
-        <Label x:Name="cpu_software_label" Content="Mining Software" HorizontalAlignment="Left" Margin="19,404,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-        <TextBox x:Name="cpu_pool" HorizontalAlignment="Left" Margin="18,204,0,0" Text="Enter pool" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" Height="23" TextChanged="cpu_pool_TextChanged"/>
-        <Label x:Name="cpu_pool_label" Content="Pool" HorizontalAlignment="Left" Margin="19,173,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+        <Label x:Name="cpu_coin_label" Content="Coin" HorizontalAlignment="Left" Margin="19,180,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+        <Label x:Name="gpu_settings_label" Content="GPU Settings" HorizontalAlignment="Left" Margin="499,71,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="gpu_address" HorizontalAlignment="Left" Margin="499,142,0,0" Text="Enter address" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" Height="23" TextChanged="cpu_address_TextChanged"/>
+        <Label x:Name="gpu_address_label" Content="Address" HorizontalAlignment="Left" Margin="500,111,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+        <ListBox x:Name="gpu_coin" Margin="500,219,271,271">
+            <ListBoxItem Content="ETH"/>
+            <ListBoxItem Content="RVN"/>
+            <ListBoxItem Content="ERG"/>
+            <ListBoxItem Content="UBQ"/>
+        </ListBox>
+        <Label x:Name="gpu_coin_label" Content="Coin" HorizontalAlignment="Left" Margin="500,188,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+        <Button x:Name="cpu_test" Content="Test" HorizontalAlignment="Left" Margin="19,346,0,0" VerticalAlignment="Top" Height="31" Width="44" MouseLeftButtonDown="runCPU"/>
+        <Button x:Name="gpu_test" Content="Test" HorizontalAlignment="Left" Margin="504,346,0,0" VerticalAlignment="Top" Height="31" Width="44" MouseLeftButtonDown="runGPU"/>
     </Grid>
 </Window>

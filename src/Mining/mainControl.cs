@@ -6,13 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Windows.Controls;
 
 namespace Saltyminer.Mining
 {
     public class mainControl
     {
-        // Used for checking software folders
-        private downloadControl dc = new downloadControl();
+        // Used to get configurations class
+        public Configs configs;
 
         // Process for mining
         protected Process CPU_proc;
@@ -23,24 +24,12 @@ namespace Saltyminer.Mining
         public static string GPUADDRESS;
 
         // Used to determine what CPU or GPU software is currently being used
-        public static string CPUSOFTWARE;
-        public static string GPUSOFTWARE;
-
-        // Used to determine what CPU or GPU software is currently being used
         public static string CPUPOOL;
         public static string GPUPOOL;
 
         // Strings used to display what algorithm to use
         public static string CPUALGO;
         public static string GPUALGO;
-
-        // Strings used to contain custom parameters
-        public static string CPUPARAMS;
-        public static string GPUPARAMS;
-
-        // Strings used to contain custom parameters
-        public string CPUPATH;
-        public string GPUPATH;
 
         // Bools used to determine whether the CPU and GPU are actually mining
         public bool iscpumining = false;
@@ -50,57 +39,56 @@ namespace Saltyminer.Mining
         public bool cpuenabled = false;
         public bool gpuenabled = false;
 
-        // Strings used for finding proper arguments to use
-        public string currentcpuargs;
-        public string currentgpuargs;
-
-        // Determines whether to enable optional dev fee
-        public bool devfee;
-		
-		public string[] ARGS = 
-		{
-			// Used for XMRig/cpuminer-multi
-			"-a " + CPUALGO + " --url=" + CPUPOOL + " -u " + CPUADDRESS + " " + CPUPARAMS,
-			
-			// Used for Wildrig
-			"-a " + GPUALGO + " --url=" + GPUPOOL + " -u " + GPUADDRESS + " " + GPUPARAMS,
-			
-			// Used for Nanominer
-			"-algo " + GPUALGO + " -pool1 " + GPUPOOL + " -wallet " + GPUADDRESS + " " + GPUPARAMS,
-			
-			// Used for Trex/Redminer/NBminer
-			"-a " + GPUALGO + " -o " + GPUPOOL + " -u " + GPUADDRESS + " " + GPUPARAMS,
-			
-			// Used for Gminer
-			"--algo " + GPUALGO + " --server " + GPUPOOL + " --user " + GPUADDRESS + " " + GPUPARAMS,
-			
-			// Used for lolMiner
-			"--algo " + GPUALGO + " --pool " + GPUPOOL + " --user " + GPUADDRESS + " " + GPUPARAMS
-		};
-
-        // Loads up the proper configurations for the computer to mine with
-        public async void checkCPUproccess()
+        // Used to evaluate proper pool and algorithm to use
+        public void poolCheck()
         {
-            if (CPUSOFTWARE == "XMRig")
+            string cpu = (configs.cpu_coin.SelectedItem as ListBoxItem).Content.ToString();
+            string gpu = (configs.gpu_coin.SelectedItem as ListBoxItem).Content.ToString();
+
+            if (cpu == "XMR")
             {
-                CPUPATH = "xmrig-" + (await dc.findLatest("xmrig", "xmrig")).Substring(1) + @"\xmrig.exe";
-                currentcpuargs = ARGS[0];
+                CPUPOOL = "xmr.2miners.com:2222";
+                CPUALGO = "randomx";
             }
 
-            if (CPUSOFTWARE == "cpuminer-multi")
+            else if (cpu == "RTM")
             {
-                CPUPATH = @"cpuminer-multi\minerd.exe";
-                currentcpuargs = ARGS[0];
+                CPUPOOL = "us.flockpool.com:5555";
+                CPUALGO = "gr";
+            }
+
+            else if (gpu == "ETH")
+            {
+                GPUPOOL = "us-eth.2miners.com:2020";
+                GPUALGO = "ethash";
+            }
+
+            else if (gpu == "RVN")
+            {
+                GPUPOOL = "us-rvn.2miners.com:6060";
+                GPUALGO = "kawpow";
+            }
+
+            else if (gpu == "ERG")
+            {
+                GPUPOOL = "us-erg.2miners.com:8888";
+                GPUALGO = "autolykos";
+            }
+
+            else if (gpu == "UBQ")
+            {
+                GPUPOOL = "us.ubiqpool.io:8008";
+                GPUALGO = "ubqhash";
             }
         }
 
         // Used to run the CPU miners using custom parameters
         public void runCPUMiner()
         {
-            checkCPUproccess();
+            poolCheck();
             CPU_proc = new Process();
-            CPU_proc.StartInfo.FileName = CPUPATH;
-            CPU_proc.StartInfo.Arguments = currentcpuargs;
+            CPU_proc.StartInfo.FileName = @"xmrig-6.16.2\xmrig.exe";
+            CPU_proc.StartInfo.Arguments = "-algo " + CPUALGO + " --url=" + CPUPOOL + " -u " + CPUADDRESS;
             CPU_proc.StartInfo.CreateNoWindow = false;
             CPU_proc.StartInfo.UseShellExecute = false;
             CPU_proc.Start();
@@ -109,9 +97,10 @@ namespace Saltyminer.Mining
 		// Used to run the GPU miners using custom parameters
         public void runGPUMiner()
         {
+            poolCheck();
             GPU_proc = new Process();
-            GPU_proc.StartInfo.FileName = GPUPATH;
-            GPU_proc.StartInfo.Arguments = ARGS[1];
+            GPU_proc.StartInfo.FileName = @"nanominer-windows-3.5.2\nanominer.exe";
+            GPU_proc.StartInfo.Arguments = "-a " + GPUALGO + " -pool1 " + GPUPOOL + " -wallet " + GPUADDRESS;
             GPU_proc.StartInfo.CreateNoWindow = false;
             GPU_proc.StartInfo.UseShellExecute = false;
             GPU_proc.Start();

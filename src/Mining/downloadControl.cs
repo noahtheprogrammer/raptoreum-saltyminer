@@ -19,40 +19,21 @@ namespace Saltyminer.Mining
         {
             using (d_client)
             {
-                d_client.DownloadFileCompleted += new AsyncCompletedEventHandler(DecompressInstall);
                 d_client.DownloadFileAsync(new Uri(link), AppDomain.CurrentDomain.BaseDirectory + file);
+                d_client.DownloadFileCompleted += new AsyncCompletedEventHandler(DecompressInstall);
             }
 
             // Method used to decompress files
             void DecompressInstall(object sender, AsyncCompletedEventArgs e)
             {
-                // Used to decompress all file folders
-                Process decom = new Process();
-                decom.StartInfo.FileName = "7za.exe";
-                decom.StartInfo.Arguments = "e " + file + " -o" + folder;
-                decom.StartInfo.CreateNoWindow = true;
-                decom.Start();
-                decom.WaitForExit();
+                // Extracts file
+                System.IO.Compression.ZipFile.ExtractToDirectory(AppDomain.CurrentDomain.BaseDirectory + file, AppDomain.CurrentDomain.BaseDirectory);
 
                 // Removes leftover download
                 File.Delete(file);
             }
 
             return Task.CompletedTask;
-        }
-
-        // Used to determine whether to display installed status or not
-        public string checkInstalls(string folder)
-        {
-            if (Directory.Exists(folder))
-            {
-                return "Installed";
-            }
-
-            else
-            {
-                return "Not installed";
-            }
         }
     }
 }
