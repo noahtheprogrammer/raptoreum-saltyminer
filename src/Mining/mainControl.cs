@@ -51,31 +51,31 @@ namespace Saltyminer.Mining
                 CPUALGO = "randomx";
             }
 
-            else if (cpu == "RTM")
+            if (cpu == "RTM")
             {
                 CPUPOOL = "us.flockpool.com:5555";
                 CPUALGO = "gr";
             }
 
-            else if (gpu == "ETH")
+            if (gpu == "ETH")
             {
                 GPUPOOL = "us-eth.2miners.com:2020";
                 GPUALGO = "ethash";
             }
 
-            else if (gpu == "RVN")
+            if (gpu == "RVN")
             {
                 GPUPOOL = "us-rvn.2miners.com:6060";
                 GPUALGO = "kawpow";
             }
 
-            else if (gpu == "ERG")
+            if (gpu == "ERG")
             {
                 GPUPOOL = "us-erg.2miners.com:8888";
                 GPUALGO = "autolykos";
             }
 
-            else if (gpu == "UBQ")
+            if (gpu == "UBQ")
             {
                 GPUPOOL = "us.ubiqpool.io:8008";
                 GPUALGO = "ubqhash";
@@ -94,7 +94,7 @@ namespace Saltyminer.Mining
             CPU_proc.Start();
         }
 		
-		// Used to run the GPU miners using custom parameters
+	// Used to run the GPU miners using custom parameters
         public void runGPUMiner()
         {
             poolCheck();
