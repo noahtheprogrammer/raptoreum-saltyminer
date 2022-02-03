@@ -49,17 +49,21 @@ namespace Saltyminer
         // Updates the static CPUADDRESS variable
         private void cpu_address_TextChanged(object sender, TextChangedEventArgs e)
         {
-            mainControl.CPUADDRESS = cpu_address.Text;
+            mc.CPUADDRESS = cpu_address.Text;
         }
 
-        // Used to run the CPU miner in testing
-        private void runCPU(object sender, MouseButtonEventArgs e)
+        // Updates the static GPUADDRESS variable
+        private void gpu_address_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            mc.GPUADDRESS = gpu_address.Text;
+        }
+
+        private void cpu_test_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             mc.runCPUMiner();
         }
 
-        // Used to run the GPU miner in testing
-        private void runGPU(object sender, MouseButtonEventArgs e)
+        private void gpu_test_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             mc.runGPUMiner();
         }

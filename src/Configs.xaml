@@ -17,7 +17,7 @@
         </ListBox>
         <Label x:Name="cpu_coin_label" Content="Coin" HorizontalAlignment="Left" Margin="19,180,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
         <Label x:Name="gpu_settings_label" Content="GPU Settings" HorizontalAlignment="Left" Margin="499,71,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="gpu_address" HorizontalAlignment="Left" Margin="499,142,0,0" Text="Enter address" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" Height="23" TextChanged="cpu_address_TextChanged"/>
+        <TextBox x:Name="gpu_address" HorizontalAlignment="Left" Margin="499,142,0,0" Text="Enter address" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" Height="23" TextChanged="gpu_address_TextChanged"/>
         <Label x:Name="gpu_address_label" Content="Address" HorizontalAlignment="Left" Margin="500,111,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
         <ListBox x:Name="gpu_coin" Margin="500,219,271,271">
             <ListBoxItem Content="ETH"/>
@@ -26,7 +26,7 @@
             <ListBoxItem Content="UBQ"/>
         </ListBox>
         <Label x:Name="gpu_coin_label" Content="Coin" HorizontalAlignment="Left" Margin="500,188,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-        <Button x:Name="cpu_test" Content="Test" HorizontalAlignment="Left" Margin="19,346,0,0" VerticalAlignment="Top" Height="31" Width="44" MouseLeftButtonDown="runCPU"/>
-        <Button x:Name="gpu_test" Content="Test" HorizontalAlignment="Left" Margin="504,346,0,0" VerticalAlignment="Top" Height="31" Width="44" MouseLeftButtonDown="runGPU"/>
+        <Button x:Name="cpu_test" Content="Test" HorizontalAlignment="Left" Margin="19,346,0,0" VerticalAlignment="Top" Height="31" Width="44" MouseDown="cpu_test_MouseLeftButtonDown"/>
+        <Button x:Name="gpu_test" Content="Test" HorizontalAlignment="Left" Margin="504,346,0,0" VerticalAlignment="Top" Height="31" Width="44" MouseDown="gpu_test_MouseLeftButtonDown"/>
     </Grid>
 </Window>
