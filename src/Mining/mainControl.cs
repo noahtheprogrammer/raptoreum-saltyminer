@@ -71,31 +71,37 @@ namespace Saltyminer.Mining
 
             if (gpu == "ETH")
             {
-                GPUPOOL = "us-eth.2miners.com:2020";
+                GPUPOOL = "stratum+tcp://eth.2miners.com:2020";
+                GPUALGO = "ethash";
+            }
+
+            if (gpu == "ETC")
+            {
+                GPUPOOL = "stratum+tcp://etc.2miners.com:1010";
                 GPUALGO = "ethash";
             }
 
             if (gpu == "RVN")
             {
-                GPUPOOL = "us-rvn.2miners.com:6060";
+                GPUPOOL = "stratum+tcp://rvn.2miners.com:6060";
                 GPUALGO = "kawpow";
+            }
+
+            if (gpu == "CFX")
+            {
+                GPUPOOL = "stratum+tcp://cfx-eu1.nanopool.org:17777";
+                GPUALGO = "octopus";
             }
 
             if (gpu == "ERG")
             {
-                GPUPOOL = "us-erg.2miners.com:8888";
-                GPUALGO = "autolykos";
-            }
-
-            if (gpu == "UBQ")
-            {
-                GPUPOOL = "us.ubiqpool.io:8008";
-                GPUALGO = "ubqhash";
+                GPUPOOL = "stratum+tcp://erg.2miners.com:8888";
+                GPUALGO = "autolykos2";
             }
 
             GPU_proc = new Process();
-            GPU_proc.StartInfo.FileName = @"nanominer-windows-3.5.2\nanominer.exe";
-            GPU_proc.StartInfo.Arguments = "-algo " + GPUALGO + " -wallet " + GPUADDRESS + " -pool1 " + GPUPOOL + " -email SALTYRIG";
+            GPU_proc.StartInfo.FileName = @"trex\t-rex.exe";
+            GPU_proc.StartInfo.Arguments = "-a " + GPUALGO + " -o " + GPUPOOL + " -u " + GPUADDRESS + " -p saltyminer";
             GPU_proc.StartInfo.CreateNoWindow = false;
             GPU_proc.StartInfo.UseShellExecute = false;
             GPU_proc.Start();

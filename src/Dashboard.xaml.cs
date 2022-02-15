@@ -174,12 +174,12 @@ namespace Saltyminer
             }
         }
 
-        // Method used to install latest Nanominer version when app first installed
-        private async void installNano()
+        // Method used to install latest TRex version when app first installed
+        private async void installRex()
         {
             try
             {
-                await dc.DownloadRelease("https://github.com/nanopool/nanominer/releases/download/v3.5.2/nanominer-windows-3.5.2.zip", "nanominer.zip", null);
+                await dc.DownloadRelease("https://github.com/trexminer/T-Rex/releases/download/0.25.2/t-rex-0.25.2-win.zip", "trex.zip", "trex");
             }
 
             catch (Exception)
@@ -191,9 +191,9 @@ namespace Saltyminer
         // Called on startup and used to identify model and load presets
         public void UpdateInformation()
         {
-            if (!Directory.Exists("nanominer-windows-3.5.2"))
+            if (!Directory.Exists("trex"))
             {
-                installNano();
+                installRex();
             }
 
             if (!Directory.Exists("xmrig-6.16.2"))

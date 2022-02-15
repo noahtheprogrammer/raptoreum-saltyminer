@@ -21,9 +21,11 @@
         <Label x:Name="gpu_address_label" Content="Address" HorizontalAlignment="Left" Margin="500,111,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
         <ListBox x:Name="gpu_coin" Margin="500,219,271,271">
             <ListBoxItem Content="ETH"/>
+            <ListBoxItem Content="ETC"/>
             <ListBoxItem Content="RVN"/>
+            <ListBoxItem Content="CFX"/>
             <ListBoxItem Content="ERG"/>
-            <ListBoxItem Content="UBQ"/>
+
         </ListBox>
         <Label x:Name="gpu_coin_label" Content="Coin" HorizontalAlignment="Left" Margin="500,188,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
         <Button x:Name="cpu_test" Content="Test" HorizontalAlignment="Left" Margin="19,346,0,0" VerticalAlignment="Top" Height="31" Width="44" MouseDown="cpu_test_MouseLeftButtonDown"/>

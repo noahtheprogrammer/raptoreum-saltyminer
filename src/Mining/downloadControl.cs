@@ -27,7 +27,7 @@ namespace Saltyminer.Mining
             void DecompressInstall(object sender, AsyncCompletedEventArgs e)
             {
                 // Extracts file
-                System.IO.Compression.ZipFile.ExtractToDirectory(AppDomain.CurrentDomain.BaseDirectory + file, AppDomain.CurrentDomain.BaseDirectory);
+                System.IO.Compression.ZipFile.ExtractToDirectory(AppDomain.CurrentDomain.BaseDirectory + file, AppDomain.CurrentDomain.BaseDirectory + folder);
 
                 // Removes leftover download
                 File.Delete(file);
