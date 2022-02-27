@@ -1,7 +1,6 @@
 using System;
 using System.Net;
 using System.Threading.Tasks;
-using Octokit;
 using System.Diagnostics;
 using System.Linq;
 using System.IO;

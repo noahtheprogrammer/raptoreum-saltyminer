@@ -50,15 +50,6 @@
             <Label x:Name="cpu_num" Style="{StaticResource numberStyle}" Margin="179,622,971,71"/>
             <Label x:Name="gpu_label" Style="{StaticResource subheadingStyle}" Content="GPUS" Margin="177,502,0,0"/>
             <Label x:Name="cpu_label" Style="{StaticResource subheadingStyle}" Content="CPUS" Margin="177,609,0,0" />
-            <Label x:Name="ghash_label" Style="{StaticResource subheadingStyle}" Margin="368,502,0,0" Content="Hashrate"/>
-            <Label x:Name="ghash_num" Style="{StaticResource numberStyle}" FontSize="24" Margin="318,526,707,185" Content="0.00 h/s"/>
-            <Label x:Name="chash_label" Style="{StaticResource subheadingStyle}" Margin="368,609,0,0" Content="Hashrate"/>
-            <Label x:Name="chash_num" Style="{StaticResource numberStyle}" FontSize="24" Margin="318,633,707,78" Content="0.00 h/s"/>
-            <Rectangle HorizontalAlignment="Center" Height="3" Margin="0,585,0,0" VerticalAlignment="Top" Width="900" RenderTransformOrigin="0.5,0.5">
-                <Rectangle.Fill>
-                    <SolidColorBrush Color="#fbfbfb"/>
-                </Rectangle.Fill>
-            </Rectangle>
         </Grid>
 
         <!-- Devices grid -->

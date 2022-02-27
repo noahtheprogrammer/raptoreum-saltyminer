@@ -17,12 +17,14 @@ namespace Saltyminer
         // Classes used to retrieve information on mining
         private mainControl mc;
         private downloadControl dc;
+        private apiControl api;
 
         // Dashboard initialization
         public Dashboard()
         {
             mc = new mainControl();
             dc = new downloadControl();
+            api = new apiControl();
 
             InitializeComponent();
             UpdateInformation();
