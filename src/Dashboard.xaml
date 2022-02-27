@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Saltyminer"
         mc:Ignorable="d"
-        Title="Saltyminer" Height="750" Width="1200" Background="#f4f4f4" WindowStyle="None" ResizeMode="CanMinimize" MouseLeftButtonDown="drag_window">
+        Title="Saltyminer" Height="750" Width="1200" Background="#fbfbfb" WindowStyle="None" ResizeMode="CanMinimize" MouseLeftButtonDown="drag_window">
 
 
     <Window.Resources>
@@ -18,24 +18,18 @@
     </Window.Resources>
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <!-- Home grid -->
         <Grid x:Name="home_grid" TextOptions.TextRenderingMode="ClearType">
 
             <!-- Panel used to hold the basic statistics for the miner -->
-            <Rectangle x:Name="stats_panel" HorizontalAlignment="Center" Height="115" VerticalAlignment="Top" Width="655" Margin="0,325,0,0" SnapsToDevicePixels="True" StrokeThickness="2" RadiusX="12" RadiusY="12">
-                <Rectangle.Effect>
-                    <DropShadowEffect Direction="15" Color="#FFF0F0F0" RenderingBias="Performance" ShadowDepth="3"/>
-                </Rectangle.Effect>
+            <Rectangle x:Name="stats_panel" HorizontalAlignment="Center" Height="270" VerticalAlignment="Top" Width="900" Margin="0,450,0,0" SnapsToDevicePixels="True" StrokeThickness="2" RadiusX="12" RadiusY="12">
                 <Rectangle.Fill>
-                    <SolidColorBrush Color="#fbfbfb"/>
+                    <SolidColorBrush Color="#f4f4f4"/>
                 </Rectangle.Fill>
             </Rectangle>
-
-            <!-- Labels used to display the number of devices currently on board -->
-            <Label x:Name="gpu_num" Content="1" Width="50" FontSize="40" FontFamily="Segoe UI" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="120,334,630,111"/>
-            <Label x:Name="cpu_num" Content="1" Width="50" FontSize="40" FontFamily="Segoe UI" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="236,334,514,111"/>
-            <Label x:Name="gpu_label" Content="GPU" HorizontalAlignment="Left" Margin="123,389,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily ="./Fonts/#Shippori Antique" FontSize="14"/>
-            <Label x:Name="cpu_label" Content="CPU" HorizontalAlignment="Left" Margin="239,389,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily ="./Fonts/#Shippori Antique" FontSize="14"/>
 
             <!-- Buttons used to control the window -->
             <Image x:Name="exit_img" HorizontalAlignment="Left" Height="30" Margin="1160,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_exit.png" MouseLeftButtonDown="exit_img_Click"/>
@@ -45,24 +39,38 @@
             <Label x:Name="home_btn" Content="Home" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground= "{StaticResource yellowGradient}" Background="Transparent" FontSize="15" FontWeight="Normal" MouseLeftButtonDown="home_btn_Click"/>
 
             <!-- Controls for the mining buttons -->
-            <Image x:Name="main_btn" HorizontalAlignment="Center" Height="200" VerticalAlignment="Top" Width="200" Source="Resources/light_start.png" Margin="0,93,0,0" MouseLeftButtonDown="main_btn_Click">
+            <Image x:Name="main_btn" HorizontalAlignment="Center" Height="200" VerticalAlignment="Top" Width="200" Source="Resources/light_start.png" RenderOptions.BitmapScalingMode="HighQuality" Margin="0,93,0,0" MouseLeftButtonDown="main_btn_Click">
                 <Image.Effect>
                     <DropShadowEffect Direction="15" Color="WhiteSmoke" RenderingBias="Performance" ShadowDepth="3"/>
                 </Image.Effect>
             </Image>
+
+            <!-- Labels used to display dashboard information -->
+            <Label x:Name="gpu_num" Style="{StaticResource numberStyle}" Margin="179,517,971,176"/>
+            <Label x:Name="cpu_num" Style="{StaticResource numberStyle}" Margin="179,622,971,71"/>
+            <Label x:Name="gpu_label" Style="{StaticResource subheadingStyle}" Content="GPUS" Margin="177,502,0,0"/>
+            <Label x:Name="cpu_label" Style="{StaticResource subheadingStyle}" Content="CPUS" Margin="177,609,0,0" />
+            <Label x:Name="ghash_label" Style="{StaticResource subheadingStyle}" Margin="368,502,0,0" Content="Hashrate"/>
+            <Label x:Name="ghash_num" Style="{StaticResource numberStyle}" FontSize="24" Margin="318,526,707,185" Content="0.00 h/s"/>
+            <Label x:Name="chash_label" Style="{StaticResource subheadingStyle}" Margin="368,609,0,0" Content="Hashrate"/>
+            <Label x:Name="chash_num" Style="{StaticResource numberStyle}" FontSize="24" Margin="318,633,707,78" Content="0.00 h/s"/>
+            <Rectangle HorizontalAlignment="Center" Height="3" Margin="0,585,0,0" VerticalAlignment="Top" Width="900" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="#fbfbfb"/>
+                </Rectangle.Fill>
+            </Rectangle>
         </Grid>
 
         <!-- Devices grid -->
         <Grid x:Name="devices_grid" TextOptions.TextRenderingMode="ClearType" d:IsHidden="True">
 
             <!-- Buttons used to control the window -->
-            <Image x:Name="exit_img_1" HorizontalAlignment="Left" Height="30" Margin="760,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_exit.png" MouseLeftButtonDown="exit_img_Click"/>
-            <Image x:Name="mini_img_1" HorizontalAlignment="Left" Height="30" Margin="725,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_mini.png" MouseLeftButtonDown="mini_img_Click"/>
-            <Image x:Name="config_img_1" HorizontalAlignment="Left" Height="30" Margin="690,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_config.png" MouseLeftButtonDown="config_img_Click"/>
+            <Image x:Name="exit_img_1" HorizontalAlignment="Left" Height="30" Margin="1160,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_exit.png" MouseLeftButtonDown="exit_img_Click"/>
+            <Image x:Name="mini_img_1" HorizontalAlignment="Left" Height="30" Margin="1125,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_mini.png" MouseLeftButtonDown="mini_img_Click"/>
+            <Image x:Name="config_img_1" HorizontalAlignment="Left" Height="30" Margin="1090,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_config.png" MouseLeftButtonDown="config_img_Click"/>
             <Label x:Name="devices_btn_1" Content="Devices" HorizontalAlignment="Left" Margin="76,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground= "{StaticResource yellowGradient}" Background="Transparent" FontSize="15" FontWeight="Normal" MouseLeftButtonDown="devices_btn_Click"/>
-            <Label x:Name="installations_btn_1" Content="Installations" HorizontalAlignment="Left" Margin="153,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground="#D7D7D7" Background="Transparent" FontSize="15" FontWeight="Normal" MouseLeftButtonDown="installations_btn_Click"/>
             <Label x:Name="home_btn_1" Content="Home" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground="#D7D7D7" Background="Transparent" FontSize="15" FontWeight="Normal" MouseLeftButtonDown="home_btn_Click"/>
-            <Rectangle x:Name="device_list" HorizontalAlignment="Left" Height="269" Margin="37,204,0,0" VerticalAlignment="Top" Width="718"  SnapsToDevicePixels="True" StrokeThickness="2" RadiusX="12" RadiusY="12">
+            <Rectangle x:Name="device_list" HorizontalAlignment="Left" Height="269" Margin="220,217,0,0" VerticalAlignment="Top" Width="718"  SnapsToDevicePixels="True" StrokeThickness="2" RadiusX="12" RadiusY="12">
                 <Rectangle.Effect>
                     <DropShadowEffect Direction="15" Color="#FFF0F0F0" RenderingBias="Performance" ShadowDepth="3"/>
                 </Rectangle.Effect>
@@ -72,28 +80,24 @@
             </Rectangle>
 
             <!-- Processor information -->
-            <Label x:Name="cpu_type" Content="Processor name" HorizontalAlignment="Left" Margin="50,220,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
-            <Label x:Name="cpu_info" Content="Processor info" HorizontalAlignment="Left" Margin="50,250,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204"/>
-            <Label x:Name="gpu_type" Content="Graphics card name" HorizontalAlignment="Left" Margin="50,338,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
-            <Label x:Name="gpu_info" Content="Graphics card info" HorizontalAlignment="Left" Margin="50,368,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204"/>
-            <Image x:Name="cpu_status" HorizontalAlignment="Left" Height="24" Margin="670,232,0,0" VerticalAlignment="Top" Width="25" Source="/Resources/x.png"/>
-            <Image x:Name="gpu_status" HorizontalAlignment="Left" Height="24" Margin="670,350,0,0" VerticalAlignment="Top" Width="25" Source="/Resources/x.png"/>
+            <Label x:Name="cpu_type" Content="Processor name" HorizontalAlignment="Left" Margin="233,233,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
+            <Label x:Name="cpu_info" Content="Processor info" HorizontalAlignment="Left" Margin="233,263,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204"/>
+            <Label x:Name="gpu_type" Content="Graphics card name" HorizontalAlignment="Left" Margin="233,351,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
+            <Label x:Name="gpu_info" Content="Graphics card info" HorizontalAlignment="Left" Margin="233,381,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204"/>
 
             <!-- Toggles used to control the CPU and GPU -->
-            <Image x:Name="cpu_toggle" HorizontalAlignment="Left" Height="40" Margin="700,224,0,0" VerticalAlignment="Top" Width="40" Source="/light_off.png" MouseLeftButtonDown="cpu_toggle_Click">
+            <Image x:Name="cpu_toggle" HorizontalAlignment="Left" Height="40" Margin="883,237,0,0" VerticalAlignment="Top" Width="40" Source="/light_off.png" MouseLeftButtonDown="cpu_toggle_Click">
                 <Image.Effect>
                     <DropShadowEffect Direction="15" Color="#FFF0F0F0" RenderingBias="Performance" ShadowDepth="3"/>
                 </Image.Effect>
             </Image>
 
 
-            <Image x:Name="gpu_toggle" HorizontalAlignment="Left" Height="40" Margin="700,342,0,0" VerticalAlignment="Top" Width="40" Source="/light_off.png" MouseLeftButtonDown="gpu_toggle_Click">
+            <Image x:Name="gpu_toggle" HorizontalAlignment="Left" Height="40" Margin="883,0,0,0" VerticalAlignment="Center" Width="40" Source="/light_off.png" MouseLeftButtonDown="gpu_toggle_Click">
                 <Image.Effect>
                     <DropShadowEffect Direction="15" Color="#FFF0F0F0" RenderingBias="Performance" ShadowDepth="3"/>
                 </Image.Effect>
             </Image>
         </Grid>
-
-        <!-- Installations grid -->
     </Grid>
 </Window>

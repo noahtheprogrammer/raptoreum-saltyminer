@@ -12,6 +12,7 @@ namespace Saltyminer.Mining
 {
     public class mainControl
     {
+
         // Used to get configurations class
         public Configs configs;
 
@@ -42,6 +43,7 @@ namespace Saltyminer.Mining
         // Used to run the CPU miners using custom parameters
         public void runCPUMiner()
         {
+
             string cpu = (configs.cpu_coin.SelectedItem as ListBoxItem).Content.ToString();
 
             if (cpu == "XMR")

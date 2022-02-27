@@ -202,30 +202,7 @@ namespace Saltyminer
             }
 
             cpu_type.Content = SendBackProcessorName();
-
-            if (mc.iscpumining == true)
-            {
-                gpu_status.Source = new BitmapImage(new Uri("/Resources/check.png", UriKind.Relative));
-            }
-
-            else
-            {
-                cpu_info.Content = "Currently not mining";
-                gpu_status.Source = new BitmapImage(new Uri("/Resources/x.png", UriKind.Relative));
-            }
-
             gpu_type.Content = SendBackMainGraphicsName();
-
-            if (mc.isgpumining == true)
-            {
-                gpu_status.Source = new BitmapImage(new Uri("/Resources/check.png", UriKind.Relative));
-            }
-
-            else
-            {
-                gpu_info.Content = "Currently not mining";
-                gpu_status.Source = new BitmapImage(new Uri("/Resources/x.png", UriKind.Relative));
-            }
         }
     }
 }
