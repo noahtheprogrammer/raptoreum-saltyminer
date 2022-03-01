@@ -14,12 +14,20 @@ namespace Saltyminer.Mining
     {
         private WebClient wc = new WebClient();
         public dynamic trexinfo;
+        public dynamic xmriginfo;
 
         // Used to connect to the Trex API
         public void LoadTrexAPI()
         {
             string trexjson = wc.DownloadString("http://127.0.0.1:4067/summary");
             trexinfo = JsonConvert.DeserializeObject(trexjson);
+        }
+
+        // Used to connect to the XMRig API
+        public void LoadXMRigAPI()
+        {
+            string xmrigjson = wc.DownloadString("http://127.0.0.1:4066/");
+            xmriginfo = JsonConvert.DeserializeObject(xmrigjson);
         }
     }
 }

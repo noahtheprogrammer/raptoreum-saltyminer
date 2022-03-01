@@ -60,7 +60,7 @@ namespace Saltyminer.Mining
 
             CPU_proc = new Process();
             CPU_proc.StartInfo.FileName = @"xmrig-6.16.2\xmrig.exe";
-            CPU_proc.StartInfo.Arguments = "-a " + CPUALGO + " -o " + CPUPOOL + " -u " + CPUADDRESS + " -p saltyminer";
+            CPU_proc.StartInfo.Arguments = "-a " + CPUALGO + " -o " + CPUPOOL + " -u " + CPUADDRESS + " -p saltyminer --http-port 4066";
             CPU_proc.StartInfo.CreateNoWindow = false;
             CPU_proc.StartInfo.UseShellExecute = false;
             CPU_proc.Start();
