@@ -26,7 +26,7 @@ namespace Saltyminer.Mining
         // Used to connect to the XMRig API
         public void LoadXMRigAPI()
         {
-            string xmrigjson = wc.DownloadString("http://127.0.0.1:4066/");
+            string xmrigjson = wc.DownloadString("http://127.0.0.1:4066/2/summary");
             xmriginfo = JsonConvert.DeserializeObject(xmrigjson);
         }
     }

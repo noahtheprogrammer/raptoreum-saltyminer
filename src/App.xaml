@@ -8,7 +8,7 @@
     <Application.Resources>
         <FontFamily x:Key="Shippori">pack://Saltyminer:/Fonts/#Shippori Antique</FontFamily>
 
-        <!-- Style used for number and mining information such as hashrate, gpu count, etc. -->
+        <!-- Style used for number and mining information such as gpu count, etc. -->
         <Style TargetType="Label" x:Key="numberStyle">
             <Setter Property="FontFamily" Value="Segoe UI"/>
             <Setter Property="FontSize" Value="40"/>
@@ -16,6 +16,17 @@
             <Setter Property="Foreground" Value="#FF1F1F1F"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="Content" Value="1"/>
+        </Style>
+
+        <!-- Style used for hashrate, coin, etc -->
+        <Style TargetType="Label" x:Key="contentStyle">
+            <Setter Property="FontFamily" Value="./Fonts/#Shippori Antique"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#FF1F1F1F"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
             <Setter Property="Content" Value="1"/>
         </Style>
 

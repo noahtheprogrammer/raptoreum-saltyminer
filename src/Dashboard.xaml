@@ -50,6 +50,14 @@
             <Label x:Name="cpu_num" Style="{StaticResource numberStyle}" Margin="179,622,971,71"/>
             <Label x:Name="gpu_label" Style="{StaticResource subheadingStyle}" Content="GPUS" Margin="177,502,0,0"/>
             <Label x:Name="cpu_label" Style="{StaticResource subheadingStyle}" Content="CPUS" Margin="177,609,0,0" />
+            <Label x:Name="hr_num" Style="{StaticResource contentStyle}" Margin="342,526,627,185" Content="0 MH"/>
+            <Label x:Name="hr_label" Style="{StaticResource subheadingStyle}" Content="HASHRATE" Margin="342,502,0,0"/>
+            <Label x:Name="algo_types" Style="{StaticResource contentStyle}" Margin="342,633,627,78" Content="Not active"/>
+            <Label x:Name="algo_label" Style="{StaticResource subheadingStyle}" Content="ALGORITHMS" Margin="342,609,0,0"/>
+            <Label x:Name="profit_num" Style="{StaticResource contentStyle}" Margin="578,526,391,185" Content="$0.00 / 24hr"/>
+            <Label x:Name="profit_label" Style="{StaticResource subheadingStyle}" Content="PROFITABILITY" Margin="578,502,0,0"/>
+            <Label x:Name="uptime_count" Style="{StaticResource contentStyle}" Margin="578,633,391,78" Content="Not active"/>
+            <Label x:Name="uptime_label" Style="{StaticResource subheadingStyle}" Content="UPTIME" Margin="578,609,0,0"/>
         </Grid>
 
         <!-- Devices grid -->
