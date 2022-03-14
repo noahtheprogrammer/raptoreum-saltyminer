@@ -29,5 +29,15 @@ namespace Saltyminer.Mining
             string xmrigjson = wc.DownloadString("http://127.0.0.1:4066/2/summary");
             xmriginfo = JsonConvert.DeserializeObject(xmrigjson);
         }
+        
+        // Call this to return the estimated reward of a coin with a specific hashrate
+        public int findHashrateReward(string symbol, dynamic hashrate) 
+        {
+            int total = 0;
+            string minerstat = wc.DownloadString("https://api.minerstat.com/v2/coins?list=" + symbol);
+            msinfo = JsonConvert.DeserializeObject(minerstat);
+            total = msinfo.reward * hashrate;
+            return total;
+        }
     }
 }
