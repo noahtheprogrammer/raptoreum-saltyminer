@@ -37,8 +37,8 @@ namespace Saltyminer.Mining
         public bool isgpumining = false;
 
         // Bools used to determine whether the CPU and GPU can mine
-        public bool cpuenabled = false;
-        public bool gpuenabled = false;
+        public bool cpuenabled = true;
+        public bool gpuenabled = true;
 
         // Used to run the CPU miners using custom parameters
         public void runCPUMiner()
@@ -107,6 +107,47 @@ namespace Saltyminer.Mining
             GPU_proc.StartInfo.CreateNoWindow = false;
             GPU_proc.StartInfo.UseShellExecute = false;
             GPU_proc.Start();
+        }
+        
+        // Saves the values into "info.dat" whenever a variable is changed or toggled
+        public void saveValues() 
+        {
+            using (var stream = File.Open("info.dat", FileMode.Create)) 
+            {
+                using (var writer = new BinaryWriter(stream, Encoding.UTF8, false)) 
+                {
+                    writer.Write(CPUADDRESS);
+                    writer.Write(GPUADDRESS);
+                    writer.Write(CPUPOOL);
+                    writer.Write(GPUPOOL);
+                    writer.Write(CPUALGO);
+                    writer.Write(GPUALGO);
+                    writer.Write(cpuenabled);
+                    writer.Wried(gpuenabled);
+                }
+            }
+        }
+        
+        // Loads the saved values in "info.dat" on startup if they exist
+        public void loadValues() 
+        {
+            if (File.Exists("info.dat")) 
+            {
+                using (var stream = File.Open("info.dat", FileMode.Open)) 
+                {
+                    using (var reader = new BinaryReader(stream, Encoding.UTF8, false) 
+                    {
+                        CPUADDRESS = reader.ReadString();
+                        GPUADDRESS = reader.ReadString();
+                        CPUPOOL = reader.ReadString();
+                        GPUPOOL = reader.ReadString();
+                        CPUALGO = reader.ReadString();
+                        GPUALGO = reader.ReadString();
+                        cpuenabled = reader.ReadBoolean();
+                        gpuenabled = reader.ReadBoolean();
+                    }
+                }
+            }
         }
     }
 }
