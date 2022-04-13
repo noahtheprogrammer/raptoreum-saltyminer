@@ -123,7 +123,7 @@ namespace Saltyminer.Mining
                     writer.Write(CPUALGO);
                     writer.Write(GPUALGO);
                     writer.Write(cpuenabled);
-                    writer.Wried(gpuenabled);
+                    writer.Write(gpuenabled);
                 }
             }
         }
@@ -135,7 +135,7 @@ namespace Saltyminer.Mining
             {
                 using (var stream = File.Open("info.dat", FileMode.Open)) 
                 {
-                    using (var reader = new BinaryReader(stream, Encoding.UTF8, false) 
+                    using (var reader = new BinaryReader(stream, Encoding.UTF8, false))
                     {
                         CPUADDRESS = reader.ReadString();
                         GPUADDRESS = reader.ReadString();
