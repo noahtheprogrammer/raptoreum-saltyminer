@@ -6,7 +6,17 @@
     
     <!-- Resources and themes used throughout the application -->
     <Application.Resources>
+        
+        <!-- Locates the Shippori font for referencing -->
         <FontFamily x:Key="Shippori">pack://Saltyminer:/Fonts/#Shippori Antique</FontFamily>
+
+        <!-- Style used for main images such as mining button -->
+        <Style TargetType="Image" x:Key="mainimgStyle">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Height" Value="200"/>
+            <Setter Property="Width" Value="200"/>
+        </Style>
 
         <!-- Style used for number and mining information such as gpu count, etc. -->
         <Style TargetType="Label" x:Key="numberStyle">
@@ -14,15 +24,16 @@
             <Setter Property="FontSize" Value="40"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Foreground" Value="#FF1F1F1F"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="Content" Value="1"/>
         </Style>
 
-        <!-- Style used for hashrate, coin, etc -->
+        <!-- Style used for hashrate, coin, etc. -->
         <Style TargetType="Label" x:Key="contentStyle">
             <Setter Property="FontFamily" Value="./Fonts/#Shippori Antique"/>
-            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Foreground" Value="#FF1F1F1F"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -41,6 +52,134 @@
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
         </Style>
+
+        <!-- Style used for menu side text -->
+        <Style TargetType="Label" x:Key="menubtnStyle">
+            <Setter Property="FontFamily" Value="./Fonts/#Shippori Antique"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="#D7D7D7"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
         
+        <!-- Style used for menu side images -->
+        <Style TargetType="Image" x:Key="menuimgStyle">
+            <Setter Property="Width" Value="24"/>
+            <Setter Property="Height" Value="24"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+        </Style>
+
+        <!-- Style used for toggle images -->
+        <Style TargetType="Image" x:Key="toggleimgStyle">
+            <Setter Property="Width" Value="18"/>
+            <Setter Property="Height" Value="18"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+        <!-- Style used for cryptocurrency selection Rectangles -->
+        <Style x:Key="selectrectStyle" TargetType="Rectangle">
+            <Setter Property="Fill" Value="#f4f4f4"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="RadiusX" Value="8"/>
+            <Setter Property="RadiusY" Value="8"/>
+        </Style>
+        
+        <!-- Style used to prevent access to mining controls when needed -->
+        <Style x:Key="hiderectStyle" TargetType="Rectangle">
+            <Setter Property="Fill" Value="#7FFBFBFB"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+
+        <!-- Style used for the side menu -->
+        <Style TargetType="Rectangle" x:Key="menuStyle">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Height" Value="750"/>
+            <Setter Property="Width" Value="260"/>
+            <Setter Property="Fill" Value="#f4f4f4"/>
+        </Style>
+
+        <!-- Style used for the market menu -->
+        <Style TargetType="Rectangle" x:Key="marketStyle">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Height" Value="750"/>
+            <Setter Property="Width" Value="260"/>
+            <Setter Property="Fill" Value="#f4f4f4"/>
+            <Setter Property="RadiusX" Value="8"/>
+            <Setter Property="RadiusY" Value="8"/>
+            <Setter Property="Width" Value="83"/>
+            <Setter Property="Height" Value="573"/>
+        </Style>
+
+        <!-- Style used for CPU and GPU LoadBars -->
+        <Style x:Key="barStyle" TargetType="{x:Type ProgressBar}">
+            <Setter Property="Foreground" Value="#FFAFDF9B"/>
+            <Setter Property="Background" Value="#FFF4F4F4"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Height" Value="14"/>
+            <Setter Property="Width" Value="223"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ProgressBar}">
+                        <Grid x:Name="TemplateRoot">
+                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="8"/>
+                            <Rectangle x:Name="PART_Track" RadiusX="6" RadiusY="6"/>
+                            <Grid x:Name="PART_Indicator" ClipToBounds="true" HorizontalAlignment="Left">
+                                <Rectangle x:Name="Indicator" Fill="{TemplateBinding Foreground}" RadiusX="8" RadiusY="8"/>
+                                <Rectangle x:Name="Animation" Fill="{TemplateBinding Foreground}" RenderTransformOrigin="0.5,0.5" RadiusX="8" RadiusY="8">
+                                    <Rectangle.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Rectangle.RenderTransform>
+                                </Rectangle>
+                            </Grid>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <!-- Style used for cryptocurrency address TextBoxes -->
+        <Style x:Key="textboxStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Width" Value="450"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="#FFF4F4F4"/>
+            <Setter Property="Foreground" Value="#FFABAdB3"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="FontFamily" Value="./Fonts/#Shippori Antique"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="AllowDrop" Value="true"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="SelectionBrush" Value="{x:Null}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" SnapsToDevicePixels="True" CornerRadius="8">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </Application.Resources>
 </Application>

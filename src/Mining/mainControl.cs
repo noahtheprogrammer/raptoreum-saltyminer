@@ -14,7 +14,7 @@ namespace Saltyminer.Mining
     {
 
         // Used to get configurations class
-        public Configs configs;
+        public Dashboard db;
 
         // Process for mining
         protected Process CPU_proc;
@@ -44,7 +44,7 @@ namespace Saltyminer.Mining
         public void runCPUMiner()
         {
 
-            string cpu = (configs.cpu_coin.SelectedItem as ListBoxItem).Content.ToString();
+            string cpu = "NULL";
 
             if (cpu == "XMR")
             {
@@ -69,7 +69,7 @@ namespace Saltyminer.Mining
         // Used to run the GPU miners using custom parameters
         public void runGPUMiner()
         {
-            string gpu = (configs.gpu_coin.SelectedItem as ListBoxItem).Content.ToString();
+            string gpu = "NULL";
 
             if (gpu == "ETH")
             {

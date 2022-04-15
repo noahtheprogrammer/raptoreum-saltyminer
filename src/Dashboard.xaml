@@ -3,100 +3,111 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Saltyminer"
         mc:Ignorable="d"
-        Title="Saltyminer" Height="750" Width="1200" Background="#fbfbfb" WindowStyle="None" ResizeMode="CanMinimize" MouseLeftButtonDown="drag_window">
+        Title="Saltyminer" Height="750" Width="1000" Background="#fbfbfb" WindowStyle="None" AllowsTransparency="True" ResizeMode="CanMinimize" MouseLeftButtonDown="drag_window">
 
+    <Grid TextOptions.TextRenderingMode="ClearType">
 
-    <Window.Resources>
-        <ResourceDictionary>
-            <LinearGradientBrush x:Key="yellowGradient"  EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FFDB4C" Offset="0" />
-                <GradientStop Color="#F1B456" Offset="1" />
-            </LinearGradientBrush>
-        </ResourceDictionary>
-    </Window.Resources>
+        <!-- Panel used to hold the basic statistics for the miner -->
+        <Rectangle x:Name="sidebar" Style="{StaticResource menuStyle}"/>
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <!-- Home grid -->
-        <Grid x:Name="home_grid" TextOptions.TextRenderingMode="ClearType">
+        <!-- Buttons used to control the window -->
+        <Label x:Name="devices_btn" Content="Devices" Style="{StaticResource menubtnStyle}" Margin="55,265,0,0"/>
+        <Label x:Name="home_btn" Content="Home" Style="{StaticResource menubtnStyle}" Margin="55,227,0,0"/>
+        <Label x:Name="settings_btn" Content="Settings" Style="{StaticResource menubtnStyle}" Margin="55,303,0,0"/>
+        <Image x:Name="settings_img" Style="{StaticResource menuimgStyle}" Margin="26,308,0,0" Source="Resources/settings.png"/>
+        <Image x:Name="logo_img" Style="{StaticResource menuimgStyle}" Margin="10,10,0,0" Source="Resources/logo.png"/>
+        <Image x:Name="home_img" Style="{StaticResource menuimgStyle}" Margin="26,232,0,0" Source="Resources/home.png"/>
+        <Image x:Name="devices_img" Style="{StaticResource menuimgStyle}" Margin="26,270,0,0" Source="Resources/devices.png"/>
+        <Image x:Name="home_img_Copy" Style="{StaticResource menuimgStyle}" Margin="908,10,0,0" Source="Resources/website.png"/>
+        <Image x:Name="home_img_Copy1" Style="{StaticResource menuimgStyle}" Margin="937,10,0,0" Source="Resources/minimize.png"/>
+        <Image x:Name="exit_btn" Style="{StaticResource menuimgStyle}" Margin="966,10,0,0" Source="Resources/exit.png"/>
 
-            <!-- Panel used to hold the basic statistics for the miner -->
-            <Rectangle x:Name="stats_panel" HorizontalAlignment="Center" Height="270" VerticalAlignment="Top" Width="900" Margin="0,450,0,0" SnapsToDevicePixels="True" StrokeThickness="2" RadiusX="12" RadiusY="12">
-                <Rectangle.Fill>
-                    <SolidColorBrush Color="#f4f4f4"/>
-                </Rectangle.Fill>
-            </Rectangle>
-
-            <!-- Buttons used to control the window -->
-            <Image x:Name="exit_img" HorizontalAlignment="Left" Height="30" Margin="1160,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_exit.png" MouseLeftButtonDown="exit_img_Click"/>
-            <Image x:Name="mini_img" HorizontalAlignment="Left" Height="30" Margin="1125,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_mini.png" MouseLeftButtonDown="mini_img_Click"/>
-            <Image x:Name="config_img" HorizontalAlignment="Left" Height="30" Margin="1090,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_config.png" MouseLeftButtonDown="config_img_Click"/>
-            <Label x:Name="devices_btn" Content="Devices" HorizontalAlignment="Left" Margin="76,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground="#D7D7D7" Background="Transparent" FontSize="15" FontWeight="Normal" MouseLeftButtonDown="devices_btn_Click"/>
-            <Label x:Name="home_btn" Content="Home" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground= "{StaticResource yellowGradient}" Background="Transparent" FontSize="15" FontWeight="Normal" MouseLeftButtonDown="home_btn_Click"/>
+        <!-- Grid for the home screen elements -->
+        <Grid x:Name="home">
 
             <!-- Controls for the mining buttons -->
-            <Image x:Name="main_btn" HorizontalAlignment="Center" Height="200" VerticalAlignment="Top" Width="200" Source="Resources/light_start.png" RenderOptions.BitmapScalingMode="HighQuality" Margin="0,93,0,0" MouseLeftButtonDown="main_btn_Click">
-                <Image.Effect>
-                    <DropShadowEffect Direction="15" Color="WhiteSmoke" RenderingBias="Performance" ShadowDepth="3"/>
-                </Image.Effect>
-            </Image>
+            <Image x:Name="mainbtn" Style="{StaticResource mainimgStyle}" Source="Resources/start.png" Margin="500,175,0,0"/>
 
             <!-- Labels used to display dashboard information -->
-            <Label x:Name="gpu_num" Style="{StaticResource numberStyle}" Margin="179,517,971,176"/>
-            <Label x:Name="cpu_num" Style="{StaticResource numberStyle}" Margin="179,622,971,71"/>
-            <Label x:Name="gpu_label" Style="{StaticResource subheadingStyle}" Content="GPUS" Margin="177,502,0,0"/>
-            <Label x:Name="cpu_label" Style="{StaticResource subheadingStyle}" Content="CPUS" Margin="177,609,0,0" />
-            <Label x:Name="hr_num" Style="{StaticResource contentStyle}" Margin="342,526,627,185" Content="0 MH"/>
-            <Label x:Name="hr_label" Style="{StaticResource subheadingStyle}" Content="HASHRATE" Margin="342,502,0,0"/>
-            <Label x:Name="algo_types" Style="{StaticResource contentStyle}" Margin="342,633,627,78" Content="Not active"/>
-            <Label x:Name="algo_label" Style="{StaticResource subheadingStyle}" Content="ALGORITHMS" Margin="342,609,0,0"/>
-            <Label x:Name="profit_num" Style="{StaticResource contentStyle}" Margin="578,526,391,185" Content="$0.00 / 24hr"/>
-            <Label x:Name="profit_label" Style="{StaticResource subheadingStyle}" Content="PROFITABILITY" Margin="578,502,0,0"/>
-            <Label x:Name="uptime_count" Style="{StaticResource contentStyle}" Margin="578,633,391,78" Content="Not active"/>
-            <Label x:Name="uptime_label" Style="{StaticResource subheadingStyle}" Content="UPTIME" Margin="578,609,0,0"/>
+            <Label x:Name="hr_num" Style="{StaticResource contentStyle}" Margin="426,528,374,183" Content="0 MH"/>
+            <Label x:Name="hr_label" Style="{StaticResource subheadingStyle}" Content="HASHRATE" Margin="426,504,0,0"/>
+            <Label x:Name="algo_types" Style="{StaticResource contentStyle}" Margin="426,635,374,76" Content="Not active"/>
+            <Label x:Name="algo_label" Style="{StaticResource subheadingStyle}" Content="ALGORITHMS" Margin="426,611,0,0"/>
+            <Label x:Name="profit_num" Style="{StaticResource contentStyle}" Margin="662,528,188,183" Content="$0.00 / 24hr"/>
+            <Label x:Name="profit_label" Style="{StaticResource subheadingStyle}" Content="PROFITABILITY" Margin="662,504,0,0"/>
+            <Label x:Name="uptime_count" Style="{StaticResource contentStyle}" Margin="662,635,188,76" Content="Not active"/>
+            <Label x:Name="uptime_label" Style="{StaticResource subheadingStyle}" Content="UPTIME" Margin="662,611,0,0"/>
         </Grid>
 
-        <!-- Devices grid -->
-        <Grid x:Name="devices_grid" TextOptions.TextRenderingMode="ClearType" d:IsHidden="True">
+        <!-- Grid for the devices screen elements -->
+        <Grid x:Name="devices" Visibility="Hidden">
 
-            <!-- Buttons used to control the window -->
-            <Image x:Name="exit_img_1" HorizontalAlignment="Left" Height="30" Margin="1160,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_exit.png" MouseLeftButtonDown="exit_img_Click"/>
-            <Image x:Name="mini_img_1" HorizontalAlignment="Left" Height="30" Margin="1125,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_mini.png" MouseLeftButtonDown="mini_img_Click"/>
-            <Image x:Name="config_img_1" HorizontalAlignment="Left" Height="30" Margin="1090,10,0,0" VerticalAlignment="Top" Width="30" Source="Resources/light_config.png" MouseLeftButtonDown="config_img_Click"/>
-            <Label x:Name="devices_btn_1" Content="Devices" HorizontalAlignment="Left" Margin="76,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground= "{StaticResource yellowGradient}" Background="Transparent" FontSize="15" FontWeight="Normal" MouseLeftButtonDown="devices_btn_Click"/>
-            <Label x:Name="home_btn_1" Content="Home" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" BorderThickness="0" Foreground="#D7D7D7" Background="Transparent" FontSize="15" FontWeight="Normal" MouseLeftButtonDown="home_btn_Click"/>
-            <Rectangle x:Name="device_list" HorizontalAlignment="Left" Height="269" Margin="220,217,0,0" VerticalAlignment="Top" Width="718"  SnapsToDevicePixels="True" StrokeThickness="2" RadiusX="12" RadiusY="12">
-                <Rectangle.Effect>
-                    <DropShadowEffect Direction="15" Color="#FFF0F0F0" RenderingBias="Performance" ShadowDepth="3"/>
-                </Rectangle.Effect>
-                <Rectangle.Fill>
-                    <SolidColorBrush Color="#fbfbfb"/>
-                </Rectangle.Fill>
-            </Rectangle>
+            <!-- Labels used for the CPU and GPU number -->
+            <Label x:Name="gpu_num" Style="{StaticResource numberStyle}" Margin="353,110,0,0" Height="60" Width="80"/>
+            <Label x:Name="cpu_num" Style="{StaticResource numberStyle}" Margin="500,110,0,0" Height="60" Width="80"/>
+            <Label x:Name="gpu_label" Style="{StaticResource subheadingStyle}" Content="GPUS" Margin="366,175,0,0"/>
+            <Label x:Name="cpu_label" Style="{StaticResource subheadingStyle}" Content="CPUS" Margin="513,175,0,0" />
 
-            <!-- Processor information -->
-            <Label x:Name="cpu_type" Content="Processor name" HorizontalAlignment="Left" Margin="233,233,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
-            <Label x:Name="cpu_info" Content="Processor info" HorizontalAlignment="Left" Margin="233,263,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204"/>
-            <Label x:Name="gpu_type" Content="Graphics card name" HorizontalAlignment="Left" Margin="233,351,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Bold" Foreground="#FF1F1F1F" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="14" Width="204"/>
-            <Label x:Name="gpu_info" Content="Graphics card info" HorizontalAlignment="Left" Margin="233,381,0,0" VerticalAlignment="Top" FontFamily ="./Fonts/#Shippori Antique" FontWeight="Normal" Foreground="#FF787878" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="204"/>
+            <!-- Elements used to display current load of the CPU and the main GPU -->
+            <ProgressBar x:Name="cpuload_bar" Style="{StaticResource barStyle}" Margin="369,297,0,0" Value="15"/>
+            <Label x:Name="cpuload_label" Style="{StaticResource subheadingStyle}" Content="Processor Utilization" Margin="364,255,0,0"/>
+            <Label x:Name="cpuload_percent" Style="{StaticResource numberStyle}" Content="0%" Margin="597,287,0,0" FontSize="16"/>
+            <ProgressBar x:Name="gpuload_bar" Style="{StaticResource barStyle}" Margin="369,396,0,0" Value="15"/>
+            <Label x:Name="gpuload_label" Style="{StaticResource subheadingStyle}" Content="Graphics Utilization" Margin="364,354,0,0"/>
+            <Label x:Name="gpuload_percent" Style="{StaticResource numberStyle}" Content="0%" Margin="597,386,0,0" FontSize="16"/>
 
-            <!-- Toggles used to control the CPU and GPU -->
-            <Image x:Name="cpu_toggle" HorizontalAlignment="Left" Height="40" Margin="883,237,0,0" VerticalAlignment="Top" Width="40" Source="/light_off.png" MouseLeftButtonDown="cpu_toggle_Click">
-                <Image.Effect>
-                    <DropShadowEffect Direction="15" Color="#FFF0F0F0" RenderingBias="Performance" ShadowDepth="3"/>
-                </Image.Effect>
-            </Image>
+            <!-- Elements used to display main devices found on target machine -->
+            <Label x:Name="detdevice_label" Style="{StaticResource subheadingStyle}" Content="Detected Devices" Margin="364,456,0,0"/>
+            <Label x:Name="detdevice_list" Style="{StaticResource contentStyle}" Margin="365,483,235,206" Content="NULL"/>
 
+            <!-- Elements used to enable and disable what devices are used for cryptocurrency mining -->
+            <Image x:Name="cputoggle"  Style="{StaticResource toggleimgStyle}" Margin="0,607,0,0" Source="/Resources/enabled.png"/>
+            <Image x:Name="gputoggle"  Style="{StaticResource toggleimgStyle}" Margin="0,638,0,0" Source="/Resources/enabled.png"/>
+            <Label x:Name="cputoggle_label" Content="CPU enabled" Style="{StaticResource contentStyle}" Margin="365,600,491,118"/>
+            <Label x:Name="gputoggle_label" Content="GPU enabled" Style="{StaticResource contentStyle}" Margin="365,632,491,89"/>
+            <Label x:Name="toggle_label" Content="Preferences" Style="{StaticResource subheadingStyle}" Margin="364,565,0,0"/>
 
-            <Image x:Name="gpu_toggle" HorizontalAlignment="Left" Height="40" Margin="883,0,0,0" VerticalAlignment="Center" Width="40" Source="/light_off.png" MouseLeftButtonDown="gpu_toggle_Click">
-                <Image.Effect>
-                    <DropShadowEffect Direction="15" Color="#FFF0F0F0" RenderingBias="Performance" ShadowDepth="3"/>
-                </Image.Effect>
-            </Image>
+        </Grid>
+
+        <!-- Grid for miner setting elements -->
+        <Grid x:Name="settings" Visibility="Hidden">
+
+            <!-- Elements used for the CPU information -->
+            <Label x:Name="cpu_in_label" Style="{StaticResource contentStyle}" Content="CPU Inputs" Margin="287,57,622,663"/>
+            <TextBox x:Name="cpu_address" Style="{DynamicResource textboxStyle}" Text="Enter your address" Margin="287,144,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="cpu_address_label" Style="{StaticResource subheadingStyle}" Content="Address" Margin="287,109,0,0"/>
+            <Label x:Name="cpu_coin_label" Content="Coin" Style="{StaticResource subheadingStyle}" Margin="284,183,0,0"/>
+            <Rectangle x:Name="cpucoin_rect" Style="{StaticResource selectrectStyle}" Width="84" Height="48" Margin="286,218,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="cpucoin_select_label" Content="None selected" Style="{StaticResource menubtnStyle}" Margin="372,228,0,0" FontSize="12"/>
+            <TextBox x:Name="cpu_advanced" Style="{DynamicResource textboxStyle}" Text="Enter optional advanced configurations" Margin="286,314,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="cpu_advanced_label" Style="{StaticResource subheadingStyle}" Content="Advanced" Margin="286,279,0,0"/>
+
+            <!-- Elements used for the GPU information -->
+            <TextBox x:Name="gpu_address" Style="{DynamicResource textboxStyle}" Text="Enter your address" Margin="287,487,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="gpu_address_label" Style="{StaticResource subheadingStyle}" Content="Address" Margin="286,452,0,0"/>
+            <Label x:Name="gpu_coin_label" Content="Coin" Style="{StaticResource subheadingStyle}" Margin="283,532,0,0"/>
+            <Label x:Name="gpu_in_label" Style="{StaticResource contentStyle}" Content="GPU Inputs" Margin="287,401,622,319"/>
+            <Rectangle x:Name="gpucoin_rect" Style="{StaticResource selectrectStyle}" Width="204" Height="48" Margin="288,567,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="gpucoin_select_label" Content="None selected" Style="{StaticResource menubtnStyle}" Margin="497,574,0,0" FontSize="12"/>
+            <TextBox x:Name="gpu_advanced" Style="{DynamicResource textboxStyle}" Text="Enter optional advanced configurations" Margin="284,668,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="gpu_advanced_label" Style="{StaticResource subheadingStyle}" Content="Advanced" Margin="283,633,0,0"/>
+
+            <!-- Images ued to toggle what CPU-enabled coin will be mined -->
+            <Image x:Name="xmr" Margin="292,226,676,492" Source="/Resources/coins/xmr.png"/>
+            <Image x:Name="rtm" Margin="332,226,636,492" Source="/Resources/coins/rtm.png"/>
+
+            <!-- Images ued to toggle what GPU-enabled coin will be mined -->
+            <Image x:Name="eth" Margin="294,575,674,143" Source="/Resources/coins/eth.png"/>
+            <Image x:Name="etc" Margin="334,575,634,143" Source="/Resources/coins/etc.png"/>
+            <Image x:Name="rvn" Margin="374,575,594,143" Source="/Resources/coins/rvn.png"/>
+            <Image x:Name="erg" Margin="414,575,554,143" Source="/Resources/coins/erg.png"/>
+            <Image x:Name="cfx" Margin="451,575,517,143" Source="/Resources/coins/cfx.png"/>
+
+            <!-- Rectangles used to block controls to the CPU and GPU controls when mining or disabled-->
+            <Rectangle x:Name="cpublock_rect" Style="{StaticResource hiderectStyle}" Height="302" Margin="270,57,0,0" Width="488" Visibility="Hidden"/>
+            <Rectangle x:Name="gpublock_rect" Style="{StaticResource hiderectStyle}" Height="329" Margin="270,385,0,0" Width="488" Visibility="Hidden"/>
+
         </Grid>
     </Grid>
 </Window>

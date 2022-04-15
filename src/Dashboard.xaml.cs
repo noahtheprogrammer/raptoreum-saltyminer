@@ -31,28 +31,15 @@ namespace Saltyminer
         }
 
         // Shuts down application when called
-        private void exit_img_Click(object sender, MouseButtonEventArgs e)
+        private void quitApp(object sender, MouseButtonEventArgs e)
         {
             Application.Current.Shutdown();
         }
 
         // Minimizes application when called
-        private void mini_img_Click(object sender, MouseButtonEventArgs e)
+        private void minimizeApp(object sender, MouseButtonEventArgs e)
         {
             WindowState = WindowState.Minimized;
-        }
-
-        // Opens the configurations window
-        private void config_img_Click(object sender, MouseButtonEventArgs e)
-        {
-            Configs configs = new Configs();
-            configs.Show();
-        }
-
-        // Called whenever the main mining button is clicked
-        private void main_btn_Click(object sender, MouseButtonEventArgs e)
-        {
-            main_btn.Source = new BitmapImage(new Uri("/Resources/light_stop.png", UriKind.Relative));
         }
 
         // Used to drag the window
@@ -62,27 +49,6 @@ namespace Saltyminer
             {
                 DragMove();
             }
-        }
-
-        // Changes to new devices menu
-        private void devices_btn_Click(object sender, MouseButtonEventArgs e)
-        {
-            home_grid.Visibility = Visibility.Collapsed;
-            devices_grid.Visibility = Visibility.Visible;
-        }
-
-        // Changes to new installations menu
-        private void installations_btn_Click(object sender, MouseButtonEventArgs e)
-        {
-            home_grid.Visibility = Visibility.Collapsed;
-            devices_grid.Visibility = Visibility.Collapsed;
-        }
-
-        // Changes to new home menu
-        private void home_btn_Click(object sender, MouseButtonEventArgs e)
-        {
-            devices_grid.Visibility = Visibility.Collapsed;
-            home_grid.Visibility = Visibility.Visible;
         }
 
 
@@ -130,38 +96,6 @@ namespace Saltyminer
             return searcher.Get().Count;
         }
 
-        // Used to enable or disable the processor
-        private void cpu_toggle_Click(object sender, MouseButtonEventArgs e)
-        {
-            if (mc.iscpumining)
-            {
-                mc.cpuenabled = false;
-                cpu_toggle.Source = new BitmapImage(new Uri("/Resources/light_off.png", UriKind.Relative));
-            }
-
-            else
-            {
-                mc.cpuenabled = true;
-                cpu_toggle.Source = new BitmapImage(new Uri("/Resources/light_on.png", UriKind.Relative));
-            }
-        }
-
-        // Used to enable or disable the GPU
-        private void gpu_toggle_Click(object sender, MouseButtonEventArgs e)
-        {
-            if (mc.gpuenabled)
-            {
-                mc.gpuenabled = false;
-                gpu_toggle.Source = new BitmapImage(new Uri("/Resources/light_off.png", UriKind.Relative));
-            }
-
-            else
-            {
-                mc.gpuenabled = true;
-                gpu_toggle.Source = new BitmapImage(new Uri("/Resources/light_on.png", UriKind.Relative));
-            }
-        }
-
         // Method used to install latest XMRig version when app first installed
         private async void installXMRig()
         {
@@ -203,8 +137,8 @@ namespace Saltyminer
                 installXMRig();
             }
 
-            cpu_type.Content = SendBackProcessorName();
-            gpu_type.Content = SendBackMainGraphicsName();
+            detdevice_list.Content = SendBackProcessorName() + "\n" + SendBackMainGraphicsName();
+            gpu_num.Content = GetGPUCount();
         }
     }
 }

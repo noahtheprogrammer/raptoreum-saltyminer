@@ -15,6 +15,7 @@ namespace Saltyminer.Mining
         private WebClient wc = new WebClient();
         public dynamic trexinfo;
         public dynamic xmriginfo;
+        public dynamic msinfo;
 
         // Used to connect to the Trex API
         public void LoadTrexAPI()
