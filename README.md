@@ -1,42 +1,11 @@
 ## Saltyminer
-![Github All Releases](https://img.shields.io/github/downloads/noahtheprogrammer/saltyminer/total.svg)
-![License](https://img.shields.io/badge/license-GPL-success)
-![Lines](https://img.shields.io/tokei/lines/github/noahtheprogrammer/saltyminer?color=green)
-![GitHub release](https://img.shields.io/github/v/tag/noahtheprogrammer/saltyminer?color=yellow)
 
-This miner interface is designed to be used in conjunction with the [cpuminer-gr](https://github.com/michal-zurkowski/cpuminer-gr) and [wildrig-multi](https://github.com/andru-kun/wildrig-multi) binaries.
-If you find any issues or any requests, simply open up a new issue on our GitHub page.
+`DISCONTINUED AS OF 04/14/2022`
 
-**NOTE: YOU MUST HAVE THE LATEST [.NET CORE DESKTOP](https://dotnet.microsoft.com/download/dotnet/3.1) RUNTIME FOR x86 INSTALLED.**
-Thank you
+Welcome to Saltyminer! I created this basic UI interface as a simple project in order to try to learn more about the WPF Framework and try to help out the community in the process. Although this project is no longer being maintained, feel free to experiment with any of my code.
 
-##
-**For new users:**
+#
+If you would like to compile a functional version of Saltyminer, use the files in the legacy branch. However, you can mess around with the nonfunctional version in the master branch. Feel free to open any new branches or pull requests.
 
-This miner is designed for ease of access. Below is a simple rundown.
-
-1. Enter your Raptoreum (RTM) address into the designated field.
-2. Enter your chosen pool into the designated field.
-3. Enter the amount of CPU cores you would like to run during the mining process into the designated field.
-4. Choose the proper CPU instruction set and enter any extra mining parameters into their fields. (Instruction set is only required when CPU is enabled)
-6. Enable desired devices by clicking green toggle next to them in the configuration tab.
-7. Click the green start button to begin the mining process.
-##
-
-**Compilation instructions:**
-
-The following criteria are required in order to compile:
-
-1. NET Framework 4.7.2 (or higher) Development Tools
-2. NET Desktop Development Tools
-3. [Visual Studio](https://visualstudio.microsoft.com/)
-
-##
-If you would like to support us, feel free to donate below.
-
-*DISCLAIMER: The miner contains a 0.5% developer's fee for the user interface and the orginal developers' fees for the binaries.*
-
-[noahtheprogrammer](https://github.com/noahtheprogrammer):  `RWXmeVTEJYNVp2htJQ97DMYvwytWUFTi8E`
-
-[authrequest](https://github.com/authrequest): `RXrkvhFSYk9VBp7DzueLEZaGCpWB4nuTGT`
-
+#
+Because Raptoreum is no longer profitable to mine, this project is officially discontinued. However, I want to give my thanks to all who have supported this project.

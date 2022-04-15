@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Saltyminer" Height="750" Width="1000" Background="#fbfbfb" WindowStyle="None" AllowsTransparency="True" ResizeMode="CanMinimize" MouseLeftButtonDown="drag_window">
+        Title="Saltyminer" Height="750" Width="1000" Background="#fbfbfb" WindowStyle="None" AllowsTransparency="True" ResizeMode="CanMinimize" MouseLeftButtonDown="dragWindow">
 
     <Grid TextOptions.TextRenderingMode="ClearType">
 
@@ -12,9 +12,9 @@
         <Rectangle x:Name="sidebar" Style="{StaticResource menuStyle}"/>
 
         <!-- Buttons used to control the window -->
-        <Label x:Name="devices_btn" Content="Devices" Style="{StaticResource menubtnStyle}" Margin="55,265,0,0"/>
-        <Label x:Name="home_btn" Content="Home" Style="{StaticResource menubtnStyle}" Margin="55,227,0,0"/>
-        <Label x:Name="settings_btn" Content="Settings" Style="{StaticResource menubtnStyle}" Margin="55,303,0,0"/>
+        <Label x:Name="devices_btn" Content="Devices" Style="{StaticResource menubtnStyle}" Margin="55,265,0,0" MouseLeftButtonDown="openDevices"/>
+        <Label x:Name="home_btn" Content="Home" Style="{StaticResource menubtnStyle}" Margin="55,227,0,0" MouseLeftButtonDown="openHome"/>
+        <Label x:Name="settings_btn" Content="Settings" Style="{StaticResource menubtnStyle}" Margin="55,303,0,0" MouseLeftButtonDown="openSettings"/>
         <Image x:Name="settings_img" Style="{StaticResource menuimgStyle}" Margin="26,308,0,0" Source="Resources/settings.png"/>
         <Image x:Name="logo_img" Style="{StaticResource menuimgStyle}" Margin="10,10,0,0" Source="Resources/logo.png"/>
         <Image x:Name="home_img" Style="{StaticResource menuimgStyle}" Margin="26,232,0,0" Source="Resources/home.png"/>
@@ -24,11 +24,11 @@
         <Image x:Name="exit_btn" Style="{StaticResource menuimgStyle}" Margin="966,10,0,0" Source="Resources/exit.png"/>
 
         <!-- Grid for the home screen elements -->
-        <Grid x:Name="home">
+        <Grid x:Name="home" Visibility="Visible">
 
             <!-- Controls for the mining buttons -->
-            <Image x:Name="mainbtn" Style="{StaticResource mainimgStyle}" Source="Resources/start.png" Margin="500,175,0,0"/>
-
+            <Image x:Name="mainbtn" Style="{StaticResource mainimgStyle}" Source="Resources/start.png" Margin="500,144,0,0" MouseLeftButtonDown="initiateMiner"/>
+            
             <!-- Labels used to display dashboard information -->
             <Label x:Name="hr_num" Style="{StaticResource contentStyle}" Margin="426,528,374,183" Content="0 MH"/>
             <Label x:Name="hr_label" Style="{StaticResource subheadingStyle}" Content="HASHRATE" Margin="426,504,0,0"/>

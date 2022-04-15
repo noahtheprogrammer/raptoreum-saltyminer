@@ -37,6 +37,8 @@
     <None Remove="Resources\logo.png" />
     <None Remove="Resources\market.png" />
     <None Remove="Resources\settings.png" />
+    <None Remove="Resources\start.png" />
+    <None Remove="Resources\stop.png" />
     <None Remove="Resources\x.png" />
     <None Remove="settings.png" />
     <None Remove="website.png" />
@@ -67,6 +69,8 @@
     <Resource Include="Resources\logo.png" />
     <Resource Include="Resources\market.png" />
     <Resource Include="Resources\settings.png" />
+    <Resource Include="Resources\start.png" />
+    <Resource Include="Resources\stop.png" />
     <Resource Include="Resources\website.png" />
   </ItemGroup>
 

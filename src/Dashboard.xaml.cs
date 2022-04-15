@@ -43,7 +43,7 @@ namespace Saltyminer
         }
 
         // Used to drag the window
-        private void drag_window(object sender, MouseButtonEventArgs e)
+        private void dragWindow(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
@@ -139,6 +139,70 @@ namespace Saltyminer
 
             detdevice_list.Content = SendBackProcessorName() + "\n" + SendBackMainGraphicsName();
             gpu_num.Content = GetGPUCount();
+        }
+
+        // Toggles the miner for initialization
+        private void initiateMiner(object sender, MouseButtonEventArgs e)
+        {
+            if (mc.iscpumining == false || mc.isgpumining == false)
+            {
+                cpublock_rect.Visibility = Visibility.Visible;
+                gpublock_rect.Visibility = Visibility.Visible;
+            }
+
+            else
+            {
+                cpublock_rect.Visibility = Visibility.Hidden;
+                gpublock_rect.Visibility = Visibility.Hidden;
+            }
+
+            if (mc.iscpumining == true)
+            {
+                mc.CPU_proc.Kill();
+                mc.iscpumining = false;
+            }
+
+            else if (mc.iscpumining == false && mc.cpuenabled == true)
+            {
+                mc.runCPUMiner();
+                mc.iscpumining = true;
+            }
+
+            if (mc.isgpumining == true)
+            {
+                mc.GPU_proc.Kill();
+                mc.iscpumining = false;
+            }
+
+            else if (mc.isgpumining == false && mc.gpuenabled == true)
+            {
+                mc.runGPUMiner();
+                mc.isgpumining = true;
+            }
+        }
+
+        // Opens the devices panel
+        private void openDevices(object sender, MouseButtonEventArgs e)
+        {
+            devices.Visibility = Visibility.Visible;
+            home.Visibility = Visibility.Hidden;
+            settings.Visibility = Visibility.Hidden;
+        }
+
+        // Opens the home panel
+        private void openHome(object sender, MouseButtonEventArgs e)
+        {
+            devices.Visibility = Visibility.Hidden;
+            home.Visibility = Visibility.Visible;
+            settings.Visibility = Visibility.Hidden;
+        }
+
+        // Opens the settings panel
+        private void openSettings(object sender, MouseButtonEventArgs e)
+        {
+            devices.Visibility = Visibility.Hidden;
+            home.Visibility = Visibility.Hidden;
+            settings.Visibility = Visibility.Visible;
         }
     }
 }

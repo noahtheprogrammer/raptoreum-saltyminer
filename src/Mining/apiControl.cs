@@ -32,9 +32,9 @@ namespace Saltyminer.Mining
         }
         
         // Call this to return the estimated reward of a coin with a specific hashrate
-        public int findHashrateReward(string symbol, dynamic hashrate) 
+        public float findHashrateReward(string symbol, dynamic hashrate) 
         {
-            int total = 0;
+            float total = 0;
             string minerstat = wc.DownloadString("https://api.minerstat.com/v2/coins?list=" + symbol);
             msinfo = JsonConvert.DeserializeObject(minerstat);
             total = msinfo.reward * hashrate;

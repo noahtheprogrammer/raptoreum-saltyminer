@@ -17,8 +17,8 @@ namespace Saltyminer.Mining
         public Dashboard db;
 
         // Process for mining
-        protected Process CPU_proc;
-        protected Process GPU_proc;
+        public Process CPU_proc;
+        public Process GPU_proc;
 
         // Strings used to hold mining address
         public string CPUADDRESS;
